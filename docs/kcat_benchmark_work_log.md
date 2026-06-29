@@ -1506,3 +1506,25 @@ reports/tables/catpred_eval_metrics.csv
   - `zenodo_assets_manifest.csv` 的 `zenodo_record_id` 与逐文件 `download_url`。
   - `CITATION.cff` 的版本、发布日期、DOI 和 Zenodo URL。
 - 上传完成后曾因执行环境外部审批额度到限而暂缓公共 API 抽查；审批恢复后访问 `https://zenodo.org/api/records/21024684` 返回 HTTP 200，确认 DOI、标题、81 个文件和 10,392,182,635 bytes 均与本地 manifest 一致。
+
+## 2026-06-29 GitHub 正式发布
+
+- 公开仓库：`https://github.com/dengxiao01/kcat_benchmark_analysis`
+- 发布前核对：
+  - Git 精确扫描本地 `zenodo.txt` 的完整 token，待提交内容命中数为 0。
+  - `ZENODO_ACCESS_TOKEN`、`MODAL_TOKEN`、`HF_TOKEN` 等关键词只命中工作日志中的检查说明和发布脚本变量名，没有实际凭据。
+  - `zenodo.txt`、CatPred `.env.vercel`、Hugging Face token 目录、`release/`、`data/raw/`、方法缓存和第三方嵌套 `.git` 均由 `.gitignore` 排除。
+  - 公开仓库最大文件为 `yeast-GEM.xml`，约 11.7 MiB，没有超过 GitHub 100 MiB 单文件限制。
+  - 过时的 `.claude/commands/kcat_compare.md` 仍是早期五方法口径，因此保留在本地但从公开 Git 索引排除，避免和当前 13 方法报告冲突。
+  - `python -m py_compile src/*.py scripts/*.py` 成功。
+- 首个公开提交：
+  - commit：`327088ecfefc3e6f4a9f66c6e7a33060f7e3bd55`
+  - message：`feat: publish unified kcat benchmark`
+  - 内容：315 个文件，包括代码、配置、三张核心 benchmark 表、报告、图表、表格、README、许可、引用文件、第三方来源清单和 Zenodo 下载 manifest。
+- 推送结果：
+  - `git push -u origin main` 成功。
+  - `git ls-remote origin refs/heads/main` 返回 `327088ecfefc3e6f4a9f66c6e7a33060f7e3bd55`，确认远端分支与本地首个公开提交一致。
+- 对外使用入口：
+  - GitHub 代码与文档：`https://github.com/dengxiao01/kcat_benchmark_analysis`
+  - Zenodo 大文件：`https://zenodo.org/records/21024684`
+  - DOI：`https://doi.org/10.5281/zenodo.21024684`
