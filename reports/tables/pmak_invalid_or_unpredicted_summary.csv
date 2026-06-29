@@ -1,0 +1,3 @@
+species,reason,rows
+yeast,missing_metabolite_smiles,153
+ecoli,missing_metabolite_smiles,45

@@ -1,0 +1,29 @@
+existing_methods:
+  - id: DLKcat
+    status: local_ecoli_outputs_available
+  - id: MTLKP
+    status: local_ecoli_outputs_available
+  - id: TurNup
+    status: local_ecoli_outputs_available
+  - id: UniKP
+    status: local_ecoli_outputs_available
+  - id: GO_HKP
+    status: local_ecoli_outputs_available
+
+next_methods:
+  - id: CatPred
+    priority: 1
+    input_needs: [protein_sequence, substrate_smiles]
+    notes: Supports local and web/API prediction workflows; default local CSV needs SMILES, sequence, and pdbpath.
+  - id: CataPro
+    priority: 2
+    input_needs: [protein_sequence, substrate_smiles]
+    notes: Public code is available; confirm pretrained checkpoint and inference format before full run.
+  - id: PMAK
+    priority: 3
+    input_needs: [protein_sequence, substrate_or_reaction_smiles]
+    notes: Public repo focuses on reproducing paper data/models; verify off-the-shelf inference path.
+  - id: KinForm
+    priority: 4
+    input_needs: [protein_sequence, substrate_smiles, external_model_assets]
+    notes: Useful extension method, but feature/model assets make it heavier than CatPred/CataPro.

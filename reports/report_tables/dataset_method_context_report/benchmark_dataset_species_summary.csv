@@ -1,0 +1,3 @@
+species,species_label,rows,percent,unique_reactions,unique_reaction_names,unique_genes,unique_uniprots,unique_substrates,unique_smiles,unique_ec_strings,median_kcat_s-1,median_log10_kcat,pH_available_rows,temperature_available_rows,currency_or_cofactor_like_rows_by_name
+ecoli,Escherichia coli / 大肠杆菌,513,52.45398773006135,451,287,327,327,232,232,269,14.65,1.16584,435,422,81
+yeast,Saccharomyces cerevisiae / 酿酒酵母,465,47.54601226993865,224,198,168,168,116,116,116,40.0,1.60206,423,408,262

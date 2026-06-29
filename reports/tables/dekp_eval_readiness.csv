@@ -1,0 +1,4 @@
+group,rows,valid_smiles_rows,invalid_smiles_rows,structure_available_rows,structure_missing_rows,predictable_rows,unique_uniprot,unique_uniprot_with_structure,unique_sequences,unique_smiles,train_uniprot_overlap_rows,train_exact_pair_overlap_rows
+all,978,977,1,978,0,977,495,495,491,284,277,17
+ecoli,513,512,1,513,0,512,327,327,327,232,191,9
+yeast,465,465,0,465,0,465,168,168,164,116,86,8

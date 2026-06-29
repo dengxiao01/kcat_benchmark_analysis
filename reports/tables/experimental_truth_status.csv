@@ -1,0 +1,4 @@
+source,raw_file_detected,status
+BRENDA,True,parsed_raw_records=3029
+SABIO-RK,True,raw_records=660
+reaction_kcat_MW_databasefill.csv,True,legacy_sanity_check_only_not_primary_truth

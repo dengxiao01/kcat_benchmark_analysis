@@ -1,0 +1,16 @@
+method,group_cn,scope,role,modality,n,coverage_percent,coverage_note,group_note
+DLKcat-official,全量/近全量 sequence+SMILES,Broad sequence+SMILES,current,sequence + substrate SMILES,977,99.89775051124744,覆盖 977/978，缺 1 条非法 SMILES。,输入为酶序列和单底物 SMILES；除无效 SMILES 外基本覆盖整个 benchmark。
+UniKP-official,全量/近全量 sequence+SMILES,Broad sequence+SMILES,current,sequence + substrate SMILES,977,99.89775051124744,覆盖 977/978，缺 1 条非法 SMILES。,输入为酶序列和单底物 SMILES；除无效 SMILES 外基本覆盖整个 benchmark。
+MTLKP-official,全量/近全量 sequence+SMILES,Broad sequence+SMILES,current,sequence + substrate SMILES,977,99.89775051124744,覆盖 977/978，缺 1 条非法 SMILES。,输入为酶序列和单底物 SMILES；除无效 SMILES 外基本覆盖整个 benchmark。
+TurNuP-official,reaction-aware 子集,Reaction-aware subset,current,reaction + enzyme,780,79.75460122699386,覆盖 780/978；缺失来自未补齐完整 reaction SMILES 的记录。,输入需要完整反应信息，即底物侧 SMILES、产物侧 SMILES 和酶序列。
+CatPred,模型特定子集,Model-specific subset,current,sequence + substrate SMILES,913,93.35378323108384,覆盖 913/978；缺失来自 CatPred 官方流程可处理范围。,方法输入或官方推理流程有额外限制，因此只在可被该模型有效处理的子集上评估。
+CataPro,全量/近全量 sequence+SMILES,Broad sequence+SMILES,current,sequence + substrate SMILES,977,99.89775051124744,覆盖 977/978，缺 1 条非法 SMILES。,输入为酶序列和单底物 SMILES；除无效 SMILES 外基本覆盖整个 benchmark。
+PMAK,reaction-aware 子集,Reaction-aware subset,current,reaction + enzyme,780,79.75460122699386,覆盖 780/978；缺失来自未补齐完整 reaction SMILES 的记录。,输入需要完整反应信息，即底物侧 SMILES、产物侧 SMILES 和酶序列。
+KinForm,模型特定子集,Model-specific subset,current,sequence + substrate SMILES,563,57.56646216768916,覆盖 563/978；主要受 KinForm 可处理输入范围限制。,方法输入或官方推理流程有额外限制，因此只在可被该模型有效处理的子集上评估。
+KcatNet,全量/近全量 sequence+SMILES,Broad sequence+SMILES,current,sequence + substrate SMILES,977,99.89775051124744,覆盖 977/978，缺 1 条非法 SMILES。,输入为酶序列和单底物 SMILES；除无效 SMILES 外基本覆盖整个 benchmark。
+PreTKcat,全量/近全量 sequence+SMILES,Broad sequence+SMILES,current,sequence + substrate SMILES,977,99.89775051124744,覆盖 977/978，缺 1 条非法 SMILES。,输入为酶序列和单底物 SMILES；除无效 SMILES 外基本覆盖整个 benchmark。
+DEKP-public-retrained,公开数据重训版,Public-data retrained,current_retrained,sequence + substrate SMILES + structure,977,99.89775051124744,覆盖 977/978；缺 1 条非法 SMILES，同时需要结构/图特征补齐。,不是原论文官方最优权重，而是用公开数据和当前可复现流程重新训练/补齐后的版本。
+SELFprot,全量/近全量 sequence+SMILES,Broad sequence+SMILES,current,sequence + substrate SMILES,977,99.89775051124744,覆盖 977/978，缺 1 条非法 SMILES。,输入为酶序列和单底物 SMILES；除无效 SMILES 外基本覆盖整个 benchmark。
+GO-HKP,功能相似性 GO 赋值基线,Function-assignment GO baseline,current_baseline,GO hierarchy + functional assignment,978,100.0,覆盖 978/978；E. coli 为 GO-HKP DeepGO-SE 反应级赋值，yeast 为 UniProt GO 注释的 GOATOOLS-style 补充赋值。,不是深度回归模型，而是基于 GO 功能层级给反应/基因赋参考 kcat；E. coli 使用本地 DeepGO-SE 反应赋值，yeast 使用 UniProt GO 注释补齐。
+MTLKP-legacy-overlap,历史 overlap 追溯,Legacy overlap,legacy,early E. coli overlap,76,7.770961145194274,覆盖 76/978；不是官方权重在当前 benchmark 上的完整评测。,早期 E. coli 原型输出与当前 benchmark 的重叠记录，只用于追溯，不进入主文正式排名。
+TurNuP-legacy-overlap,历史 overlap 追溯,Legacy overlap,legacy,early E. coli reaction-level overlap,338,34.56032719836401,覆盖 338/978；是 reaction-level overlap，不是当前官方权重版完整评测。,早期 E. coli 原型输出与当前 benchmark 的重叠记录，只用于追溯，不进入主文正式排名。

@@ -1,0 +1,64 @@
+# Credentials and local authentication
+zenodo.txt
+.env
+.env.*
+*.pem
+*.key
+hf_*/
+
+# Python and local environments
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+env/
+
+# Editors and operating systems
+.DS_Store
+.claude/
+.idea/
+.vscode/
+*.swp
+
+# Logs, scheduler output, caches, and generated release staging
+logs/
+release/
+*.log
+slurm-*.out
+
+# Raw/intermediate data are reproducible or source-controlled elsewhere.
+data/raw/
+data/interim/
+
+# Keep only the three compact, canonical benchmark tables in Git.
+data/final/*
+!data/final/experimental_kcat_truth.csv
+!data/final/benchmark_ready_truth.csv
+!data/final/benchmark_ready_catpred.csv
+
+# Third-party repositories and weights are restored from their upstream
+# sources and Zenodo. Keep only the public source/version manifest in Git.
+external_methods/*
+!external_methods/METHOD_SOURCES.md
+
+# Large binary/model/archive formats
+*.tar
+*.tar.gz
+*.tgz
+*.zip
+*.rar
+*.7z
+*.pt
+*.pth
+*.ckpt
+*.pkl
+*.joblib
+*.bin
+*.safetensors
+*.h5
+*.hdf5
+*.npy
+*.npz

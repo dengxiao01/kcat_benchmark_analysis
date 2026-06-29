@@ -1,0 +1,6 @@
+species,match_level,rows,percent_of_benchmark
+yeast,species_ec_substrate_id,338,34.56032719836401
+ecoli,species_ec_substrate_id,290,29.652351738241308
+ecoli,species_ec_uniprot_substrate_id,220,22.494887525562373
+yeast,species_ec_uniprot_substrate_id,127,12.985685071574641
+ecoli,species_ec_substrate_name,3,0.3067484662576687

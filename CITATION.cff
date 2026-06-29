@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "Please cite the Zenodo record and the original prediction-method papers."
+title: "kcat Benchmark Analysis"
+type: dataset
+version: 1.0.0
+date-released: 2026-06-29
+doi: 10.5281/zenodo.21024684
+authors:
+  - name: "dengxiao01"
+repository-code: "https://github.com/dengxiao01/kcat_benchmark_analysis"
+url: "https://zenodo.org/records/21024684"
+abstract: >-
+  A unified benchmark of published kcat prediction methods on 978
+  experimentally supported enzyme-substrate records from Escherichia coli
+  and Saccharomyces cerevisiae.
+keywords:
+  - kcat
+  - enzyme kinetics
+  - machine learning
+  - metabolic models
+license: MIT

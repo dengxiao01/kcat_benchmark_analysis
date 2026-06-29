@@ -1,0 +1,3 @@
+species,substrate_name,SMILES,rows
+yeast,H+,[H+],64
+ecoli,Quinate,192.167,1

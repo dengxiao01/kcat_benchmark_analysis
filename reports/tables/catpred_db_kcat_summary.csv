@@ -1,0 +1,14 @@
+metric,value
+rows,23151
+unique_sequence,7177
+unique_uniprot,7226
+unique_reactant_smiles,10853
+unique_reaction_smiles,12266
+unique_ec,2653
+unique_taxonomy_id,1684
+unique_group,23151
+unique_pdbpath,7226
+sequence_source:brenda,11775
+sequence_source:sabio,7736
+sequence_source:uniprot_search,3640
+uniprot_isna:False,23151

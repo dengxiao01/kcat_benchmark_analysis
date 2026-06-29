@@ -1,0 +1,17 @@
+species,stage,stage_label,n
+ecoli,total_reactions,All model reactions,5883
+ecoli,reactions_with_gpr,Reactions with GPR,5402
+ecoli,reactions_with_ec,Reactions with EC number,1479
+ecoli,enzyme_substrate_entries,Enzyme-substrate entries,6115
+ecoli,entries_with_uniprot,Entries with UniProt,6034
+ecoli,entries_with_sequence,Entries with single protein sequence,5446
+ecoli,entries_with_smiles,Entries with substrate SMILES,5789
+ecoli,experimental_kcat_matched,Entries matched to experimental kcat,0
+yeast,total_reactions,All model reactions,4131
+yeast,reactions_with_gpr,Reactions with GPR,2709
+yeast,reactions_with_ec,Reactions with EC number,2436
+yeast,enzyme_substrate_entries,Enzyme-substrate entries,7816
+yeast,entries_with_uniprot,Entries with UniProt,7816
+yeast,entries_with_sequence,Entries with single protein sequence,7181
+yeast,entries_with_smiles,Entries with substrate SMILES,7071
+yeast,experimental_kcat_matched,Entries matched to experimental kcat,0

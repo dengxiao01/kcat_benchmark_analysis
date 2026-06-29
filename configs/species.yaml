@@ -1,0 +1,17 @@
+species:
+  - id: ecoli
+    organism: Escherichia coli
+    strain: K-12 MG1655
+    taxonomy_id: 511145
+    model_id: eciML1515
+    model_format: cobra_json
+    model_path: eciML1515.json
+    notes: Existing enzyme-constrained iML1515 JSON in the project root.
+  - id: yeast
+    organism: Saccharomyces cerevisiae
+    strain: S288C
+    taxonomy_id: 559292
+    model_id: yeast-GEM_v9.0.2
+    model_format: sbml_fbc
+    model_path: yeast-GEM.xml
+    notes: Existing yeast-GEM SBML model in the project root.

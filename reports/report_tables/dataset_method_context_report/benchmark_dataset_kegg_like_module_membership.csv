@@ -1,0 +1,15 @@
+species,kegg_like_module_group,row_memberships,percent_of_benchmark
+ecoli,Unmapped/No exact EC-module match,248,25.357873210633947
+ecoli,Secondary_other,162,16.56441717791411
+ecoli,"Primary - amino acids, fatty acids and nucleotides",127,12.985685071574641
+ecoli,Intermediate,116,11.860940695296524
+ecoli,Primary - Carbohydrate & Energy Metabolism,24,2.4539877300613497
+ecoli,Secondary,17,1.738241308793456
+ecoli,x,5,0.5112474437627812
+yeast,Secondary_other,212,21.676891615541923
+yeast,Intermediate,123,12.576687116564417
+yeast,Unmapped/No exact EC-module match,108,11.042944785276074
+yeast,"Primary - amino acids, fatty acids and nucleotides",80,8.1799591002045
+yeast,Primary - Carbohydrate & Energy Metabolism,64,6.543967280163599
+yeast,Secondary,4,0.40899795501022496
+yeast,x,2,0.20449897750511248

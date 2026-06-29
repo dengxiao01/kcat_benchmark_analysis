@@ -1,0 +1,4 @@
+group,rows,valid_smiles_rows,invalid_smiles_rows,truncated_sequence_rows,unique_sequences,unique_model_sequences,unique_smiles,brenda_rows,sabiork_rows,brenda_sabiork_rows
+all,978,977,1,26,491,491,284,587,310,81
+ecoli,513,512,1,1,327,327,232,335,113,65
+yeast,465,465,0,25,164,164,116,252,197,16

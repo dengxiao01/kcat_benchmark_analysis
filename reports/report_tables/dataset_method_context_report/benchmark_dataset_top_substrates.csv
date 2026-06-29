@@ -1,0 +1,348 @@
+substrate_name,rows,species_count,unique_reactions,median_kcat,currency_or_cofactor_like_by_name,percent_of_benchmark
+H+,64,1,27,176.0,True,6.543967280163599
+ATP,62,1,44,2.77,True,6.339468302658487
+NADH,52,1,22,176.0,True,5.316973415132924
+NADPH,23,1,12,56.8,True,2.3517382413087935
+H2O H2O,18,1,18,1.1066665,True,1.8404907975460123
+CTP,15,1,15,8.92,True,1.5337423312883436
+2-Oxoglutarate,13,1,13,30.65,False,1.329243353783231
+L-Aspartate,13,1,13,1.14,False,1.329243353783231
+pyruvate,10,1,4,65.0,False,1.0224948875255624
+H2O,9,1,6,8.2,True,0.9202453987730062
+acetyl-CoA,9,1,6,0.45,True,0.9202453987730062
+GTP C10H12N5O14P3,9,1,9,14.65,True,0.9202453987730062
+GMP C10H12N5O8P,9,1,9,11.0,True,0.9202453987730062
+L-Glutamate,8,1,8,21.925,False,0.8179959100204499
+propanal,8,1,3,0.73,False,0.8179959100204499
+2-oxoglutarate,8,1,5,3.3449999999999998,False,0.8179959100204499
+polyphosphate,8,1,4,1350.0,True,0.8179959100204499
+Malonyl-[acyl-carrier protein],8,1,8,0.011,False,0.8179959100204499
+NAD,8,1,5,7.4,True,0.8179959100204499
+AMP C10H12N5O7P,7,1,7,386.05,True,0.7157464212678937
+L-glutamate,7,1,5,12.8,False,0.7157464212678937
+L-Glutamine,7,1,7,13.7,False,0.7157464212678937
+L-Serine,7,1,7,490.0,False,0.7157464212678937
+Phosphoenolpyruvate,7,1,7,32.0,False,0.7157464212678937
+L-Threonine,6,1,6,135.0,False,0.6134969325153374
+FMN C17H19N4O9P,6,1,6,6.1,True,0.6134969325153374
+DTMP C10H13N2O8P,6,1,6,15.28,False,0.6134969325153374
+DUMP C9H11N2O8P,6,1,6,10.815,False,0.6134969325153374
+Chorismate,6,1,6,1.16,False,0.6134969325153374
+"D-Fructose 1,6-bisphosphate",6,1,6,15.6,False,0.6134969325153374
+DGMP C10H12N5O7P,6,1,6,4.12,False,0.6134969325153374
+DCMP C9H12N3O7P,6,1,6,0.23,False,0.6134969325153374
+3-methyl-2-oxobutanoate,6,1,3,14.7675,False,0.6134969325153374
+UMP C9H11N2O9P,6,1,6,34.2,True,0.6134969325153374
+Acetyl-CoA,5,1,5,6.5,True,0.5112474437627812
+acetaldehyde,5,1,3,244.57,False,0.5112474437627812
+D-Erythrose 4-phosphate,5,1,5,71.0,False,0.5112474437627812
+D-Glucose 1-phosphate,5,1,5,117.0,False,0.5112474437627812
+2-phospho-D-glyceric acid,5,1,1,71.4,False,0.5112474437627812
+DAMP C10H12N5O6P,5,1,5,0.3,False,0.5112474437627812
+D-glucose,5,1,1,1.67,False,0.5112474437627812
+L-asparagine,5,1,2,370.0,False,0.5112474437627812
+ADP,5,1,4,88.0,True,0.5112474437627812
+5-Phospho-alpha-D-ribose 1-diphosphate,4,1,4,112.0,False,0.40899795501022496
+Cys Gly C5H10N2O3S,4,1,4,178.333,False,0.40899795501022496
+NADP(+),4,1,3,35.325,False,0.40899795501022496
+DCTP C9H12N3O13P3,4,1,4,14.3,False,0.40899795501022496
+Hydrogen cyanide,4,1,4,64.0,False,0.40899795501022496
+L-Homoserine,4,1,4,10.102500000000001,False,0.40899795501022496
+L-Alanine,4,1,4,29.185000000000002,False,0.40899795501022496
+oxaloacetate,4,1,3,9.7,False,0.40899795501022496
+L-glutamine,4,1,4,6.4,False,0.40899795501022496
+Acetate,4,1,4,962.5,False,0.40899795501022496
+Ornithine,4,1,4,2.9916650000000002,False,0.40899795501022496
+L-serine,4,1,3,5.75,False,0.40899795501022496
+Thiosulfate,4,1,4,230.0,False,0.40899795501022496
+D-xylulose 5-phosphate,4,1,2,25.0,False,0.40899795501022496
+L-homocysteine,3,1,3,0.33,False,0.3067484662576687
+L-cysteine,3,1,1,0.15,False,0.3067484662576687
+L-Phenylalanine,3,1,3,180.0,False,0.3067484662576687
+L-Lysine,3,1,3,88.2,False,0.3067484662576687
+Fumarate,3,1,3,1149.0,False,0.3067484662576687
+L-Tyrosine,3,1,3,35.7,False,0.3067484662576687
+UDPglucose,3,1,3,5.45,False,0.3067484662576687
+UDP-N-acetyl-D-glucosamine,3,1,3,3.625,False,0.3067484662576687
+glyceraldehyde 3-phosphate,3,1,1,16.35,False,0.3067484662576687
+2-methylbutanal,3,1,1,102.65,False,0.3067484662576687
+Succinic semialdehyde,3,1,3,22.6,False,0.3067484662576687
+3  CMP C9H12N3O8P,3,1,3,5.93,False,0.3067484662576687
+L-Ribulose 5-phosphate,3,1,3,19.4,False,0.3067484662576687
+Uridine,3,1,3,10.85,False,0.3067484662576687
+DTTP C10H13N2O14P3,3,1,3,43.0,False,0.3067484662576687
+Glyoxylate,3,1,3,48.1,False,0.3067484662576687
+L-Cysteine,3,1,3,40.64,False,0.3067484662576687
+Guanine,3,1,3,112.0,False,0.3067484662576687
+Diphosphate,3,1,3,95.0,True,0.3067484662576687
+L-Asparagine,3,1,3,24.0,False,0.3067484662576687
+indole-3-pyruvate,3,1,1,5.4,False,0.3067484662576687
+Cytidine,3,1,3,11.6,False,0.3067484662576687
+Nicotinamide adenine dinucleotide phosphate - reduced,3,1,3,16.075,False,0.3067484662576687
+Nicotinamide adenine dinucleotide,3,1,3,19.3,False,0.3067484662576687
+L-threonine,3,1,3,3.32,False,0.3067484662576687
+D-Fructose 6-phosphate,3,1,3,25.1,False,0.3067484662576687
+Inosine,3,1,3,4.0,False,0.3067484662576687
+Glyceraldehyde 3-phosphate,3,1,3,13.0,False,0.3067484662576687
+3-Phospho-D-glycerate,2,1,2,269.625,False,0.20449897750511248
+3-keto-L-gulonate-6-phosphate,2,1,2,1.9,False,0.20449897750511248
+dTDP,2,1,2,13.3,False,0.20449897750511248
+2-Dehydropantoate,2,1,2,15.0,False,0.20449897750511248
+dihydrofolic acid,2,1,2,11.5,False,0.20449897750511248
+sucrose,2,1,2,1742.5,False,0.20449897750511248
+farnesyl diphosphate,2,1,2,0.973,False,0.20449897750511248
+diphosphate,2,1,2,260.0,True,0.20449897750511248
+dUTP,2,1,1,9.6,False,0.20449897750511248
+3-Carboxy-2-hydroxy-4-methylpentanoate,2,1,2,54.75,False,0.20449897750511248
+3-phosphonato-D-glycerate(3-),2,1,1,520.0,False,0.20449897750511248
+2-Hydroxy-3-oxopropanoate,2,1,2,23.0,False,0.20449897750511248
+3  AMP C10H12N5O7P,2,1,2,92.92,False,0.20449897750511248
+"2-Amino-4-hydroxy-6-(erythro-1,2,3-trihydroxypropyl)dihydropteridine triphosphate",2,1,2,11.6,False,0.20449897750511248
+alpha-D-galactose 1-phosphate,2,1,2,987.0,False,0.20449897750511248
+bicarbonate,2,1,1,60.0,False,0.20449897750511248
+Xanthosine 5'-phosphate,2,1,2,18.15,False,0.20449897750511248
+4-Aminobutanoate,2,1,2,1.93,False,0.20449897750511248
+Sn-Glycero-3-phosphoethanolamine,2,1,2,1.1,False,0.20449897750511248
+Trehalose,2,1,2,199.0,False,0.20449897750511248
+UTP C9H11N2O15P3,2,1,2,95.0,True,0.20449897750511248
+4-Amino-5-hydroxymethyl-2-methylpyrimidine,2,1,2,0.32125,False,0.20449897750511248
+3-methylbutanal,2,1,1,193.9,False,0.20449897750511248
+L-proline,2,1,2,5.6,False,0.20449897750511248
+L-phenylalanine,2,1,2,94.15,False,0.20449897750511248
+L-leucine,2,1,2,37.5,False,0.20449897750511248
+DTDPglucose,2,1,2,4.9,False,0.20449897750511248
+CO2 CO2,2,1,2,570000.0,True,0.20449897750511248
+CTP C9H12N3O14P3,2,1,2,25.8,True,0.20449897750511248
+Carbamoyl phosphate,2,1,2,1.31110945,False,0.20449897750511248
+D-Xylulose,2,1,2,1841.25,False,0.20449897750511248
+"7,8-Dihydrofolate",2,1,2,16.825,False,0.20449897750511248
+6-phospho-D-gluconate,2,1,1,28.15,False,0.20449897750511248
+Sn-Glycero-3-phosphocholine,2,1,2,3.2,False,0.20449897750511248
+Adenosine,2,1,2,1.6577,False,0.20449897750511248
+Phosphate,2,1,2,0.995,True,0.20449897750511248
+Prephenate,2,1,2,49.8625,False,0.20449897750511248
+Pyridoxal,2,1,2,2.15,False,0.20449897750511248
+S-Formylglutathione,2,1,2,17.505,False,0.20449897750511248
+S-Adenosylmethioninamine,2,1,2,0.14,False,0.20449897750511248
+Acetoacetyl-CoA,2,1,2,391.0,True,0.20449897750511248
+Adenine,2,1,2,97.165,False,0.20449897750511248
+Acetaldehyde,2,1,2,15.7,False,0.20449897750511248
+ATP C10H12N5O13P3,2,1,2,45.835,True,0.20449897750511248
+ADP-D-ribose 1''-phosphate,2,1,1,0.028,False,0.20449897750511248
+ADPribose C15H21N5O14P2,2,1,2,117.0,False,0.20449897750511248
+Oxaloacetate,2,1,2,43.4665,False,0.20449897750511248
+O-Acetyl-L-serine,2,1,2,820.25,False,0.20449897750511248
+Nitric oxide,2,1,2,382.0,False,0.20449897750511248
+D-Alanine,2,1,2,14.7,False,0.20449897750511248
+Shikimate,2,1,2,55.86,False,0.20449897750511248
+4-Methyl-2-oxopentanoate,2,1,2,9.5,False,0.20449897750511248
+S-adenosyl-L-methionine,2,1,2,0.00866666,False,0.20449897750511248
+Sedoheptulose 7-phosphate,2,1,2,0.345,False,0.20449897750511248
+D-Glucarate,2,1,2,31.25,False,0.20449897750511248
+L-tyrosine,2,1,2,4.5,False,0.20449897750511248
+D-Serine,2,2,2,16.35,False,0.20449897750511248
+D-Ribulose 5-phosphate,2,1,2,130.5,False,0.20449897750511248
+Nicotinamide adenine dinucleotide - reduced,2,1,2,66.25,False,0.20449897750511248
+L-arginine,2,1,2,1.925,False,0.20449897750511248
+L-histidine,2,1,2,40.0,False,0.20449897750511248
+D-erythrose 4-phosphate,2,1,1,35.2,False,0.20449897750511248
+Fe2+ mitochondria,2,1,2,3.9,False,0.20449897750511248
+L-aspartate 4-semialdehyde,2,1,2,126.0,False,0.20449897750511248
+L-alanine,2,1,2,352.045,False,0.20449897750511248
+L-allothreonine,2,1,2,42.4,False,0.20449897750511248
+L-Homocysteine,2,1,2,0.38,False,0.20449897750511248
+Farnesyl diphosphate,2,1,2,1.49,False,0.20449897750511248
+DUTP C9H11N2O14P3,2,1,2,15.225,False,0.20449897750511248
+Deoxyuridine,2,1,2,35.0,False,0.20449897750511248
+L-Fuculose 1-phosphate,2,1,2,19.0,False,0.20449897750511248
+GMP,2,1,2,394.0,True,0.20449897750511248
+Glycerophosphoglycerol,2,1,2,3.3,False,0.20449897750511248
+Glycerophosphoserine,2,1,2,2.8,False,0.20449897750511248
+Hydrogen peroxide,2,1,2,71.0,False,0.20449897750511248
+Hydrogen sulfide,2,1,2,820.25,False,0.20449897750511248
+IMP C10H11N4O8P,2,1,2,7.0,True,0.20449897750511248
+Isochorismate,2,1,2,5.0833335,False,0.20449897750511248
+phosphoenolpyruvate,2,1,1,61.400000000000006,False,0.20449897750511248
+isopentenyl diphosphate,2,1,2,4.1535,False,0.20449897750511248
+(R)-S-lactoylglutathione,2,1,2,723.0,False,0.20449897750511248
+(R)-Glycerate,2,1,2,263.125,False,0.20449897750511248
+(R)-5-diphosphomevalonic acid,1,1,1,4.9,False,0.10224948875255624
+(R)-Pantoate,1,1,1,1.4,False,0.10224948875255624
+(R)-Pantothenate,1,1,1,1.07,False,0.10224948875255624
+(S)-2-Hydroxyglutarate,1,1,1,0.25,False,0.10224948875255624
+(S)-dihydroorotate,1,1,1,98.4,False,0.10224948875255624
+"1,3-bisphospho-D-glycerate",1,1,1,178.7,False,0.10224948875255624
+1-(2-Carboxyphenylamino)-1-deoxy-D-ribulose 5-phosphate,1,1,1,4.05,False,0.10224948875255624
+1-Pyrroline-5-carboxylate,1,1,1,5.16,False,0.10224948875255624
+1-deoxy-D-xylulose 5-phosphate,1,1,1,33.0,False,0.10224948875255624
+1-pyrroline-5-carboxylate,1,1,1,1.5,False,0.10224948875255624
+1D-myo-Inositol 1-phosphate,1,1,1,0.49,False,0.10224948875255624
+"2',3'-Cyclic AMP",1,1,1,2.95,False,0.10224948875255624
+"2,3-diaminopropionate",1,1,1,21.8,False,0.10224948875255624
+"2,5-Diamino-6-(ribosylamino)-4-(3H)-pyrimidinone 5'-phosphate",1,1,1,6.16667,False,0.10224948875255624
+homoisocitrate,1,1,1,17.0,False,0.10224948875255624
+iron(2+),1,1,1,0.78,False,0.10224948875255624
+keto-phenylpyruvate,1,1,1,20.0,False,0.10224948875255624
+methylglyoxal,1,1,1,1820.0,False,0.10224948875255624
+nicotinamide,1,1,1,0.69,False,0.10224948875255624
+nicotinamide riboside,1,1,1,23.4,False,0.10224948875255624
+ornithine,1,1,1,3.75,False,0.10224948875255624
+orotidine 5'-(dihydrogen phosphate),1,1,1,15.0,False,0.10224948875255624
+phosphatidate,1,1,1,8.92,False,0.10224948875255624
+prephenate,1,1,1,737.0,False,0.10224948875255624
+Hydroxymethylbilane,1,1,1,500.0,False,0.10224948875255624
+Isocitrate,1,1,1,79.1,False,0.10224948875255624
+Isomaltose,1,1,1,97.0,False,0.10224948875255624
+Isopentenyl diphosphate,1,1,1,2.5,False,0.10224948875255624
+L-Allo-threonine,1,1,1,5.76,False,0.10224948875255624
+L-Aspartate 4-semialdehyde,1,1,1,51.0,False,0.10224948875255624
+GDP-alpha-D-mannose,1,1,1,41.5,False,0.10224948875255624
+Glutathionylspermidine,1,1,1,2.1,False,0.10224948875255624
+Glycine,1,1,1,0.02,False,0.10224948875255624
+Guanosine 3'-diphosphate 5'-triphosphate,1,1,1,14.406,False,0.10224948875255624
+L-Histidinol phosphate,1,1,1,1410.0,False,0.10224948875255624
+L-Isoleucine,1,1,1,48.0,False,0.10224948875255624
+L-Lactaldehyde,1,1,1,761.5,False,0.10224948875255624
+L-Malate,1,1,1,134.4,False,0.10224948875255624
+L-Methionine,1,1,1,1.36,False,0.10224948875255624
+L-Rhamnulose 1-phosphate,1,1,1,38.3,False,0.10224948875255624
+L-Ribulose,1,1,1,80.0,False,0.10224948875255624
+Dihydroneopterin,1,1,1,0.082,False,0.10224948875255624
+Dihydroxyacetone phosphate,1,1,1,199.5,False,0.10224948875255624
+Dodecanoyl-CoA (n-C12:0CoA),1,1,1,1.14,True,0.10224948875255624
+Flavin adenine dinucleotide oxidized,1,1,1,109.0,False,0.10224948875255624
+GDP,1,1,1,3830.0,True,0.10224948875255624
+GDP-D-mannose,1,1,1,5.0,False,0.10224948875255624
+L-Tryptophan,1,1,1,6.0,False,0.10224948875255624
+L-Valine,1,1,1,19.0,False,0.10224948875255624
+L-alanine-D-glutamate,1,1,1,10.0,False,0.10224948875255624
+L-aspartate,1,1,1,5.55,False,0.10224948875255624
+L-cystathionine,1,1,1,1.51,False,0.10224948875255624
+"D-fructose 1,6-bisphosphate",1,1,1,4.9,False,0.10224948875255624
+D-fructose 6-phosphate,1,1,1,35.5,False,0.10224948875255624
+D-galactose,1,1,1,39.05,False,0.10224948875255624
+D-mannose 6-phosphate,1,1,1,20.0,False,0.10224948875255624
+D-ribulose 5-phosphate,1,1,1,1300.0,False,0.10224948875255624
+D-xylulose,1,1,1,0.64,False,0.10224948875255624
+DGTP C10H12N5O13P3,1,1,1,4000.0,False,0.10224948875255624
+DTDP-4-dehydro-6-deoxy-D-glucose,1,1,1,0.38,False,0.10224948875255624
+Mercaptopyruvate,1,1,1,62.25,False,0.10224948875255624
+"Meso-2,6-Diaminoheptanedioate",1,1,1,55.0,False,0.10224948875255624
+Methylglyoxal,1,1,1,1.43,False,0.10224948875255624
+Methylisocitrate,1,1,1,19.0,False,0.10224948875255624
+N(1)-acetylspermine,1,1,1,15.1,False,0.10224948875255624
+N-((R)-4-Phosphopantothenoyl)-L-cysteine,1,1,1,0.833333,False,0.10224948875255624
+N-(5-Phospho-D-ribosyl)anthranilate,1,1,1,40.0,False,0.10224948875255624
+N-(5-phospho-beta-D-ribosyl)anthranilate,1,1,1,69.0,False,0.10224948875255624
+N-Acetyl-D-glucosamine 1-phosphate,1,1,1,195.0,False,0.10224948875255624
+D-Cysteine,1,1,1,72.0,False,0.10224948875255624
+D-Galactarate,1,1,1,22.0,False,0.10224948875255624
+D-Glucosamine 6-phosphate,1,1,1,71.25,False,0.10224948875255624
+D-Glucose,1,1,1,10.6,False,0.10224948875255624
+D-Glucose 6-phosphate,1,1,1,4.95,False,0.10224948875255624
+D-Glucuronate,1,1,1,196.0,False,0.10224948875255624
+D-Glutamate,1,1,1,43.33,False,0.10224948875255624
+D-Mannonate,1,1,1,0.81,False,0.10224948875255624
+N-Acetyl-D-glucosamine 6-phosphate,1,1,1,92.0,False,0.10224948875255624
+N-Acetyl-D-mannosamine,1,1,1,38.0,False,0.10224948875255624
+N-Acetylneuraminate,1,1,1,7.7,False,0.10224948875255624
+N-acetyl-L-glutamate,1,1,1,4.9,False,0.10224948875255624
+N-acetylmuramate 6-phosphate,1,1,1,5.7,False,0.10224948875255624
+N-formyl-L-kynurenine,1,1,1,161.0,False,0.10224948875255624
+N2-Acetyl-L-ornithine,1,1,1,1100.0,False,0.10224948875255624
+N2-Succinyl-L-ornithine,1,1,1,3.0,False,0.10224948875255624
+NMN C11H14N2O8P,1,1,1,4.1,False,0.10224948875255624
+Nicotinamide adenine dinucleotide phosphate,1,1,1,17.08,False,0.10224948875255624
+Anthranilate,1,1,1,4.4,False,0.10224948875255624
+Beta-Alanine,1,1,1,1.4,False,0.10224948875255624
+CMP C9H12N3O8P,1,1,1,13.25,True,0.10224948875255624
+Coproporphyrinogen III,1,1,1,0.003,False,0.10224948875255624
+Cytosine,1,1,1,165.0,False,0.10224948875255624
+D-4'-Phosphopantothenate,1,1,1,0.88,False,0.10224948875255624
+D-Allose,1,1,1,47.0,False,0.10224948875255624
+D-Arabinose 5-phosphate,1,1,1,3.60417,False,0.10224948875255624
+Nicotinate D-ribonucleotide,1,1,1,4.9,False,0.10224948875255624
+O-Phospho-L-homoserine,1,1,1,5.665,False,0.10224948875255624
+O-Succinyl-L-homoserine,1,1,1,61.245,False,0.10224948875255624
+Orotidine 5'-phosphate,1,1,1,42.0,False,0.10224948875255624
+Oxalyl-CoA,1,1,1,60.7,True,0.10224948875255624
+Oxidized glutathione,1,1,1,641.0,False,0.10224948875255624
+"P1,P4-Bis(5'-adenosyl) tetraphosphate",1,1,1,250.0,False,0.10224948875255624
+"P1,P5-Bis(5'-adenosyl) pentaphosphate",1,1,1,1.0,False,0.10224948875255624
+PRPP,1,1,1,2.9,True,0.10224948875255624
+Phenethylamine,1,1,1,12.4,False,0.10224948875255624
+Phenylacetaldehyde,1,1,1,96.8,False,0.10224948875255624
+ADP-ribose,1,1,1,7.92,False,0.10224948875255624
+"Adenosine 3',5'-bisphosphate",1,1,1,11.4,False,0.10224948875255624
+Adenosine 5'-phosphosulfate,1,1,1,50.0,False,0.10224948875255624
+Agmatine,1,1,1,61.0,False,0.10224948875255624
+Alpha-D-Galactose 1-phosphate,1,1,1,780.0,False,0.10224948875255624
+Putrescine,1,1,1,5.94,False,0.10224948875255624
+Pyridoxamine,1,1,1,0.55,False,0.10224948875255624
+Pyridoxamine 5'-phosphate,1,1,1,14.86,False,0.10224948875255624
+Pyridoxine,1,1,1,0.3,False,0.10224948875255624
+Pyridoxine 5'-phosphate,1,1,1,0.19,False,0.10224948875255624
+Pyruvate,1,1,1,2.6,False,0.10224948875255624
+Quinate,1,1,1,0.0815,False,0.10224948875255624
+S-Adenosyl-L-homocysteine,1,1,1,1.2,False,0.10224948875255624
+S-Ribosyl-L-homocysteine,1,1,1,0.4,False,0.10224948875255624
+4-Phospho-D-erythronate,1,1,1,1.4,False,0.10224948875255624
+4-hydroxy-4-methyl-2-oxoglutarate,1,1,1,0.0276,False,0.10224948875255624
+"5,10-Methenyltetrahydrofolate",1,1,1,40.9,False,0.10224948875255624
+5-Amino-1-(5-Phospho-D-ribosyl)imidazole-4-carboxamide,1,1,1,3.63,False,0.10224948875255624
+5-Amino-6-(5'-phosphoribosylamino)uracil,1,1,1,0.308333,False,0.10224948875255624
+5-Dehydro-4-deoxy-D-glucarate,1,1,1,27.3,False,0.10224948875255624
+5-Methylthioadenosine,1,1,1,1.7,False,0.10224948875255624
+5-amino-1-(5-phospho-D-ribosyl)imidazole-4-carboxylate,1,1,1,15.6,False,0.10224948875255624
+"6,7-Dimethyl-8-(1-D-ribityl)lumazine",1,1,1,0.00833333,False,0.10224948875255624
+7-cyano-7-carbaguanine,1,1,1,0.127,False,0.10224948875255624
+8-Amino-7-oxononanoate,1,1,1,0.0465,False,0.10224948875255624
+Shikimate 5-phosphate,1,1,1,32.0,False,0.10224948875255624
+Succinyl-CoA,1,1,1,18.4635,True,0.10224948875255624
+Taurine C2H7NO3S,1,1,1,3.15,False,0.10224948875255624
+Thymidine C10H14N2O5,1,1,1,164.0,False,0.10224948875255624
+UDP-3-O-(3-hydroxytetradecanoyl)-D-glucosamine,1,1,1,13.0,False,0.10224948875255624
+"3-(2,3-Dihydroxyphenyl)propanoate",1,1,1,29.0,False,0.10224948875255624
+3-Dehydroquinate,1,1,1,29.53,False,0.10224948875255624
+3-Dehydroshikimate,1,1,1,236.667,False,0.10224948875255624
+3-Phosphohydroxypyruvate,1,1,1,0.98,False,0.10224948875255624
+4-(1-D-Ribitylamino)-5-aminouracil,1,1,1,0.00833333,False,0.10224948875255624
+4-Amino-2-methyl-5-phosphomethylpyrimidine,1,1,1,0.034,False,0.10224948875255624
+4-Aminobutanal,1,1,1,6.66667,False,0.10224948875255624
+Xanthine,1,1,1,150.0,False,0.10224948875255624
+adenine,1,1,1,5.5,False,0.10224948875255624
+adenosine,1,1,1,25.5,False,0.10224948875255624
+alpha-D-Glucose,1,1,1,5.935,False,0.10224948875255624
+alpha-D-Glucose 6-phosphate,1,1,1,1950.0,False,0.10224948875255624
+alpha-D-glucosamine 6-phosphate,1,1,1,0.103667,False,0.10224948875255624
+anthranilate,1,1,1,2.9,False,0.10224948875255624
+beta-D-Glucose,1,1,1,1.365,False,0.10224948875255624
+carnosine,1,1,1,0.00933332,False,0.10224948875255624
+choline,1,1,1,2.55,False,0.10224948875255624
+2-C-methyl-D-erythritol 4-phosphate,1,1,1,32.15,False,0.10224948875255624
+2-Dehydro-3-deoxy-D-arabino-heptonate 7-phosphate,1,1,1,12508.0,False,0.10224948875255624
+2-Dehydro-3-deoxy-D-gluconate 6-phosphate,1,1,1,83.0,False,0.10224948875255624
+2-Deoxy-D-ribose 5-phosphate,1,1,1,15.0,False,0.10224948875255624
+2-Methylcitrate,1,1,1,0.045,False,0.10224948875255624
+2-Oxo-3-hydroxy-4-phosphobutanoate,1,1,1,0.115,False,0.10224948875255624
+2-Phosphoglycolate,1,1,1,94.0,False,0.10224948875255624
+2-phospho-4-(cytidine 5'-diphospho)-2-C-methyl-D-erythritol,1,1,1,2.7,False,0.10224948875255624
+choline phosphate,1,1,1,16.405,False,0.10224948875255624
+chorismate,1,1,1,361.0,False,0.10224948875255624
+cytosine,1,1,1,170.0,False,0.10224948875255624
+dGMP,1,1,1,51.0,False,0.10224948875255624
+dihydroxyacetone phosphate,1,1,1,500.0,False,0.10224948875255624
+ethanol,1,1,1,341.8,False,0.10224948875255624
+formaldehyde,1,1,1,1.28,False,0.10224948875255624
+glutathione,1,1,1,258.3,False,0.10224948875255624
+glycogen,1,1,1,328.0,False,0.10224948875255624
+guanine,1,1,1,8.9,False,0.10224948875255624
+propionyl-CoA,1,1,1,5.4,True,0.10224948875255624
+pyridoxamine 5'-phosphate,1,1,1,0.103,False,0.10224948875255624
+pyridoxine 5'-phosphate,1,1,1,0.7,False,0.10224948875255624
+"(R)-2,3-Dihydroxy-3-methylbutanoate",1,1,1,2.4,False,0.10224948875255624
+spermine,1,1,1,39.0,False,0.10224948875255624
+(-)-Ureidoglycolate,1,1,1,57.06,False,0.10224948875255624
+urea-1-carboxylic acid,1,1,1,32.0,False,0.10224948875255624
+uridine,1,1,1,20.0,False,0.10224948875255624
+zymosterol,1,1,1,0.008,False,0.10224948875255624
