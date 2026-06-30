@@ -2,13 +2,10 @@ report,table_file,source_path,description,kind
 kcat_benchmark_analysis_report,main_report/go_hkp_eval_metrics.csv,reports/tables/go_hkp_eval_metrics.csv,GO-HKP overall and stratified metrics.,copied
 kcat_benchmark_analysis_report,main_report/go_hkp_eval_readiness.csv,reports/tables/go_hkp_eval_readiness.csv,GO-HKP readiness and coverage summary.,copied
 kcat_benchmark_analysis_report,main_report/main_report_group_definitions.csv,generated from src/46_generate_benchmark_report.py report logic,Group definition table embedded in the main report.,generated
-kcat_benchmark_analysis_report,main_report/main_report_legacy_overlap_results.csv,reports/tables/method_eval_summary_annotated.csv,Legacy overlap table embedded in the main report.,generated
 kcat_benchmark_analysis_report,main_report/main_report_overall_results.csv,reports/tables/method_rank_current_benchmark.csv,Overall result table embedded in the main report.,generated
 kcat_benchmark_analysis_report,main_report/method_eval_summary.csv,reports/tables/method_eval_summary.csv,Overall cross-method summary.,copied
 kcat_benchmark_analysis_report,main_report/method_eval_summary_annotated.csv,reports/tables/method_eval_summary_annotated.csv,Cross-method summary with report grouping annotations.,copied
 kcat_benchmark_analysis_report,main_report/method_group_annotation.csv,reports/tables/method_group_annotation.csv,"Method grouping, modality, coverage, and notes.",copied
-kcat_benchmark_analysis_report,main_report/method_metrics/MTLKP_legacy_overlap_eval_metrics.csv,reports/tables/MTLKP_legacy_overlap_eval_metrics.csv,Method-specific metric table used by the main report.,copied
-kcat_benchmark_analysis_report,main_report/method_metrics/TurNuP_legacy_overlap_eval_metrics.csv,reports/tables/TurNuP_legacy_overlap_eval_metrics.csv,Method-specific metric table used by the main report.,copied
 kcat_benchmark_analysis_report,main_report/method_metrics/catapro_eval_metrics.csv,reports/tables/catapro_eval_metrics.csv,Method-specific metric table used by the main report.,copied
 kcat_benchmark_analysis_report,main_report/method_metrics/catpred_eval_metrics.csv,reports/tables/catpred_eval_metrics.csv,Method-specific metric table used by the main report.,copied
 kcat_benchmark_analysis_report,main_report/method_metrics/dekp_public_retrained_eval_metrics.csv,reports/tables/dekp_public_retrained_eval_metrics.csv,Method-specific metric table used by the main report.,copied
@@ -22,7 +19,6 @@ kcat_benchmark_analysis_report,main_report/method_metrics/pretkcat_eval_metrics.
 kcat_benchmark_analysis_report,main_report/method_metrics/selfprot_eval_metrics.csv,reports/tables/selfprot_eval_metrics.csv,Method-specific metric table used by the main report.,copied
 kcat_benchmark_analysis_report,main_report/method_metrics/turnup_eval_metrics.csv,reports/tables/turnup_eval_metrics.csv,Method-specific metric table used by the main report.,copied
 kcat_benchmark_analysis_report,main_report/method_metrics/unikp_official_eval_metrics.csv,reports/tables/unikp_official_eval_metrics.csv,Method-specific metric table used by the main report.,copied
-kcat_benchmark_analysis_report,main_report/method_rank_all_with_legacy.csv,reports/tables/method_rank_all_with_legacy.csv,All-method ranking table including legacy overlap rows.,copied
 kcat_benchmark_analysis_report,main_report/method_rank_current_benchmark.csv,reports/tables/method_rank_current_benchmark.csv,Current-method ranking table used in the main report.,copied
 kcat_benchmark_analysis_report,main_report/source_database_mae_matrix.csv,reports/tables/source_database_mae_matrix.csv,Source-database MAE matrix used for the source heatmap.,copied
 kcat_benchmark_analysis_report,main_report/species_mae_matrix.csv,reports/tables/species_mae_matrix.csv,Species-level MAE matrix used for the species heatmap.,copied

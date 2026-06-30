@@ -26,8 +26,30 @@ env/
 # Logs, scheduler output, caches, and generated release staging
 logs/
 release/
+analysis_results/
 *.log
 slurm-*.out
+
+# Legacy five-method prototype outputs retained outside the public repository
+/GO_HKP.json
+/integrated_kcat_simple.json
+/kcat_comparison*.csv
+/reaction_kcat_MW_*.csv
+*.html
+*.pptx
+
+# Root runners were moved to scripts/runners; local obsolete copies stay ignored
+/run_*.sh
+/run_*.sbatch
+
+# Superseded prototype/legacy-overlap scripts
+/scripts/01_integrate_kcat.py
+/scripts/02_create_kcat_csv.py
+/scripts/03_filter_kcat_add_gpr.py
+/scripts/04_add_database_fill.py
+/scripts/05_comprehensive_analysis.py
+/scripts/run_all.sh
+/src/42_evaluate_legacy_methods_overlap.py
 
 # Raw/intermediate data are reproducible or source-controlled elsewhere.
 data/raw/

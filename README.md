@@ -19,7 +19,7 @@ An executable benchmark of published kcat prediction methods on 978 experimental
 | *E. coli* | 513 rows / 451 reactions / 327 genes |
 | *S. cerevisiae* | 465 rows / 224 reactions / 168 genes |
 | experimental sources | BRENDA and SABIO-RK |
-| evaluated methods | 13 current methods + 2 legacy-overlap traces |
+| evaluated methods | 13 current methods |
 
 标准集的详细构建方法、反应分布、GO/KEGG 注释和目录分类见 [`reports/kcat_benchmark_dataset_and_method_context.md`](reports/kcat_benchmark_dataset_and_method_context.md)。完整结果解释见 [`reports/kcat_benchmark_analysis_report.md`](reports/kcat_benchmark_analysis_report.md)。
 
@@ -49,7 +49,7 @@ An executable benchmark of published kcat prediction methods on 978 experimental
 
 ## Repository and Zenodo split
 
-GitHub 保存可审阅的代码、配置、核心标准集、报告、图和小型统计表。以下内容不进入 Git 历史：第三方源码副本、模型权重、特征缓存、原始 BRENDA/compound 数据库和大体积方法输出。
+GitHub 保存可审阅的代码、配置、核心标准集、报告、图和小型统计表。以下内容不进入 Git 历史：第三方源码副本、模型权重、特征缓存、原始 BRENDA/compound 数据库、大体积方法输出、早期原型结果，以及 PPTX/HTML 展示文件。
 
 Zenodo 资产清单记录在 `zenodo_assets_manifest.csv`，每个文件都有大小、SHA256、恢复位置和适用方法。为避免慢网络上传超时，大包按 128 MiB 分片；下载脚本会逐片校验、自动拼接并再次核对整包 SHA256。第三方方法源码从其官方仓库获取，固定版本和本地目录见 [`external_methods/METHOD_SOURCES.md`](external_methods/METHOD_SOURCES.md)。
 
@@ -82,13 +82,20 @@ python src/50_export_report_tables.py
 
 只阅读现有结果时无需安装各方法的深度学习环境。真正重跑某个预测器时，需要先按 `external_methods/METHOD_SOURCES.md` 放置上游源码，再恢复相应 Zenodo 任务权重，并从官方来源下载 ProtT5/ESM1b 等通用基础模型；不同论文代码依赖的 Python/PyTorch 版本不同，应使用各自上游环境，不建议强行合成一个 Conda 环境。
 
+可执行的 shell 和 Slurm 入口统一放在 `scripts/runners/`。例如：
+
+```bash
+bash scripts/runners/run_prepare_catpred_eval.sh
+sbatch scripts/runners/run_catpred_full.sbatch
+```
+
 ## End-to-end workflow
 
 1. `src/01_parse_models.py` 从 `eciML1515.json` 和 `yeast-GEM.xml` 生成酶-反应-候选底物条目。
 2. `src/05_fetch_uniprot_sequences.py` 补蛋白序列；`src/06_fetch_metanetx_smiles.py`、`src/07_fetch_pubchem_smiles.py` 补底物结构。
 3. `src/08_fetch_sabiork_kcat.py` 和 `src/10_parse_brenda_kcat.py` 整理实验 kcat；`src/03_match_experimental_kcat.py` 按物种、EC、UniProt、底物 ID/名称分层匹配。
 4. `src/11_finalize_benchmark_data.py` 生成 1,072 条实验真值和 978 条 sequence+SMILES benchmark。
-5. `src/12_*` 至 `src/49_*` 是各方法的输入适配、推理、评分和 GO/结构补齐脚本。
+5. `src/12_*` 至 `src/49_*` 是当前方法的输入适配、推理、评分和 GO/结构补齐脚本。
 6. `src/41_evaluate_method_predictions.py` 统一计算指标，`src/46_*`、`src/47_*` 生成报告和图。
 
 联网脚本会把查询结果写入 `data/raw/` 或 `data/interim/` 作为本地缓存。原始数据库文件没有打包进 Git；如需从头构建，请自行下载相应版本并遵守数据库许可。
@@ -98,16 +105,16 @@ python src/50_export_report_tables.py
 ```text
 configs/             species, method, and matching rules
 src/                 benchmark construction and method adapters
-scripts/             legacy analyses and release/download utilities
+scripts/             runners and release/download utilities
+scripts/runners/     benchmark, method prediction, and Slurm entry points
 data/final/          canonical benchmark tables; method outputs live here locally
 reports/             manuscript-facing reports, tables, and figures
-analysis_results/    initial reaction-level GO/KEGG/MAE analyses
 external_methods/    local third-party checkouts; only METHOD_SOURCES.md is tracked
 docs/                chronological work log and reproducibility notes
 release/             local Zenodo staging; never tracked by Git
 ```
 
-更细的“初始 kcat、GO、KEGG、MAE、species-level、method-level”等目录归属已写入方法学报告，并导出为 `reports/tables/project_directory_analysis_map.csv`。
+更细的“benchmark 构建、GO、KEGG、MAE、species-level、method-level”等目录归属已写入方法学报告，并导出为 `reports/tables/project_directory_analysis_map.csv`。
 
 ## Data provenance and caveats
 
@@ -115,7 +122,7 @@ release/             local Zenodo staging; never tracked by Git
 - 匹配优先级为 `species+EC+UniProt+substrate ID`、`species+EC+substrate ID`、`species+EC+UniProt+substrate name`、`species+EC+substrate name`。
 - 同一 benchmark entry 先保留最高匹配层级，再在 kcat 原始尺度取中位数，最后计算 log10。
 - GO-HKP 的 *E. coli* 部分使用 DeepGO-SE 反应级赋值，yeast 部分使用 UniProt GO 注释；两种来源在 metadata 中分别标注。
-- `reaction_kcat_MW_databasefill.csv` 混有推断和填充值，只用于历史核对，不属于实验真值。
+- 早期通过推断或数据库填充得到的 kcat 不进入统一 benchmark，也不在当前公开仓库中分发。
 - 模型训练集重叠仍可能使结果偏乐观；发表时应继续报告 sequence、SMILES 和 sequence-SMILES pair 的去重/重叠分析。
 
 ## Licensing and citation

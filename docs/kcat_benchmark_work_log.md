@@ -1528,3 +1528,29 @@ reports/tables/catpred_eval_metrics.csv
   - GitHub 代码与文档：`https://github.com/dengxiao01/kcat_benchmark_analysis`
   - Zenodo 大文件：`https://zenodo.org/records/21024684`
   - DOI：`https://doi.org/10.5281/zenodo.21024684`
+
+## 2026-06-30 GitHub 目录精简与 runner 整理
+
+- 清理目标：
+  - 公开仓库只保留当前 978 行统一 benchmark、13 个正式评测方法、可复现代码、报告和小型统计表。
+  - 早期五方法原型结果不再发布，包括 `reaction_kcat_MW_*.csv`、`kcat_comparison*.csv`、`integrated_kcat_simple.json`、`GO_HKP.json` 和 `analysis_results/`。
+  - 删除旧 HTML 综合报告和 PPTX 展示文件，并在 `.gitignore` 中统一忽略 `*.html`、`*.pptx` 及上述旧结果模式。
+- 脚本取舍：
+  - 删除只服务于早期五方法原型的 `scripts/01_integrate_kcat.py` 至 `scripts/05_comprehensive_analysis.py`、`scripts/run_all.sh`。
+  - 删除旧 overlap 评估器 `src/42_evaluate_legacy_methods_overlap.py`、四个 sample Slurm 脚本和已被 Zenodo 下载器替代的 CatPred 权重下载脚本。
+  - 将仍有复现价值的 32 个 shell/Slurm 入口移动到 `scripts/runners/`，并新增 `scripts/runners/README.md`。
+  - shell runner 从脚本位置反推仓库根目录；Slurm runner 默认使用 `SLURM_SUBMIT_DIR`，也可由 `KCAT_BENCHMARK_ROOT` 覆盖。
+  - 移除个人 HPC 路径和个人 Conda 路径；方法解释器改为 `CATAPRO_PYTHON`、`PMAK_PYTHON`、`DEKP_PYTHON` 等环境变量，默认使用当前环境的 `python`。
+- 结果口径收口：
+  - 从汇总、排名、主报告和独立表格中移除 `MTLKP-legacy-overlap`、`TurNuP-legacy-overlap`，正式结果固定为当前 13 个方法。
+  - 更新 `src/46_generate_benchmark_report.py`、`src/47_generate_dataset_method_context_report.py` 和 `src/50_export_report_tables.py`，重新生成报告、图和 `reports/report_tables/`。
+  - 独立报告表由 49 个减少为 45 个；导出脚本重建前会先清空目标目录，避免陈旧文件残留。
+  - 背景报告的目录图改为当前公开结构，新增 `scripts/runners/`，删除 `analysis_results/` 和早期 database-fill 文件说明。
+- 真值状态修正：
+  - `src/03_match_experimental_kcat.py` 不再固定写“等待数据”，而是读取原始 CSV 并报告实际条数。
+  - 当前检测到 BRENDA 3029 条、SABIO-RK 660 条原始记录。
+- 验证：
+  - `python -m py_compile` 对本次修改的 Python 文件通过。
+  - `bash -n` 对 `scripts/runners/` 下全部 `.sh/.sbatch` 文件通过。
+  - 重建后的 `method_eval_summary.csv` 为 13 行，旧结果引用扫描为 0。
+  - 三张核心标准集重建前后 SHA256 完全一致：`experimental_kcat_truth.csv` 为 `971393fed20dc26c8c73278cabd94fddb89501aa88388023e2fef82384ba7fbb`，`benchmark_ready_truth.csv` 为 `4a47d422ca42d5fa06667c11223de969e38d5da8135e4e8d242f08387e7f4ba9`，`benchmark_ready_catpred.csv` 为 `7e8209d3e4ecbffa5acf1e54f1176beb500e5bf89408de23514a11a92d0f6dac`。

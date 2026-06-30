@@ -14,4 +14,4 @@ Subdirectories:
 
 Use `manifest.csv` for the source path and a short description of each exported table.
 
-Exported table count: 49
+Exported table count: 45

@@ -479,11 +479,6 @@ def write_reports(brenda_records: list[dict[str, str]], combined_records: list[d
             "raw_file_detected": str(SABIO_RAW.exists()),
             "status": f"raw_records={sum(1 for row in combined_records if row['source_database'] == 'SABIO-RK')}",
         },
-        {
-            "source": "reaction_kcat_MW_databasefill.csv",
-            "raw_file_detected": str((BASE / "reaction_kcat_MW_databasefill.csv").exists()),
-            "status": "legacy_sanity_check_only_not_primary_truth",
-        },
     ]
     write_rows(TABLES / "experimental_truth_status.csv", status_rows, ["source", "raw_file_detected", "status"])
 

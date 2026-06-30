@@ -1,6 +1,6 @@
 # kcat 预测方法统一评测分析报告
 
-生成日期：2026-06-24
+生成日期：2026-06-30
 
 ## 一句话结论
 
@@ -17,7 +17,6 @@ GO-HKP 是“功能相似性直接赋值”非 AI 基线：当前覆盖 978/978 
 - 统一指标：MAE、RMSE、Pearson、Spearman、bias，以及误差在 10 倍以内的比例，全部在 log10(kcat) 尺度上计算。
 - 当前正式评测方法：`DLKcat-official`、`UniKP-official`、`MTLKP-official`、`TurNuP-official`、`CatPred`、`CataPro`、`PMAK`、`KinForm`、`KcatNet`、`PreTKcat`、`DEKP-public-retrained`、`SELFprot`、`GO-HKP`。
 - 其中 `GO-HKP` 是功能相似性直接赋值基线，不是 AI 回归模型；它用 GO 层级把功能相近的酶/反应归到可参考的 kcat 统计值上，用来回答“直接赋值是否已经足够强”这个问题。本项目中 E. coli 用 GO-HKP 已有 DeepGO-SE 结果，yeast 用 UniProt GO 注释补齐。
-- 历史追溯结果：`MTLKP-legacy-overlap` 和 `TurNuP-legacy-overlap` 只用于说明早期 overlap 结果，不能和全量方法直接排名。
 
 ## 分组定义与方法归属
 
@@ -30,7 +29,6 @@ GO-HKP 是“功能相似性直接赋值”非 AI 基线：当前覆盖 978/978 
 | 模型特定子集                | 方法官方推理流程或输入限制导致只能在该模型可处理子集上评估。                                                                              | CatPred, KinForm                                                                      |
 | 公开数据重训版              | 不是原论文官方最优权重，而是用公开数据和当前可复现流程重新训练/补齐后的版本。                                                             | DEKP-public-retrained                                                                 |
 | 功能相似性 GO 赋值基线      | 不训练深度回归模型，而是用 GO 功能层级和已有 GO-kcat 统计值给反应/基因直接赋 kcat；当前 E. coli 和 yeast 的 GO 来源不同，需在正文中标注。 | GO-HKP                                                                                |
-| 历史 overlap 追溯           | 早期 E. coli 原型输出与当前 benchmark 的重叠记录，只作追溯，不进入主文正式排名。                                                          | MTLKP-legacy-overlap, TurNuP-legacy-overlap                                           |
 
 每个方法的详细标注如下：
 
@@ -49,8 +47,6 @@ GO-HKP 是“功能相似性直接赋值”非 AI 基线：当前覆盖 978/978 
 | DEKP-public-retrained | 公开数据重训版              | sequence + substrate SMILES + structure | 977 | 99.9%              | 覆盖 977/978；缺 1 条非法 SMILES，同时需要结构/图特征补齐。                                                |
 | SELFprot              | 全量/近全量 sequence+SMILES | sequence + substrate SMILES             | 977 | 99.9%              | 覆盖 977/978，缺 1 条非法 SMILES。                                                                         |
 | GO-HKP                | 功能相似性 GO 赋值基线      | GO hierarchy + functional assignment    | 978 | 100.0%             | 覆盖 978/978；E. coli 为 GO-HKP DeepGO-SE 反应级赋值，yeast 为 UniProt GO 注释的 GOATOOLS-style 补充赋值。 |
-| MTLKP-legacy-overlap  | 历史 overlap 追溯           | early E. coli overlap                   |  76 | 7.8%               | 覆盖 76/978；不是官方权重在当前 benchmark 上的完整评测。                                                   |
-| TurNuP-legacy-overlap | 历史 overlap 追溯           | early E. coli reaction-level overlap    | 338 | 34.6%              | 覆盖 338/978；是 reaction-level overlap，不是当前官方权重版完整评测。                                      |
 
 ## 总体结果
 
@@ -88,7 +84,7 @@ Pearson 看线性相关，Spearman 更看排序是否一致。`KinForm` 的 Spea
 
 ![Coverage vs MAE](figures/kcat_benchmark_summary/coverage_vs_mae.png)
 
-这张图的右下角最理想：覆盖率高、误差低。颜色对应上面的分组：蓝色是全量/近全量 sequence+SMILES，橙色是 reaction-aware 子集，绿色是模型特定子集，红色是公开数据重训版，青色是 GO 功能赋值基线，紫色是历史 overlap。`KcatNet` 位于较理想区域；`CataPro` 覆盖完整且表现稳定；`TurNuP-official`、`PMAK` 误差较低但覆盖率受 reaction SMILES 限制；`KinForm` 相关性好但覆盖条数更少；`GO-HKP` 已覆盖全 benchmark，主要作为非 AI 赋值基线。
+这张图的右下角最理想：覆盖率高、误差低。颜色对应上面的分组：蓝色是全量/近全量 sequence+SMILES，橙色是 reaction-aware 子集，绿色是模型特定子集，红色是公开数据重训版，青色是 GO 功能赋值基线。`KcatNet` 位于较理想区域；`CataPro` 覆盖完整且表现稳定；`TurNuP-official`、`PMAK` 误差较低但覆盖率受 reaction SMILES 限制；`KinForm` 相关性好但覆盖条数更少；`GO-HKP` 已覆盖全 benchmark，主要作为非 AI 赋值基线。
 
 ### 4. 10 倍误差内比例与系统性偏差
 
@@ -120,23 +116,13 @@ BRENDA 和 SABIO-RK 的数据来源、实验条件记录方式不同，分层后
 
 对角线是理想预测，点线是相差 10 倍的范围。这个图能直观看到哪些方法存在压缩动态范围、整体偏高/偏低或极端错误。`KcatNet` 和 `CataPro` 的点云相对更贴近对角线；`DEKP-public-retrained` 的偏离更明显。
 
-## legacy overlap 结果
-
-| method                |   n | coverage_percent   |   mae_log10 |   rmse_log10 |   pearson_log10 |   spearman_log10 |   within_1.0_log10_fraction |
-|:----------------------|----:|:-------------------|------------:|-------------:|----------------:|-----------------:|----------------------------:|
-| MTLKP-legacy-overlap  |  76 | 7.8%               |      0.6545 |       0.8634 |          0.5223 |           0.5133 |                      0.8026 |
-| TurNuP-legacy-overlap | 338 | 34.6%              |      0.7073 |       1.0213 |          0.4683 |           0.5025 |                      0.7337 |
-
-这两行只用于追溯早期工作。它们不是在 978 条 benchmark 上完整运行官方权重得到的结果，而是早期 E. coli 输出与当前 benchmark 的 overlap，因此不建议放入主文性能排名；可以放在方法筛选或补充说明中。
-
 ## 推荐写作口径
 
-1. 主文性能表优先使用当前正式评测方法，不把 `legacy-overlap` 与正式结果混排。
-2. 方法可按输入口径和模型性质分组：全量/近全量 sequence+SMILES、reaction-aware 子集、模型特定子集、公开数据重训版、功能相似性 GO 赋值基线。
-3. 如果只强调全量覆盖和误差，`KcatNet` 是当前最强基线；如果强调完整 reaction 信息方法，`TurNuP-official` 和 `PMAK` 应在 780 条 reaction-aware 子集内比较。
-4. `KinForm` 的相关性最好但覆盖有限，适合描述为“在可覆盖子集上排序能力强”。
-5. `DEKP-public-retrained` 应明确是公开数据重训版，不等价于原论文最优官方模型。
-6. `GO-HKP` 应明确是非 AI 直接赋值基线；当前结果说明“按 GO 层级直接赋值”在本 benchmark 上不能替代主流 AI 预测方法，但很适合作为一个朴素生物学基线。还需要说明 E. coli 和 yeast 的 GO 来源不同。
+1. 方法可按输入口径和模型性质分组：全量/近全量 sequence+SMILES、reaction-aware 子集、模型特定子集、公开数据重训版、功能相似性 GO 赋值基线。
+2. 如果只强调全量覆盖和误差，`KcatNet` 是当前最强基线；如果强调完整 reaction 信息方法，`TurNuP-official` 和 `PMAK` 应在 780 条 reaction-aware 子集内比较。
+3. `KinForm` 的相关性最好但覆盖有限，适合描述为“在可覆盖子集上排序能力强”。
+4. `DEKP-public-retrained` 应明确是公开数据重训版，不等价于原论文最优官方模型。
+5. `GO-HKP` 应明确是非 AI 直接赋值基线；当前结果说明“按 GO 层级直接赋值”在本 benchmark 上不能替代主流 AI 预测方法，但很适合作为一个朴素生物学基线。还需要说明 E. coli 和 yeast 的 GO 来源不同。
 
 ## 文件索引
 
@@ -144,7 +130,6 @@ BRENDA 和 SABIO-RK 的数据来源、实验条件记录方式不同，分层后
 - 注释版总表：`reports/tables/method_eval_summary_annotated.csv`
 - 方法分组注释表：`reports/tables/method_group_annotation.csv`
 - 当前方法排序表：`reports/tables/method_rank_current_benchmark.csv`
-- 所有方法排序表：`reports/tables/method_rank_all_with_legacy.csv`
 - 物种 MAE 矩阵：`reports/tables/species_mae_matrix.csv`
 - 数据来源 MAE 矩阵：`reports/tables/source_database_mae_matrix.csv`
 - 图表目录：`reports/figures/kcat_benchmark_summary/`

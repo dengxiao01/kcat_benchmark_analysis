@@ -9,12 +9,6 @@ experimental_truth:
     - level_4_ec_only
     - level_5_ecmodel_or_fill
 
-legacy_sources:
-  databasefill_csv:
-    path: reaction_kcat_MW_databasefill.csv
-    use: sanity_check_only
-    warning: Mixed database, inferred, other-species, and fill values are not clean experimental truth.
-
 deduplication:
   exact_overlap: [protein_sequence, substrate_smiles, kcat_value]
   relaxed_overlap: [uniprot_id, substrate_smiles]

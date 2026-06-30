@@ -4,4 +4,3 @@ Reaction-aware subset,"Requires complete reaction information: reactant SMILES, 
 Model-specific subset,Official inference flow or model assets restrict the processable benchmark subset.,"CatPred, KinForm"
 Public-data retrained,Publicly reproducible retraining or completion rather than original private/official best weights.,DEKP-public-retrained
 Function-assignment GO baseline,Non-regression GO hierarchy assignment baseline; E. coli and yeast use different GO sources.,GO-HKP
-Legacy overlap,"Early E. coli overlap outputs retained for traceability, not formal ranking.","MTLKP-legacy-overlap, TurNuP-legacy-overlap"

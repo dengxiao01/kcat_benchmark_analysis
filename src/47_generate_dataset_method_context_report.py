@@ -310,7 +310,6 @@ METHOD_SCOPE_ORDER = [
     "模型特定子集",
     "公开数据重训版",
     "功能相似性 GO 赋值基线",
-    "历史 overlap 追溯",
 ]
 
 
@@ -566,10 +565,10 @@ def make_project_directory_map() -> pd.DataFrame:
             "contents": "Experimental truth, benchmark-ready tables, and per-method inputs, metadata, predictions, missing rows, structures, and evaluated rows.",
         },
         {
-            "category": "Initial kcat analyses",
-            "path": "analysis_results/; scripts/; kcat_comparison*.csv",
-            "directory_type": "legacy/initial reaction-level analysis",
-            "contents": "Global distribution, method correlation, thermodynamic asymmetry, isozyme specificity, complex handling, substrate specificity, coverage, benchmark error, bias, and ensemble analyses based on the initial reaction-level kcat files.",
+            "category": "Pipeline runners",
+            "path": "scripts/runners/",
+            "directory_type": "local and Slurm entry points",
+            "contents": "Portable shell entry points for benchmark construction, method input preparation, prediction, and full cluster jobs. Run from the repository root after activating the required environment.",
         },
         {
             "category": "GO analysis",
@@ -784,7 +783,7 @@ def make_method_technical_tables() -> tuple[pd.DataFrame, pd.DataFrame]:
     keep = [c for c in keep if c in summary.columns]
     tech = tech.merge(summary[keep], on="method", how="left")
     tech["group_cn"] = tech["group_cn"].fillna(tech["benchmark_dimension"])
-    tech["is_current_main_benchmark"] = ~tech["method"].str.contains("legacy", case=False, na=False)
+    tech["is_current_main_benchmark"] = True
     tech = write_csv(tech, TABLE_DIR / "method_technical_comparison.csv")
 
     dimensions = pd.DataFrame(
@@ -905,7 +904,6 @@ def make_figures(
     savefig(FIG_DIR / "top_reactions.png")
 
     mt = method_tech.copy()
-    mt = mt[~mt["method"].str.contains("legacy", case=False, na=False)].copy()
     mt["group_cn"] = pd.Categorical(mt["group_cn"], METHOD_SCOPE_ORDER, ordered=True)
     mt = mt.sort_values(["group_cn", "coverage_percent", "method"], ascending=[True, False, True])
     scope_label_en = {
@@ -914,7 +912,6 @@ def make_figures(
         "模型特定子集": "Model-specific subset",
         "公开数据重训版": "Public-data retrained",
         "功能相似性 GO 赋值基线": "GO functional assignment",
-        "历史 overlap 追溯": "Legacy overlap",
     }
     mt["scope_plot"] = mt["group_cn"].astype(str).map(scope_label_en).fillna(mt["group_cn"].astype(str))
     palette = {
@@ -923,7 +920,6 @@ def make_figures(
         "Model-specific subset": "#54A24B",
         "Public-data retrained": "#E45756",
         "GO functional assignment": "#72B7B2",
-        "Legacy overlap": "#B279A2",
     }
     plt.figure(figsize=(9.2, 5.8))
     sns.barplot(data=mt, y="method", x="coverage_percent", hue="scope_plot", dodge=False, palette=palette)
@@ -1053,7 +1049,7 @@ def make_report(
         "",
         "### 3.3 获取并整理实验 kcat 真值",
         "",
-        "- 主真值来源只使用 BRENDA turnover number 和 SABIO-RK kcat；早期 `reaction_kcat_MW_databasefill.csv` 混有推断值和填充值，只保留为 sanity check，不作为实验真值。",
+        "- 主真值只使用 BRENDA turnover number 和 SABIO-RK kcat。早期推断或数据库填充得到的数值不进入统一 benchmark，也不作为当前公开仓库产物。",
         "- 仅保留目标物种、正的 kcat，统一单位为 `s^-1`；BRENDA 默认排除注释为 mutant/mutation/variant 的记录。范围值取区间均值。",
         "- 匹配先限定 `species + EC`，再比较底物数据库 ID/规范化名称以及 UniProt。优先级从高到低为：`species_ec_uniprot_substrate_id`、`species_ec_substrate_id`、`species_ec_uniprot_substrate_name`、`species_ec_substrate_name`。",
         "- 同一 entry 只保留最高匹配层级的实验记录；多条实验值在 kcat 原始尺度取中位数，再计算 `log10(kcat)`。pH 和温度也取可用记录的中位数，并保留来源、参考文献和测量条数。",
@@ -1167,13 +1163,13 @@ def make_report(
         "",
         "## 7. 项目目录结构与分析类型",
         "",
-        "下面按“目录承担什么工作”整理项目结构。`analysis_results/` 是基于早期 reaction-level kcat 文件的初始分析；`data/final/<method>/` 和 `reports/` 则是当前统一 978 行 benchmark 的正式评测产物，两者不要混用。",
+        "下面按“目录承担什么工作”整理当前公开项目结构。统一 benchmark 位于 `data/final/`，方法级结果位于 `data/final/<method>/`，汇总表和图位于 `reports/`，可执行入口统一放在 `scripts/runners/`。",
         "",
         markdown_table(directory_map, max_rows=30),
         "",
         "重点分析文件可以快速定位为：",
         "",
-        "- 初始 kcat 分布/相关性/热力学不对称/同工酶/复合物/底物/覆盖/bias/ensemble：`analysis_results/`。",
+        "- 数据准备、方法输入、预测和 Slurm 队列入口：`scripts/runners/`。",
         "- GO 分析：`external_methods/GO-HKP/`、`data/raw/go_hkp/`、`data/final/go_hkp/`、`reports/tables/go_hkp_*`。",
         "- KEGG/EC/通路分析：`reports/tables/benchmark_dataset_kegg_like_*`、`benchmark_dataset_direct_yeast_kegg_pathways.csv`。",
         "- MAE/RMSE/bias/within-fold 分析：`reports/tables/*_eval_metrics.csv` 和 `reports/figures/kcat_benchmark_summary/`。",

@@ -1,6 +1,6 @@
 # benchmark_ready_catpred 标准集数据画像与方法技术比较
 
-生成时间：2026-06-29 15:10
+生成时间：2026-06-30 10:25
 
 ## 1. 先说结论
 
@@ -37,7 +37,7 @@
 
 ### 3.3 获取并整理实验 kcat 真值
 
-- 主真值来源只使用 BRENDA turnover number 和 SABIO-RK kcat；早期 `reaction_kcat_MW_databasefill.csv` 混有推断值和填充值，只保留为 sanity check，不作为实验真值。
+- 主真值只使用 BRENDA turnover number 和 SABIO-RK kcat。早期推断或数据库填充得到的数值不进入统一 benchmark，也不作为当前公开仓库产物。
 - 仅保留目标物种、正的 kcat，统一单位为 `s^-1`；BRENDA 默认排除注释为 mutant/mutation/variant 的记录。范围值取区间均值。
 - 匹配先限定 `species + EC`，再比较底物数据库 ID/规范化名称以及 UniProt。优先级从高到低为：`species_ec_uniprot_substrate_id`、`species_ec_substrate_id`、`species_ec_uniprot_substrate_name`、`species_ec_substrate_name`。
 - 同一 entry 只保留最高匹配层级的实验记录；多条实验值在 kcat 原始尺度取中位数，再计算 `log10(kcat)`。pH 和温度也取可用记录的中位数，并保留来源、参考文献和测量条数。
@@ -240,7 +240,7 @@ yeast-GEM 直接 KEGG pathway ID 的 top 分布如下。`sce01100/sce01110/sce01
 
 ## 7. 项目目录结构与分析类型
 
-下面按“目录承担什么工作”整理项目结构。`analysis_results/` 是基于早期 reaction-level kcat 文件的初始分析；`data/final/<method>/` 和 `reports/` 则是当前统一 978 行 benchmark 的正式评测产物，两者不要混用。
+下面按“目录承担什么工作”整理当前公开项目结构。统一 benchmark 位于 `data/final/`，方法级结果位于 `data/final/<method>/`，汇总表和图位于 `reports/`，可执行入口统一放在 `scripts/runners/`。
 
 | category | path | directory_type | contents |
 | --- | --- | --- | --- |
@@ -248,7 +248,7 @@ yeast-GEM 直接 KEGG pathway ID 的 top 分布如下。`sce01100/sce01110/sce01
 | Raw source data | data/raw/ | large source/cache data | BRENDA, SABIO-RK, compound/CKB, UniProt FASTA, GO mappings, and method source assets. Large files are distributed through Zenodo rather than Git. |
 | Intermediate curation | data/interim/ | rebuildable intermediate data | Reaction-entry tables, sequence/SMILES queues, caches, review lists, reaction SMILES, and method input preparation tables. |
 | Unified benchmark and method outputs | data/final/ | final data products | Experimental truth, benchmark-ready tables, and per-method inputs, metadata, predictions, missing rows, structures, and evaluated rows. |
-| Initial kcat analyses | analysis_results/; scripts/; kcat_comparison*.csv | legacy/initial reaction-level analysis | Global distribution, method correlation, thermodynamic asymmetry, isozyme specificity, complex handling, substrate specificity, coverage, benchmark error, bias, and ensemble analyses based on the initial reaction-level kcat files. |
+| Pipeline runners | scripts/runners/ | local and Slurm entry points | Portable shell entry points for benchmark construction, method input preparation, prediction, and full cluster jobs. Run from the repository root after activating the required environment. |
 | GO analysis | external_methods/GO-HKP/; data/raw/go_hkp/; data/final/go_hkp/ | functional-assignment analysis | GO hierarchy and GO-kcat resources, E. coli DeepGO-SE assignments, yeast UniProt GO mappings, GO-HKP evaluated rows, readiness, and species-level metrics. |
 | KEGG/EC/pathway analysis | src/47_generate_dataset_method_context_report.py; reports/tables/benchmark_dataset_kegg* | functional distribution analysis | EC-to-module KEGG-like groups across species and direct yeast-GEM KEGG pathway annotations. |
 | MAE and error analyses | reports/tables/*_eval_metrics.csv; reports/figures/kcat_benchmark_summary/ | performance analysis | Overall and grouped MAE/RMSE, correlation, bias, within-fold error, coverage-error tradeoff, error distributions, and predicted-versus-true plots. |
@@ -259,7 +259,7 @@ yeast-GEM 直接 KEGG pathway ID 的 top 分布如下。`sce01100/sce01110/sce01
 
 重点分析文件可以快速定位为：
 
-- 初始 kcat 分布/相关性/热力学不对称/同工酶/复合物/底物/覆盖/bias/ensemble：`analysis_results/`。
+- 数据准备、方法输入、预测和 Slurm 队列入口：`scripts/runners/`。
 - GO 分析：`external_methods/GO-HKP/`、`data/raw/go_hkp/`、`data/final/go_hkp/`、`reports/tables/go_hkp_*`。
 - KEGG/EC/通路分析：`reports/tables/benchmark_dataset_kegg_like_*`、`benchmark_dataset_direct_yeast_kegg_pathways.csv`。
 - MAE/RMSE/bias/within-fold 分析：`reports/tables/*_eval_metrics.csv` 和 `reports/figures/kcat_benchmark_summary/`。

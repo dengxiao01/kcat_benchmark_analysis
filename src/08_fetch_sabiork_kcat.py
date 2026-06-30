@@ -581,11 +581,6 @@ def write_reports(queries: list[dict[str, str]], raw_records: list[dict[str, str
             "raw_file_detected": str(RAW_RECORDS.exists()),
             "status": f"fetched_raw_records={len(raw_records)};matched_truth_entries={len(truth_rows)}",
         },
-        {
-            "source": "reaction_kcat_MW_databasefill.csv",
-            "raw_file_detected": str((BASE / "reaction_kcat_MW_databasefill.csv").exists()),
-            "status": "legacy_sanity_check_only_not_primary_truth",
-        },
     ]
     write_rows(TABLES / "experimental_truth_status.csv", status_rows, ["source", "raw_file_detected", "status"])
 

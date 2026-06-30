@@ -104,10 +104,9 @@ def core_result_paths() -> list[Path]:
         NOTICE,
         METHOD_SOURCES,
         BASE / "reports",
-        BASE / "analysis_results",
     ]
     for method_dir in sorted((BASE / "data" / "final").iterdir()):
-        if not method_dir.is_dir():
+        if not method_dir.is_dir() or method_dir.name == "legacy_four_methods":
             continue
         paths.extend(sorted(method_dir.rglob("*.csv")))
     return list(dict.fromkeys(paths))

@@ -20,7 +20,6 @@ MAIN_REPORT_COPIES = [
     ("method_eval_summary_annotated.csv", "Cross-method summary with report grouping annotations."),
     ("method_group_annotation.csv", "Method grouping, modality, coverage, and notes."),
     ("method_rank_current_benchmark.csv", "Current-method ranking table used in the main report."),
-    ("method_rank_all_with_legacy.csv", "All-method ranking table including legacy overlap rows."),
     ("species_mae_matrix.csv", "Species-level MAE matrix used for the species heatmap."),
     ("source_database_mae_matrix.csv", "Source-database MAE matrix used for the source heatmap."),
     ("go_hkp_eval_readiness.csv", "GO-HKP readiness and coverage summary."),
@@ -41,8 +40,6 @@ METHOD_METRIC_COPIES = [
     "dekp_public_retrained_eval_metrics.csv",
     "selfprot_eval_metrics.csv",
     "go_hkp_eval_metrics.csv",
-    "MTLKP_legacy_overlap_eval_metrics.csv",
-    "TurNuP_legacy_overlap_eval_metrics.csv",
 ]
 
 CONTEXT_REPORT_COPIES = [
@@ -138,11 +135,6 @@ def main_group_definitions() -> pd.DataFrame:
                 "criterion": "Non-regression GO hierarchy assignment baseline; E. coli and yeast use different GO sources.",
                 "methods": "GO-HKP",
             },
-            {
-                "group": "Legacy overlap",
-                "criterion": "Early E. coli overlap outputs retained for traceability, not formal ranking.",
-                "methods": "MTLKP-legacy-overlap, TurNuP-legacy-overlap",
-            },
         ]
     )
 
@@ -163,22 +155,6 @@ def main_overall_results() -> pd.DataFrame:
         "bias_log10",
     ]
     return rank[[column for column in keep if column in rank.columns]].copy()
-
-
-def main_legacy_results() -> pd.DataFrame:
-    summary = pd.read_csv(TABLES / "method_eval_summary_annotated.csv")
-    legacy = summary[summary["role"].eq("legacy")].copy()
-    keep = [
-        "method",
-        "n",
-        "coverage_percent",
-        "mae_log10",
-        "rmse_log10",
-        "pearson_log10",
-        "spearman_log10",
-        "within_1.0_log10_fraction",
-    ]
-    return legacy[[column for column in keep if column in legacy.columns]].copy()
 
 
 def benchmark_file_roles() -> pd.DataFrame:
@@ -228,6 +204,8 @@ def write_readme(manifest: pd.DataFrame) -> None:
 
 
 def main() -> None:
+    if EXPORT_ROOT.exists():
+        shutil.rmtree(EXPORT_ROOT)
     manifest: list[dict[str, str]] = []
 
     for filename, description in MAIN_REPORT_COPIES:
@@ -261,14 +239,6 @@ def main() -> None:
         "kcat_benchmark_analysis_report",
         "Overall result table embedded in the main report.",
         "reports/tables/method_rank_current_benchmark.csv",
-    )
-    write_table(
-        main_legacy_results(),
-        EXPORT_ROOT / "main_report" / "main_report_legacy_overlap_results.csv",
-        manifest,
-        "kcat_benchmark_analysis_report",
-        "Legacy overlap table embedded in the main report.",
-        "reports/tables/method_eval_summary_annotated.csv",
     )
 
     for filename, description in CONTEXT_REPORT_COPIES:
