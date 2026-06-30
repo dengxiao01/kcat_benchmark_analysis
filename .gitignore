@@ -51,6 +51,9 @@ slurm-*.out
 /scripts/run_all.sh
 /src/42_evaluate_legacy_methods_overlap.py
 
+# Internal planning document retained locally
+/kcat_benchmark_executable_plan(1).md
+
 # Raw/intermediate data are reproducible or source-controlled elsewhere.
 data/raw/
 data/interim/

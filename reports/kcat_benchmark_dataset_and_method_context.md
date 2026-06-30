@@ -1,6 +1,6 @@
 # benchmark_ready_catpred 标准集数据画像与方法技术比较
 
-生成时间：2026-06-30 10:25
+生成时间：2026-06-30 10:55
 
 ## 1. 先说结论
 
@@ -240,31 +240,32 @@ yeast-GEM 直接 KEGG pathway ID 的 top 分布如下。`sce01100/sce01110/sce01
 
 ## 7. 项目目录结构与分析类型
 
-下面按“目录承担什么工作”整理当前公开项目结构。统一 benchmark 位于 `data/final/`，方法级结果位于 `data/final/<method>/`，汇总表和图位于 `reports/`，可执行入口统一放在 `scripts/runners/`。
+下面按“目录承担什么工作”整理项目结构。`publication_status` 用来区分 GitHub 已公开内容、本地 gitignored 运行目录，以及需要从 Zenodo 或上游来源恢复的资产。GitHub 中的 `data/final/` 只跟踪三张核心 benchmark CSV，`data/final/<method>/` 属于本地方法级产物。
 
-| category | path | directory_type | contents |
-| --- | --- | --- | --- |
-| Benchmark construction | src/01_parse_models.py to src/11_finalize_benchmark_data.py; configs/ | code and rules | GEM parsing, GPR/EC/substrate extraction, UniProt sequence retrieval, SMILES mapping, BRENDA/SABIO-RK truth matching, and final benchmark filtering. |
-| Raw source data | data/raw/ | large source/cache data | BRENDA, SABIO-RK, compound/CKB, UniProt FASTA, GO mappings, and method source assets. Large files are distributed through Zenodo rather than Git. |
-| Intermediate curation | data/interim/ | rebuildable intermediate data | Reaction-entry tables, sequence/SMILES queues, caches, review lists, reaction SMILES, and method input preparation tables. |
-| Unified benchmark and method outputs | data/final/ | final data products | Experimental truth, benchmark-ready tables, and per-method inputs, metadata, predictions, missing rows, structures, and evaluated rows. |
-| Pipeline runners | scripts/runners/ | local and Slurm entry points | Portable shell entry points for benchmark construction, method input preparation, prediction, and full cluster jobs. Run from the repository root after activating the required environment. |
-| GO analysis | external_methods/GO-HKP/; data/raw/go_hkp/; data/final/go_hkp/ | functional-assignment analysis | GO hierarchy and GO-kcat resources, E. coli DeepGO-SE assignments, yeast UniProt GO mappings, GO-HKP evaluated rows, readiness, and species-level metrics. |
-| KEGG/EC/pathway analysis | src/47_generate_dataset_method_context_report.py; reports/tables/benchmark_dataset_kegg* | functional distribution analysis | EC-to-module KEGG-like groups across species and direct yeast-GEM KEGG pathway annotations. |
-| MAE and error analyses | reports/tables/*_eval_metrics.csv; reports/figures/kcat_benchmark_summary/ | performance analysis | Overall and grouped MAE/RMSE, correlation, bias, within-fold error, coverage-error tradeoff, error distributions, and predicted-versus-true plots. |
-| Species-level analysis | reports/tables/species_mae_matrix.csv; reports/tables/benchmark_dataset_*_by_species.csv | species-stratified analysis | E. coli versus yeast counts, truth distributions, sources, matching levels, pathway groups, and method MAE. |
-| Method-level analysis | reports/tables/method_*.csv; data/final/<method>/ | method comparison | Method principles, input requirements, comparison groups, coverage, rankings, evaluated predictions, and method-specific limitations. |
-| Reports and publication tables | reports/; reports/report_tables/; docs/ | human-readable and manuscript material | Main analysis report, dataset/method context report, figures, standalone report tables, work log, and manuscript assets. |
-| Third-party methods and model assets | external_methods/ | third-party code and large assets | Published method source code, checkpoints, model bundles, dependency snapshots, and caches. Only lightweight reproducibility code belongs in Git; large assets belong in Zenodo. |
+| category | path | directory_type | contents | publication_status |
+| --- | --- | --- | --- | --- |
+| Benchmark construction | src/01_parse_models.py through src/11_finalize_benchmark_data.py; configs/ | code and rules | GEM parsing, GPR/EC/substrate extraction, UniProt sequence retrieval, SMILES mapping, BRENDA/SABIO-RK truth matching, and final benchmark filtering. | GitHub |
+| Raw source data | data/raw/ | large source/cache data | BRENDA, SABIO-RK, compound/CKB, UniProt FASTA, GO mappings, and query caches. Source databases are downloaded separately; this directory is not published in Git. | Local only; gitignored and downloaded from source databases |
+| Intermediate curation | data/interim/ | rebuildable intermediate data | Reaction-entry tables, sequence/SMILES queues, caches, review lists, reaction SMILES, and method input preparation tables. | Local only; gitignored and rebuildable |
+| Unified benchmark and method outputs | data/final/ | final data products | Git tracks the three canonical benchmark CSVs. Per-method inputs, predictions, structures, and evaluated rows are local artifacts restored or rebuilt as needed. | Mixed; three core CSVs on GitHub, method artifacts local/Zenodo |
+| Pipeline runners | scripts/runners/ | local and Slurm entry points | Portable shell entry points for benchmark construction, method input preparation, prediction, and full cluster jobs. Run from the repository root after activating the required environment. | GitHub |
+| GO analysis | external_methods/GO-HKP/; data/raw/go_hkp/; data/final/go_hkp/; reports/tables/go_hkp_* | functional-assignment analysis | GO hierarchy and GO-kcat resources, E. coli DeepGO-SE assignments, yeast UniProt GO mappings, GO-HKP evaluated rows, readiness, and species-level metrics. | Mixed; summary tables on GitHub, source assets local |
+| KEGG/EC/pathway analysis | src/47_generate_dataset_method_context_report.py; reports/tables/benchmark_dataset_kegg*; reports/tables/benchmark_dataset_direct_yeast_kegg_pathways.csv | functional distribution analysis | EC-to-module KEGG-like groups across species and direct yeast-GEM KEGG pathway annotations. | GitHub outputs with local source assets |
+| MAE and error analyses | reports/tables/*_eval_metrics.csv; reports/figures/kcat_benchmark_summary/ | performance analysis | Overall and grouped MAE/RMSE, correlation, bias, within-fold error, coverage-error tradeoff, error distributions, and predicted-versus-true plots. | GitHub summary tables and figures |
+| Species-level analysis | reports/tables/species_mae_matrix.csv; reports/tables/benchmark_dataset_*_by_species.csv | species-stratified analysis | E. coli versus yeast counts, truth distributions, sources, matching levels, pathway groups, and method MAE. | GitHub summary tables and figures |
+| Method-level analysis | reports/tables/method_*.csv; data/final/<method>/ | method comparison | Method principles, input requirements, comparison groups, coverage, rankings, evaluated predictions, and method-specific limitations. | Mixed; summaries on GitHub, row-level artifacts local/Zenodo |
+| Reports and publication tables | reports/; reports/report_tables/; docs/ | human-readable and manuscript material | Main analysis report, dataset/method context report, figures, standalone report tables, and the chronological work log. | GitHub |
+| Third-party methods and model assets | external_methods/ | third-party code and large assets | Only METHOD_SOURCES.md is tracked in Git. Third-party source trees come from upstream repositories; selected task weights and data bundles are restored from Zenodo. | Mixed; manifest on GitHub, assets from upstream/Zenodo |
+| Release staging and logs | release/; logs/ | generated local artifacts | Zenodo upload staging, publication state, scheduler stdout/stderr, and run logs. Both directories are excluded from Git. | Local only; gitignored |
 
 重点分析文件可以快速定位为：
 
 - 数据准备、方法输入、预测和 Slurm 队列入口：`scripts/runners/`。
 - GO 分析：`external_methods/GO-HKP/`、`data/raw/go_hkp/`、`data/final/go_hkp/`、`reports/tables/go_hkp_*`。
-- KEGG/EC/通路分析：`reports/tables/benchmark_dataset_kegg_like_*`、`benchmark_dataset_direct_yeast_kegg_pathways.csv`。
+- KEGG/EC/通路分析：`reports/tables/benchmark_dataset_kegg_like_*`、`reports/tables/benchmark_dataset_direct_yeast_kegg_pathways.csv`。
 - MAE/RMSE/bias/within-fold 分析：`reports/tables/*_eval_metrics.csv` 和 `reports/figures/kcat_benchmark_summary/`。
-- Species-level 分析：`species_mae_matrix.csv`、`benchmark_dataset_*_by_species.csv` 和 species heatmap。
-- Method-level 分析：`method_eval_summary*.csv`、`method_rank*.csv`、`method_technical_comparison.csv`。
+- Species-level 分析：`reports/tables/species_mae_matrix.csv`、`reports/tables/benchmark_dataset_*_by_species.csv` 和 species heatmap。
+- Method-level 分析：`reports/tables/method_eval_summary*.csv`、`reports/tables/method_rank*.csv`、`reports/tables/method_technical_comparison.csv`。
 - 写文章用独立表格：`reports/report_tables/`，其中 `manifest.csv` 记录每张表的来源。
 
 ## 8. 不同预测方法的技术原理与比较维度

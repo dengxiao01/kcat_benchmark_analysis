@@ -1554,3 +1554,16 @@ reports/tables/catpred_eval_metrics.csv
   - `bash -n` 对 `scripts/runners/` 下全部 `.sh/.sbatch` 文件通过。
   - 重建后的 `method_eval_summary.csv` 为 13 行，旧结果引用扫描为 0。
   - 三张核心标准集重建前后 SHA256 完全一致：`experimental_kcat_truth.csv` 为 `971393fed20dc26c8c73278cabd94fddb89501aa88388023e2fef82384ba7fbb`，`benchmark_ready_truth.csv` 为 `4a47d422ca42d5fa06667c11223de969e38d5da8135e4e8d242f08387e7f4ba9`，`benchmark_ready_catpred.csv` 为 `7e8209d3e4ecbffa5acf1e54f1176beb500e5bf89408de23514a11a92d0f6dac`。
+
+## 2026-06-30 执行计划撤回与目录结构复核
+
+- 将 `kcat_benchmark_executable_plan(1).md` 从 Git 索引移除，并加入 `.gitignore`；文件保留在本地用于历史追溯，但不再出现在 GitHub 当前 `main` 分支。
+- 复核 `reports/kcat_benchmark_dataset_and_method_context.md` 第 7 节及 `project_directory_analysis_map.csv`：
+  - 新增 `publication_status` 列，区分 GitHub、local-only、Zenodo/上游恢复三类状态。
+  - 明确 `data/final/` 在 GitHub 只跟踪三张核心 benchmark CSV，`data/final/<method>/` 是本地或 Zenodo 恢复的方法级产物。
+  - 修正 `data/raw/` 说明：原始数据库需按来源单独下载，并非全部由 Zenodo 分发。
+  - 补全 GO 汇总表路径和 yeast 直接 KEGG pathway 表路径。
+  - 增加 `release/` 与 `logs/` 两个本地 gitignored 目录，并明确 `external_methods/` 仅公开跟踪 `METHOD_SOURCES.md`。
+  - 补全 species-level 和 method-level 快速索引中的 `reports/tables/` 前缀。
+- 重新生成方法学报告和独立导出表；源目录映射表与 `reports/report_tables/` 中的副本通过 `cmp` 一致性检查。
+- 恢复了报告重建产生但与本次目录修正无关的随机抖动图像变化，避免无意义的二进制差异。

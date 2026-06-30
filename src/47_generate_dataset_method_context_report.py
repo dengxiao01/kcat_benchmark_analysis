@@ -542,7 +542,7 @@ def make_project_directory_map() -> pd.DataFrame:
     rows = [
         {
             "category": "Benchmark construction",
-            "path": "src/01_parse_models.py to src/11_finalize_benchmark_data.py; configs/",
+            "path": "src/01_parse_models.py through src/11_finalize_benchmark_data.py; configs/",
             "directory_type": "code and rules",
             "contents": "GEM parsing, GPR/EC/substrate extraction, UniProt sequence retrieval, SMILES mapping, BRENDA/SABIO-RK truth matching, and final benchmark filtering.",
         },
@@ -550,7 +550,7 @@ def make_project_directory_map() -> pd.DataFrame:
             "category": "Raw source data",
             "path": "data/raw/",
             "directory_type": "large source/cache data",
-            "contents": "BRENDA, SABIO-RK, compound/CKB, UniProt FASTA, GO mappings, and method source assets. Large files are distributed through Zenodo rather than Git.",
+            "contents": "BRENDA, SABIO-RK, compound/CKB, UniProt FASTA, GO mappings, and query caches. Source databases are downloaded separately; this directory is not published in Git.",
         },
         {
             "category": "Intermediate curation",
@@ -562,7 +562,7 @@ def make_project_directory_map() -> pd.DataFrame:
             "category": "Unified benchmark and method outputs",
             "path": "data/final/",
             "directory_type": "final data products",
-            "contents": "Experimental truth, benchmark-ready tables, and per-method inputs, metadata, predictions, missing rows, structures, and evaluated rows.",
+            "contents": "Git tracks the three canonical benchmark CSVs. Per-method inputs, predictions, structures, and evaluated rows are local artifacts restored or rebuilt as needed.",
         },
         {
             "category": "Pipeline runners",
@@ -572,13 +572,13 @@ def make_project_directory_map() -> pd.DataFrame:
         },
         {
             "category": "GO analysis",
-            "path": "external_methods/GO-HKP/; data/raw/go_hkp/; data/final/go_hkp/",
+            "path": "external_methods/GO-HKP/; data/raw/go_hkp/; data/final/go_hkp/; reports/tables/go_hkp_*",
             "directory_type": "functional-assignment analysis",
             "contents": "GO hierarchy and GO-kcat resources, E. coli DeepGO-SE assignments, yeast UniProt GO mappings, GO-HKP evaluated rows, readiness, and species-level metrics.",
         },
         {
             "category": "KEGG/EC/pathway analysis",
-            "path": "src/47_generate_dataset_method_context_report.py; reports/tables/benchmark_dataset_kegg*",
+            "path": "src/47_generate_dataset_method_context_report.py; reports/tables/benchmark_dataset_kegg*; reports/tables/benchmark_dataset_direct_yeast_kegg_pathways.csv",
             "directory_type": "functional distribution analysis",
             "contents": "EC-to-module KEGG-like groups across species and direct yeast-GEM KEGG pathway annotations.",
         },
@@ -604,15 +604,39 @@ def make_project_directory_map() -> pd.DataFrame:
             "category": "Reports and publication tables",
             "path": "reports/; reports/report_tables/; docs/",
             "directory_type": "human-readable and manuscript material",
-            "contents": "Main analysis report, dataset/method context report, figures, standalone report tables, work log, and manuscript assets.",
+            "contents": "Main analysis report, dataset/method context report, figures, standalone report tables, and the chronological work log.",
         },
         {
             "category": "Third-party methods and model assets",
             "path": "external_methods/",
             "directory_type": "third-party code and large assets",
-            "contents": "Published method source code, checkpoints, model bundles, dependency snapshots, and caches. Only lightweight reproducibility code belongs in Git; large assets belong in Zenodo.",
+            "contents": "Only METHOD_SOURCES.md is tracked in Git. Third-party source trees come from upstream repositories; selected task weights and data bundles are restored from Zenodo.",
+        },
+        {
+            "category": "Release staging and logs",
+            "path": "release/; logs/",
+            "directory_type": "generated local artifacts",
+            "contents": "Zenodo upload staging, publication state, scheduler stdout/stderr, and run logs. Both directories are excluded from Git.",
         },
     ]
+    publication_status = {
+        "Benchmark construction": "GitHub",
+        "Raw source data": "Local only; gitignored and downloaded from source databases",
+        "Intermediate curation": "Local only; gitignored and rebuildable",
+        "Unified benchmark and method outputs": "Mixed; three core CSVs on GitHub, method artifacts local/Zenodo",
+        "Pipeline runners": "GitHub",
+        "GO analysis": "Mixed; summary tables on GitHub, source assets local",
+        "KEGG/EC/pathway analysis": "GitHub outputs with local source assets",
+        "MAE and error analyses": "GitHub summary tables and figures",
+        "Species-level analysis": "GitHub summary tables and figures",
+        "Method-level analysis": "Mixed; summaries on GitHub, row-level artifacts local/Zenodo",
+        "Reports and publication tables": "GitHub",
+        "Third-party methods and model assets": "Mixed; manifest on GitHub, assets from upstream/Zenodo",
+        "Release staging and logs": "Local only; gitignored",
+    }
+    for row in rows:
+        row["publication_status"] = publication_status[row["category"]]
+
     return write_csv(pd.DataFrame(rows), TABLE_DIR / "project_directory_analysis_map.csv")
 
 
@@ -1163,7 +1187,7 @@ def make_report(
         "",
         "## 7. 项目目录结构与分析类型",
         "",
-        "下面按“目录承担什么工作”整理当前公开项目结构。统一 benchmark 位于 `data/final/`，方法级结果位于 `data/final/<method>/`，汇总表和图位于 `reports/`，可执行入口统一放在 `scripts/runners/`。",
+        "下面按“目录承担什么工作”整理项目结构。`publication_status` 用来区分 GitHub 已公开内容、本地 gitignored 运行目录，以及需要从 Zenodo 或上游来源恢复的资产。GitHub 中的 `data/final/` 只跟踪三张核心 benchmark CSV，`data/final/<method>/` 属于本地方法级产物。",
         "",
         markdown_table(directory_map, max_rows=30),
         "",
@@ -1171,10 +1195,10 @@ def make_report(
         "",
         "- 数据准备、方法输入、预测和 Slurm 队列入口：`scripts/runners/`。",
         "- GO 分析：`external_methods/GO-HKP/`、`data/raw/go_hkp/`、`data/final/go_hkp/`、`reports/tables/go_hkp_*`。",
-        "- KEGG/EC/通路分析：`reports/tables/benchmark_dataset_kegg_like_*`、`benchmark_dataset_direct_yeast_kegg_pathways.csv`。",
+        "- KEGG/EC/通路分析：`reports/tables/benchmark_dataset_kegg_like_*`、`reports/tables/benchmark_dataset_direct_yeast_kegg_pathways.csv`。",
         "- MAE/RMSE/bias/within-fold 分析：`reports/tables/*_eval_metrics.csv` 和 `reports/figures/kcat_benchmark_summary/`。",
-        "- Species-level 分析：`species_mae_matrix.csv`、`benchmark_dataset_*_by_species.csv` 和 species heatmap。",
-        "- Method-level 分析：`method_eval_summary*.csv`、`method_rank*.csv`、`method_technical_comparison.csv`。",
+        "- Species-level 分析：`reports/tables/species_mae_matrix.csv`、`reports/tables/benchmark_dataset_*_by_species.csv` 和 species heatmap。",
+        "- Method-level 分析：`reports/tables/method_eval_summary*.csv`、`reports/tables/method_rank*.csv`、`reports/tables/method_technical_comparison.csv`。",
         "- 写文章用独立表格：`reports/report_tables/`，其中 `manifest.csv` 记录每张表的来源。",
         "",
         "## 8. 不同预测方法的技术原理与比较维度",
