@@ -29,7 +29,6 @@ MAIN_REPORT_COPIES = [
 METHOD_METRIC_COPIES = [
     "dlkcat_official_eval_metrics.csv",
     "unikp_official_eval_metrics.csv",
-    "mtlkp_eval_metrics.csv",
     "turnup_eval_metrics.csv",
     "catpred_eval_metrics.csv",
     "catapro_eval_metrics.csv",
@@ -113,7 +112,7 @@ def main_group_definitions() -> pd.DataFrame:
             {
                 "group": "Broad sequence+SMILES",
                 "criterion": "Enzyme sequence plus single-substrate SMILES; nearly full 978-row coverage except invalid SMILES.",
-                "methods": "DLKcat-official, UniKP-official, MTLKP-official, CataPro, KcatNet, PreTKcat, SELFprot",
+                "methods": "DLKcat-official, UniKP-official, CataPro, KcatNet, PreTKcat, SELFprot",
             },
             {
                 "group": "Reaction-aware subset",

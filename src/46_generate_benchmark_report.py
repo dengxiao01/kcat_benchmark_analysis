@@ -46,16 +46,6 @@ METHOD_META = {
         "row_file": BASE / "data/final/unikp/unikp_kcat_predictions_evaluated.csv",
         "metric_file": TABLE_DIR / "unikp_official_eval_metrics.csv",
     },
-    "MTLKP-official": {
-        "scope": "Broad sequence+SMILES",
-        "group_cn": "全量/近全量 sequence+SMILES",
-        "group_note": "输入为酶序列和单底物 SMILES；除无效 SMILES 外基本覆盖整个 benchmark。",
-        "role": "current",
-        "modality": "sequence + substrate SMILES",
-        "coverage_note": "覆盖 977/978，缺 1 条非法 SMILES。",
-        "row_file": BASE / "data/final/mtlkp/mtlkp_kcat_predictions_evaluated.csv",
-        "metric_file": TABLE_DIR / "mtlkp_eval_metrics.csv",
-    },
     "TurNuP-official": {
         "scope": "Reaction-aware subset",
         "group_cn": "reaction-aware 子集",
@@ -161,7 +151,6 @@ METHOD_META = {
 CURRENT_METHODS = [
     "DLKcat-official",
     "UniKP-official",
-    "MTLKP-official",
     "TurNuP-official",
     "CatPred",
     "CataPro",
@@ -177,7 +166,6 @@ CURRENT_METHODS = [
 MAIN_SCATTER_METHODS = [
     "KcatNet",
     "CataPro",
-    "MTLKP-official",
     "TurNuP-official",
     "PMAK",
     "CatPred",
@@ -319,7 +307,6 @@ def plot_coverage_vs_mae(summary: pd.DataFrame) -> Path:
         "SELFprot": (8, -9),
         "UniKP-official": (8, 0),
         "PreTKcat": (8, 8),
-        "MTLKP-official": (8, -9),
         "CataPro": (8, 5),
         "KcatNet": (8, -7),
         "CatPred": (8, 5),
@@ -596,7 +583,7 @@ def write_report(
             {
                 "分组": "全量/近全量 sequence+SMILES",
                 "判定标准": "输入主要是酶序列和单底物 SMILES，除 1 条非法 SMILES 外基本能覆盖 978 条 benchmark。",
-                "方法": "DLKcat-official, UniKP-official, MTLKP-official, CataPro, KcatNet, PreTKcat, SELFprot",
+                "方法": "DLKcat-official, UniKP-official, CataPro, KcatNet, PreTKcat, SELFprot",
             },
             {
                 "分组": "reaction-aware 子集",
@@ -650,7 +637,7 @@ def write_report(
 
 - 真值集合：`data/final/benchmark_ready_catpred.csv`，共 978 条实验 kcat 记录。
 - 统一指标：MAE、RMSE、Pearson、Spearman、bias，以及误差在 10 倍以内的比例，全部在 log10(kcat) 尺度上计算。
-- 当前正式评测方法：`DLKcat-official`、`UniKP-official`、`MTLKP-official`、`TurNuP-official`、`CatPred`、`CataPro`、`PMAK`、`KinForm`、`KcatNet`、`PreTKcat`、`DEKP-public-retrained`、`SELFprot`、`GO-HKP`。
+- 当前正式评测方法：`DLKcat-official`、`UniKP-official`、`TurNuP-official`、`CatPred`、`CataPro`、`PMAK`、`KinForm`、`KcatNet`、`PreTKcat`、`DEKP-public-retrained`、`SELFprot`、`GO-HKP`。
 - 其中 `GO-HKP` 是功能相似性直接赋值基线，不是 AI 回归模型；它用 GO 层级把功能相近的酶/反应归到可参考的 kcat 统计值上，用来回答“直接赋值是否已经足够强”这个问题。本项目中 E. coli 用 GO-HKP 已有 DeepGO-SE 结果，yeast 用 UniProt GO 注释补齐。
 
 ## 分组定义与方法归属
@@ -691,7 +678,7 @@ Pearson 看线性相关，Spearman 更看排序是否一致。`KinForm` 的 Spea
 
 ![Within10 and bias]({fig_link(fig_paths['within10_bias'])})
 
-左图是预测落在实验值 10 倍范围内的比例，越高越好；右图是 bias，负值表示整体偏低估，正值表示整体偏高估。`KcatNet` 的 10 倍内比例最高，`PMAK` 和 `TurNuP-official` 也较高。`DLKcat-official`、`UniKP-official`、`MTLKP-official`、`PreTKcat`、`DEKP-public-retrained` 整体有不同程度的低估趋势；`GO-HKP` 则明显偏高估。
+左图是预测落在实验值 10 倍范围内的比例，越高越好；右图是 bias，负值表示整体偏低估，正值表示整体偏高估。`KcatNet` 的 10 倍内比例最高，`PMAK` 和 `TurNuP-official` 也较高。`DLKcat-official`、`UniKP-official`、`PreTKcat`、`DEKP-public-retrained` 整体有不同程度的低估趋势；`GO-HKP` 则明显偏高估。
 
 ### 5. 单条记录误差分布
 

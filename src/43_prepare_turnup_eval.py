@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Prepare unified benchmark inputs for MTLKP and TurNuP."""
+"""Prepare unified benchmark inputs for TurNuP."""
 
 from __future__ import annotations
 
@@ -12,60 +12,8 @@ BASE = Path(__file__).resolve().parent.parent
 BENCHMARK = BASE / "data" / "final" / "benchmark_ready_catpred.csv"
 PMAK_INPUT = BASE / "data" / "final" / "pmak" / "pmak_kcat_input.csv"
 PMAK_META = BASE / "data" / "final" / "pmak" / "pmak_kcat_input_metadata.csv"
-MTLKP_DIR = BASE / "data" / "final" / "mtlkp"
 TURNUP_DIR = BASE / "data" / "final" / "turnup"
 
-
-def mark_mtlkp_status(df: pd.DataFrame) -> pd.DataFrame:
-    out = df.copy()
-    out["mtlkp_prediction_status"] = "ready"
-    out["mtlkp_missing_reason"] = ""
-    smiles = out["SMILES"].fillna("").astype(str).str.strip()
-    sequence = out["sequence"].fillna("").astype(str).str.strip()
-    out.loc[sequence.eq(""), ["mtlkp_prediction_status", "mtlkp_missing_reason"]] = [
-        "missing",
-        "missing_sequence",
-    ]
-    out.loc[smiles.eq(""), ["mtlkp_prediction_status", "mtlkp_missing_reason"]] = [
-        "missing",
-        "missing_smiles",
-    ]
-    # The unified benchmark has one known non-SMILES PubChem-like numeric string.
-    out.loc[smiles.eq("192.167"), ["mtlkp_prediction_status", "mtlkp_missing_reason"]] = [
-        "missing",
-        "invalid_smiles_192.167",
-    ]
-    return out
-
-
-def prepare_mtlkp() -> None:
-    MTLKP_DIR.mkdir(parents=True, exist_ok=True)
-    bench = pd.read_csv(BENCHMARK)
-    all_meta = mark_mtlkp_status(bench)
-    ready = all_meta[all_meta["mtlkp_prediction_status"].eq("ready")].copy().reset_index(drop=True)
-    ready.insert(0, "mtlkp_row_id", range(len(ready)))
-
-    valid_meta = ready.copy()
-    all_meta = all_meta.merge(
-        valid_meta[["entry_id", "mtlkp_row_id"]],
-        on="entry_id",
-        how="left",
-    )
-
-    input_df = valid_meta[["mtlkp_row_id", "entry_id", "sequence", "SMILES"]].rename(
-        columns={"sequence": "Sequence", "SMILES": "Substrate_SMILES"}
-    )
-    truth = valid_meta[["mtlkp_row_id", "entry_id", "true_kcat", "true_kcat_log10"]].copy()
-
-    input_df.to_csv(MTLKP_DIR / "mtlkp_kcat_input.csv", index=False)
-    valid_meta.to_csv(MTLKP_DIR / "mtlkp_kcat_input_metadata.csv", index=False)
-    all_meta.to_csv(MTLKP_DIR / "mtlkp_kcat_all_metadata.csv", index=False)
-    truth.to_csv(MTLKP_DIR / "mtlkp_kcat_input_truth.csv", index=False)
-
-    missing = all_meta[~all_meta["mtlkp_prediction_status"].eq("ready")].copy()
-    missing.to_csv(MTLKP_DIR / "mtlkp_invalid_or_unpredicted_rows.csv", index=False)
-    print(f"MTLKP ready rows: {len(input_df)}")
-    print(f"MTLKP missing rows: {len(missing)}")
 
 
 def smiles_side_to_turnup(value: object) -> str:
@@ -149,7 +97,6 @@ def prepare_turnup() -> None:
 
 
 def main() -> None:
-    prepare_mtlkp()
     prepare_turnup()
 
 

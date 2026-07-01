@@ -1,7 +1,6 @@
 method,group_cn,scope,role,modality,n,coverage_percent,coverage_note,group_note
 DLKcat-official,全量/近全量 sequence+SMILES,Broad sequence+SMILES,current,sequence + substrate SMILES,977,99.89775051124744,覆盖 977/978，缺 1 条非法 SMILES。,输入为酶序列和单底物 SMILES；除无效 SMILES 外基本覆盖整个 benchmark。
 UniKP-official,全量/近全量 sequence+SMILES,Broad sequence+SMILES,current,sequence + substrate SMILES,977,99.89775051124744,覆盖 977/978，缺 1 条非法 SMILES。,输入为酶序列和单底物 SMILES；除无效 SMILES 外基本覆盖整个 benchmark。
-MTLKP-official,全量/近全量 sequence+SMILES,Broad sequence+SMILES,current,sequence + substrate SMILES,977,99.89775051124744,覆盖 977/978，缺 1 条非法 SMILES。,输入为酶序列和单底物 SMILES；除无效 SMILES 外基本覆盖整个 benchmark。
 TurNuP-official,reaction-aware 子集,Reaction-aware subset,current,reaction + enzyme,780,79.75460122699386,覆盖 780/978；缺失来自未补齐完整 reaction SMILES 的记录。,输入需要完整反应信息，即底物侧 SMILES、产物侧 SMILES 和酶序列。
 CatPred,模型特定子集,Model-specific subset,current,sequence + substrate SMILES,913,93.35378323108384,覆盖 913/978；缺失来自 CatPred 官方流程可处理范围。,方法输入或官方推理流程有额外限制，因此只在可被该模型有效处理的子集上评估。
 CataPro,全量/近全量 sequence+SMILES,Broad sequence+SMILES,current,sequence + substrate SMILES,977,99.89775051124744,覆盖 977/978，缺 1 条非法 SMILES。,输入为酶序列和单底物 SMILES；除无效 SMILES 外基本覆盖整个 benchmark。

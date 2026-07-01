@@ -16,13 +16,11 @@
 | SELFprot | <https://github.com/marltanwilson/SELFprot.git> | `880c2e8fd685ed0e8d574382439f7d7ca75cc9d0` | `external_methods/SELFprot` | `kcat_benchmark_other_model_assets.tar` | MIT |
 | UniKP | <https://github.com/Luo-SynBioLab/UniKP> | `5cee5c4a64ba2daf59c63a5b5cbaa0cadf97ef26` | `external_methods/AI_file/UniKP` | `kcat_benchmark_other_model_assets.tar` | check upstream repository |
 | TurNuP | <https://github.com/AlexanderKroll/kcat_prediction> | source archive supplied locally | `external_methods/AI_file/turnup/kcat_prediction_function-main/kcat_prediction_function-main` | `kcat_benchmark_turnup_kcat_assets.tar` | check upstream repository and ESM licenses |
-| MTLKP | no public source URL was recorded in the supplied local bundle | local supplied revision | `external_methods/ecm_benchmark_end/etgems_web/script/mtlkp` | `kcat_benchmark_mtlkp_kcat_assets.tar` | check paper/source and ProtT5/Uni-Mol terms |
 
 The Zenodo bundles intentionally exclude generic foundation checkpoints that are already distributed by their maintainers:
 
 | method | foundation model | official source | expected path |
 | --- | --- | --- | --- |
-| MTLKP | ProtT5-XL-UniRef50 | <https://huggingface.co/Rostlab/prot_t5_xl_uniref50> | `external_methods/ecm_benchmark_end/etgems_web/script/mtlkp/model_weight/prot_t5_xl_uniref50` |
 | TurNuP | ESM-1b `esm1b_t33_650M_UR50S.pt` | <https://github.com/facebookresearch/esm> | `external_methods/AI_file/turnup/kcat_prediction_function-main/kcat_prediction_function-main/code/data/saved_models/ESM1b/esm1b_t33_650M_UR50S.pt` |
 
 Example:

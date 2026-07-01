@@ -1,8 +1,6 @@
 existing_methods:
   - id: DLKcat
     status: local_ecoli_outputs_available
-  - id: MTLKP
-    status: local_ecoli_outputs_available
   - id: TurNup
     status: local_ecoli_outputs_available
   - id: UniKP

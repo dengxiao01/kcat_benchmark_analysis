@@ -5,4 +5,4 @@ ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 PYTHON="${PYTHON:-python}"
 
 cd "$ROOT"
-"$PYTHON" src/43_prepare_mtlkp_turnup_eval.py
+"$PYTHON" src/43_prepare_turnup_eval.py

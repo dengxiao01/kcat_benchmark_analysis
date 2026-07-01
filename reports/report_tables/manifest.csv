@@ -13,7 +13,6 @@ kcat_benchmark_analysis_report,main_report/method_metrics/dlkcat_official_eval_m
 kcat_benchmark_analysis_report,main_report/method_metrics/go_hkp_eval_metrics.csv,reports/tables/go_hkp_eval_metrics.csv,Method-specific metric table used by the main report.,copied
 kcat_benchmark_analysis_report,main_report/method_metrics/kcatnet_eval_metrics.csv,reports/tables/kcatnet_eval_metrics.csv,Method-specific metric table used by the main report.,copied
 kcat_benchmark_analysis_report,main_report/method_metrics/kinform_eval_metrics.csv,reports/tables/kinform_eval_metrics.csv,Method-specific metric table used by the main report.,copied
-kcat_benchmark_analysis_report,main_report/method_metrics/mtlkp_eval_metrics.csv,reports/tables/mtlkp_eval_metrics.csv,Method-specific metric table used by the main report.,copied
 kcat_benchmark_analysis_report,main_report/method_metrics/pmak_eval_metrics.csv,reports/tables/pmak_eval_metrics.csv,Method-specific metric table used by the main report.,copied
 kcat_benchmark_analysis_report,main_report/method_metrics/pretkcat_eval_metrics.csv,reports/tables/pretkcat_eval_metrics.csv,Method-specific metric table used by the main report.,copied
 kcat_benchmark_analysis_report,main_report/method_metrics/selfprot_eval_metrics.csv,reports/tables/selfprot_eval_metrics.csv,Method-specific metric table used by the main report.,copied

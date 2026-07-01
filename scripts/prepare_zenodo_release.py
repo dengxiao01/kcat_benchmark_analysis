@@ -17,7 +17,6 @@ PARTS_DIR = RELEASE_DIR / "parts"
 PUBLIC_MANIFEST = BASE / "zenodo_assets_manifest.csv"
 PART_SIZE = 128 * 1024 * 1024
 
-MTLKP_ROOT = BASE / "external_methods" / "ecm_benchmark_end" / "etgems_web" / "script" / "mtlkp"
 TURNUP_ROOT = (
     BASE
     / "external_methods"
@@ -38,6 +37,21 @@ SKIP_NAMES = {
 }
 NOTICE = BASE / "THIRD_PARTY_NOTICES.md"
 METHOD_SOURCES = BASE / "external_methods" / "METHOD_SOURCES.md"
+PUBLIC_METHOD_DIRS = {
+    "catapro",
+    "catpred",
+    "dekp",
+    "dlkcat",
+    "go_hkp",
+    "kcatnet",
+    "kinform",
+    "pmak",
+    "pretkcat",
+    "selfprot",
+    "turnup",
+    "unikp",
+}
+
 
 
 def parse_args() -> argparse.Namespace:
@@ -103,25 +117,16 @@ def core_result_paths() -> list[Path]:
         BASE / "LICENSE",
         NOTICE,
         METHOD_SOURCES,
-        BASE / "reports",
+        BASE / "reports" / "tables",
+        BASE / "reports" / "report_tables",
+        BASE / "reports" / "figures",
     ]
     for method_dir in sorted((BASE / "data" / "final").iterdir()):
-        if not method_dir.is_dir() or method_dir.name == "legacy_four_methods":
+        if not method_dir.is_dir() or method_dir.name not in PUBLIC_METHOD_DIRS:
             continue
         paths.extend(sorted(method_dir.rglob("*.csv")))
     return list(dict.fromkeys(paths))
 
-
-def mtlkp_paths() -> list[Path]:
-    weight = MTLKP_ROOT / "model_weight"
-    return [
-        weight / "MTLKP_kcat.pt",
-        weight / "Uni-Mol-Models",
-        weight / "mol_pre_all_h_220816.pt",
-        weight / "mol.dict.txt",
-        NOTICE,
-        METHOD_SOURCES,
-    ]
 
 
 def turnup_paths() -> list[Path]:
@@ -245,13 +250,11 @@ def main() -> None:
 
     core = RELEASE_DIR / "kcat_benchmark_core_data_and_results.tar.gz"
     catpred = RELEASE_DIR / "kcat_benchmark_catpred_kcat_assets.tar.gz"
-    mtlkp = RELEASE_DIR / "kcat_benchmark_mtlkp_kcat_assets.tar"
     turnup = RELEASE_DIR / "kcat_benchmark_turnup_kcat_assets.tar"
     other = RELEASE_DIR / "kcat_benchmark_other_model_assets.tar"
 
     build_archive(core, core_result_paths(), "w:gz", args.force)
     build_catpred_archive(catpred, args.force)
-    build_archive(mtlkp, mtlkp_paths(), "w", args.force)
     build_archive(turnup, turnup_paths(), "w", args.force)
     build_archive(other, other_model_paths(), "w", args.force)
 
@@ -287,14 +290,6 @@ def main() -> None:
             "place_file_then_extract",
             "external_methods/KinForm/results.tar.gz",
             "KinForm",
-        ),
-        (
-            mtlkp.name,
-            mtlkp,
-            "MTLKP kcat checkpoint and Uni-Mol assets; download ProtT5-XL from its official source.",
-            "extract_to_repo_root",
-            ".",
-            "MTLKP-official",
         ),
         (
             turnup.name,

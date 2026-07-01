@@ -12,7 +12,6 @@ BASE = Path(__file__).resolve().parent.parent
 METHOD_METRICS = {
     "DLKcat-official": BASE / "reports" / "tables" / "dlkcat_official_eval_metrics.csv",
     "UniKP-official": BASE / "reports" / "tables" / "unikp_official_eval_metrics.csv",
-    "MTLKP-official": BASE / "reports" / "tables" / "mtlkp_eval_metrics.csv",
     "TurNuP-official": BASE / "reports" / "tables" / "turnup_eval_metrics.csv",
     "CatPred": BASE / "reports" / "tables" / "catpred_eval_metrics.csv",
     "CataPro": BASE / "reports" / "tables" / "catapro_eval_metrics.csv",

@@ -193,16 +193,6 @@ METHOD_TECHNICAL_ROWS = [
         "main_caveat": "依赖预计算特征和模型版本；不显式看产物侧。",
     },
     {
-        "method": "MTLKP-official",
-        "technical_principle_cn": "用 ProtT5 提取蛋白特征、UniMol 提取分子原子级特征，再用注意力/多任务结构预测 Kcat/Km。",
-        "plain_language_cn": "把蛋白和底物都变成高维向量，并让模型学习哪些残基和哪些原子更相关。",
-        "input_needed": "enzyme sequence + substrate SMILES",
-        "representation": "ProtT5 + UniMol atomic representations",
-        "model_family": "deep multitask network, BAN/MMoE-style fusion",
-        "benchmark_dimension": "全量/近全量 sequence+SMILES",
-        "main_caveat": "官方权重直接推理；仍是单底物视角。",
-    },
-    {
         "method": "TurNuP-official",
         "technical_principle_cn": "用反应物和产物生成 reaction difference fingerprint，再拼接 ESM1b 蛋白向量，用 XGBoost 预测 kcat。",
         "plain_language_cn": "不仅看底物，还看反应前后分子怎么变，再结合酶序列预测速度。",

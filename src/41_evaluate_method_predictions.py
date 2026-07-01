@@ -137,7 +137,6 @@ def reason_for_missing(row: pd.Series) -> str:
         "legacy_missing_reason",
         "unikp_sequence_feature_status",
         "kinform_unavailable_reason",
-        "mtlkp_missing_reason",
         "turnup_missing_reason",
         "go_hkp_missing_reason",
     ]:
