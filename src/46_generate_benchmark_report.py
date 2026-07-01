@@ -186,6 +186,10 @@ SCOPE_COLORS = {
 def method_color(method: str) -> str:
     return SCOPE_COLORS[METHOD_META[method]["scope"]]
 
+def method_display_name(method: str) -> str:
+    return method[:-9] if method.endswith("-official") else method
+
+
 
 def load_summary() -> pd.DataFrame:
     summary = pd.read_csv(TABLE_DIR / "method_eval_summary.csv")
@@ -270,7 +274,7 @@ def plot_overall_error(summary: pd.DataFrame) -> Path:
     ax.barh(y - height / 2, current["mae_log10"], height, color=colors, alpha=0.95, label="MAE")
     ax.barh(y + height / 2, current["rmse_log10"], height, color=colors, alpha=0.45, label="RMSE")
     ax.set_yticks(y)
-    ax.set_yticklabels(current["method"])
+    ax.set_yticklabels(current["method"].map(method_display_name))
     ax.invert_yaxis()
     ax.set_xlabel("Error on log10(kcat)")
     ax.set_title("Overall Error, Current Benchmark Methods")
@@ -289,7 +293,7 @@ def plot_correlation(summary: pd.DataFrame) -> Path:
     ax.bar(x - width / 2, current["pearson_log10"], width, color=colors, alpha=0.95, label="Pearson")
     ax.bar(x + width / 2, current["spearman_log10"], width, color=colors, alpha=0.45, label="Spearman")
     ax.set_xticks(x)
-    ax.set_xticklabels(current["method"], rotation=50, ha="right")
+    ax.set_xticklabels(current["method"].map(method_display_name), rotation=50, ha="right")
     ax.set_ylabel("Correlation on log10(kcat)")
     ax.set_title("Correlation, Current Benchmark Methods")
     ax.set_ylim(0, max(0.7, float(current[["pearson_log10", "spearman_log10"]].max().max()) + 0.05))
@@ -328,7 +332,7 @@ def plot_coverage_vs_mae(summary: pd.DataFrame) -> Path:
         for _, row in part.iterrows():
             offset = label_offsets.get(row["method"], (5, 3))
             ax.annotate(
-                row["method"],
+                method_display_name(row["method"]),
                 (row["coverage_percent"], row["mae_log10"]),
                 xytext=offset,
                 textcoords="offset points",
@@ -352,7 +356,7 @@ def plot_within10_bias(summary: pd.DataFrame) -> Path:
     colors = [method_color(m) for m in current["method"]]
     axes[0].barh(y, current["within_1.0_log10_fraction"], color=colors, alpha=0.9)
     axes[0].set_yticks(y)
-    axes[0].set_yticklabels(current["method"])
+    axes[0].set_yticklabels(current["method"].map(method_display_name))
     axes[0].set_xlabel("Fraction within 10-fold error")
     axes[0].set_xlim(0, 1)
     axes[0].grid(axis="x", alpha=0.25)
@@ -406,7 +410,7 @@ def plot_error_distribution(rows: pd.DataFrame, summary: pd.DataFrame) -> Path:
     ax.set_xlabel("")
     ax.set_ylabel("Absolute error on log10(kcat)")
     ax.set_title("Per-row Error Distribution")
-    ax.tick_params(axis="x", rotation=50)
+    ax.set_xticklabels([method_display_name(method) for method in order], rotation=50, ha="right")
     ax.grid(axis="y", alpha=0.25)
     ax.legend(loc="upper right")
     return FIGURE_DIR / "error_distribution_boxplot.png"
@@ -428,6 +432,7 @@ def plot_species_heatmap() -> Path:
         cbar_kws={"label": "MAE log10"},
         ax=ax,
     )
+    ax.set_yticklabels([method_display_name(method) for method in pivot.index], rotation=0)
     ax.set_xlabel("Species")
     ax.set_ylabel("")
     ax.set_title("Species-level MAE")
@@ -450,6 +455,7 @@ def plot_source_heatmap() -> Path:
         cbar_kws={"label": "MAE log10"},
         ax=ax,
     )
+    ax.set_yticklabels([method_display_name(method) for method in pivot.index], rotation=0)
     ax.set_xlabel("Source database")
     ax.set_ylabel("")
     ax.set_title("Source-database-level MAE")
@@ -490,7 +496,7 @@ def plot_scatter_selected(rows: pd.DataFrame, summary: pd.DataFrame) -> Path:
         ax.plot(x, x + 1, color="#777777", linewidth=0.7, linestyle=":")
         ax.plot(x, x - 1, color="#777777", linewidth=0.7, linestyle=":")
         row = metric_lookup.loc[method]
-        ax.set_title(f"{method}\nn={int(row['n'])}, MAE={row['mae_log10']:.3f}", fontsize=10)
+        ax.set_title(f"{method_display_name(method)}\nn={int(row['n'])}, MAE={row['mae_log10']:.3f}", fontsize=10)
         ax.grid(alpha=0.2)
         ax.set_xlim(vmin, vmax)
         ax.set_ylim(vmin, vmax)

@@ -918,6 +918,7 @@ def make_figures(
     savefig(FIG_DIR / "top_reactions.png")
 
     mt = method_tech.copy()
+    mt["method_display"] = mt["method"].str.replace(r"-official$", "", regex=True)
     mt["group_cn"] = pd.Categorical(mt["group_cn"], METHOD_SCOPE_ORDER, ordered=True)
     mt = mt.sort_values(["group_cn", "coverage_percent", "method"], ascending=[True, False, True])
     scope_label_en = {
@@ -936,7 +937,7 @@ def make_figures(
         "GO functional assignment": "#72B7B2",
     }
     plt.figure(figsize=(9.2, 5.8))
-    sns.barplot(data=mt, y="method", x="coverage_percent", hue="scope_plot", dodge=False, palette=palette)
+    sns.barplot(data=mt, y="method_display", x="coverage_percent", hue="scope_plot", dodge=False, palette=palette)
     plt.xlabel("Coverage of 978-row benchmark (%)")
     plt.ylabel("Method")
     plt.title("Method coverage by comparison scope")
