@@ -1,70 +1,70 @@
 species,kegg_pathway_id,kegg_pathway_name,rows,unique_reactions,percent_of_benchmark
-yeast,sce01110,Biosynthesis of secondary metabolites,275,96,28.118609406952967
-yeast,sce01130,Biosynthesis of antibiotics,274,82,28.016359918200408
-yeast,sce00010,Glycolysis / Gluconeogenesis,198,44,20.245398773006134
-yeast,sce00350,Tyrosine metabolism,127,26,12.985685071574641
-yeast,sce00071,Fatty acid degradation,127,25,12.985685071574641
-yeast,sce01200,Carbon metabolism,97,26,9.918200408997954
-yeast,sce01230,Biosynthesis of amino acids,87,37,8.895705521472392
-yeast,sce04070,,46,38,4.703476482617587
-yeast,sce00620,Pyruvate metabolism,37,13,3.783231083844581
-yeast,sce01210,2-Oxocarboxylic acid metabolism,37,14,3.783231083844581
-yeast,sce00562,Inositol phosphate metabolism,33,25,3.374233128834356
-yeast,sce00561,Glycerolipid metabolism,28,6,2.8629856850715747
-yeast,sce00040,Pentose and glucuronate interconversions,26,6,2.658486707566462
-yeast,sce00520,Amino sugar and nucleotide sugar metabolism,25,9,2.556237218813906
-yeast,sce00300,Lysine biosynthesis,25,9,2.556237218813906
-yeast,sce00052,Galactose metabolism,21,7,2.147239263803681
-yeast,sce00270,Cysteine and methionine metabolism,21,12,2.147239263803681
-yeast,sce00970,,21,16,2.147239263803681
-yeast,sce00260,"Glycine, serine and threonine metabolism",19,11,1.9427402862985685
-yeast,sce00051,Fructose and mannose metabolism,19,6,1.9427402862985685
-yeast,sce00020,Citrate cycle (TCA cycle),18,5,1.8404907975460123
-yeast,sce00500,Starch and sucrose metabolism,18,5,1.8404907975460123
-yeast,sce04011,,16,8,1.6359918200408998
-yeast,sce00760,,16,10,1.6359918200408998
-yeast,sce00230,Purine metabolism,16,11,1.6359918200408998
-yeast,sce00564,,16,16,1.6359918200408998
-yeast,sce00030,Pentose phosphate pathway,12,5,1.2269938650306749
-yeast,sce00380,Tryptophan metabolism,11,6,1.1247443762781186
-yeast,sce00630,Glyoxylate and dicarboxylate metabolism,11,4,1.1247443762781186
-yeast,sce00240,Pyrimidine metabolism,10,9,1.0224948875255624
-yeast,sce00400,"Phenylalanine, tyrosine and tryptophan biosynthesis",10,7,1.0224948875255624
-yeast,sce00330,Arginine and proline metabolism,10,7,1.0224948875255624
-yeast,sce00250,"Alanine, aspartate and glutamate metabolism",9,6,0.9202453987730062
-yeast,sce00410,,8,5,0.8179959100204499
-yeast,sce00220,Arginine biosynthesis,7,4,0.7157464212678937
-yeast,sce00450,Selenocompound metabolism,7,5,0.7157464212678937
-yeast,sce00360,Phenylalanine metabolism,6,4,0.6134969325153374
-yeast,sce00480,Glutathione metabolism,5,2,0.5112474437627812
-yeast,sce00310,Lysine degradation,5,2,0.5112474437627812
-yeast,sce00340,Histidine metabolism,5,2,0.5112474437627812
-yeast,sce00130,Ubiquinone and other terpenoid-quinone biosynthesis,5,3,0.5112474437627812
-yeast,sce00280,"Valine, leucine and isoleucine degradation",5,2,0.5112474437627812
-yeast,sce03018,,5,1,0.5112474437627812
-yeast,sce00900,Terpenoid backbone biosynthesis,4,3,0.40899795501022496
-yeast,sce01212,Fatty acid metabolism,4,4,0.40899795501022496
-yeast,sce00061,Fatty acid biosynthesis,4,4,0.40899795501022496
-yeast,sce00100,Steroid biosynthesis,3,2,0.3067484662576687
-yeast,sce00290,"Valine, leucine and isoleucine biosynthesis",3,2,0.3067484662576687
-yeast,sce01040,Biosynthesis of unsaturated fatty acids,3,3,0.3067484662576687
-yeast,sce00780,Biotin metabolism,3,3,0.3067484662576687
-yeast,Pyruvate metabolism,,2,1,0.20449897750511248
-yeast,sce00910,,2,1,0.20449897750511248
-yeast,sce00190,,2,2,0.20449897750511248
-yeast,sce00750,,2,2,0.20449897750511248
-yeast,sce00670,,2,2,0.20449897750511248
-yeast,sce00790,Folate biosynthesis,2,2,0.20449897750511248
-yeast,sce00261,,2,1,0.20449897750511248
-yeast,sce00860,,2,2,0.20449897750511248
-yeast,Pyrimidine metabolism,,1,1,0.10224948875255624
-yeast,sce00430,Taurine and hypotaurine metabolism,1,1,0.10224948875255624
-yeast,sce00440,,1,1,0.10224948875255624
-yeast,sce00510,,1,1,0.10224948875255624
-yeast,sce00791,,1,1,0.10224948875255624
-yeast,sce00640,Propanoate metabolism,1,1,0.10224948875255624
-yeast,sce00650,Butanoate metabolism,1,1,0.10224948875255624
-yeast,sce00909,,1,1,0.10224948875255624
-yeast,sce00920,Sulfur metabolism,1,1,0.10224948875255624
-yeast,sce04146,,1,1,0.10224948875255624
-yeast,sce04213,,1,1,0.10224948875255624
+yeast,sce01110,Biosynthesis of secondary metabolites,275,96,22.070626003210272
+yeast,sce01130,Biosynthesis of antibiotics,274,82,21.990369181380416
+yeast,sce00010,Glycolysis / Gluconeogenesis,198,44,15.890850722311397
+yeast,sce00350,Tyrosine metabolism,127,26,10.192616372391653
+yeast,sce00071,Fatty acid degradation,127,25,10.192616372391653
+yeast,sce01200,Carbon metabolism,97,26,7.784911717495987
+yeast,sce01230,Biosynthesis of amino acids,87,37,6.982343499197432
+yeast,sce04070,,46,38,3.691813804173355
+yeast,sce00620,Pyruvate metabolism,37,13,2.969502407704655
+yeast,sce01210,2-Oxocarboxylic acid metabolism,37,14,2.969502407704655
+yeast,sce00562,Inositol phosphate metabolism,33,25,2.648475120385233
+yeast,sce00561,Glycerolipid metabolism,28,6,2.247191011235955
+yeast,sce00040,Pentose and glucuronate interconversions,26,6,2.086677367576244
+yeast,sce00520,Amino sugar and nucleotide sugar metabolism,25,9,2.0064205457463884
+yeast,sce00300,Lysine biosynthesis,25,9,2.0064205457463884
+yeast,sce00052,Galactose metabolism,21,7,1.6853932584269662
+yeast,sce00270,Cysteine and methionine metabolism,21,12,1.6853932584269662
+yeast,sce00970,,21,16,1.6853932584269662
+yeast,sce00260,"Glycine, serine and threonine metabolism",19,11,1.5248796147672552
+yeast,sce00051,Fructose and mannose metabolism,19,6,1.5248796147672552
+yeast,sce00020,Citrate cycle (TCA cycle),18,5,1.4446227929373996
+yeast,sce00500,Starch and sucrose metabolism,18,5,1.4446227929373996
+yeast,sce04011,,16,8,1.2841091492776886
+yeast,sce00760,,16,10,1.2841091492776886
+yeast,sce00230,Purine metabolism,16,11,1.2841091492776886
+yeast,sce00564,,16,16,1.2841091492776886
+yeast,sce00030,Pentose phosphate pathway,12,5,0.9630818619582665
+yeast,sce00380,Tryptophan metabolism,11,6,0.8828250401284109
+yeast,sce00630,Glyoxylate and dicarboxylate metabolism,11,4,0.8828250401284109
+yeast,sce00240,Pyrimidine metabolism,10,9,0.8025682182985554
+yeast,sce00400,"Phenylalanine, tyrosine and tryptophan biosynthesis",10,7,0.8025682182985554
+yeast,sce00330,Arginine and proline metabolism,10,7,0.8025682182985554
+yeast,sce00250,"Alanine, aspartate and glutamate metabolism",9,6,0.7223113964686998
+yeast,sce00410,,8,5,0.6420545746388443
+yeast,sce00220,Arginine biosynthesis,7,4,0.5617977528089888
+yeast,sce00450,Selenocompound metabolism,7,5,0.5617977528089888
+yeast,sce00360,Phenylalanine metabolism,6,4,0.48154093097913325
+yeast,sce00480,Glutathione metabolism,5,2,0.4012841091492777
+yeast,sce00310,Lysine degradation,5,2,0.4012841091492777
+yeast,sce00340,Histidine metabolism,5,2,0.4012841091492777
+yeast,sce00130,Ubiquinone and other terpenoid-quinone biosynthesis,5,3,0.4012841091492777
+yeast,sce00280,"Valine, leucine and isoleucine degradation",5,2,0.4012841091492777
+yeast,sce03018,,5,1,0.4012841091492777
+yeast,sce00900,Terpenoid backbone biosynthesis,4,3,0.32102728731942215
+yeast,sce01212,Fatty acid metabolism,4,4,0.32102728731942215
+yeast,sce00061,Fatty acid biosynthesis,4,4,0.32102728731942215
+yeast,sce00100,Steroid biosynthesis,3,2,0.24077046548956663
+yeast,sce00290,"Valine, leucine and isoleucine biosynthesis",3,2,0.24077046548956663
+yeast,sce01040,Biosynthesis of unsaturated fatty acids,3,3,0.24077046548956663
+yeast,sce00780,Biotin metabolism,3,3,0.24077046548956663
+yeast,Pyruvate metabolism,,2,1,0.16051364365971107
+yeast,sce00910,,2,1,0.16051364365971107
+yeast,sce00190,,2,2,0.16051364365971107
+yeast,sce00750,,2,2,0.16051364365971107
+yeast,sce00670,,2,2,0.16051364365971107
+yeast,sce00790,Folate biosynthesis,2,2,0.16051364365971107
+yeast,sce00261,,2,1,0.16051364365971107
+yeast,sce00860,,2,2,0.16051364365971107
+yeast,Pyrimidine metabolism,,1,1,0.08025682182985554
+yeast,sce00430,Taurine and hypotaurine metabolism,1,1,0.08025682182985554
+yeast,sce00440,,1,1,0.08025682182985554
+yeast,sce00510,,1,1,0.08025682182985554
+yeast,sce00791,,1,1,0.08025682182985554
+yeast,sce00640,Propanoate metabolism,1,1,0.08025682182985554
+yeast,sce00650,Butanoate metabolism,1,1,0.08025682182985554
+yeast,sce00909,,1,1,0.08025682182985554
+yeast,sce00920,Sulfur metabolism,1,1,0.08025682182985554
+yeast,sce04146,,1,1,0.08025682182985554
+yeast,sce04213,,1,1,0.08025682182985554

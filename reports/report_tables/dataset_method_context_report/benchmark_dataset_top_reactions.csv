@@ -1,676 +1,774 @@
 species,reaction_id,reaction_name,rows,unique_substrates,unique_genes,median_kcat,median_log10_kcat,percent_of_benchmark
-yeast,r_0534,hexokinase (D-glucose:ATP),10,2,5,10.2,1.0086,1.0224948875255624
-yeast,r_4652,"aldehyde dehydrogenase (1-propanol, NAD)",9,3,3,176.0,2.24551,0.9202453987730062
-yeast,r_4654,"aldehyde dehydrogenase (1-propanol, NADP)",9,3,3,69.5,1.84198,0.9202453987730062
-yeast,r_0168,"aldehyde dehydrogenase (2-methylbutanol, NADP)",9,3,3,71.1,1.85187,0.9202453987730062
-yeast,r_4661,"aldehyde dehydrogenase (methionol, NAD)",6,2,3,176.0,2.24551,0.6134969325153374
-yeast,r_0958,pyruvate carboxylase,6,3,2,60.0,1.77815,0.6134969325153374
-yeast,r_2115,"alcohol dehydrogenase, (acetaldehyde to ethanol)",6,3,2,176.0,2.24551,0.6134969325153374
-yeast,r_4672,"aldehyde dehydrogenase (tyrosol, NADP)",6,2,3,63.949999999999996,1.80311,0.6134969325153374
-yeast,r_0186,"aldehyde dehydrogenase (tryptophol, NAD)",6,2,3,176.0,2.24551,0.6134969325153374
-yeast,r_0543,homocitrate synthase,6,3,2,0.45,-0.346787,0.6134969325153374
-yeast,r_0166,"aldehyde dehydrogenase (2-methylbutanol, NAD)",6,2,3,176.0,2.24551,0.6134969325153374
-yeast,r_0182,"aldehyde dehydrogenase (isobutyl alcohol, NAD)",6,2,3,176.0,2.24551,0.6134969325153374
-yeast,r_0179,"aldehyde dehydrogenase (isoamyl alcohol, NAD)",6,2,3,176.0,2.24551,0.6134969325153374
-yeast,r_4670,"aldehyde dehydrogenase (tyrosol, NAD)",6,2,3,176.0,2.24551,0.6134969325153374
-yeast,r_0165,mitochondrial alcohol dehydrogenase,6,3,2,176.0,2.24551,0.6134969325153374
-yeast,r_0169,"aldehyde dehydrogenase (2-phenylethanol, NAD)",6,2,3,176.0,2.24551,0.6134969325153374
-yeast,r_4663,"aldehyde dehydrogenase (methionol, NADP)",6,2,3,63.949999999999996,1.80311,0.6134969325153374
-yeast,r_0181,"aldehyde dehydrogenase (isoamyl alcohol, NADP)",6,3,2,71.1,1.85187,0.6134969325153374
-yeast,r_0300,citrate synthase,6,3,2,11.1,1.045305,0.6134969325153374
-yeast,r_4653,"aldehyde dehydrogenase (1-propanol, NAD)",6,3,2,176.0,2.24551,0.6134969325153374
-yeast,r_1838,homocitrate synthase,6,3,2,0.45,-0.346787,0.6134969325153374
-yeast,r_0366,enolase,5,1,5,71.4,1.8537,0.5112474437627812
-yeast,r_0889,phosphogluconate dehydrogenase,4,2,2,28.15,1.44948,0.40899795501022496
-yeast,r_0995,seryl-tRNA synthetase,4,2,2,0.745,-0.152697405,0.40899795501022496
-yeast,r_1050,transketolase 2,4,2,2,30.1,1.47224,0.40899795501022496
-yeast,r_4662,"aldehyde dehydrogenase (methionol, NAD)",4,2,2,176.0,2.24551,0.40899795501022496
-yeast,r_0170,"aldehyde dehydrogenase (2-phenylethanol, NAD)",4,2,2,176.0,2.24551,0.40899795501022496
-yeast,r_0171,"aldehyde dehydrogenase (2-phenylethanol, NADP)",4,2,2,63.949999999999996,1.80311,0.40899795501022496
-yeast,r_0167,"aldehyde dehydrogenase (2-methylbutanol, NAD)",4,2,2,176.0,2.24551,0.40899795501022496
-yeast,r_0183,"aldehyde dehydrogenase (isobutyl alcohol, NAD)",4,2,2,176.0,2.24551,0.40899795501022496
-yeast,r_0962,pyruvate kinase,4,2,2,58.4,1.76641,0.40899795501022496
-yeast,r_0184,"aldehyde dehydrogenase (isobutyl alcohol, NADP)",4,2,2,63.949999999999996,1.80311,0.40899795501022496
-yeast,r_4671,"aldehyde dehydrogenase (tyrosol, NAD)",4,2,2,176.0,2.24551,0.40899795501022496
-yeast,r_0680,L-asparaginase,4,1,4,370.0,2.5682,0.40899795501022496
-yeast,r_0180,"aldehyde dehydrogenase (isoamyl alcohol, NAD)",4,2,2,176.0,2.24551,0.40899795501022496
-yeast,r_0187,"aldehyde dehydrogenase (tryptophol, NAD)",4,2,2,176.0,2.24551,0.40899795501022496
-yeast,r_0533,hexokinase (D-fructose:ATP),3,1,3,36.65,1.56407,0.3067484662576687
-yeast,r_0535,hexokinase (D-mannose:ATP),3,1,3,36.65,1.56407,0.3067484662576687
-yeast,r_0018,2-aminoadipate transaminase,3,1,3,12.8,1.10721,0.3067484662576687
-yeast,r_0062,3-methyl-2-oxobutanoate decarboxylase,3,1,3,19.0,1.27875,0.3067484662576687
-yeast,r_0766,NAD kinase,3,1,3,7.4,0.869232,0.3067484662576687
-yeast,r_0959,pyruvate decarboxylase,3,1,3,145.0,2.16137,0.3067484662576687
-yeast,r_0815,O-succinylhomoserine lyase (L-cysteine),3,1,3,0.15,-0.823909,0.3067484662576687
-yeast,r_0486,glyceraldehyde-3-phosphate dehydrogenase,3,1,3,16.35,1.21352,0.3067484662576687
-yeast,r_0173,"aldehyde dehydrogenase (acetaldehyde, NADP)",3,3,1,42.5,1.62839,0.3067484662576687
-yeast,r_0028,2-methylcitrate synthase,3,3,1,8.2,0.913814,0.3067484662576687
-yeast,r_0567,indole-3-pyruvate decarboxylase,3,1,3,5.4,0.732394,0.3067484662576687
-yeast,r_0772,NADH kinase mitochondrial,3,1,3,16.1,1.20683,0.3067484662576687
-yeast,r_0547,homoserine dehydrogenase (NADP),3,3,1,126.0,2.10037,0.3067484662576687
-yeast,r_0960,pyruvate decarboxylase (acetoin-forming),3,1,3,145.0,2.16137,0.3067484662576687
-yeast,r_4251,CTP:phosphatidate cytidyltransferase,2,2,1,8.92,0.950365,0.20449897750511248
-yeast,r_4157,ADP-ribose 1''-phosphate phosphatase (EC 3.1.3.84) (EC 3.2.2.-) ([Protein ADP-ribosylglutamate] hydrolase),2,1,2,0.028,-1.55284,0.20449897750511248
-yeast,r_4284,ATP:beta-D-glucose 6-phosphotransferase,2,2,1,19.0075,0.8496015,0.20449897750511248
-yeast,r_4285,ATP:alpha-D-glucose 6-phosphotransferase,2,2,1,21.2925,1.1687455,0.20449897750511248
-yeast,r_4312,S-adenosyl-L-methionine:carnosine N-methyltransferase,2,2,1,0.00933332,-2.02996,0.20449897750511248
-yeast,r_4755,(R)-2-hydroxyglutarate:pyruvate oxidoreductase,2,1,2,4.9,0.690196,0.20449897750511248
-yeast,r_4226,L-Alanine:2-oxoglutarate aminotransferase,2,2,1,179.0675,1.6656085,0.20449897750511248
-yeast,r_2826,"phosphatidylinositol 4-kinase (1-18:0, 2-18:1), cell envelope",2,1,2,2.77,0.44248,0.20449897750511248
-yeast,r_2827,"phosphatidylinositol 4-kinase (1-18:1, 2-18:1), cell envelope",2,1,2,2.77,0.44248,0.20449897750511248
-yeast,r_2825,"phosphatidylinositol 4-kinase (1-16:1, 2-18:1), cell envelope",2,1,2,2.77,0.44248,0.20449897750511248
-yeast,r_2824,"phosphatidylinositol 4-kinase (1-16:0, 2-18:1), cell envelope",2,1,2,2.77,0.44248,0.20449897750511248
-yeast,r_2822,"phosphatidylinositol 4-kinase (1-18:0, 2-16:1), cell envelope",2,1,2,2.77,0.44248,0.20449897750511248
-yeast,r_2823,"phosphatidylinositol 4-kinase (1-18:1, 2-16:1), cell envelope",2,1,2,2.77,0.44248,0.20449897750511248
-yeast,r_2820,"phosphatidylinositol 4-kinase (1-16:0, 2-16:1), cell envelope",2,1,2,2.77,0.44248,0.20449897750511248
-yeast,r_2821,"phosphatidylinositol 4-kinase (1-16:1, 2-16:1), cell envelope",2,1,2,2.77,0.44248,0.20449897750511248
-yeast,r_0884,phosphoenolpyruvate carboxykinase,2,2,1,35.33,1.5469,0.20449897750511248
-yeast,r_0892,phosphoglycerate kinase,2,2,1,133.35,2.0983,0.20449897750511248
-yeast,r_0893,phosphoglycerate mutase,2,1,2,520.0,2.715925,0.20449897750511248
-yeast,r_1094,xylulokinase,2,2,1,0.5700000000000001,-0.247425,0.20449897750511248
-ecoli,ADSS,Adenylosuccinate synthase,2,2,1,0.99,-0.00438696,0.20449897750511248
-ecoli,AHCYSNS,S-adenosylhomocysteine nucleosidase,2,2,1,1.225,0.0880456,0.20449897750511248
-yeast,r_1049,transketolase 1,2,1,2,25.0,1.39794,0.20449897750511248
-yeast,r_0986,S-adenosyl-methionine delta-24-sterol-c-methyltransferase,2,2,1,0.008,-2.09691,0.20449897750511248
-yeast,r_0330,deoxyguanylate kinase (dGMP:ATP),2,2,1,70.5,1.830905,0.20449897750511248
-yeast,r_0364,dUTP diphosphatase,2,1,2,9.6,0.982271,0.20449897750511248
-yeast,r_0373,farnesyltranstransferase,2,2,1,0.034,-1.4702199999999999,0.20449897750511248
-yeast,r_0443,formaldehyde dehydrogenase,2,2,1,88.64,1.1763599999999999,0.20449897750511248
-yeast,r_0674,L-alanine transaminase,2,2,1,179.0675,1.6656085,0.20449897750511248
-yeast,r_0546,homoserine dehydrogenase (NADH),2,2,1,126.0,2.10037,0.20449897750511248
-yeast,r_0540,histidyl-tRNA synthetase,2,2,1,40.0,1.60206,0.20449897750511248
-yeast,r_0539,histidyl-tRNA synthetase,2,2,1,40.0,1.60206,0.20449897750511248
-yeast,r_0770,"NADH dehydrogenase, cytosolic/mitochondrial",2,1,2,0.031,-1.50864,0.20449897750511248
-yeast,r_0177,"aldehyde dehydrogenase (indole-3-acetaldehyde, NADP)",2,2,1,42.5,1.62839,0.20449897750511248
-yeast,r_0215,aspartate kinase,2,2,1,5.55,0.744293,0.20449897750511248
-ecoli,CYANST_num3,Cyanide sulfurtransferase,2,2,1,147.0,2.083955,0.20449897750511248
-yeast,r_0471,glutamate dehydrogenase (NADP),2,1,2,13.0,1.11394,0.20449897750511248
-yeast,r_0458,galactokinase,2,2,1,47.425,1.669125,0.20449897750511248
-yeast,r_0477,glutamine-fructose-6-phosphate transaminase,2,2,1,35.5,1.55023,0.20449897750511248
-ecoli,ASNS1,Asparagine synthase (glutamine-hydrolysing),2,2,1,1.74,0.15561200000000003,0.20449897750511248
-ecoli,ASPTA_num2,Aspartate transaminase,2,2,1,67.825,1.7538099999999999,0.20449897750511248
-ecoli,ASPTA_num1,Aspartate transaminase,2,2,1,47.682500000000005,1.648715,0.20449897750511248
-yeast,r_0528,guanylate kinase,2,2,1,242.0,2.27487,0.20449897750511248
-yeast,r_0765,NAD kinase,2,1,2,7.4,0.869232,0.20449897750511248
-yeast,r_0697,lactoylglutathione lyase,2,2,1,1039.15,2.836095,0.20449897750511248
-ecoli,ANPRT,Anthranilate phosphoribosyltransferase,2,2,1,4.4,0.643453,0.20449897750511248
-yeast,r_0771,NADH kinase,2,1,2,16.1,1.20683,0.20449897750511248
-yeast,r_0760,N-acetylglucosamine-6-phosphate synthase,2,2,1,0.103667,-0.984359,0.20449897750511248
-yeast,r_0163,alcohol dehydrogenase (ethanol to acetaldehyde),2,2,1,258.9,2.38964,0.20449897750511248
-ecoli,CYANSTpp,Cyanide sulfurtransferase (periplasmic),2,2,1,64.0,1.80618,0.20449897750511248
-ecoli,CYSS_num2,Cysteine synthase,2,2,1,1420.0,3.15229,0.20449897750511248
-ecoli,CYSS_num1,Cysteine synthase,2,2,1,220.5,2.34341,0.20449897750511248
-ecoli,CYSTA,Cysteine transaminase,2,2,1,35.644999999999996,1.54769,0.20449897750511248
-ecoli,DDPA_num1,3-deoxy-D-arabino-heptulosonate 7-phosphate synthetase,2,2,1,71.0,1.85126,0.20449897750511248
-ecoli,DDPA_num3,3-deoxy-D-arabino-heptulosonate 7-phosphate synthetase,2,2,1,29.25,1.4642,0.20449897750511248
-ecoli,DDPA_num2,3-deoxy-D-arabino-heptulosonate 7-phosphate synthetase,2,2,1,29.25,1.4642,0.20449897750511248
-yeast,r_0309,cystathionine beta-synthase,2,2,1,16.375,1.213865,0.20449897750511248
-ecoli,CYANST_num2,Cyanide sulfurtransferase,2,2,1,147.0,2.083955,0.20449897750511248
-ecoli,CYANST_num1,Cyanide sulfurtransferase,2,2,1,147.0,2.083955,0.20449897750511248
-yeast,r_0202,anthranilate phosphoribosyltransferase,2,2,1,2.9,0.462398,0.20449897750511248
-yeast,r_0024,2-isopropylmalate synthase,2,1,2,10.535,1.02263,0.20449897750511248
-ecoli,DHFR_num2,Dihydrofolate reductase,2,2,1,17.237499999999997,1.2354850000000002,0.20449897750511248
-ecoli,DHFR_num1,Dihydrofolate reductase,2,2,1,13.525,1.127575,0.20449897750511248
-yeast,r_0115,acetylglutamate kinase,2,2,1,6.300000000000001,0.7883435000000001,0.20449897750511248
-ecoli,SEPHCHCS,2-succinyl-5-enolpyruvyl-6-hydroxy-3-cyclohexene-1-carboxylate synthase,2,2,1,0.166667,-0.77815,0.20449897750511248
-ecoli,FADRx,FAD reductase,2,2,1,109.0,2.03743,0.20449897750511248
-ecoli,DXPS,1-deoxy-D-xylulose 5-phosphate synthase,2,2,1,1.8,0.2074865,0.20449897750511248
-ecoli,PTAr_num2,Phosphotransacetylase,2,2,1,1.2775,0.09547404,0.20449897750511248
-ecoli,PTAr_num1,Phosphotransacetylase,2,2,1,1.2775,0.09547404,0.20449897750511248
-ecoli,PSERT,Phosphoserine transaminase,2,2,1,0.745,-0.15060196,0.20449897750511248
-ecoli,PSCVT,3-phosphoshikimate 1-carboxyvinyltransferase,2,2,1,30.6,1.485265,0.20449897750511248
-ecoli,XPPT,Xanthine phosphoribosyltransferase,2,2,1,131.0,2.112655,0.20449897750511248
-ecoli,UDCPDPS,Undecaprenyl diphosphate synthase,2,2,1,2.225,0.3439875,0.20449897750511248
-ecoli,UAGCVT,UDP-N-acetylglucosamine 1-carboxyvinyltransferase,2,2,1,4.75,0.676694,0.20449897750511248
-ecoli,TYRTA_num3,Tyrosine transaminase,2,2,1,36.525000000000006,1.5624799999999999,0.20449897750511248
-ecoli,TYRTA_num2,Tyrosine transaminase,2,2,1,36.525000000000006,1.5624799999999999,0.20449897750511248
-ecoli,TYRTA_num1,Tyrosine transaminase,2,2,1,30.65,1.48643,0.20449897750511248
-ecoli,TRE6PS,"Alpha,alpha-trehalose-phosphate synthase (UDP-forming)",2,2,1,5.2,0.7155009999999999,0.20449897750511248
-ecoli,TAUDO,Taurine dioxygenase,2,2,1,2.34,0.341501,0.20449897750511248
-ecoli,SHSL1,O-succinylhomoserine lyase (L-cysteine),2,2,1,91.1225,1.93493,0.20449897750511248
-ecoli,NTPP8_num1,Nucleoside triphosphate pyrophosphorylase (utp),2,2,1,47.9816665,0.9807482,0.20449897750511248
-ecoli,NTPP8_num2,Nucleoside triphosphate pyrophosphorylase (utp),2,2,1,47.9816665,0.9807482,0.20449897750511248
-ecoli,OCBT_num1,Ornithine carbamoyltransferase,2,2,1,2.58333,0.41218,0.20449897750511248
-ecoli,OCBT_num2,Ornithine carbamoyltransferase,2,2,1,0.0388889,-1.41017,0.20449897750511248
-ecoli,OHPBAT,O-Phospho-4-hydroxy-L-threonine:2-oxoglutarate aminotransferase,2,2,1,0.3125,-0.615866,0.20449897750511248
-ecoli,PANTS,Pantothenate synthase,2,2,1,1.4,0.146128,0.20449897750511248
-ecoli,PHETA1_num1,Phenylalanine transaminase,2,2,1,105.325,1.87085,0.20449897750511248
-ecoli,PHETA1_num2,Phenylalanine transaminase,2,2,1,108.675,1.91378,0.20449897750511248
-ecoli,PHETA1_num3,Phenylalanine transaminase,2,2,1,108.675,1.91378,0.20449897750511248
-ecoli,NTPP4_num2,Nucleoside triphosphate pyrophosphorylase (ctp),2,2,1,13.3816665,0.6976982,0.20449897750511248
-ecoli,GF6PTA,Glutamine-fructose-6-phosphate transaminase,2,2,1,16.674999999999997,1.222005,0.20449897750511248
-ecoli,NTPP4_num1,Nucleoside triphosphate pyrophosphorylase (ctp),2,2,1,25.8,1.41162,0.20449897750511248
-ecoli,NTD7pp_num2,5'-nucleotidase (AMP),2,2,1,540.75,2.6977700000000002,0.20449897750511248
-ecoli,NTD7pp_num1,5'-nucleotidase (AMP),2,2,1,195.475,1.6384180000000002,0.20449897750511248
-ecoli,NTD7_num4,5'-nucleotidase (AMP),2,2,1,195.475,1.6384180000000002,0.20449897750511248
-ecoli,NTD7pp_num3,5'-nucleotidase (AMP),2,2,1,195.475,1.6384180000000002,0.20449897750511248
-ecoli,GMPS2,GMP synthase,2,2,1,15.924999999999999,1.1978,0.20449897750511248
-ecoli,GUAPRT_num1,Guanine phosphoribosyltransferase,2,2,1,112.0,2.04922,0.20449897750511248
-ecoli,GUAPRT_num2,Guanine phosphoribosyltransferase,2,2,1,112.0,2.04922,0.20449897750511248
-ecoli,HSST,Homoserine O-succinyltransferase,2,2,1,20.87925,1.3167849999999999,0.20449897750511248
-ecoli,KDOPS,3-deoxy -D-manno-octulosonic -acid 8-phosphate synthase,2,2,1,2.752085,0.41777949999999997,0.20449897750511248
-ecoli,NADK,NAD kinase,2,2,1,90.0,1.95424,0.20449897750511248
-ecoli,NTD7_num1,5'-nucleotidase (AMP),2,2,1,195.475,1.6384180000000002,0.20449897750511248
-ecoli,NTD7_num2,5'-nucleotidase (AMP),2,2,1,5.6850000000000005,0.75055,0.20449897750511248
-ecoli,NTD7_num3,5'-nucleotidase (AMP),2,2,1,195.475,1.6384180000000002,0.20449897750511248
-yeast,r_4725,"polyphosphate phosphohydrolase, n",2,1,2,1350.0,3.13033,0.20449897750511248
-yeast,r_4724,"polyphosphate phosphohydrolase, m",2,1,2,1350.0,3.13033,0.20449897750511248
-yeast,r_4723,"polyphosphate phosphohydrolase, v",2,1,2,1350.0,3.13033,0.20449897750511248
-ecoli,GLUCYS,Gamma-glutamylcysteine synthetase,2,2,1,31.075,1.48816,0.20449897750511248
-ecoli,ABTA_num2,4-aminobutyrate transaminase,2,2,1,1.0899999999999999,-0.15825150000000002,0.20449897750511248
-ecoli,ABTA_num1,4-aminobutyrate transaminase,2,2,1,1.0899999999999999,-0.15825150000000002,0.20449897750511248
-yeast,r_4333,Polyphosphate phosphohydrolase,2,1,2,1350.0,3.13033,0.20449897750511248
-ecoli,3NTD4pp_num2,3'-nucleotidase (CMP) (periplasm),1,1,1,5.93,0.773055,0.10224948875255624
-ecoli,ACACT1r_num2,Acetyl-CoA C-acetyltransferase,1,1,1,6.5,0.812913,0.10224948875255624
-ecoli,ACP1_FMN_num1,Acid phosphatase (FMN),1,1,1,7.95,0.900367,0.10224948875255624
-ecoli,ACODA,Acetylornithine deacetylase,1,1,1,1100.0,3.04139,0.10224948875255624
-ecoli,ACNML,N-Acetylneuraminate lyase,1,1,1,7.7,0.886491,0.10224948875255624
-ecoli,ACM6PH,N-acetylmuramate 6-phosphate hydrolase,1,1,1,5.7,0.755875,0.10224948875255624
-ecoli,ACKr_num3,Acetate kinase,1,1,1,962.5,2.9834,0.10224948875255624
-ecoli,ACKr_num2,Acetate kinase,1,1,1,962.5,2.9834,0.10224948875255624
-ecoli,ACKr_num1,Acetate kinase,1,1,1,962.5,2.9834,0.10224948875255624
-ecoli,ACALD_num2,Acetaldehyde dehydrogenase (acetylating),1,1,1,15.7,1.1959,0.10224948875255624
-ecoli,ACALD_num1,Acetaldehyde dehydrogenase (acetylating),1,1,1,15.7,1.1959,0.10224948875255624
-ecoli,ACACT1r_num3,Acetyl-CoA C-acetyltransferase,1,1,1,6.5,0.812913,0.10224948875255624
-ecoli,3NTD4pp_num3,3'-nucleotidase (CMP) (periplasm),1,1,1,5.93,0.773055,0.10224948875255624
-ecoli,ACACT1r_num1,Acetyl-CoA C-acetyltransferase,1,1,1,6.5,0.812913,0.10224948875255624
-yeast,r_2851,"phosphatidylinositol 4-kinase (1-18:1, 2-18:1), nucleus",1,1,1,2.77,0.44248,0.10224948875255624
-yeast,r_2850,"phosphatidylinositol 4-kinase (1-18:0, 2-18:1), nucleus",1,1,1,2.77,0.44248,0.10224948875255624
-yeast,r_2849,"phosphatidylinositol 4-kinase (1-16:1, 2-18:1), nucleus",1,1,1,2.77,0.44248,0.10224948875255624
-yeast,r_2848,"phosphatidylinositol 4-kinase (1-16:0, 2-18:1), nucleus",1,1,1,2.77,0.44248,0.10224948875255624
-ecoli,GLYCK2,Glycerate kinase,1,1,1,176.25,2.24613,0.10224948875255624
-ecoli,GLYCK,Glycerate kinase,1,1,1,350.0,2.54407,0.10224948875255624
-ecoli,GLYAT,Glycine C-acetyltransferase,1,1,1,0.02,-1.69897,0.10224948875255624
-ecoli,GLXCL,Glyoxalate carboligase,1,1,1,18.9,1.27646,0.10224948875255624
-ecoli,GLUTRS,Glutamyl-tRNA synthetase,1,1,1,1.145,0.0588055,0.10224948875255624
-ecoli,GLUR,Glutamate racemase,1,1,1,43.33,1.63679,0.10224948875255624
-ecoli,GLUNpp,Glutaminase,1,1,1,6.0,0.778151,0.10224948875255624
-ecoli,GLUN_num2,Glutaminase,1,1,1,101.0,2.00432,0.10224948875255624
-ecoli,GLUN_num1,Glutaminase,1,1,1,91.4,1.96095,0.10224948875255624
-ecoli,GLUDy,Glutamate dehydrogenase (NADP),1,1,1,17.1,1.233,0.10224948875255624
-ecoli,GLUDC_num2,Glutamate Decarboxylase,1,1,1,42.055,1.62382,0.10224948875255624
-ecoli,GLUDC_num1,Glutamate Decarboxylase,1,1,1,42.055,1.62382,0.10224948875255624
-ecoli,GLNS,Glutamine synthetase,1,1,1,131.7,2.11959,0.10224948875255624
-ecoli,GLCRD_num2,Glucarate dehydratase,1,1,1,35.0,1.54407,0.10224948875255624
-ecoli,GLCRD_num1,Glucarate dehydratase,1,1,1,27.5,1.43933,0.10224948875255624
-ecoli,GLCRAL,5-dehydro-4-deoxyglucarate aldolase,1,1,1,27.3,1.43616,0.10224948875255624
-ecoli,GTPDPDP,"Guanosine-5'-triphosphate,3'-diphosphate diphosphatase",1,1,1,14.406,1.15854,0.10224948875255624
-ecoli,GTPCII2,GTP cyclohydrolase II (25drapp),1,1,1,0.107,-0.970616,0.10224948875255624
-ecoli,GTHOr,Glutathione oxidoreductase,1,1,1,641.0,2.80686,0.10224948875255624
-ecoli,GSPMDA,Glutathionylspermidine amidase,1,1,1,2.1,0.322219,0.10224948875255624
-ecoli,GPDDA4pp,Glycerophosphodiester phosphodiesterase (Glycerophosphoglycerol),1,1,1,3.3,0.518514,0.10224948875255624
-ecoli,GPDDA4,Glycerophosphodiester phosphodiesterase (Glycerophosphoglycerol),1,1,1,3.3,0.518514,0.10224948875255624
-ecoli,GPDDA3pp,Glycerophosphodiester phosphodiesterase (Glycerophosphoserine),1,1,1,2.8,0.447158,0.10224948875255624
-ecoli,GPDDA3,Glycerophosphodiester phosphodiesterase (Glycerophosphoserine),1,1,1,2.8,0.447158,0.10224948875255624
-ecoli,GPDDA2pp,Glycerophosphodiester phosphodiesterase (Glycerophosphoethanolamine),1,1,1,1.1,0.0413927,0.10224948875255624
-ecoli,GPDDA2,Glycerophosphodiester phosphodiesterase (Glycerophosphoethanolamine),1,1,1,1.1,0.0413927,0.10224948875255624
-ecoli,GPDDA1pp,Glycerophosphodiester phosphodiesterase (Glycerophosphocholine),1,1,1,3.2,0.50515,0.10224948875255624
-ecoli,GPDDA1,Glycerophosphodiester phosphodiesterase (Glycerophosphocholine),1,1,1,3.2,0.50515,0.10224948875255624
-ecoli,GMPS,GMP synthase,1,1,1,18.15,1.25888,0.10224948875255624
-ecoli,GMPR,GMP reductase,1,1,1,0.28,-0.552842,0.10224948875255624
-ecoli,GMAND,GDP-D-mannose dehydratase,1,1,1,5.0,0.69897,0.10224948875255624
-ecoli,GLYOX3,Glyoxalase III,1,1,1,1.43,0.155336,0.10224948875255624
-ecoli,HSK,Homoserine kinase,1,1,1,18.3,1.26245,0.10224948875255624
-ecoli,HSDy_num2,Homoserine dehydrogenase (NADPH),1,1,1,1.905,0.279895,0.10224948875255624
-ecoli,HSDy_num1,Homoserine dehydrogenase (NADPH),1,1,1,1.905,0.279895,0.10224948875255624
-ecoli,HPPPNDO,"2,3-dihydroxypheylpropionate 1,2-dioxygenase",1,1,1,29.0,1.4624,0.10224948875255624
-ecoli,HMPK1_num2,Hydroxymethylpyrimidine kinase (ATP),1,1,1,0.3575,-0.446724,0.10224948875255624
-ecoli,HMPK1_num1,Hydroxymethylpyrimidine kinase (ATP),1,1,1,0.285,-0.545155,0.10224948875255624
-ecoli,HISTP,Histidinol-phosphatase,1,1,1,1410.0,3.14922,0.10224948875255624
-ecoli,HEX1,Hexokinase (D-glucose:ATP),1,1,1,10.6,1.02531,0.10224948875255624
-ecoli,HCYSMT2,Homocysteine Methyltransferase,1,1,1,0.38,-0.420216,0.10224948875255624
-ecoli,HCYSMT,Homocysteine S-methyltransferase,1,1,1,0.38,-0.420216,0.10224948875255624
-ecoli,HCO3E_num2,HCO3 equilibration reaction,1,1,1,570000.0,5.75587,0.10224948875255624
-ecoli,HCO3E_num1,HCO3 equilibration reaction,1,1,1,570000.0,5.75587,0.10224948875255624
-ecoli,HACD1_num2,3-hydroxyacyl-CoA dehydrogenase (acetoacetyl-CoA),1,1,1,391.0,2.59218,0.10224948875255624
-ecoli,HACD1_num1,3-hydroxyacyl-CoA dehydrogenase (acetoacetyl-CoA),1,1,1,391.0,2.59218,0.10224948875255624
-ecoli,GUI1,Glucuronate isomerase (D-glucuronate),1,1,1,196.0,2.29226,0.10224948875255624
-ecoli,GUAD,Guanine deaminase,1,1,1,2.8,0.447158,0.10224948875255624
-ecoli,LCADi,Lactaldehyde dehydrogenase,1,1,1,761.5,2.88167,0.10224948875255624
-ecoli,KG6PDC_num2,3-keto-L-gulonate 6-phosphate decarboxylase,1,1,1,2.4,0.380211,0.10224948875255624
-ecoli,KG6PDC_num1,3-keto-L-gulonate 6-phosphate decarboxylase,1,1,1,1.4,0.146128,0.10224948875255624
-ecoli,KAS14_num2,Beta-ketoacyl-ACP synthase,1,1,1,0.02,-1.69897,0.10224948875255624
-ecoli,KAS14_num1,Beta-ketoacyl-ACP synthase,1,1,1,0.02,-1.69897,0.10224948875255624
-ecoli,KARA1,"Ketol-acid reductoisomerase (2,3-dihydroxy-3-methylbutanoate)",1,1,1,2.4,0.380211,0.10224948875255624
-ecoli,IPMD_num2,3-isopropylmalate dehydrogenase,1,1,1,40.5,1.60746,0.10224948875255624
-ecoli,IPMD_num1,3-isopropylmalate dehydrogenase,1,1,1,69.0,1.83885,0.10224948875255624
-ecoli,INSH,Inosine hydrolase,1,1,1,0.0645,-1.19044,0.10224948875255624
-ecoli,IMPD,IMP dehydrogenase,1,1,1,13.0,1.11394,0.10224948875255624
-ecoli,ILETA,Isoleucine transaminase,1,1,1,48.0,1.68124,0.10224948875255624
-ecoli,IGPS,Indole-3-glycerol-phosphate synthase,1,1,1,4.05,0.607455,0.10224948875255624
-ecoli,ICHORT,Isochorismatase,1,1,1,10.0,1.0,0.10224948875255624
-ecoli,ICHORS_copy2,ICHORS_copy2,1,1,1,0.35,-0.455932,0.10224948875255624
-ecoli,ICHORS_copy1,ICHORS_copy1,1,1,1,0.67,-0.173925,0.10224948875255624
-ecoli,ICDHyr,Isocitrate dehydrogenase (NADP),1,1,1,79.1,1.89818,0.10224948875255624
-ecoli,MGSA,Methylglyoxal synthase,1,1,1,199.5,2.29994,0.10224948875255624
-ecoli,METAT,Methionine adenosyltransferase,1,1,1,1.36,0.133539,0.10224948875255624
-ecoli,MEPCT,2-C-methyl-D-erythritol 4-phosphate cytidylyltransferase,1,1,1,32.15,1.50718,0.10224948875255624
-ecoli,MECDPS,"2-C-methyl-D-erythritol 2,4-cyclodiphosphate synthase",1,1,1,2.7,0.431364,0.10224948875255624
-ecoli,ME1,Malic enzyme (NAD),1,1,1,134.4,2.1284,0.10224948875255624
-ecoli,MCPST,3-mercaptopyruvate sulfurtransferase,1,1,1,62.25,1.79414,0.10224948875255624
-ecoli,MCITL2,Methylisocitrate lyase,1,1,1,19.0,1.27875,0.10224948875255624
-ecoli,MCITD,2-methylcitrate dehydratase,1,1,1,0.045,-1.34679,0.10224948875255624
-ecoli,MALS_num2,Malate synthase,1,1,1,48.1,1.68215,0.10224948875255624
-ecoli,MALS_num1,Malate synthase,1,1,1,48.1,1.68215,0.10224948875255624
-ecoli,LYSDC_num2,Lysine decarboxylase,1,1,1,88.2,1.94547,0.10224948875255624
-ecoli,LYSDC_num1,Lysine decarboxylase,1,1,1,88.2,1.94547,0.10224948875255624
-ecoli,LYSAM,"Lysine 2,3-aminomutase",1,1,1,0.083,-1.08092,0.10224948875255624
-ecoli,LSERDHr,L-serine dehydrogenase,1,1,1,4.2,0.623249,0.10224948875255624
-ecoli,LEUTAi_num2,Leucine transaminase (irreversible),1,1,1,6.61,0.820201,0.10224948875255624
-ecoli,LEUTAi_num1,Leucine transaminase (irreversible),1,1,1,12.39,1.09307,0.10224948875255624
-ecoli,NTD1_num3,5'-nucleotidase (dUMP),1,1,1,21.4,1.33041,0.10224948875255624
-ecoli,NTD1_num2,5'-nucleotidase (dUMP),1,1,1,10.815,1.03403,0.10224948875255624
-ecoli,NTD1_num1,5'-nucleotidase (dUMP),1,1,1,0.23,-0.638272,0.10224948875255624
-ecoli,NODOy,Nitric oxide dioxygenase,1,1,1,382.0,2.58206,0.10224948875255624
-ecoli,NODOx,Nitric oxide dioxygenase,1,1,1,382.0,2.58206,0.10224948875255624
-ecoli,NNATr,Nicotinate-nucleotide adenylyltransferase,1,1,1,4.9,0.690196,0.10224948875255624
-ecoli,NMNDA,Nicotinamide-nucleotide amidase,1,1,1,4.1,0.612784,0.10224948875255624
-ecoli,NADTRHD,NAD transhydrogenase,1,1,1,167.9,2.22505,0.10224948875255624
-ecoli,NADDP_num2,NAD diphosphatase,1,1,1,19.3,1.28556,0.10224948875255624
-ecoli,NADDP_num1,NAD diphosphatase,1,1,1,19.3,1.28556,0.10224948875255624
-ecoli,MTHFR2,"5,10-methylenetetrahydrofolate reductase (NADH)",1,1,1,23.5,1.37107,0.10224948875255624
-ecoli,MTHFD,Methylenetetrahydrofolate dehydrogenase (NADP),1,1,1,17.08,1.23249,0.10224948875255624
-ecoli,MTHFC,Methenyltetrahydrofolate cyclohydrolase,1,1,1,40.9,1.61172,0.10224948875255624
-ecoli,MTAN,Methylthioadenosine nucleosidase,1,1,1,1.7,0.230449,0.10224948875255624
-ecoli,MNNH,D-mannonate hydrolyase,1,1,1,0.81,-0.091515,0.10224948875255624
-ecoli,MI1PP,Myo-inositol 1-phosphatase,1,1,1,0.49,-0.309804,0.10224948875255624
-ecoli,NTD5_num2,5'-nucleotidase (dTMP),1,1,1,15.28,1.18412,0.10224948875255624
-ecoli,NTD5_num1,5'-nucleotidase (dTMP),1,1,1,0.16,-0.79588,0.10224948875255624
-ecoli,NTD3pp_num2,5'-nucleotidase (dCMP),1,1,1,0.23,-0.638272,0.10224948875255624
-ecoli,NTD3pp_num1,5'-nucleotidase (dCMP),1,1,1,0.23,-0.638272,0.10224948875255624
-ecoli,NTD3_num3,5'-nucleotidase (dCMP),1,1,1,0.23,-0.638272,0.10224948875255624
-ecoli,NTD3_num2,5'-nucleotidase (dCMP),1,1,1,0.23,-0.638272,0.10224948875255624
-ecoli,NTD3_num1,5'-nucleotidase (dCMP),1,1,1,0.23,-0.638272,0.10224948875255624
-ecoli,NTD2pp_num3,5'-nucleotidase (UMP),1,1,1,34.2,1.53403,0.10224948875255624
-ecoli,NTD2pp_num2,5'-nucleotidase (UMP),1,1,1,34.2,1.53403,0.10224948875255624
-ecoli,NTD2pp_num1,5'-nucleotidase (UMP),1,1,1,34.2,1.53403,0.10224948875255624
-ecoli,NTD2_num3,5'-nucleotidase (UMP),1,1,1,34.2,1.53403,0.10224948875255624
-ecoli,NTD2_num2,5'-nucleotidase (UMP),1,1,1,34.2,1.53403,0.10224948875255624
-ecoli,NTD2_num1,5'-nucleotidase (UMP),1,1,1,34.2,1.53403,0.10224948875255624
-ecoli,NTD1pp_num2,5'-nucleotidase (dUMP),1,1,1,10.815,1.03403,0.10224948875255624
-ecoli,NTD1pp_num1,5'-nucleotidase (dUMP),1,1,1,10.815,1.03403,0.10224948875255624
-ecoli,NTD1_num4,5'-nucleotidase (dUMP),1,1,1,10.815,1.03403,0.10224948875255624
-ecoli,NTD9_num1,5'-nucleotidase (GMP),1,1,1,11.0,1.04139,0.10224948875255624
-ecoli,NTD8pp_num2,5'-nucleotidase (dGMP),1,1,1,4.12,0.614897,0.10224948875255624
-ecoli,NTD8pp_num1,5'-nucleotidase (dGMP),1,1,1,4.12,0.614897,0.10224948875255624
-ecoli,NTD8_num4,5'-nucleotidase (dGMP),1,1,1,4.12,0.614897,0.10224948875255624
-ecoli,NTD8_num3,5'-nucleotidase (dGMP),1,1,1,0.2,-0.69897,0.10224948875255624
-ecoli,NTD8_num2,5'-nucleotidase (dGMP),1,1,1,8.04,0.905256,0.10224948875255624
-ecoli,NTD8_num1,5'-nucleotidase (dGMP),1,1,1,4.12,0.614897,0.10224948875255624
-ecoli,NTD6pp_num2,5'-nucleotidase (dAMP),1,1,1,0.3,-0.522879,0.10224948875255624
-ecoli,NTD6pp_num1,5'-nucleotidase (dAMP),1,1,1,0.3,-0.522879,0.10224948875255624
-ecoli,NTD6_num3,5'-nucleotidase (dAMP),1,1,1,0.3,-0.522879,0.10224948875255624
-ecoli,NTD6_num2,5'-nucleotidase (dAMP),1,1,1,0.3,-0.522879,0.10224948875255624
-ecoli,NTD6_num1,5'-nucleotidase (dAMP),1,1,1,0.3,-0.522879,0.10224948875255624
-ecoli,NTD5pp_num2,5'-nucleotidase (dTMP),1,1,1,15.28,1.18412,0.10224948875255624
-ecoli,NTD5pp_num1,5'-nucleotidase (dTMP),1,1,1,15.28,1.18412,0.10224948875255624
-ecoli,NTD5_num4,5'-nucleotidase (dTMP),1,1,1,15.28,1.18412,0.10224948875255624
-ecoli,NTD5_num3,5'-nucleotidase (dTMP),1,1,1,30.4,1.48287,0.10224948875255624
-ecoli,NTP3pp,Nucleoside-triphosphatase (GTP) (periplasm),1,1,1,14.65,1.16584,0.10224948875255624
-ecoli,NTP3_num7,Nucleoside-triphosphatase (GTP),1,1,1,14.65,1.16584,0.10224948875255624
-ecoli,NTP3_num6,Nucleoside-triphosphatase (GTP),1,1,1,14.65,1.16584,0.10224948875255624
-ecoli,NTP3_num5,Nucleoside-triphosphatase (GTP),1,1,1,14.65,1.16584,0.10224948875255624
-ecoli,NTP3_num4,Nucleoside-triphosphatase (GTP),1,1,1,14.65,1.16584,0.10224948875255624
-ecoli,NTP3_num3,Nucleoside-triphosphatase (GTP),1,1,1,14.65,1.16584,0.10224948875255624
-ecoli,NTP3_num2,Nucleoside-triphosphatase (GTP),1,1,1,14.65,1.16584,0.10224948875255624
-ecoli,NTP3_num1,Nucleoside-triphosphatase (GTP),1,1,1,14.65,1.16584,0.10224948875255624
-ecoli,NTP1_num2,Nucleoside-triphosphatase (ATP),1,1,1,0.963333,-0.0162236,0.10224948875255624
-ecoli,NTP1_num1,Nucleoside-triphosphatase (ATP),1,1,1,0.963333,-0.0162236,0.10224948875255624
-ecoli,NTD9pp_num3,5'-nucleotidase (GMP),1,1,1,11.0,1.04139,0.10224948875255624
-ecoli,NTD9pp_num2,5'-nucleotidase (GMP),1,1,1,11.0,1.04139,0.10224948875255624
-ecoli,NTD9pp_num1,5'-nucleotidase (GMP),1,1,1,11.0,1.04139,0.10224948875255624
-ecoli,NTD9_num4,5'-nucleotidase (GMP),1,1,1,11.0,1.04139,0.10224948875255624
-ecoli,NTD9_num3,5'-nucleotidase (GMP),1,1,1,11.0,1.04139,0.10224948875255624
-ecoli,NTD9_num2,5'-nucleotidase (GMP),1,1,1,11.0,1.04139,0.10224948875255624
-ecoli,GHMT2r,"Glycine hydroxymethyltransferase, reversible",1,1,1,24.33,1.38614,0.10224948875255624
-ecoli,GGPTRCS,Gamma glutamyl putrescine synthase,1,1,1,5.94,0.773786,0.10224948875255624
-ecoli,GALCTD,Galactarate dehydratase,1,1,1,22.0,1.34242,0.10224948875255624
-ecoli,G6PDA,Glucosamine-6-phosphate deaminase,1,1,1,71.25,1.85278,0.10224948875255624
-ecoli,G1PPpp_num2,Glucose-1-phosphatase,1,1,1,117.0,2.06819,0.10224948875255624
-ecoli,G1PPpp_num1,Glucose-1-phosphatase,1,1,1,117.0,2.06819,0.10224948875255624
-ecoli,G1PP_num3,Glucose-1-phosphatase,1,1,1,117.0,2.06819,0.10224948875255624
-ecoli,G1PP_num2,Glucose-1-phosphatase,1,1,1,117.0,2.06819,0.10224948875255624
-ecoli,G1PP_num1,Glucose-1-phosphatase,1,1,1,117.0,2.06819,0.10224948875255624
-ecoli,FUM_num3,Fumarase,1,1,1,1149.5,3.06051,0.10224948875255624
-ecoli,FUM_num2,Fumarase,1,1,1,1149.0,3.06032,0.10224948875255624
-ecoli,FUM_num1,Fumarase,1,1,1,1149.0,3.06032,0.10224948875255624
-ecoli,FMNRx2_num3,FMN reductase,1,1,1,4.25,0.628389,0.10224948875255624
-ecoli,FMNRx2_num2,FMN reductase,1,1,1,4.25,0.628389,0.10224948875255624
-ecoli,FMNRx2_num1,FMN reductase,1,1,1,4.25,0.628389,0.10224948875255624
-ecoli,NTPP2_num1,Nucleoside triphosphate pyrophosphorylase (gtp),1,1,1,0.963333,-0.0162236,0.10224948875255624
-ecoli,P5CD,1-pyrroline-5-carboxylate dehydrogenase,1,1,1,5.16,0.71265,0.10224948875255624
-ecoli,OXCDC,Oxalyl-CoA decarboxylase,1,1,1,60.7,1.78319,0.10224948875255624
-ecoli,ORNDC_num2,Ornithine Decarboxylase,1,1,1,3.4,0.531479,0.10224948875255624
-ecoli,ORNDC_num1,Ornithine Decarboxylase,1,1,1,3.4,0.531479,0.10224948875255624
-ecoli,OMPDC,Orotidine-5'-phosphate decarboxylase,1,1,1,42.0,1.62325,0.10224948875255624
-ecoli,OCTDPS,Octaprenyl pyrophosphate synthase,1,1,1,1.03,0.0128372,0.10224948875255624
-ecoli,NTPTP1,Nucleoside triphosphate tripolyhydrolase,1,1,1,4000.0,3.60206,0.10224948875255624
-ecoli,NTPP7_num3,Nucleoside triphosphate pyrophosphorylase (dttp),1,1,1,43.0,1.63347,0.10224948875255624
-ecoli,NTPP7_num2,Nucleoside triphosphate pyrophosphorylase (dttp),1,1,1,43.0,1.63347,0.10224948875255624
-ecoli,NTPP7_num1,Nucleoside triphosphate pyrophosphorylase (dttp),1,1,1,43.0,1.63347,0.10224948875255624
-ecoli,NTPP6_num2,Nucleoside triphosphate pyrophosphorylase (atp),1,1,1,0.963333,-0.0162236,0.10224948875255624
-ecoli,NTPP6_num1,Nucleoside triphosphate pyrophosphorylase (atp),1,1,1,0.963333,-0.0162236,0.10224948875255624
-ecoli,NTPP3_num3,Nucleoside triphosphate pyrophosphorylase (dctp),1,1,1,14.3,1.15534,0.10224948875255624
-ecoli,NTPP3_num2,Nucleoside triphosphate pyrophosphorylase (dctp),1,1,1,14.3,1.15534,0.10224948875255624
-ecoli,NTPP3_num1,Nucleoside triphosphate pyrophosphorylase (dctp),1,1,1,14.3,1.15534,0.10224948875255624
-ecoli,NTPP2_num2,Nucleoside triphosphate pyrophosphorylase (gtp),1,1,1,0.963333,-0.0162236,0.10224948875255624
-ecoli,PPCDC,Phosphopantothenoylcysteine decarboxylase,1,1,1,0.833333,-0.0791814,0.10224948875255624
-ecoli,PPC,Phosphoenolpyruvate carboxylase,1,1,1,540.0,2.73239,0.10224948875255624
-ecoli,PPA_num3,Inorganic diphosphatase,1,1,1,95.0,1.97772,0.10224948875255624
-ecoli,PPA_num2,Inorganic diphosphatase,1,1,1,95.0,1.97772,0.10224948875255624
-ecoli,PPA_num1,Inorganic diphosphatase,1,1,1,95.0,1.97772,0.10224948875255624
-ecoli,PNTK,Pantothenate kinase,1,1,1,1.07,0.0293838,0.10224948875255624
-ecoli,PMPK,Phosphomethylpyrimidine kinase,1,1,1,0.034,-1.46852,0.10224948875255624
-ecoli,PGLYCP,Phosphoglycolate phosphatase,1,1,1,94.0,1.97313,0.10224948875255624
-ecoli,PGK,Phosphoglycerate kinase,1,1,1,529.0,2.72346,0.10224948875255624
-ecoli,PGCD,Phosphoglycerate dehydrogenase,1,1,1,10.25,1.01072,0.10224948875255624
-ecoli,PFK_num2,Phosphofructokinase,1,1,1,52.0,1.716,0.10224948875255624
-ecoli,PFK_num1,Phosphofructokinase,1,1,1,25.1,1.39967,0.10224948875255624
-ecoli,PFK_3,Phosphofructokinase (s7p),1,1,1,0.25,-0.60206,0.10224948875255624
-ecoli,PERD,Erythronate 4-phosphate (4per) dehydrogenase,1,1,1,1.4,0.146128,0.10224948875255624
-ecoli,PEAMNOpp,Phenethylamine oxidase,1,1,1,12.4,1.09342,0.10224948875255624
-ecoli,PDX5POi,Pyridoxine 5'-phosphate oxidase,1,1,1,0.19,-0.721246,0.10224948875255624
-ecoli,RBFSb,Riboflavin synthase,1,1,1,0.00833333,-2.07918,0.10224948875255624
-ecoli,RBFSa,Riboflavin synthase,1,1,1,0.00833333,-2.07918,0.10224948875255624
-ecoli,QUINDH,Quinate dehydrogenase,1,1,1,0.0815,-1.08884,0.10224948875255624
-ecoli,PYDXNK,Pyridoxine kinase,1,1,1,0.3,-0.522879,0.10224948875255624
-ecoli,PYDXK_num2,Pyridoxal kinase,1,1,1,2.15,0.332438,0.10224948875255624
-ecoli,PYDXK_num1,Pyridoxal kinase,1,1,1,2.15,0.332438,0.10224948875255624
-ecoli,PYDAMK,Pyridoxamine kinase,1,1,1,0.55,-0.259637,0.10224948875255624
-ecoli,PYAM5PO,Pyridoxamine 5'-phosphate oxidase,1,1,1,14.86,1.17202,0.10224948875255624
-ecoli,PUNP5_num2,Purine-nucleoside phosphorylase (Inosine),1,1,1,4.0,0.60206,0.10224948875255624
-ecoli,PUNP5_num1,Purine-nucleoside phosphorylase (Inosine),1,1,1,74.915,1.87457,0.10224948875255624
-ecoli,PUNP1,Purine-nucleoside phosphorylase (Adenosine),1,1,1,3.3,0.518514,0.10224948875255624
-ecoli,PRAIi,Phosphoribosylanthranilate isomerase (irreversible),1,1,1,40.0,1.60206,0.10224948875255624
-ecoli,PPNDH,Prephenate dehydratase,1,1,1,32.0,1.50515,0.10224948875255624
-ecoli,PPND,Prephenate dehydrogenase,1,1,1,67.725,1.83075,0.10224948875255624
-ecoli,PPNCL2,Phosphopantothenate-cysteine ligase,1,1,1,0.88,-0.0555173,0.10224948875255624
-ecoli,PPCK,Phosphoenolpyruvate carboxykinase,1,1,1,0.433,-0.363512,0.10224948875255624
-ecoli,RBP4E_num1,L-ribulose-phosphate 4-epimerase,1,1,1,19.4,1.2878,0.10224948875255624
-ecoli,FEROpp_num2,Ferroxidase,1,1,1,3.9,0.591065,0.10224948875255624
-ecoli,FEROpp_num1,Ferroxidase,1,1,1,3.9,0.591065,0.10224948875255624
-ecoli,FCLPA_num2,L-fuculose 1-phosphate aldolase,1,1,1,19.0,1.27875,0.10224948875255624
-ecoli,FCLPA_num1,L-fuculose 1-phosphate aldolase,1,1,1,19.0,1.27875,0.10224948875255624
-ecoli,FBP_num4,Fructose-bisphosphatase,1,1,1,20.0,1.30103,0.10224948875255624
-ecoli,FBP_num3,Fructose-bisphosphatase,1,1,1,5.7,0.755875,0.10224948875255624
-ecoli,FBP_num2,Fructose-bisphosphatase,1,1,1,24.0,1.38021,0.10224948875255624
-ecoli,FBP_num1,Fructose-bisphosphatase,1,1,1,20.0,1.30103,0.10224948875255624
-ecoli,FBA_num2,Fructose-bisphosphate aldolase,1,1,1,10.5,1.02119,0.10224948875255624
-ecoli,FBA_num1,Fructose-bisphosphate aldolase,1,1,1,11.2,1.04922,0.10224948875255624
-ecoli,FACOAE120,Fatty-acid-CoA thioesterase (dodecanoate),1,1,1,1.14,0.0569049,0.10224948875255624
-ecoli,EDA,2-dehydro-3-deoxy-phosphogluconate aldolase,1,1,1,83.0,1.91908,0.10224948875255624
-ecoli,E4PD_num2,Erythrose 4-phosphate dehydrogenase,1,1,1,110.0,2.04139,0.10224948875255624
-ecoli,E4PD_num1,Erythrose 4-phosphate dehydrogenase,1,1,1,110.0,2.04139,0.10224948875255624
-ecoli,RBK_L1,L-ribulokinase (L-ribulose),1,1,1,80.0,1.90309,0.10224948875255624
-ecoli,SHKK_num2,Shikimate kinase,1,1,1,55.86,1.7471,0.10224948875255624
-ecoli,SHKK_num1,Shikimate kinase,1,1,1,55.86,1.7471,0.10224948875255624
-ecoli,SHK3Dr,Shikimate dehydrogenase,1,1,1,236.667,2.37414,0.10224948875255624
-ecoli,SFGTHi_num2,S-Formylglutathione hydralase,1,1,1,28.5,1.45484,0.10224948875255624
-ecoli,SFGTHi_num1,S-Formylglutathione hydralase,1,1,1,6.51,0.813581,0.10224948875255624
-ecoli,SERD_L_num5,L-serine deaminase,1,1,1,490.0,2.6902,0.10224948875255624
-ecoli,SERD_L_num4,L-serine deaminase,1,1,1,490.0,2.6902,0.10224948875255624
-ecoli,SERD_L_num3,L-serine deaminase,1,1,1,490.0,2.6902,0.10224948875255624
-ecoli,SERD_L_num2,L-serine deaminase,1,1,1,490.0,2.6902,0.10224948875255624
-ecoli,SERD_L_num1,L-serine deaminase,1,1,1,490.0,2.6902,0.10224948875255624
-ecoli,SERD_D,D-serine deaminase,1,1,1,15.7,1.1959,0.10224948875255624
-ecoli,S7PI,Sedoheptulose 7-phosphate isomerase,1,1,1,0.44,-0.356547,0.10224948875255624
-ecoli,RMPA,Rhamnulose-1-phosphate aldolase,1,1,1,38.3,1.5832,0.10224948875255624
-ecoli,RHCCE,S-ribosylhomocysteine cleavage enzyme,1,1,1,0.4,-0.39794,0.10224948875255624
-ecoli,RBP4E_num3,L-ribulose-phosphate 4-epimerase,1,1,1,19.4,1.2878,0.10224948875255624
-ecoli,RBP4E_num2,L-ribulose-phosphate 4-epimerase,1,1,1,19.4,1.2878,0.10224948875255624
-ecoli,THRD_num2,L-threonine dehydrogenase,1,1,1,135.0,2.13033,0.10224948875255624
-ecoli,THRD_num1,L-threonine dehydrogenase,1,1,1,135.0,2.13033,0.10224948875255624
-ecoli,THRD_L_num2,L-threonine deaminase,1,1,1,1414.0,3.15045,0.10224948875255624
-ecoli,THRD_L_num1,L-threonine deaminase,1,1,1,1414.0,3.15045,0.10224948875255624
-ecoli,THRA_num2,Threonine aldolase,1,1,1,1.1,0.0413927,0.10224948875255624
-ecoli,THRA_num1,Threonine aldolase,1,1,1,0.05,-1.30103,0.10224948875255624
-ecoli,TDPGDH_num2,"DTDPglucose 4,6-dehydratase",1,1,1,4.9,0.690196,0.10224948875255624
-ecoli,TDPGDH_num1,"DTDPglucose 4,6-dehydratase",1,1,1,4.9,0.690196,0.10224948875255624
-ecoli,TDPAGTA,"DTDP-4-amino-4,6-dideoxy-D-glucose transaminase",1,1,1,0.38,-0.420216,0.10224948875255624
-ecoli,TALA_num2,Transaldolase,1,1,1,13.0,1.11394,0.10224948875255624
-ecoli,TALA_num1,Transaldolase,1,1,1,13.0,1.11394,0.10224948875255624
-ecoli,SSALy_num2,Succinate-semialdehyde dehydrogenase (NADP),1,1,1,22.6,1.35411,0.10224948875255624
-ecoli,SSALy_num1,Succinate-semialdehyde dehydrogenase (NADP),1,1,1,22.6,1.35411,0.10224948875255624
-ecoli,SSALx,Succinate-semialdehyde dehydrogenase (NAD),1,1,1,22.6,1.35411,0.10224948875255624
-ecoli,SPMS,Spermidine synthase,1,1,1,0.14,-0.853872,0.10224948875255624
-ecoli,SOTA,Succinylornithine transaminase,1,1,1,3.0,0.477121,0.10224948875255624
-ecoli,UPP3S,Uroporphyrinogen-III synthase,1,1,1,500.0,2.69897,0.10224948875255624
-ecoli,UGLT,UDPglucose--hexose-1-phosphate uridylyltransferase,1,1,1,780.0,2.89209,0.10224948875255624
-ecoli,UDPGPpp,UDPglucose pyrophosphohydrolase,1,1,1,0.15,-0.823909,0.10224948875255624
-ecoli,UDPG4E,UDPglucose 4-epimerase,1,1,1,134.0,2.1271,0.10224948875255624
-ecoli,UAMAS,UDP-N-acetylmuramoyl-L-alanine synthetase,1,1,1,11.575,1.06352,0.10224948875255624
-ecoli,UAGPT3,UDP-N-acetylglucosamine-N-acetylmuramyl-(pentapeptide)pyrophosphoryl-undecaprenol N-acetylglucosamine transferase,1,1,1,0.72,-0.142668,0.10224948875255624
-ecoli,UAGDP,UDP-N-acetylglucosamine diphosphorylase,1,1,1,195.0,2.29003,0.10224948875255624
-ecoli,UAG2E,UDP-N-acetylglucosamine 2-epimerase,1,1,1,3.625,0.559308,0.10224948875255624
-ecoli,U23GAAT,UDP-3-O-(3-hydroxymyristoyl)glucosamine acyltransferase,1,1,1,13.0,1.11394,0.10224948875255624
-ecoli,TRSARr_num2,Tartronate semialdehyde reductase,1,1,1,23.0,1.36173,0.10224948875255624
-ecoli,TRSARr_num1,Tartronate semialdehyde reductase,1,1,1,23.0,1.36173,0.10224948875255624
-ecoli,TRPAS2,Tryptophanase (L-tryptophan),1,1,1,6.0,0.778151,0.10224948875255624
-ecoli,TREHpp,"Alpha,alpha-trehalase (periplasm)",1,1,1,199.0,2.29885,0.10224948875255624
-ecoli,TREH,"Alpha,alpha-trehalase",1,1,1,199.0,2.29885,0.10224948875255624
-ecoli,TMDPP,Thymidine phosphorylase,1,1,1,164.0,2.21484,0.10224948875255624
-ecoli,THRS,Threonine synthase,1,1,1,5.665,0.7532,0.10224948875255624
-ecoli,DURIPP_num2,Deoxyuridine phosphorylase,1,1,1,35.0,1.54407,0.10224948875255624
-ecoli,DURIPP_num1,Deoxyuridine phosphorylase,1,1,1,35.0,1.54407,0.10224948875255624
-ecoli,DRPA,Deoxyribose-phosphate aldolase,1,1,1,15.0,1.17609,0.10224948875255624
-ecoli,DPR_num2,2-dehydropantoate 2-reductase,1,1,1,15.0,1.17609,0.10224948875255624
-ecoli,DPR_num1,2-dehydropantoate 2-reductase,1,1,1,15.0,1.17609,0.10224948875255624
-ecoli,DNTPPA_num2,Dihydroneopterin triphosphate pyrophosphatase,1,1,1,11.6,1.06446,0.10224948875255624
-ecoli,DNTPPA_num1,Dihydroneopterin triphosphate pyrophosphatase,1,1,1,11.6,1.06446,0.10224948875255624
-ecoli,DHQTi,"3-dehydroquinate dehydratase, irreversible",1,1,1,29.53,1.47026,0.10224948875255624
-ecoli,DHQS,3-dehydroquinate synthase,1,1,1,12508.0,4.09719,0.10224948875255624
-ecoli,DHPPDA2,Diaminohydroxyphosphoribosylaminopryrimidine deaminase (25drapp),1,1,1,6.16667,0.790051,0.10224948875255624
-ecoli,DHNPA2r,Dihydroneopterin aldolase reversible,1,1,1,0.082,-1.08619,0.10224948875255624
-ecoli,VALTA,Valine transaminase,1,1,1,19.0,1.27875,0.10224948875255624
-ecoli,URIH_num3,Uridine hydrolase,1,1,1,10.85,1.03543,0.10224948875255624
-ecoli,URIH_num2,Uridine hydrolase,1,1,1,10.85,1.03543,0.10224948875255624
-ecoli,URIH_num1,Uridine hydrolase,1,1,1,10.85,1.03543,0.10224948875255624
-ecoli,URDGLYCD,Ureidoglycolate dehydrogenase,1,1,1,57.06,1.75633,0.10224948875255624
-ecoli,CYTK1,Cytidylate kinase (CMP),1,1,1,13.25,1.12222,0.10224948875255624
-ecoli,CYTDH_num3,Cytidine hydrolase,1,1,1,11.6,1.06446,0.10224948875255624
-ecoli,CYTDH_num2,Cytidine hydrolase,1,1,1,11.6,1.06446,0.10224948875255624
-ecoli,CYTDH_num1,Cytidine hydrolase,1,1,1,11.6,1.06446,0.10224948875255624
-ecoli,CYSDDS,D-cysteine desulfhydrase,1,1,1,72.0,1.85733,0.10224948875255624
-yeast,r_0142,adenosine kinase,1,1,1,25.5,1.40654,0.10224948875255624
-yeast,r_0138,adenine deaminase,1,1,1,5.5,0.740363,0.10224948875255624
-yeast,r_0108,acetyl-Coa carboxylase,1,1,1,8.5,0.929419,0.10224948875255624
-yeast,r_0085,5-methyltetrahydropteroyltriglutamate-homocysteine S-methyltransferase,1,1,1,0.33,-0.481486,0.10224948875255624
-yeast,r_0025,2-isopropylmalate synthase,1,1,1,10.535,1.02263,0.10224948875255624
-yeast,r_0012,1-pyrroline-5-carboxylate dehydrogenase,1,1,1,1.5,0.176091,0.10224948875255624
-ecoli,XYLK_num2,Xylulokinase,1,1,1,255.0,2.40654,0.10224948875255624
-ecoli,XYLK_num1,Xylulokinase,1,1,1,3427.5,3.53498,0.10224948875255624
-ecoli,DXPRIi,1-deoxy-D-xylulose reductoisomerase,1,1,1,33.0,1.51851,0.10224948875255624
-ecoli,DUTPDP_num2,DUTP diphosphatase,1,1,1,19.45,1.28892,0.10224948875255624
-ecoli,DUTPDP_num1,DUTP diphosphatase,1,1,1,11.0,1.04139,0.10224948875255624
-ecoli,CS,Citrate synthase,1,1,1,86.5,1.93702,0.10224948875255624
-ecoli,CPPPGO,Coproporphyrinogen oxidase (O2 required),1,1,1,0.003,-2.52288,0.10224948875255624
-ecoli,CHRPL_num2,Chorismate pyruvate lyase,1,1,1,1.5,0.176091,0.10224948875255624
-ecoli,CHRPL_num1,Chorismate pyruvate lyase,1,1,1,0.82,-0.0861861,0.10224948875255624
-ecoli,CHORM_num2,Chorismate mutase,1,1,1,148900.0,5.17289,0.10224948875255624
-ecoli,CHORM_num1,Chorismate mutase,1,1,1,38.87,1.58961,0.10224948875255624
-ecoli,CDGR,7-cyano-7-deazaguanine reductase,1,1,1,0.127,-0.896196,0.10224948875255624
-ecoli,CAT_num2,Catalase,1,1,1,71.0,1.85126,0.10224948875255624
-ecoli,CAT_num1,Catalase,1,1,1,71.0,1.85126,0.10224948875255624
-ecoli,BPNT,"3',5'-bisphosphate nucleotidase",1,1,1,11.4,1.0569,0.10224948875255624
-ecoli,ATHRDHr,L-allo-threonine dehydrogenase,1,1,1,5.76,0.760422,0.10224948875255624
-yeast,r_0191,allophanate hydrolase,1,1,1,32.0,1.50515,0.10224948875255624
-ecoli,DCTPD,DCTP deaminase,1,1,1,1.24,0.0934217,0.10224948875255624
-ecoli,DAPDC,Diaminopimelate decarboxylase,1,1,1,55.0,1.74036,0.10224948875255624
-ecoli,DAPAL,"2,3-diaminopropionate amonnia lyase",1,1,1,21.8,1.33846,0.10224948875255624
-ecoli,CYTK2,Cytidylate kinase (dCMP),1,1,1,7.615,0.88167,0.10224948875255624
-yeast,r_0449,fructose-bisphosphatase,1,1,1,4.9,0.690196,0.10224948875255624
-yeast,r_0361,dolichyl-phosphate D-mannosyltransferase,1,1,1,41.5,1.61805,0.10224948875255624
-yeast,r_0345,dihydrofolate reductase,1,1,1,11.5,1.0607,0.10224948875255624
-yeast,r_0344,dihydrofolate reductase,1,1,1,11.5,1.0607,0.10224948875255624
-yeast,r_0318,cytosine deaminase,1,1,1,170.0,2.23045,0.10224948875255624
-yeast,r_0310,cystathionine g-lyase,1,1,1,1.51,0.178977,0.10224948875255624
-yeast,r_0301,"citrate synthase, peroxisomal",1,1,1,11.2,1.04922,0.10224948875255624
-yeast,r_0278,chorismate mutase,1,1,1,361.0,2.55751,0.10224948875255624
-yeast,r_0274,choline phosphate cytididyltransferase,1,1,1,16.405,1.21498,0.10224948875255624
-yeast,r_0273,choline kinase,1,1,1,2.55,0.40654,0.10224948875255624
-yeast,r_0223,ATP adenylyltransferase,1,1,1,96.0,1.98227,0.10224948875255624
-yeast,r_0222,ATP adenylyltransferase,1,1,1,96.0,1.98227,0.10224948875255624
-yeast,r_0210,arginyl-tRNA synthetase,1,1,1,1.925,0.284431,0.10224948875255624
-yeast,r_0209,arginyl-tRNA synthetase,1,1,1,1.925,0.284431,0.10224948875255624
-ecoli,CTPS2,CTP synthase (glutamine),1,1,1,6.0,0.778151,0.10224948875255624
-ecoli,CSND,Cytosine deaminase,1,1,1,165.0,2.21748,0.10224948875255624
-ecoli,ASPK_num2,Aspartate kinase,1,1,1,0.39,-0.408935,0.10224948875255624
-ecoli,ASPK_num1,Aspartate kinase,1,1,1,1.245,0.0951694,0.10224948875255624
-ecoli,ASPCT_num2,Aspartate carbamoyltransferase,1,1,1,417.0,2.62014,0.10224948875255624
-ecoli,ASP1DC,Aspartate 1-decarboxylase,1,1,1,0.57,-0.244125,0.10224948875255624
-ecoli,ASNS2_num2,Asparagine synthetase,1,1,1,0.75,-0.124939,0.10224948875255624
-ecoli,ASNS2_num1,Asparagine synthetase,1,1,1,0.75,-0.124939,0.10224948875255624
-ecoli,ASNNpp,L-asparaginase,1,1,1,53.9,1.73159,0.10224948875255624
-ecoli,ASNN_num2,L-asparaginase,1,1,1,24.0,1.38021,0.10224948875255624
-ecoli,ASNN_num1,L-asparaginase,1,1,1,24.0,1.38021,0.10224948875255624
-ecoli,ASAD,Aspartate-semialdehyde dehydrogenase,1,1,1,51.0,1.70757,0.10224948875255624
-yeast,r_0479,glutamyl-tRNA synthetase,1,1,1,1.5,0.176091,0.10224948875255624
-yeast,r_0478,glutaminyl-tRNA synthetase,1,1,1,1.4,0.146128,0.10224948875255624
-yeast,r_0469,glutamate decarboxylase,1,1,1,0.537,-0.270026,0.10224948875255624
-yeast,r_0464,"glucan 1,4-alpha-glucosidase, vacuole",1,1,1,328.0,2.51587,0.10224948875255624
-yeast,r_0459,galactose-1-phosphate uridylyltransferase,1,1,1,987.0,2.99432,0.10224948875255624
-yeast,r_0453,dihydoorotic acid dehydrogenase,1,1,1,98.4,1.993,0.10224948875255624
-yeast,r_0690,L-serine dehydrogenase,1,1,1,11.0,1.04139,0.10224948875255624
-yeast,r_0679,L-asparaginase,1,1,1,370.0,2.5682,0.10224948875255624
-yeast,r_0676,L-allo-threonine dehydrogenase,1,1,1,43.8,1.64147,0.10224948875255624
-yeast,r_0675,L-allo-threonine aldolase,1,1,1,41.0,1.61278,0.10224948875255624
-yeast,r_0667,isopentenyl-diphosphate D-isomerase,1,1,1,8.27,0.917506,0.10224948875255624
-yeast,r_0569,inorganic diphosphatase,1,1,1,260.0,2.41497,0.10224948875255624
-yeast,r_0568,inorganic diphosphatase,1,1,1,260.0,2.41497,0.10224948875255624
-yeast,r_0554,hydroxyacylglutathione hydrolase,1,1,1,723.0,2.85914,0.10224948875255624
-yeast,r_0553,hydroxyacylglutathione hydrolase,1,1,1,723.0,2.85914,0.10224948875255624
-yeast,r_0545,homoisocitrate dehydrogenase,1,1,1,17.0,1.23045,0.10224948875255624
-yeast,r_0529,guanylate kinase (GMP:dATP),1,1,1,394.0,2.5955,0.10224948875255624
-yeast,r_0526,guanine deaminase,1,1,1,8.9,0.94939,0.10224948875255624
-yeast,r_0480,glutamyl-tRNA synthetase,1,1,1,1.5,0.176091,0.10224948875255624
-ecoli,ASPT,L-aspartase,1,1,1,180.0,2.25527,0.10224948875255624
-ecoli,ASPO6,L-aspartate oxidase,1,1,1,1.4335,0.156398,0.10224948875255624
-ecoli,ASPK_num3,Aspartate kinase,1,1,1,1.14,0.0569049,0.10224948875255624
-ecoli,AOXSr2,8-amino-7-oxononanoate synthase,1,1,1,0.06,-1.22185,0.10224948875255624
-ecoli,AMPTASECG_num4,Alanyl aminopeptidase (cys-gly),1,1,1,178.333,2.25123,0.10224948875255624
-ecoli,AMPTASECG_num3,Alanyl aminopeptidase (cys-gly),1,1,1,178.333,2.25123,0.10224948875255624
-ecoli,AMPTASECG_num2,Alanyl aminopeptidase (cys-gly),1,1,1,178.333,2.25123,0.10224948875255624
-ecoli,AMPTASECG_num1,Alanyl aminopeptidase (cys-gly),1,1,1,178.333,2.25123,0.10224948875255624
-ecoli,AMAOTr,Adenosylmethionine-8-amino-7-oxononanoate transaminase,1,1,1,0.0465,-1.33255,0.10224948875255624
-ecoli,AMANK,N-acetyl-D-mannosamine kinase,1,1,1,38.0,1.57978,0.10224948875255624
-ecoli,ALLK,Allose kinase,1,1,1,47.0,1.6721,0.10224948875255624
-ecoli,ALDD19xr,"Aldehyde dehydrogenase (phenylacetaldehyde, NAD)",1,1,1,96.8,1.98588,0.10224948875255624
-ecoli,ALAR_num2,Alanine racemase,1,1,1,51.77,1.71408,0.10224948875255624
-ecoli,ALAR_num1,Alanine racemase,1,1,1,46.795,1.6702,0.10224948875255624
-yeast,r_0739,mevalonate pyrophoshate decarboxylase,1,1,1,4.9,0.690196,0.10224948875255624
-yeast,r_0727,methionine synthase,1,1,1,0.33,-0.481486,0.10224948875255624
-yeast,r_0723,mannose-6-phosphate isomerase,1,1,1,20.0,1.30103,0.10224948875255624
-yeast,r_0702,leucyl-tRNA synthetase,1,1,1,37.5,1.57403,0.10224948875255624
-yeast,r_0701,leucyl-tRNA synthetase,1,1,1,37.5,1.57403,0.10224948875255624
-yeast,r_0853,phenylalanyl-tRNA synthetase,1,1,1,180.0,2.25527,0.10224948875255624
-yeast,r_0851,phenylalanine transaminase,1,1,1,8.3,0.919078,0.10224948875255624
-yeast,r_0821,orotidine-5'-phosphate decarboxylase,1,1,1,15.0,1.17609,0.10224948875255624
-yeast,r_0817,ornithine decarboxylase,1,1,1,3.75,0.574031,0.10224948875255624
-yeast,r_0810,"nucleoside-diphosphatase (GDP), Golgi",1,1,1,3830.0,3.5832,0.10224948875255624
-yeast,r_0799,nucleoside diphosphate kinase,1,1,1,13.3,1.12385,0.10224948875255624
-yeast,r_0781,nicotinamidase,1,1,1,0.69,-0.161151,0.10224948875255624
-yeast,r_0773,NADH:ubiquinone oxidoreductase,1,1,1,0.031,-1.50864,0.10224948875255624
-yeast,r_0769,NAD synthase,1,1,1,6.4,0.80618,0.10224948875255624
-yeast,r_0768,NAD synthase,1,1,1,6.4,0.80618,0.10224948875255624
-yeast,r_0764,NAD diphosphatase,1,1,1,0.000167,-3.77728,0.10224948875255624
-yeast,r_0762,N-formyl-L-kynurenine amidohydrolase,1,1,1,161.0,2.20683,0.10224948875255624
-ecoli,APRAUR,5-amino-6-(5-phosphoribosylamino)uracil reductase,1,1,1,0.308333,-0.51098,0.10224948875255624
-ecoli,APCS,Aminopropylcadaverine synthase,1,1,1,0.14,-0.853872,0.10224948875255624
-ecoli,AP5AH,Ap5A hydrolase,1,1,1,1.0,0.0,0.10224948875255624
-ecoli,AP4AH,Ap4A hydrolase,1,1,1,250.0,2.39794,0.10224948875255624
-yeast,r_1043,threonyl-tRNA synthetase,1,1,1,3.32,0.521138,0.10224948875255624
-yeast,r_1042,threonyl-tRNA synthetase,1,1,1,3.32,0.521138,0.10224948875255624
-yeast,r_1040,threonine aldolase,1,1,1,43.0,1.63347,0.10224948875255624
-yeast,r_1038,thioredoxin reductase (NADPH),1,1,1,33.3,1.52244,0.10224948875255624
-yeast,r_1024,sucrose hydrolyzing enzyme,1,1,1,3430.0,3.53529,0.10224948875255624
-yeast,r_1012,squalene synthase,1,1,1,1.915,0.282169,0.10224948875255624
-yeast,r_0984,ribulose 5-phosphate 3-epimerase,1,1,1,1300.0,3.11394,0.10224948875255624
-yeast,r_0955,pyridoxine 5'-phosphate oxidase,1,1,1,0.7,-0.154902,0.10224948875255624
-yeast,r_0954,pyridoxamine 5'-phosphate oxidase,1,1,1,0.103,-0.987163,0.10224948875255624
-yeast,r_0943,purine-nucleoside phosphorylase,1,1,1,23.4,1.36922,0.10224948875255624
-yeast,r_0941,prolyl-tRNA synthetase,1,1,1,5.6,0.748188,0.10224948875255624
-yeast,r_0938,prephenate dehydratase,1,1,1,737.0,2.86747,0.10224948875255624
-yeast,r_0937,poylamine oxidase,1,1,1,39.0,1.59106,0.10224948875255624
-yeast,r_0936,poylamine oxidase,1,1,1,15.1,1.17898,0.10224948875255624
-yeast,r_0913,phosphoribosylanthranilate isomerase,1,1,1,69.0,1.83885,0.10224948875255624
-yeast,r_0854,phenylpyruvate decarboxylase,1,1,1,20.0,1.30103,0.10224948875255624
-yeast,r_1063,tyrosine transaminase,1,1,1,12.8,1.10721,0.10224948875255624
-ecoli,ALAGLUE,L-alanyl-gamma-glutamate epimerase,1,1,1,10.0,1.0,0.10224948875255624
-ecoli,ALAALAr_num2,D-alanine-D-alanine ligase (reversible),1,1,1,14.7,1.16732,0.10224948875255624
-ecoli,ALAALAr_num1,D-alanine-D-alanine ligase (reversible),1,1,1,14.7,1.16732,0.10224948875255624
-ecoli,AIRC3,Phosphoribosylaminoimidazole carboxylase (mutase rxn),1,1,1,15.6,1.19312,0.10224948875255624
-ecoli,AICART,Phosphoribosylaminoimidazolecarboxamide formyltransferase,1,1,1,3.63,0.559907,0.10224948875255624
-ecoli,AHGDx,(S)-alpha-hydroxyglutarate dehydrogenase,1,1,1,0.25,-0.60206,0.10224948875255624
-ecoli,AGMT,Agmatinase,1,1,1,61.0,1.78533,0.10224948875255624
-ecoli,AGDC,N-acetylglucosamine-6-phosphate deacetylase,1,1,1,92.0,1.96379,0.10224948875255624
-ecoli,ADSK,Adenylyl-sulfate kinase,1,1,1,50.0,1.69897,0.10224948875255624
-ecoli,ADPT,Adenine phosphoribosyltransferase,1,1,1,9.33,0.969882,0.10224948875255624
-ecoli,ADPRDP_num2,ADPribose diphosphatase,1,1,1,117.0,2.06819,0.10224948875255624
-ecoli,ADPRDP_num1,ADPribose diphosphatase,1,1,1,117.0,2.06819,0.10224948875255624
-ecoli,ADNUC,Adenosine hydrolase,1,1,1,0.0154,-1.81248,0.10224948875255624
-ecoli,ADNCYC,Adenylate cyclase,1,1,1,1.67,0.222716,0.10224948875255624
-yeast,r_1054,triose-phosphate isomerase,1,1,1,500.0,2.69897,0.10224948875255624
-yeast,r_2441,"CDP-diacylglycerol synthase (1-16:1, 2-16:1), mitochondrial membrane",1,1,1,8.92,0.950365,0.10224948875255624
-yeast,r_2440,"CDP-diacylglycerol synthase (1-16:0, 2-16:1), mitochondrial membrane",1,1,1,8.92,0.950365,0.10224948875255624
-yeast,r_2439,"CDP-diacylglycerol synthase (1-18:1, 2-18:1), ER membrane",1,1,1,8.92,0.950365,0.10224948875255624
-yeast,r_2438,"CDP-diacylglycerol synthase (1-18:0, 2-18:1), ER membrane",1,1,1,8.92,0.950365,0.10224948875255624
-yeast,r_2437,"CDP-diacylglycerol synthase (1-16:1, 2-18:1), ER membrane",1,1,1,8.92,0.950365,0.10224948875255624
-yeast,r_2436,"CDP-diacylglycerol synthase (1-16:0, 2-18:1), ER membrane",1,1,1,8.92,0.950365,0.10224948875255624
-yeast,r_2435,"CDP-diacylglycerol synthase (1-18:1, 2-16:1), ER membrane",1,1,1,8.92,0.950365,0.10224948875255624
-yeast,r_2434,"CDP-diacylglycerol synthase (1-18:0, 2-16:1), ER membrane",1,1,1,8.92,0.950365,0.10224948875255624
-yeast,r_2433,"CDP-diacylglycerol synthase (1-16:1, 2-16:1), ER membrane",1,1,1,8.92,0.950365,0.10224948875255624
-yeast,r_2432,"CDP-diacylglycerol synthase (1-16:0, 2-16:1), ER membrane",1,1,1,8.92,0.950365,0.10224948875255624
-yeast,r_2147,3-oxoacyl-ACP reductase (3-hydroxyoctanoyl-ACP),1,1,1,117.5,2.07004,0.10224948875255624
-yeast,r_2146,3-oxoacyl-ACP reductase (3-hydroxyhexanoyl-ACP),1,1,1,117.5,2.07004,0.10224948875255624
-yeast,r_2145,3-oxoacyl-ACP reductase (3-hydroxybutanoyl-ACP),1,1,1,117.5,2.07004,0.10224948875255624
-yeast,r_1071,UDPglucose--hexose-1-phosphate uridylyltransferase,1,1,1,987.0,2.99432,0.10224948875255624
-yeast,r_1067,tyrosyl-tRNA synthetase,1,1,1,4.5,0.653213,0.10224948875255624
-yeast,r_1066,tyrosyl-tRNA synthetase,1,1,1,4.5,0.653213,0.10224948875255624
-yeast,r_2847,"phosphatidylinositol 4-kinase (1-18:1, 2-16:1), nucleus",1,1,1,2.77,0.44248,0.10224948875255624
-yeast,r_2846,"phosphatidylinositol 4-kinase (1-18:0, 2-16:1), nucleus",1,1,1,2.77,0.44248,0.10224948875255624
-yeast,r_2845,"phosphatidylinositol 4-kinase (1-16:1, 2-16:1), nucleus",1,1,1,2.77,0.44248,0.10224948875255624
-yeast,r_2844,"phosphatidylinositol 4-kinase (1-16:0, 2-16:1), nucleus",1,1,1,2.77,0.44248,0.10224948875255624
-yeast,r_2835,"phosphatidylinositol 4-kinase (1-18:1, 2-18:1), vacuolar membrane",1,1,1,2.77,0.44248,0.10224948875255624
-yeast,r_2834,"phosphatidylinositol 4-kinase (1-18:0, 2-18:1), vacuolar membrane",1,1,1,2.77,0.44248,0.10224948875255624
-yeast,r_2833,"phosphatidylinositol 4-kinase (1-16:1, 2-18:1), vacuolar membrane",1,1,1,2.77,0.44248,0.10224948875255624
-yeast,r_2832,"phosphatidylinositol 4-kinase (1-16:0, 2-18:1), vacuolar membrane",1,1,1,2.77,0.44248,0.10224948875255624
-yeast,r_2831,"phosphatidylinositol 4-kinase (1-18:1, 2-16:1), vacuolar membrane",1,1,1,2.77,0.44248,0.10224948875255624
-yeast,r_2830,"phosphatidylinositol 4-kinase (1-18:0, 2-16:1), vacuolar membrane",1,1,1,2.77,0.44248,0.10224948875255624
-yeast,r_2829,"phosphatidylinositol 4-kinase (1-16:1, 2-16:1), vacuolar membrane",1,1,1,2.77,0.44248,0.10224948875255624
-yeast,r_2828,"phosphatidylinositol 4-kinase (1-16:0, 2-16:1), vacuolar membrane",1,1,1,2.77,0.44248,0.10224948875255624
-yeast,r_2445,"CDP-diacylglycerol synthase (1-16:1, 2-18:1), mitochondrial membrane",1,1,1,8.92,0.950365,0.10224948875255624
-yeast,r_2444,"CDP-diacylglycerol synthase (1-16:0, 2-18:1), mitochondrial membrane",1,1,1,8.92,0.950365,0.10224948875255624
-yeast,r_2443,"CDP-diacylglycerol synthase (1-18:1, 2-16:1), mitochondrial membrane",1,1,1,8.92,0.950365,0.10224948875255624
-yeast,r_2442,"CDP-diacylglycerol synthase (1-18:0, 2-16:1), mitochondrial membrane",1,1,1,8.92,0.950365,0.10224948875255624
-ecoli,3NTD4pp_num1,3'-nucleotidase (CMP) (periplasm),1,1,1,5.93,0.773055,0.10224948875255624
-yeast,r_4160,ADP-ribose pyrophosphatase (EC 3.6.1.13) (ADP-ribose diphosphatase) (ADP-ribose phosphohydrolase) (Adenosine diphosphoribose pyrophosphatase) (ADPR-PPase),1,1,1,7.92,0.898725,0.10224948875255624
-yeast,r_4288,alpha-D-Glucose 6-phosphate ketol-isomerase,1,1,1,1950.0,3.29003,0.10224948875255624
-yeast,r_4287,ATP:D-fructose 6-phosphotransferase,1,1,1,36.65,1.56407,0.10224948875255624
-yeast,r_4286,ATP:D-glucosamine 6-phosphotransferase,1,1,1,36.65,1.56407,0.10224948875255624
-yeast,r_4283,ATP:D-fructose 6-phosphotransferase,1,1,1,36.65,1.56407,0.10224948875255624
-yeast,r_4248,D-serine ammonia-lyase,1,1,1,17.0,1.23045,0.10224948875255624
-yeast,r_4217,Fe(II):oxygen oxidoreductase; Fe2+:oxygen oxidoreductase,1,1,1,0.78,-0.107905,0.10224948875255624
-yeast,r_4187,L-proline:tRNA(Pro) ligase (AMP-forming),1,1,1,5.6,0.748188,0.10224948875255624
-yeast,r_4184,4-hydroxy-4-methyl-2-oxoglutarate pyruvate-lyase (pyruvate-forming),1,1,1,0.0276,-1.55909,0.10224948875255624
-yeast,r_4318,Isomaltose 6-alpha-D-glucanohydrolase,1,1,1,97.0,1.98677,0.10224948875255624
-yeast,r_4045,uridine hydrolase,1,1,1,20.0,1.30103,0.10224948875255624
-ecoli,ADD,Adenine deaminase,1,1,1,185.0,2.26717,0.10224948875255624
-ecoli,ACS,Acetyl-CoA synthetase,1,1,1,38.67,1.58737,0.10224948875255624
-ecoli,ACP1_FMN_num3,Acid phosphatase (FMN),1,1,1,7.95,0.900367,0.10224948875255624
-ecoli,ACP1_FMN_num2,Acid phosphatase (FMN),1,1,1,7.95,0.900367,0.10224948875255624
-ecoli,GK1,Guanylate kinase (GMP:ATP),1,1,1,209.0,2.32015,0.10224948875255624
-yeast,r_4340,D-amino-acid N-acetyltransferase HPA3 (DNT) (EC 2.3.1.36) (EC 2.3.1.48) (Histone and other protein acetyltransferase 3),1,1,1,0.48,-0.318759,0.10224948875255624
-yeast,r_4774,nucleoside diphosphate kinase,1,1,1,13.3,1.12385,0.10224948875255624
-ecoli,23PDE7pp,"2',3'-cyclic-nucleotide phosphodiesterase (AMP) (periplasm)",1,1,1,2.95,0.469822,0.10224948875255624
-yeast,r_4317,sucrose glucohydrolase,1,1,1,55.0,1.74036,0.10224948875255624
-ecoli,ABUTD,Aminobutyraldehyde dehydrogenase,1,1,1,6.66667,0.823909,0.10224948875255624
-ecoli,A5PISO_num2,Arabinose-5-phosphate isomerase,1,1,1,130.5,2.11561,0.10224948875255624
-ecoli,A5PISO_num1,Arabinose-5-phosphate isomerase,1,1,1,130.5,2.11561,0.10224948875255624
-ecoli,3OAS181,3-oxoacyl-[acyl-carrier-protein] synthase (n-C18:1),1,1,1,0.029,-1.5376,0.10224948875255624
-ecoli,3OAS180_num2,3-oxoacyl-[acyl-carrier-protein] synthase (n-C18:0),1,1,1,0.011,-1.95861,0.10224948875255624
-ecoli,3OAS180_num1,3-oxoacyl-[acyl-carrier-protein] synthase (n-C18:0),1,1,1,0.011,-1.95861,0.10224948875255624
-ecoli,3OAS161,3-oxoacyl-[acyl-carrier-protein] synthase (n-C16:1),1,1,1,0.011,-1.95861,0.10224948875255624
-ecoli,3OAS141,3-oxoacyl-[acyl-carrier-protein] synthase (n-C14:1),1,1,1,0.011,-1.95861,0.10224948875255624
-ecoli,3OAS121,3-oxoacyl-[acyl-carrier-protein] synthase (n-C12:1),1,1,1,0.011,-1.95861,0.10224948875255624
-ecoli,3NTD7pp_num2,3'-nucleotidase (AMP) (periplasm),1,1,1,9.84,0.992995,0.10224948875255624
-ecoli,3NTD7pp_num1,3'-nucleotidase (AMP) (periplasm),1,1,1,176.0,2.24551,0.10224948875255624
+yeast,r_0534,hexokinase (D-glucose:ATP),10,2,5,10.2,1.0086,0.8025682182985554
+yeast,r_4654,"aldehyde dehydrogenase (1-propanol, NADP)",9,3,3,69.5,1.84198,0.7223113964686998
+yeast,r_4652,"aldehyde dehydrogenase (1-propanol, NAD)",9,3,3,176.0,2.24551,0.7223113964686998
+yeast,r_0168,"aldehyde dehydrogenase (2-methylbutanol, NADP)",9,3,3,71.1,1.85187,0.7223113964686998
+yeast,r_1838,homocitrate synthase,6,3,2,0.45,-0.346787,0.48154093097913325
+yeast,r_2115,"alcohol dehydrogenase, (acetaldehyde to ethanol)",6,3,2,176.0,2.24551,0.48154093097913325
+yeast,r_0186,"aldehyde dehydrogenase (tryptophol, NAD)",6,2,3,176.0,2.24551,0.48154093097913325
+yeast,r_4672,"aldehyde dehydrogenase (tyrosol, NADP)",6,2,3,63.949999999999996,1.80311,0.48154093097913325
+yeast,r_4670,"aldehyde dehydrogenase (tyrosol, NAD)",6,2,3,176.0,2.24551,0.48154093097913325
+yeast,r_4663,"aldehyde dehydrogenase (methionol, NADP)",6,2,3,63.949999999999996,1.80311,0.48154093097913325
+yeast,r_4653,"aldehyde dehydrogenase (1-propanol, NAD)",6,3,2,176.0,2.24551,0.48154093097913325
+yeast,r_4661,"aldehyde dehydrogenase (methionol, NAD)",6,2,3,176.0,2.24551,0.48154093097913325
+yeast,r_0181,"aldehyde dehydrogenase (isoamyl alcohol, NADP)",6,3,2,71.1,1.85187,0.48154093097913325
+yeast,r_0182,"aldehyde dehydrogenase (isobutyl alcohol, NAD)",6,2,3,176.0,2.24551,0.48154093097913325
+yeast,r_0169,"aldehyde dehydrogenase (2-phenylethanol, NAD)",6,2,3,176.0,2.24551,0.48154093097913325
+yeast,r_0179,"aldehyde dehydrogenase (isoamyl alcohol, NAD)",6,2,3,176.0,2.24551,0.48154093097913325
+yeast,r_0165,mitochondrial alcohol dehydrogenase,6,3,2,176.0,2.24551,0.48154093097913325
+yeast,r_0166,"aldehyde dehydrogenase (2-methylbutanol, NAD)",6,2,3,176.0,2.24551,0.48154093097913325
+yeast,r_0958,pyruvate carboxylase,6,3,2,60.0,1.77815,0.48154093097913325
+yeast,r_0543,homocitrate synthase,6,3,2,0.45,-0.346787,0.48154093097913325
+yeast,r_0300,citrate synthase,6,3,2,11.1,1.045305,0.48154093097913325
+yeast,r_0366,enolase,5,1,5,71.4,1.8537,0.4012841091492777
+yeast,r_0962,pyruvate kinase,4,2,2,58.4,1.76641,0.32102728731942215
+yeast,r_0183,"aldehyde dehydrogenase (isobutyl alcohol, NAD)",4,2,2,176.0,2.24551,0.32102728731942215
+yeast,r_0180,"aldehyde dehydrogenase (isoamyl alcohol, NAD)",4,2,2,176.0,2.24551,0.32102728731942215
+yeast,r_0167,"aldehyde dehydrogenase (2-methylbutanol, NAD)",4,2,2,176.0,2.24551,0.32102728731942215
+yeast,r_0171,"aldehyde dehydrogenase (2-phenylethanol, NADP)",4,2,2,63.949999999999996,1.80311,0.32102728731942215
+yeast,r_0170,"aldehyde dehydrogenase (2-phenylethanol, NAD)",4,2,2,176.0,2.24551,0.32102728731942215
+yeast,r_4662,"aldehyde dehydrogenase (methionol, NAD)",4,2,2,176.0,2.24551,0.32102728731942215
+yeast,r_4671,"aldehyde dehydrogenase (tyrosol, NAD)",4,2,2,176.0,2.24551,0.32102728731942215
+yeast,r_0889,phosphogluconate dehydrogenase,4,2,2,28.15,1.44948,0.32102728731942215
+yeast,r_0995,seryl-tRNA synthetase,4,2,2,0.745,-0.152697405,0.32102728731942215
+yeast,r_0680,L-asparaginase,4,1,4,370.0,2.5682,0.32102728731942215
+yeast,r_0184,"aldehyde dehydrogenase (isobutyl alcohol, NADP)",4,2,2,63.949999999999996,1.80311,0.32102728731942215
+yeast,r_1050,transketolase 2,4,2,2,30.1,1.47224,0.32102728731942215
+yeast,r_0187,"aldehyde dehydrogenase (tryptophol, NAD)",4,2,2,176.0,2.24551,0.32102728731942215
+yeast,r_0960,pyruvate decarboxylase (acetoin-forming),3,1,3,145.0,2.16137,0.24077046548956663
+yeast,r_0959,pyruvate decarboxylase,3,1,3,145.0,2.16137,0.24077046548956663
+yeast,r_0018,2-aminoadipate transaminase,3,1,3,12.8,1.10721,0.24077046548956663
+yeast,r_0028,2-methylcitrate synthase,3,3,1,8.2,0.913814,0.24077046548956663
+yeast,r_0062,3-methyl-2-oxobutanoate decarboxylase,3,1,3,19.0,1.27875,0.24077046548956663
+ecoli,TRSARr_num1,Tartronate semialdehyde reductase,3,3,1,23.0,1.36173,0.24077046548956663
+ecoli,DPR_num2,2-dehydropantoate 2-reductase,3,3,1,15.0,1.17609,0.24077046548956663
+ecoli,DPR_num1,2-dehydropantoate 2-reductase,3,3,1,15.0,1.17609,0.24077046548956663
+ecoli,SHK3Dr,Shikimate dehydrogenase,3,3,1,236.667,2.37414,0.24077046548956663
+yeast,r_0766,NAD kinase,3,1,3,7.4,0.869232,0.24077046548956663
+yeast,r_0567,indole-3-pyruvate decarboxylase,3,1,3,5.4,0.732394,0.24077046548956663
+yeast,r_0547,homoserine dehydrogenase (NADP),3,3,1,126.0,2.10037,0.24077046548956663
+ecoli,GLUCYS,Gamma-glutamylcysteine synthetase,3,3,1,35.4,1.549,0.24077046548956663
+ecoli,PANTS,Pantothenate synthase,3,3,1,1.4,0.146128,0.24077046548956663
+ecoli,HACD1_num1,3-hydroxyacyl-CoA dehydrogenase (acetoacetyl-CoA),3,3,1,391.0,2.59218,0.24077046548956663
+ecoli,HACD1_num2,3-hydroxyacyl-CoA dehydrogenase (acetoacetyl-CoA),3,3,1,391.0,2.59218,0.24077046548956663
+yeast,r_0772,NADH kinase mitochondrial,3,1,3,16.1,1.20683,0.24077046548956663
+yeast,r_0815,O-succinylhomoserine lyase (L-cysteine),3,1,3,0.15,-0.823909,0.24077046548956663
+ecoli,ABUTD,Aminobutyraldehyde dehydrogenase,3,3,1,5.65,0.752048,0.24077046548956663
+ecoli,CTPS2,CTP synthase (glutamine),3,3,1,6.0,0.778151,0.24077046548956663
+ecoli,TRSARr_num2,Tartronate semialdehyde reductase,3,3,1,23.0,1.36173,0.24077046548956663
+yeast,r_0173,"aldehyde dehydrogenase (acetaldehyde, NADP)",3,3,1,42.5,1.62839,0.24077046548956663
+yeast,r_0486,glyceraldehyde-3-phosphate dehydrogenase,3,1,3,16.35,1.21352,0.24077046548956663
+yeast,r_0533,hexokinase (D-fructose:ATP),3,1,3,36.65,1.56407,0.24077046548956663
+yeast,r_0535,hexokinase (D-mannose:ATP),3,1,3,36.65,1.56407,0.24077046548956663
+ecoli,ADSS,Adenylosuccinate synthase,3,3,1,1.0,0.0,0.24077046548956663
+ecoli,ASAD,Aspartate-semialdehyde dehydrogenase,3,3,1,51.0,1.70757,0.24077046548956663
+ecoli,APRAUR,5-amino-6-(5-phosphoribosylamino)uracil reductase,3,3,1,0.308333,-0.51098,0.24077046548956663
+ecoli,ASNS2_num2,Asparagine synthetase,3,3,1,0.75,-0.124939,0.24077046548956663
+ecoli,ASNS2_num1,Asparagine synthetase,3,3,1,0.75,-0.124939,0.24077046548956663
+ecoli,ASNS1,Asparagine synthase (glutamine-hydrolysing),3,3,1,0.96,-0.0177288,0.24077046548956663
+ecoli,KDOPS,3-deoxy -D-manno-octulosonic -acid 8-phosphate synthase,3,3,1,1.9,0.278754,0.24077046548956663
+yeast,r_4725,"polyphosphate phosphohydrolase, n",2,1,2,1350.0,3.13033,0.16051364365971107
+yeast,r_4285,ATP:alpha-D-glucose 6-phosphotransferase,2,2,1,21.2925,1.1687455,0.16051364365971107
+yeast,r_4284,ATP:beta-D-glucose 6-phosphotransferase,2,2,1,19.0075,0.8496015,0.16051364365971107
+yeast,r_4251,CTP:phosphatidate cytidyltransferase,2,2,1,8.92,0.950365,0.16051364365971107
+ecoli,NTD1_num1,5'-nucleotidase (dUMP),2,2,1,0.23,-0.638272,0.16051364365971107
+ecoli,KG6PDC_num2,3-keto-L-gulonate 6-phosphate decarboxylase,2,2,1,1.9,0.2631695,0.16051364365971107
+ecoli,KG6PDC_num1,3-keto-L-gulonate 6-phosphate decarboxylase,2,2,1,1.4,0.146128,0.16051364365971107
+ecoli,KARA2,Ketol-acid reductoisomerase (2-Acetolactate),2,2,1,1.3985,0.05919849999999999,0.16051364365971107
+ecoli,KARA1,"Ketol-acid reductoisomerase (2,3-dihydroxy-3-methylbutanoate)",2,2,1,1.4985,0.07809250000000001,0.16051364365971107
+ecoli,IPMD_num2,3-isopropylmalate dehydrogenase,2,2,1,54.75,1.7231550000000002,0.16051364365971107
+ecoli,IPMD_num1,3-isopropylmalate dehydrogenase,2,2,1,69.0,1.83885,0.16051364365971107
+ecoli,NODOx,Nitric oxide dioxygenase,2,2,1,224.25,2.20244,0.16051364365971107
+ecoli,NADK,NAD kinase,2,2,1,90.0,1.95424,0.16051364365971107
+ecoli,MTAN,Methylthioadenosine nucleosidase,2,2,1,1.475,0.16367949999999998,0.16051364365971107
+ecoli,METAT,Methionine adenosyltransferase,2,2,1,1.29,0.1099494,0.16051364365971107
+ecoli,3NTD7pp_num1,3'-nucleotidase (AMP) (periplasm),2,2,1,91.9425,1.571156,0.16051364365971107
+ecoli,3NTD4pp_num3,3'-nucleotidase (CMP) (periplasm),2,2,1,6.9075,0.8349285,0.16051364365971107
+ecoli,3NTD4pp_num2,3'-nucleotidase (CMP) (periplasm),2,2,1,6.9075,0.8349285,0.16051364365971107
+yeast,r_2826,"phosphatidylinositol 4-kinase (1-18:0, 2-18:1), cell envelope",2,1,2,2.77,0.44248,0.16051364365971107
+yeast,r_2827,"phosphatidylinositol 4-kinase (1-18:1, 2-18:1), cell envelope",2,1,2,2.77,0.44248,0.16051364365971107
+yeast,r_2824,"phosphatidylinositol 4-kinase (1-16:0, 2-18:1), cell envelope",2,1,2,2.77,0.44248,0.16051364365971107
+yeast,r_2823,"phosphatidylinositol 4-kinase (1-18:1, 2-16:1), cell envelope",2,1,2,2.77,0.44248,0.16051364365971107
+yeast,r_2822,"phosphatidylinositol 4-kinase (1-18:0, 2-16:1), cell envelope",2,1,2,2.77,0.44248,0.16051364365971107
+yeast,r_2821,"phosphatidylinositol 4-kinase (1-16:1, 2-16:1), cell envelope",2,1,2,2.77,0.44248,0.16051364365971107
+yeast,r_2820,"phosphatidylinositol 4-kinase (1-16:0, 2-16:1), cell envelope",2,1,2,2.77,0.44248,0.16051364365971107
+yeast,r_1094,xylulokinase,2,2,1,0.5700000000000001,-0.247425,0.16051364365971107
+yeast,r_1049,transketolase 1,2,1,2,25.0,1.39794,0.16051364365971107
+yeast,r_4755,(R)-2-hydroxyglutarate:pyruvate oxidoreductase,2,1,2,4.9,0.690196,0.16051364365971107
+yeast,r_0364,dUTP diphosphatase,2,1,2,9.6,0.982271,0.16051364365971107
+ecoli,AMPTASECG_num4,Alanyl aminopeptidase (cys-gly),2,2,1,144.41649999999998,2.1472949999999997,0.16051364365971107
+ecoli,AMPTASECG_num3,Alanyl aminopeptidase (cys-gly),2,2,1,144.41649999999998,2.1472949999999997,0.16051364365971107
+ecoli,AMPTASECG_num2,Alanyl aminopeptidase (cys-gly),2,2,1,144.41649999999998,2.1472949999999997,0.16051364365971107
+ecoli,AMPTASECG_num1,Alanyl aminopeptidase (cys-gly),2,2,1,144.41649999999998,2.1472949999999997,0.16051364365971107
+ecoli,AMAOTr,Adenosylmethionine-8-amino-7-oxononanoate transaminase,2,2,1,0.0305,-1.5855899999999998,0.16051364365971107
+ecoli,AMANK,N-acetyl-D-mannosamine kinase,2,2,1,39.25,1.59362,0.16051364365971107
+ecoli,ALLK,Allose kinase,2,2,1,37.5,1.5596299999999998,0.16051364365971107
+ecoli,ALDD19xr,"Aldehyde dehydrogenase (phenylacetaldehyde, NAD)",2,2,1,54.317499999999995,1.529525,0.16051364365971107
+yeast,r_0330,deoxyguanylate kinase (dGMP:ATP),2,2,1,70.5,1.830905,0.16051364365971107
+yeast,r_0309,cystathionine beta-synthase,2,2,1,16.375,1.213865,0.16051364365971107
+yeast,r_0215,aspartate kinase,2,2,1,5.55,0.744293,0.16051364365971107
+yeast,r_0202,anthranilate phosphoribosyltransferase,2,2,1,2.9,0.462398,0.16051364365971107
+ecoli,ASPK_num1,Aspartate kinase,2,2,1,1.31,0.11673620000000001,0.16051364365971107
+ecoli,ASNNpp,L-asparaginase,2,2,1,31.799999999999997,1.359181,0.16051364365971107
+ecoli,ASNN_num2,L-asparaginase,2,2,1,16.85,1.183491,0.16051364365971107
+ecoli,ASNN_num1,L-asparaginase,2,2,1,16.85,1.183491,0.16051364365971107
+ecoli,ANPRT,Anthranilate phosphoribosyltransferase,2,2,1,4.4,0.643453,0.16051364365971107
+yeast,r_0528,guanylate kinase,2,2,1,242.0,2.27487,0.16051364365971107
+ecoli,AICART,Phosphoribosylaminoimidazolecarboxamide formyltransferase,2,2,1,4.3,0.6281315000000001,0.16051364365971107
+ecoli,AHGDx,(S)-alpha-hydroxyglutarate dehydrogenase,2,2,1,0.48,-0.37540100000000004,0.16051364365971107
+ecoli,AHCYSNS,S-adenosylhomocysteine nucleosidase,2,2,1,1.225,0.0880456,0.16051364365971107
+ecoli,ACS,Acetyl-CoA synthetase,2,2,1,48.3025,1.675155,0.16051364365971107
+yeast,r_0477,glutamine-fructose-6-phosphate transaminase,2,2,1,35.5,1.55023,0.16051364365971107
+yeast,r_0471,glutamate dehydrogenase (NADP),2,1,2,13.0,1.11394,0.16051364365971107
+yeast,r_0458,galactokinase,2,2,1,47.425,1.669125,0.16051364365971107
+yeast,r_0443,formaldehyde dehydrogenase,2,2,1,88.64,1.1763599999999999,0.16051364365971107
+yeast,r_0373,farnesyltranstransferase,2,2,1,0.034,-1.4702199999999999,0.16051364365971107
+yeast,r_0177,"aldehyde dehydrogenase (indole-3-acetaldehyde, NADP)",2,2,1,42.5,1.62839,0.16051364365971107
+ecoli,CDGR,7-cyano-7-deazaguanine reductase,2,2,1,0.099825,-1.017478,0.16051364365971107
+ecoli,ASPTA_num2,Aspartate transaminase,2,2,1,67.825,1.7538099999999999,0.16051364365971107
+ecoli,ASPTA_num1,Aspartate transaminase,2,2,1,47.682500000000005,1.648715,0.16051364365971107
+ecoli,ASPK_num3,Aspartate kinase,2,2,1,1.3175,0.11577295,0.16051364365971107
+ecoli,ASPK_num2,Aspartate kinase,2,2,1,0.39,-0.408935,0.16051364365971107
+yeast,r_0163,alcohol dehydrogenase (ethanol to acetaldehyde),2,2,1,258.9,2.38964,0.16051364365971107
+yeast,r_0115,acetylglutamate kinase,2,2,1,6.300000000000001,0.7883435000000001,0.16051364365971107
+yeast,r_0024,2-isopropylmalate synthase,2,1,2,10.535,1.02263,0.16051364365971107
+ecoli,XPPT,Xanthine phosphoribosyltransferase,2,2,1,131.0,2.112655,0.16051364365971107
+ecoli,CYSTA,Cysteine transaminase,2,2,1,35.644999999999996,1.54769,0.16051364365971107
+ecoli,CYSS_num2,Cysteine synthase,2,2,1,1420.0,3.15229,0.16051364365971107
+ecoli,CYSS_num1,Cysteine synthase,2,2,1,220.5,2.34341,0.16051364365971107
+ecoli,CYANSTpp,Cyanide sulfurtransferase (periplasmic),2,2,1,64.0,1.80618,0.16051364365971107
+ecoli,CYANST_num3,Cyanide sulfurtransferase,2,2,1,147.0,2.083955,0.16051364365971107
+ecoli,CYANST_num2,Cyanide sulfurtransferase,2,2,1,147.0,2.083955,0.16051364365971107
+ecoli,CYANST_num1,Cyanide sulfurtransferase,2,2,1,147.0,2.083955,0.16051364365971107
+ecoli,CS,Citrate synthase,2,2,1,62.75,1.76404,0.16051364365971107
+ecoli,DHPPDA2,Diaminohydroxyphosphoribosylaminopryrimidine deaminase (25drapp),2,2,1,6.16667,0.790051,0.16051364365971107
+ecoli,DHFR_num2,Dihydrofolate reductase,2,2,1,17.237499999999997,1.2354850000000002,0.16051364365971107
+ecoli,DHFR_num1,Dihydrofolate reductase,2,2,1,13.525,1.127575,0.16051364365971107
+ecoli,DDPA_num3,3-deoxy-D-arabino-heptulosonate 7-phosphate synthetase,2,2,1,29.25,1.4642,0.16051364365971107
+ecoli,DDPA_num2,3-deoxy-D-arabino-heptulosonate 7-phosphate synthetase,2,2,1,29.25,1.4642,0.16051364365971107
+ecoli,DDPA_num1,3-deoxy-D-arabino-heptulosonate 7-phosphate synthetase,2,2,1,71.0,1.85126,0.16051364365971107
+ecoli,CYTK2,Cytidylate kinase (dCMP),2,2,1,4.1725,0.3724965,0.16051364365971107
+ecoli,CYTK1,Cytidylate kinase (CMP),2,2,1,6.99,0.49277150000000003,0.16051364365971107
+ecoli,URDGLYCD,Ureidoglycolate dehydrogenase,2,2,1,59.725,1.77572,0.16051364365971107
+ecoli,UDPGPpp,UDPglucose pyrophosphohydrolase,2,2,1,0.5566665,-0.4200663,0.16051364365971107
+ecoli,UDCPDPS,Undecaprenyl diphosphate synthase,2,2,1,2.225,0.3439875,0.16051364365971107
+ecoli,UAGDP,UDP-N-acetylglucosamine diphosphorylase,2,2,1,120.5,1.976395,0.16051364365971107
+ecoli,UAGCVT,UDP-N-acetylglucosamine 1-carboxyvinyltransferase,2,2,1,4.75,0.676694,0.16051364365971107
+ecoli,TYRTA_num3,Tyrosine transaminase,2,2,1,36.525000000000006,1.5624799999999999,0.16051364365971107
+ecoli,TYRTA_num2,Tyrosine transaminase,2,2,1,36.525000000000006,1.5624799999999999,0.16051364365971107
+ecoli,TYRTA_num1,Tyrosine transaminase,2,2,1,30.65,1.48643,0.16051364365971107
+ecoli,TRE6PS,"Alpha,alpha-trehalose-phosphate synthase (UDP-forming)",2,2,1,5.2,0.7155009999999999,0.16051364365971107
+ecoli,E4PD_num2,Erythrose 4-phosphate dehydrogenase,2,2,1,102.25,2.00841,0.16051364365971107
+ecoli,E4PD_num1,Erythrose 4-phosphate dehydrogenase,2,2,1,102.25,2.00841,0.16051364365971107
+ecoli,DXPS,1-deoxy-D-xylulose 5-phosphate synthase,2,2,1,1.8,0.2074865,0.16051364365971107
+ecoli,DURIPP_num2,Deoxyuridine phosphorylase,2,2,1,39.965,1.5983049999999999,0.16051364365971107
+ecoli,DURIPP_num1,Deoxyuridine phosphorylase,2,2,1,39.965,1.5983049999999999,0.16051364365971107
+ecoli,DKGLCNR2y,"2,5-diketo-D-gluconate reductase (NADPH)",2,2,1,40.7,1.60959,0.16051364365971107
+ecoli,TAUDO,Taurine dioxygenase,2,2,1,2.34,0.341501,0.16051364365971107
+ecoli,SSALx,Succinate-semialdehyde dehydrogenase (NAD),2,2,1,45.8,1.5964800000000001,0.16051364365971107
+ecoli,SHSL1,O-succinylhomoserine lyase (L-cysteine),2,2,1,91.1225,1.93493,0.16051364365971107
+ecoli,SHKK_num2,Shikimate kinase,2,2,1,89.185,1.917635,0.16051364365971107
+ecoli,SHKK_num1,Shikimate kinase,2,2,1,89.185,1.917635,0.16051364365971107
+ecoli,FADRx,FAD reductase,2,2,1,109.0,2.03743,0.16051364365971107
+ecoli,FACOAE120,Fatty-acid-CoA thioesterase (dodecanoate),2,2,1,2.855,0.35841045,0.16051364365971107
+ecoli,SFGTHi_num2,S-Formylglutathione hydralase,2,2,1,14.36,0.39863149999999997,0.16051364365971107
+ecoli,SFGTHi_num1,S-Formylglutathione hydralase,2,2,1,4.37,0.580943,0.16051364365971107
+ecoli,SEPHCHCS,2-succinyl-5-enolpyruvyl-6-hydroxy-3-cyclohexene-1-carboxylate synthase,2,2,1,0.166667,-0.77815,0.16051364365971107
+ecoli,RBK_L1,L-ribulokinase (L-ribulose),2,2,1,40.42,0.91368465,0.16051364365971107
+ecoli,QUINDH,Quinate dehydrogenase,2,2,1,0.09325,-1.0338255,0.16051364365971107
+ecoli,PUNP5_num2,Purine-nucleoside phosphorylase (Inosine),2,2,1,24.465,1.1273,0.16051364365971107
+ecoli,PUNP5_num1,Purine-nucleoside phosphorylase (Inosine),2,2,1,59.9225,1.763555,0.16051364365971107
+ecoli,PUNP1,Purine-nucleoside phosphorylase (Adenosine),2,2,1,24.115,1.085527,0.16051364365971107
+ecoli,PTAr_num2,Phosphotransacetylase,2,2,1,1.2775,0.09547404,0.16051364365971107
+ecoli,PTAr_num1,Phosphotransacetylase,2,2,1,1.2775,0.09547404,0.16051364365971107
+ecoli,PSERT,Phosphoserine transaminase,2,2,1,0.745,-0.15060196,0.16051364365971107
+ecoli,PSCVT,3-phosphoshikimate 1-carboxyvinyltransferase,2,2,1,30.6,1.485265,0.16051364365971107
+ecoli,PPND,Prephenate dehydrogenase,2,2,1,34.0875,0.7419815000000001,0.16051364365971107
+ecoli,FMNRx2_num3,FMN reductase,2,2,1,3.625,0.552755,0.16051364365971107
+ecoli,FMNRx2_num2,FMN reductase,2,2,1,3.625,0.552755,0.16051364365971107
+yeast,r_0765,NAD kinase,2,1,2,7.4,0.869232,0.16051364365971107
+yeast,r_0760,N-acetylglucosamine-6-phosphate synthase,2,2,1,0.103667,-0.984359,0.16051364365971107
+ecoli,ACODA,Acetylornithine deacetylase,2,2,1,695.0,2.751895,0.16051364365971107
+ecoli,ACKr_num3,Acetate kinase,2,2,1,935.25,2.970745,0.16051364365971107
+ecoli,ACKr_num2,Acetate kinase,2,2,1,935.25,2.970745,0.16051364365971107
+ecoli,ACKr_num1,Acetate kinase,2,2,1,935.25,2.970745,0.16051364365971107
+yeast,r_0697,lactoylglutathione lyase,2,2,1,1039.15,2.836095,0.16051364365971107
+yeast,r_0674,L-alanine transaminase,2,2,1,179.0675,1.6656085,0.16051364365971107
+yeast,r_0546,homoserine dehydrogenase (NADH),2,2,1,126.0,2.10037,0.16051364365971107
+yeast,r_0540,histidyl-tRNA synthetase,2,2,1,40.0,1.60206,0.16051364365971107
+yeast,r_0539,histidyl-tRNA synthetase,2,2,1,40.0,1.60206,0.16051364365971107
+ecoli,FMNRx2_num1,FMN reductase,2,2,1,3.625,0.552755,0.16051364365971107
+ecoli,PNTK,Pantothenate kinase,2,2,1,0.83775,-0.0942511,0.16051364365971107
+ecoli,PMPK,Phosphomethylpyrimidine kinase,2,2,1,0.052000000000000005,-1.3117100000000002,0.16051364365971107
+ecoli,PHETA1_num3,Phenylalanine transaminase,2,2,1,108.675,1.91378,0.16051364365971107
+ecoli,PHETA1_num2,Phenylalanine transaminase,2,2,1,108.675,1.91378,0.16051364365971107
+ecoli,PHETA1_num1,Phenylalanine transaminase,2,2,1,105.325,1.87085,0.16051364365971107
+ecoli,PGLYCP,Phosphoglycolate phosphatase,2,2,1,94.0,1.97313,0.16051364365971107
+ecoli,PGK,Phosphoglycerate kinase,2,2,1,529.0,2.72346,0.16051364365971107
+ecoli,PGCD,Phosphoglycerate dehydrogenase,2,2,1,5.5,0.4428905,0.16051364365971107
+ecoli,PFK_num2,Phosphofructokinase,2,2,1,41.50925,1.60381,0.16051364365971107
+ecoli,PFK_num1,Phosphofructokinase,2,2,1,28.05925,1.4456449999999998,0.16051364365971107
+ecoli,PFK_3,Phosphofructokinase (s7p),2,2,1,15.63425,0.44477999999999995,0.16051364365971107
+ecoli,OHPBAT,O-Phospho-4-hydroxy-L-threonine:2-oxoglutarate aminotransferase,2,2,1,0.3125,-0.615866,0.16051364365971107
+ecoli,OCBT_num2,Ornithine carbamoyltransferase,2,2,1,0.0388889,-1.41017,0.16051364365971107
+ecoli,OCBT_num1,Ornithine carbamoyltransferase,2,2,1,2.58333,0.41218,0.16051364365971107
+ecoli,NTPP8_num2,Nucleoside triphosphate pyrophosphorylase (utp),2,2,1,47.9816665,0.9807482,0.16051364365971107
+ecoli,GLUDy,Glutamate dehydrogenase (NADP),2,2,1,22.05,1.3321800000000001,0.16051364365971107
+ecoli,GLNS,Glutamine synthetase,2,2,1,126.69999999999999,2.10244,0.16051364365971107
+ecoli,GHMT2r,"Glycine hydroxymethyltransferase, reversible",2,2,1,25.705,1.409395,0.16051364365971107
+ecoli,GF6PTA,Glutamine-fructose-6-phosphate transaminase,2,2,1,16.674999999999997,1.222005,0.16051364365971107
+ecoli,NTPP8_num1,Nucleoside triphosphate pyrophosphorylase (utp),2,2,1,47.9816665,0.9807482,0.16051364365971107
+ecoli,NTPP4_num2,Nucleoside triphosphate pyrophosphorylase (ctp),2,2,1,13.3816665,0.6976982,0.16051364365971107
+ecoli,NTPP4_num1,Nucleoside triphosphate pyrophosphorylase (ctp),2,2,1,25.8,1.41162,0.16051364365971107
+ecoli,NTPP3_num3,Nucleoside triphosphate pyrophosphorylase (dctp),2,2,1,20.05,1.28348,0.16051364365971107
+ecoli,NTPP3_num2,Nucleoside triphosphate pyrophosphorylase (dctp),2,2,1,20.05,1.28348,0.16051364365971107
+ecoli,NTPP3_num1,Nucleoside triphosphate pyrophosphorylase (dctp),2,2,1,20.05,1.28348,0.16051364365971107
+ecoli,NTD9pp_num3,5'-nucleotidase (GMP),2,2,1,7.95,0.865793,0.16051364365971107
+ecoli,NTD9pp_num2,5'-nucleotidase (GMP),2,2,1,171.25,1.780935,0.16051364365971107
+ecoli,NTD9pp_num1,5'-nucleotidase (GMP),2,2,1,7.95,0.865793,0.16051364365971107
+ecoli,NTD9_num4,5'-nucleotidase (GMP),2,2,1,7.95,0.865793,0.16051364365971107
+ecoli,NTD9_num3,5'-nucleotidase (GMP),2,2,1,7.95,0.865793,0.16051364365971107
+ecoli,NTD9_num2,5'-nucleotidase (GMP),2,2,1,8.735,0.926147,0.16051364365971107
+ecoli,NTD9_num1,5'-nucleotidase (GMP),2,2,1,7.95,0.865793,0.16051364365971107
+ecoli,NTD8pp_num2,5'-nucleotidase (dGMP),2,2,1,167.81,1.5676885,0.16051364365971107
+ecoli,NTD8pp_num1,5'-nucleotidase (dGMP),2,2,1,4.51,0.6525465,0.16051364365971107
+ecoli,GMPS2,GMP synthase,2,2,1,15.924999999999999,1.1978,0.16051364365971107
+ecoli,GLYCK2,Glycerate kinase,2,2,1,89.375,1.322035,0.16051364365971107
+ecoli,GLUTRS,Glutamyl-tRNA synthetase,2,2,1,1.1475,0.05975165,0.16051364365971107
+ecoli,NTD8_num4,5'-nucleotidase (dGMP),2,2,1,4.51,0.6525465,0.16051364365971107
+ecoli,NTD8_num3,5'-nucleotidase (dGMP),2,2,1,0.21500000000000002,-0.6686209999999999,0.16051364365971107
+ecoli,NTD8_num2,5'-nucleotidase (dGMP),2,2,1,7.254999999999999,0.85808,0.16051364365971107
+ecoli,NTD8_num1,5'-nucleotidase (dGMP),2,2,1,4.51,0.6525465,0.16051364365971107
+ecoli,NTD7pp_num3,5'-nucleotidase (AMP),2,2,1,195.475,1.6384180000000002,0.16051364365971107
+ecoli,NTD7pp_num2,5'-nucleotidase (AMP),2,2,1,540.75,2.6977700000000002,0.16051364365971107
+ecoli,NTD7pp_num1,5'-nucleotidase (AMP),2,2,1,195.475,1.6384180000000002,0.16051364365971107
+ecoli,NTD7_num4,5'-nucleotidase (AMP),2,2,1,195.475,1.6384180000000002,0.16051364365971107
+ecoli,NTD7_num3,5'-nucleotidase (AMP),2,2,1,195.475,1.6384180000000002,0.16051364365971107
+ecoli,NTD7_num2,5'-nucleotidase (AMP),2,2,1,5.6850000000000005,0.75055,0.16051364365971107
+ecoli,NTD7_num1,5'-nucleotidase (AMP),2,2,1,195.475,1.6384180000000002,0.16051364365971107
+ecoli,NTD6pp_num2,5'-nucleotidase (dAMP),2,2,1,2.6,0.08365850000000002,0.16051364365971107
+ecoli,NTD6pp_num1,5'-nucleotidase (dAMP),2,2,1,165.9,0.9988005,0.16051364365971107
+ecoli,NTD6_num3,5'-nucleotidase (dAMP),2,2,1,2.6,0.08365850000000002,0.16051364365971107
+ecoli,NTD6_num2,5'-nucleotidase (dAMP),2,2,1,3.385,0.1440125,0.16051364365971107
+ecoli,NTD6_num1,5'-nucleotidase (dAMP),2,2,1,0.265,-0.5805754999999999,0.16051364365971107
+ecoli,HACD2_num1,3-hydroxyacyl-CoA dehydrogenase (3-oxohexanoyl-CoA),2,2,1,391.0,2.59218,0.16051364365971107
+ecoli,GUAPRT_num2,Guanine phosphoribosyltransferase,2,2,1,112.0,2.04922,0.16051364365971107
+ecoli,GUAPRT_num1,Guanine phosphoribosyltransferase,2,2,1,112.0,2.04922,0.16051364365971107
+ecoli,NTD5pp_num2,5'-nucleotidase (dTMP),2,2,1,173.39,1.8523,0.16051364365971107
+ecoli,NTD5pp_num1,5'-nucleotidase (dTMP),2,2,1,10.09,0.937158,0.16051364365971107
+ecoli,NTD5_num4,5'-nucleotidase (dTMP),2,2,1,10.09,0.937158,0.16051364365971107
+ecoli,NTD5_num3,5'-nucleotidase (dTMP),2,2,1,28.15,1.4480849999999998,0.16051364365971107
+ecoli,NTD5_num2,5'-nucleotidase (dTMP),2,2,1,10.875,0.997512,0.16051364365971107
+ecoli,NTD5_num1,5'-nucleotidase (dTMP),2,2,1,0.195,-0.717076,0.16051364365971107
+ecoli,NTD3pp_num2,5'-nucleotidase (dCMP),2,2,1,2.5650000000000004,0.02596200000000004,0.16051364365971107
+ecoli,NTD3pp_num1,5'-nucleotidase (dCMP),2,2,1,165.865,0.941104,0.16051364365971107
+ecoli,NTD3_num3,5'-nucleotidase (dCMP),2,2,1,2.5650000000000004,0.02596200000000004,0.16051364365971107
+ecoli,NTD3_num2,5'-nucleotidase (dCMP),2,2,1,3.35,0.086316,0.16051364365971107
+ecoli,NTD3_num1,5'-nucleotidase (dCMP),2,2,1,0.23,-0.638272,0.16051364365971107
+ecoli,HACD8_num2,"3-hydroxyacyl-CoA dehydrogenase (3-oxooctadecanoyl-CoA), peroxisomal",2,2,1,391.0,2.59218,0.16051364365971107
+ecoli,HACD8_num1,"3-hydroxyacyl-CoA dehydrogenase (3-oxooctadecanoyl-CoA), peroxisomal",2,2,1,391.0,2.59218,0.16051364365971107
+ecoli,HACD7_num2,3-hydroxyacyl-CoA dehydrogenase (3-oxohexadecanoyl-CoA),2,2,1,391.0,2.59218,0.16051364365971107
+ecoli,HACD7_num1,3-hydroxyacyl-CoA dehydrogenase (3-oxohexadecanoyl-CoA),2,2,1,391.0,2.59218,0.16051364365971107
+ecoli,HACD6_num2,3-hydroxyacyl-CoA dehydrogenase (3-oxotetradecanoyl-CoA),2,2,1,391.0,2.59218,0.16051364365971107
+ecoli,HACD6_num1,3-hydroxyacyl-CoA dehydrogenase (3-oxotetradecanoyl-CoA),2,2,1,391.0,2.59218,0.16051364365971107
+ecoli,HACD5_num2,3-hydroxyacyl-CoA dehydrogenase (3-oxododecanoyl-CoA),2,2,1,391.0,2.59218,0.16051364365971107
+ecoli,HACD5_num1,3-hydroxyacyl-CoA dehydrogenase (3-oxododecanoyl-CoA),2,2,1,391.0,2.59218,0.16051364365971107
+ecoli,HACD4_num2,3-hydroxyacyl-CoA dehydrogenase (3-oxodecanoyl-CoA),2,2,1,391.0,2.59218,0.16051364365971107
+ecoli,HACD4_num1,3-hydroxyacyl-CoA dehydrogenase (3-oxodecanoyl-CoA),2,2,1,391.0,2.59218,0.16051364365971107
+ecoli,HACD3_num2,3-hydroxyacyl-CoA dehydrogenase (3-oxooctanoyl-CoA),2,2,1,391.0,2.59218,0.16051364365971107
+ecoli,HACD3_num1,3-hydroxyacyl-CoA dehydrogenase (3-oxooctanoyl-CoA),2,2,1,391.0,2.59218,0.16051364365971107
+ecoli,HACD2_num2,3-hydroxyacyl-CoA dehydrogenase (3-oxohexanoyl-CoA),2,2,1,391.0,2.59218,0.16051364365971107
+ecoli,ICDHyr,Isocitrate dehydrogenase (NADP),2,2,1,83.6,1.92158,0.16051364365971107
+ecoli,HSST,Homoserine O-succinyltransferase,2,2,1,20.87925,1.3167849999999999,0.16051364365971107
+ecoli,HMPK1_num2,Hydroxymethylpyrimidine kinase (ATP),2,2,1,0.39375,-0.406628,0.16051364365971107
+ecoli,HMPK1_num1,Hydroxymethylpyrimidine kinase (ATP),2,2,1,0.3575,-0.45584349999999996,0.16051364365971107
+ecoli,NTD2pp_num3,5'-nucleotidase (UMP),2,2,1,19.55,1.112113,0.16051364365971107
+ecoli,NTD2pp_num2,5'-nucleotidase (UMP),2,2,1,19.55,1.112113,0.16051364365971107
+ecoli,NTD2pp_num1,5'-nucleotidase (UMP),2,2,1,182.85,2.0272550000000003,0.16051364365971107
+ecoli,NTD2_num3,5'-nucleotidase (UMP),2,2,1,19.55,1.112113,0.16051364365971107
+ecoli,NTD2_num2,5'-nucleotidase (UMP),2,2,1,20.335,1.172467,0.16051364365971107
+ecoli,NTD2_num1,5'-nucleotidase (UMP),2,2,1,30.05,1.473665,0.16051364365971107
+ecoli,NTD1pp_num2,5'-nucleotidase (dUMP),2,2,1,7.8575,0.862113,0.16051364365971107
+ecoli,MEPCT,2-C-methyl-D-erythritol 4-phosphate cytidylyltransferase,2,2,1,29.825,1.473255,0.16051364365971107
+ecoli,ME1,Malic enzyme (NAD),2,2,1,95.85,1.943275,0.16051364365971107
+yeast,r_4724,"polyphosphate phosphohydrolase, m",2,1,2,1350.0,3.13033,0.16051364365971107
+yeast,r_4157,ADP-ribose 1''-phosphate phosphatase (EC 3.1.3.84) (EC 3.2.2.-) ([Protein ADP-ribosylglutamate] hydrolase),2,1,2,0.028,-1.55284,0.16051364365971107
+ecoli,ABTA_num2,4-aminobutyrate transaminase,2,2,1,1.0899999999999999,-0.15825150000000002,0.16051364365971107
+ecoli,ABTA_num1,4-aminobutyrate transaminase,2,2,1,1.0899999999999999,-0.15825150000000002,0.16051364365971107
+yeast,r_0893,phosphoglycerate mutase,2,1,2,520.0,2.715925,0.16051364365971107
+yeast,r_0892,phosphoglycerate kinase,2,2,1,133.35,2.0983,0.16051364365971107
+yeast,r_0884,phosphoenolpyruvate carboxykinase,2,2,1,35.33,1.5469,0.16051364365971107
+yeast,r_0771,NADH kinase,2,1,2,16.1,1.20683,0.16051364365971107
+yeast,r_0770,"NADH dehydrogenase, cytosolic/mitochondrial",2,1,2,0.031,-1.50864,0.16051364365971107
+ecoli,NTD1pp_num1,5'-nucleotidase (dUMP),2,2,1,171.1575,1.777255,0.16051364365971107
+ecoli,NTD1_num4,5'-nucleotidase (dUMP),2,2,1,7.8575,0.862113,0.16051364365971107
+ecoli,NTD1_num3,5'-nucleotidase (dUMP),2,2,1,23.65,1.371855,0.16051364365971107
+ecoli,NTD1_num2,5'-nucleotidase (dUMP),2,2,1,8.6425,0.9224669999999999,0.16051364365971107
+yeast,r_4226,L-Alanine:2-oxoglutarate aminotransferase,2,2,1,179.0675,1.6656085,0.16051364365971107
+yeast,r_4333,Polyphosphate phosphohydrolase,2,1,2,1350.0,3.13033,0.16051364365971107
+yeast,r_4312,S-adenosyl-L-methionine:carnosine N-methyltransferase,2,2,1,0.00933332,-2.02996,0.16051364365971107
+ecoli,3NTD7pp_num2,3'-nucleotidase (AMP) (periplasm),2,2,1,8.8625,0.9448985,0.16051364365971107
+yeast,r_0986,S-adenosyl-methionine delta-24-sterol-c-methyltransferase,2,2,1,0.008,-2.09691,0.16051364365971107
+ecoli,3NTD4pp_num1,3'-nucleotidase (CMP) (periplasm),2,2,1,6.9075,0.8349285,0.16051364365971107
+yeast,r_2825,"phosphatidylinositol 4-kinase (1-16:1, 2-18:1), cell envelope",2,1,2,2.77,0.44248,0.16051364365971107
+yeast,r_4723,"polyphosphate phosphohydrolase, v",2,1,2,1350.0,3.13033,0.16051364365971107
+yeast,r_4774,nucleoside diphosphate kinase,1,1,1,13.3,1.12385,0.08025682182985554
+ecoli,3HPPPNH,3-(3-hydroxy-phenyl)propionate hydroxylase,1,1,1,0.691,-0.160522,0.08025682182985554
+ecoli,3NTD2pp_num1,3'-nucleotidase (UMP) (periplasm),1,1,1,7.885,0.896802,0.08025682182985554
+ecoli,3NTD2pp_num2,3'-nucleotidase (UMP) (periplasm),1,1,1,7.885,0.896802,0.08025682182985554
+ecoli,3NTD9pp_num1,3'-nucleotidase (GMP) (periplasm),1,1,1,7.885,0.896802,0.08025682182985554
+ecoli,3NTD9pp_num2,3'-nucleotidase (GMP) (periplasm),1,1,1,7.885,0.896802,0.08025682182985554
+ecoli,3OAR100,3-oxoacyl-[acyl-carrier-protein] reductase (n-C10:0),1,1,1,0.59,-0.229148,0.08025682182985554
+ecoli,3OAR120,3-oxoacyl-[acyl-carrier-protein] reductase (n-C12:0),1,1,1,0.59,-0.229148,0.08025682182985554
+ecoli,3OAR121,3-oxoacyl-[acyl-carrier-protein] reductase (n-C12:1),1,1,1,0.59,-0.229148,0.08025682182985554
+ecoli,3OAR140,3-oxoacyl-[acyl-carrier-protein] reductase (n-C14:0),1,1,1,0.59,-0.229148,0.08025682182985554
+ecoli,3OAR141,3-oxoacyl-[acyl-carrier-protein] reductase (n-C14:1),1,1,1,0.59,-0.229148,0.08025682182985554
+ecoli,3OAR160,3-oxoacyl-[acyl-carrier-protein] reductase (n-C16:0),1,1,1,0.59,-0.229148,0.08025682182985554
+ecoli,A5PISO_num1,Arabinose-5-phosphate isomerase,1,1,1,130.5,2.11561,0.08025682182985554
+ecoli,3OXCOAT,3-oxoadipyl-CoA thiolase,1,1,1,107.0,2.02938,0.08025682182985554
+ecoli,3OAS181,3-oxoacyl-[acyl-carrier-protein] synthase (n-C18:1),1,1,1,0.029,-1.5376,0.08025682182985554
+ecoli,3OAS180_num2,3-oxoacyl-[acyl-carrier-protein] synthase (n-C18:0),1,1,1,0.011,-1.95861,0.08025682182985554
+ecoli,3OAS180_num1,3-oxoacyl-[acyl-carrier-protein] synthase (n-C18:0),1,1,1,0.011,-1.95861,0.08025682182985554
+ecoli,3OAS161,3-oxoacyl-[acyl-carrier-protein] synthase (n-C16:1),1,1,1,0.011,-1.95861,0.08025682182985554
+ecoli,3OAS141,3-oxoacyl-[acyl-carrier-protein] synthase (n-C14:1),1,1,1,0.011,-1.95861,0.08025682182985554
+ecoli,3OAS121,3-oxoacyl-[acyl-carrier-protein] synthase (n-C12:1),1,1,1,0.011,-1.95861,0.08025682182985554
+ecoli,3OAR80,3-oxoacyl-[acyl-carrier-protein] reductase (n-C8:0),1,1,1,0.59,-0.229148,0.08025682182985554
+ecoli,3OAR60,3-oxoacyl-[acyl-carrier-protein] reductase (n-C6:0),1,1,1,0.59,-0.229148,0.08025682182985554
+ecoli,3OAR40,3-oxoacyl-[acyl-carrier-protein] reductase (n-C4:0),1,1,1,0.59,-0.229148,0.08025682182985554
+ecoli,3OAR181,3-oxoacyl-[acyl-carrier-protein] reductase (n-C18:1),1,1,1,0.59,-0.229148,0.08025682182985554
+ecoli,3OAR180,3-oxoacyl-[acyl-carrier-protein] reductase (n-C18:0),1,1,1,0.59,-0.229148,0.08025682182985554
+ecoli,3OAR161,3-oxoacyl-[acyl-carrier-protein] reductase (n-C16:1),1,1,1,0.59,-0.229148,0.08025682182985554
+yeast,r_2850,"phosphatidylinositol 4-kinase (1-18:0, 2-18:1), nucleus",1,1,1,2.77,0.44248,0.08025682182985554
+yeast,r_2849,"phosphatidylinositol 4-kinase (1-16:1, 2-18:1), nucleus",1,1,1,2.77,0.44248,0.08025682182985554
+ecoli,KAS14_num1,Beta-ketoacyl-ACP synthase,1,1,1,0.02,-1.69897,0.08025682182985554
+ecoli,INSH,Inosine hydrolase,1,1,1,0.0645,-1.19044,0.08025682182985554
+ecoli,IMPD,IMP dehydrogenase,1,1,1,13.0,1.11394,0.08025682182985554
+ecoli,ILETA,Isoleucine transaminase,1,1,1,48.0,1.68124,0.08025682182985554
+ecoli,NTD10pp_num2,5'-nucleotidase (XMP),1,1,1,331.5,2.52048,0.08025682182985554
+ecoli,NTD10pp_num1,5'-nucleotidase (XMP),1,1,1,4.9,0.690196,0.08025682182985554
+ecoli,NTD10,5'-nucleotidase (XMP),1,1,1,6.47,0.810904,0.08025682182985554
+ecoli,NODOy,Nitric oxide dioxygenase,1,1,1,382.0,2.58206,0.08025682182985554
+ecoli,NNATr,Nicotinate-nucleotide adenylyltransferase,1,1,1,4.9,0.690196,0.08025682182985554
+ecoli,NMNDA,Nicotinamide-nucleotide amidase,1,1,1,4.1,0.612784,0.08025682182985554
+ecoli,NADTRHD,NAD transhydrogenase,1,1,1,167.9,2.22505,0.08025682182985554
+ecoli,NADDP_num2,NAD diphosphatase,1,1,1,19.3,1.28556,0.08025682182985554
+ecoli,NADDP_num1,NAD diphosphatase,1,1,1,19.3,1.28556,0.08025682182985554
+ecoli,MTHFR2,"5,10-methylenetetrahydrofolate reductase (NADH)",1,1,1,23.5,1.37107,0.08025682182985554
+ecoli,MTHFD,Methylenetetrahydrofolate dehydrogenase (NADP),1,1,1,17.08,1.23249,0.08025682182985554
+ecoli,MTHFC,Methenyltetrahydrofolate cyclohydrolase,1,1,1,40.9,1.61172,0.08025682182985554
+ecoli,HSDy_num2,Homoserine dehydrogenase (NADPH),1,1,1,1.905,0.279895,0.08025682182985554
+ecoli,HSDy_num1,Homoserine dehydrogenase (NADPH),1,1,1,1.905,0.279895,0.08025682182985554
+ecoli,HPPPNDO,"2,3-dihydroxypheylpropionate 1,2-dioxygenase",1,1,1,29.0,1.4624,0.08025682182985554
+ecoli,HISTP,Histidinol-phosphatase,1,1,1,1410.0,3.14922,0.08025682182985554
+ecoli,HEX1,Hexokinase (D-glucose:ATP),1,1,1,10.6,1.02531,0.08025682182985554
+ecoli,HCYSMT2,Homocysteine Methyltransferase,1,1,1,0.38,-0.420216,0.08025682182985554
+ecoli,HCYSMT,Homocysteine S-methyltransferase,1,1,1,0.38,-0.420216,0.08025682182985554
+ecoli,NTD11pp_num2,5'-nucleotidase (IMP),1,1,1,4.9,0.690196,0.08025682182985554
+ecoli,NTD11pp_num1,5'-nucleotidase (IMP),1,1,1,331.5,2.52048,0.08025682182985554
+ecoli,NTD11_num2,5'-nucleotidase (IMP),1,1,1,4.9,0.690196,0.08025682182985554
+ecoli,NTD11_num1,5'-nucleotidase (IMP),1,1,1,6.47,0.810904,0.08025682182985554
+ecoli,LIPATPT,Lipoate-ATP adenylate transferase,1,1,1,0.133,-0.876148,0.08025682182985554
+ecoli,LEUTAi_num2,Leucine transaminase (irreversible),1,1,1,6.61,0.820201,0.08025682182985554
+ecoli,LEUTAi_num1,Leucine transaminase (irreversible),1,1,1,12.39,1.09307,0.08025682182985554
+ecoli,LCADi,Lactaldehyde dehydrogenase,1,1,1,761.5,2.88167,0.08025682182985554
+ecoli,KAS14_num2,Beta-ketoacyl-ACP synthase,1,1,1,0.02,-1.69897,0.08025682182985554
+ecoli,GPDDA3pp,Glycerophosphodiester phosphodiesterase (Glycerophosphoserine),1,1,1,2.8,0.447158,0.08025682182985554
+ecoli,GPDDA3,Glycerophosphodiester phosphodiesterase (Glycerophosphoserine),1,1,1,2.8,0.447158,0.08025682182985554
+ecoli,GPDDA2pp,Glycerophosphodiester phosphodiesterase (Glycerophosphoethanolamine),1,1,1,1.1,0.0413927,0.08025682182985554
+ecoli,NTD4pp_num3,5'-nucleotidase (CMP),1,1,1,4.9,0.690196,0.08025682182985554
+ecoli,NTD4pp_num2,5'-nucleotidase (CMP),1,1,1,331.5,2.52048,0.08025682182985554
+ecoli,NTD4pp_num1,5'-nucleotidase (CMP),1,1,1,4.9,0.690196,0.08025682182985554
+ecoli,NTD4_num2,5'-nucleotidase (CMP),1,1,1,4.9,0.690196,0.08025682182985554
+ecoli,NTD4_num1,5'-nucleotidase (CMP),1,1,1,6.47,0.810904,0.08025682182985554
+ecoli,HCO3E_num2,HCO3 equilibration reaction,1,1,1,570000.0,5.75587,0.08025682182985554
+ecoli,HCO3E_num1,HCO3 equilibration reaction,1,1,1,570000.0,5.75587,0.08025682182985554
+ecoli,HADPCOADH3,3-hydroxyadipyl-CoA dehydrogenase (NAD+),1,1,1,391.0,2.59218,0.08025682182985554
+ecoli,IGPS,Indole-3-glycerol-phosphate synthase,1,1,1,4.05,0.607455,0.08025682182985554
+ecoli,ICHORT,Isochorismatase,1,1,1,10.0,1.0,0.08025682182985554
+ecoli,ICHORS_copy2,ICHORS_copy2,1,1,1,0.35,-0.455932,0.08025682182985554
+ecoli,ICHORS_copy1,ICHORS_copy1,1,1,1,0.67,-0.173925,0.08025682182985554
+ecoli,HSK,Homoserine kinase,1,1,1,18.3,1.26245,0.08025682182985554
+ecoli,GMAND,GDP-D-mannose dehydratase,1,1,1,5.0,0.69897,0.08025682182985554
+ecoli,GLYOX3,Glyoxalase III,1,1,1,1.43,0.155336,0.08025682182985554
+ecoli,GLYCK,Glycerate kinase,1,1,1,350.0,2.54407,0.08025682182985554
+ecoli,GLYAT,Glycine C-acetyltransferase,1,1,1,0.02,-1.69897,0.08025682182985554
+ecoli,GLXCL,Glyoxalate carboligase,1,1,1,18.9,1.27646,0.08025682182985554
+ecoli,GLUTRR,Glutamyl-tRNA reductase,1,1,1,0.15,-0.823909,0.08025682182985554
+ecoli,GLUR,Glutamate racemase,1,1,1,43.33,1.63679,0.08025682182985554
+ecoli,GLUNpp,Glutaminase,1,1,1,6.0,0.778151,0.08025682182985554
+ecoli,GUI1,Glucuronate isomerase (D-glucuronate),1,1,1,196.0,2.29226,0.08025682182985554
+ecoli,GUAD,Guanine deaminase,1,1,1,2.8,0.447158,0.08025682182985554
+ecoli,GTPDPDP,"Guanosine-5'-triphosphate,3'-diphosphate diphosphatase",1,1,1,14.406,1.15854,0.08025682182985554
+ecoli,GTPCII2,GTP cyclohydrolase II (25drapp),1,1,1,0.107,-0.970616,0.08025682182985554
+ecoli,GTHOr,Glutathione oxidoreductase,1,1,1,641.0,2.80686,0.08025682182985554
+ecoli,GSPMDA,Glutathionylspermidine amidase,1,1,1,2.1,0.322219,0.08025682182985554
+ecoli,GPDDA4pp,Glycerophosphodiester phosphodiesterase (Glycerophosphoglycerol),1,1,1,3.3,0.518514,0.08025682182985554
+ecoli,GPDDA4,Glycerophosphodiester phosphodiesterase (Glycerophosphoglycerol),1,1,1,3.3,0.518514,0.08025682182985554
+ecoli,NTPP2_num1,Nucleoside triphosphate pyrophosphorylase (gtp),1,1,1,0.963333,-0.0162236,0.08025682182985554
+ecoli,NTP3pp,Nucleoside-triphosphatase (GTP) (periplasm),1,1,1,14.65,1.16584,0.08025682182985554
+ecoli,NTP3_num7,Nucleoside-triphosphatase (GTP),1,1,1,14.65,1.16584,0.08025682182985554
+ecoli,NTP3_num6,Nucleoside-triphosphatase (GTP),1,1,1,14.65,1.16584,0.08025682182985554
+ecoli,NTP3_num5,Nucleoside-triphosphatase (GTP),1,1,1,14.65,1.16584,0.08025682182985554
+ecoli,NTP3_num4,Nucleoside-triphosphatase (GTP),1,1,1,14.65,1.16584,0.08025682182985554
+ecoli,NTP3_num3,Nucleoside-triphosphatase (GTP),1,1,1,14.65,1.16584,0.08025682182985554
+ecoli,NTP3_num2,Nucleoside-triphosphatase (GTP),1,1,1,14.65,1.16584,0.08025682182985554
+ecoli,NTP3_num1,Nucleoside-triphosphatase (GTP),1,1,1,14.65,1.16584,0.08025682182985554
+ecoli,NTP1_num2,Nucleoside-triphosphatase (ATP),1,1,1,0.963333,-0.0162236,0.08025682182985554
+ecoli,NTP1_num1,Nucleoside-triphosphatase (ATP),1,1,1,0.963333,-0.0162236,0.08025682182985554
+ecoli,GPDDA2,Glycerophosphodiester phosphodiesterase (Glycerophosphoethanolamine),1,1,1,1.1,0.0413927,0.08025682182985554
+ecoli,GPDDA1pp,Glycerophosphodiester phosphodiesterase (Glycerophosphocholine),1,1,1,3.2,0.50515,0.08025682182985554
+ecoli,GPDDA1,Glycerophosphodiester phosphodiesterase (Glycerophosphocholine),1,1,1,3.2,0.50515,0.08025682182985554
+ecoli,GMPS,GMP synthase,1,1,1,18.15,1.25888,0.08025682182985554
+ecoli,GMPR,GMP reductase,1,1,1,0.28,-0.552842,0.08025682182985554
+ecoli,GLUN_num1,Glutaminase,1,1,1,91.4,1.96095,0.08025682182985554
+ecoli,GLUDC_num2,Glutamate Decarboxylase,1,1,1,42.055,1.62382,0.08025682182985554
+ecoli,GLUDC_num1,Glutamate Decarboxylase,1,1,1,42.055,1.62382,0.08025682182985554
+ecoli,GLGC,Glucose-1-phosphate adenylyltransferase,1,1,1,370.0,2.5682,0.08025682182985554
+ecoli,GLCRD_num2,Glucarate dehydratase,1,1,1,35.0,1.54407,0.08025682182985554
+ecoli,GLCRD_num1,Glucarate dehydratase,1,1,1,27.5,1.43933,0.08025682182985554
+ecoli,GLCRAL,5-dehydro-4-deoxyglucarate aldolase,1,1,1,27.3,1.43616,0.08025682182985554
+ecoli,GK1,Guanylate kinase (GMP:ATP),1,1,1,209.0,2.32015,0.08025682182985554
+ecoli,GGPTRCS,Gamma glutamyl putrescine synthase,1,1,1,5.94,0.773786,0.08025682182985554
+ecoli,GALCTD,Galactarate dehydratase,1,1,1,22.0,1.34242,0.08025682182985554
+ecoli,NTPP7_num3,Nucleoside triphosphate pyrophosphorylase (dttp),1,1,1,43.0,1.63347,0.08025682182985554
+ecoli,NTPP7_num2,Nucleoside triphosphate pyrophosphorylase (dttp),1,1,1,43.0,1.63347,0.08025682182985554
+ecoli,NTPP7_num1,Nucleoside triphosphate pyrophosphorylase (dttp),1,1,1,43.0,1.63347,0.08025682182985554
+ecoli,NTPP6_num2,Nucleoside triphosphate pyrophosphorylase (atp),1,1,1,0.963333,-0.0162236,0.08025682182985554
+ecoli,NTPP6_num1,Nucleoside triphosphate pyrophosphorylase (atp),1,1,1,0.963333,-0.0162236,0.08025682182985554
+ecoli,NTPP2_num2,Nucleoside triphosphate pyrophosphorylase (gtp),1,1,1,0.963333,-0.0162236,0.08025682182985554
+ecoli,PPA_num3,Inorganic diphosphatase,1,1,1,95.0,1.97772,0.08025682182985554
+ecoli,PPA_num2,Inorganic diphosphatase,1,1,1,95.0,1.97772,0.08025682182985554
+ecoli,PPA_num1,Inorganic diphosphatase,1,1,1,95.0,1.97772,0.08025682182985554
+ecoli,PFK_2,Phosphofructokinase,1,1,1,31.0185,1.49162,0.08025682182985554
+ecoli,PERD,Erythronate 4-phosphate (4per) dehydrogenase,1,1,1,1.4,0.146128,0.08025682182985554
+ecoli,PEAMNOpp,Phenethylamine oxidase,1,1,1,12.4,1.09342,0.08025682182985554
+ecoli,PDX5POi,Pyridoxine 5'-phosphate oxidase,1,1,1,0.19,-0.721246,0.08025682182985554
+ecoli,P5CD,1-pyrroline-5-carboxylate dehydrogenase,1,1,1,5.16,0.71265,0.08025682182985554
+ecoli,OXCDC,Oxalyl-CoA decarboxylase,1,1,1,60.7,1.78319,0.08025682182985554
+ecoli,ORNDC_num2,Ornithine Decarboxylase,1,1,1,3.4,0.531479,0.08025682182985554
+ecoli,ORNDC_num1,Ornithine Decarboxylase,1,1,1,3.4,0.531479,0.08025682182985554
+ecoli,OMPDC,Orotidine-5'-phosphate decarboxylase,1,1,1,42.0,1.62325,0.08025682182985554
+ecoli,OCTDPS,Octaprenyl pyrophosphate synthase,1,1,1,1.03,0.0128372,0.08025682182985554
+ecoli,NTPTP1,Nucleoside triphosphate tripolyhydrolase,1,1,1,4000.0,3.60206,0.08025682182985554
+ecoli,NTPP9,Nucleoside triphosphate pyrophosphorylase (itp),1,1,1,0.963333,-0.0162236,0.08025682182985554
+ecoli,GLUN_num2,Glutaminase,1,1,1,101.0,2.00432,0.08025682182985554
+ecoli,PPCK,Phosphoenolpyruvate carboxykinase,1,1,1,0.433,-0.363512,0.08025682182985554
+ecoli,PPCDC,Phosphopantothenoylcysteine decarboxylase,1,1,1,0.833333,-0.0791814,0.08025682182985554
+ecoli,G6PDH2r,Glucose 6-phosphate dehydrogenase,1,1,1,174.0,2.24055,0.08025682182985554
+ecoli,G6PDA,Glucosamine-6-phosphate deaminase,1,1,1,71.25,1.85278,0.08025682182985554
+ecoli,G1PPpp_num2,Glucose-1-phosphatase,1,1,1,117.0,2.06819,0.08025682182985554
+ecoli,G1PPpp_num1,Glucose-1-phosphatase,1,1,1,117.0,2.06819,0.08025682182985554
+ecoli,G1PP_num3,Glucose-1-phosphatase,1,1,1,117.0,2.06819,0.08025682182985554
+ecoli,G1PP_num2,Glucose-1-phosphatase,1,1,1,117.0,2.06819,0.08025682182985554
+ecoli,G1PP_num1,Glucose-1-phosphatase,1,1,1,117.0,2.06819,0.08025682182985554
+ecoli,FUM_num3,Fumarase,1,1,1,1149.5,3.06051,0.08025682182985554
+ecoli,FUM_num2,Fumarase,1,1,1,1149.0,3.06032,0.08025682182985554
+ecoli,FUM_num1,Fumarase,1,1,1,1149.0,3.06032,0.08025682182985554
+ecoli,FMNRx_num2,FMN reductase,1,1,1,40.0,1.60206,0.08025682182985554
+ecoli,FMNRx_num1,FMN reductase,1,1,1,3.0,0.477121,0.08025682182985554
+ecoli,FLVRx,Flavin reductase (NAD),1,1,1,109.0,2.03743,0.08025682182985554
+ecoli,PPC,Phosphoenolpyruvate carboxylase,1,1,1,540.0,2.73239,0.08025682182985554
+ecoli,PYDXK_num2,Pyridoxal kinase,1,1,1,2.15,0.332438,0.08025682182985554
+ecoli,PYDXK_num1,Pyridoxal kinase,1,1,1,2.15,0.332438,0.08025682182985554
+ecoli,PYDAMK,Pyridoxamine kinase,1,1,1,0.55,-0.259637,0.08025682182985554
+ecoli,PYAM5PO,Pyridoxamine 5'-phosphate oxidase,1,1,1,14.86,1.17202,0.08025682182985554
+ecoli,PUNP7,Purine-nucleoside phosphorylase (Xanthosine),1,1,1,44.93,1.65254,0.08025682182985554
+ecoli,PUNP6_num2,Purine-nucleoside phosphorylase (Deoxyinosine),1,1,1,44.93,1.65254,0.08025682182985554
+ecoli,PUNP6_num1,Purine-nucleoside phosphorylase (Deoxyinosine),1,1,1,44.93,1.65254,0.08025682182985554
+ecoli,PUNP4_num2,Purine-nucleoside phosphorylase (Deoxyguanosine),1,1,1,44.93,1.65254,0.08025682182985554
+ecoli,PUNP4_num1,Purine-nucleoside phosphorylase (Deoxyguanosine),1,1,1,44.93,1.65254,0.08025682182985554
+ecoli,PUNP3_num2,Purine-nucleoside phosphorylase (Guanosine),1,1,1,44.93,1.65254,0.08025682182985554
+ecoli,PUNP3_num1,Purine-nucleoside phosphorylase (Guanosine),1,1,1,44.93,1.65254,0.08025682182985554
+ecoli,PUNP2,Purine-nucleoside phosphorylase (Deoxyadenosine),1,1,1,44.93,1.65254,0.08025682182985554
+ecoli,PTA2,Phosphate acetyltransferase,1,1,1,0.995,-0.00217692,0.08025682182985554
+ecoli,PRAIi,Phosphoribosylanthranilate isomerase (irreversible),1,1,1,40.0,1.60206,0.08025682182985554
+ecoli,PPNDH,Prephenate dehydratase,1,1,1,32.0,1.50515,0.08025682182985554
+ecoli,PPNCL2,Phosphopantothenate-cysteine ligase,1,1,1,0.88,-0.0555173,0.08025682182985554
+ecoli,SERD_L_num5,L-serine deaminase,1,1,1,490.0,2.6902,0.08025682182985554
+ecoli,SERD_L_num4,L-serine deaminase,1,1,1,490.0,2.6902,0.08025682182985554
+ecoli,SERD_L_num3,L-serine deaminase,1,1,1,490.0,2.6902,0.08025682182985554
+ecoli,SERD_L_num2,L-serine deaminase,1,1,1,490.0,2.6902,0.08025682182985554
+ecoli,SERD_L_num1,L-serine deaminase,1,1,1,490.0,2.6902,0.08025682182985554
+ecoli,SERD_D,D-serine deaminase,1,1,1,15.7,1.1959,0.08025682182985554
+ecoli,SERAT,Serine O-acetyltransferase,1,1,1,0.068,-1.16749,0.08025682182985554
+ecoli,S7PI,Sedoheptulose 7-phosphate isomerase,1,1,1,0.44,-0.356547,0.08025682182985554
+ecoli,RMPA,Rhamnulose-1-phosphate aldolase,1,1,1,38.3,1.5832,0.08025682182985554
+ecoli,RHCCE,S-ribosylhomocysteine cleavage enzyme,1,1,1,0.4,-0.39794,0.08025682182985554
+ecoli,RBP4E_num3,L-ribulose-phosphate 4-epimerase,1,1,1,19.4,1.2878,0.08025682182985554
+ecoli,RBP4E_num2,L-ribulose-phosphate 4-epimerase,1,1,1,19.4,1.2878,0.08025682182985554
+ecoli,RBP4E_num1,L-ribulose-phosphate 4-epimerase,1,1,1,19.4,1.2878,0.08025682182985554
+ecoli,RBFSb,Riboflavin synthase,1,1,1,0.00833333,-2.07918,0.08025682182985554
+ecoli,RBFSa,Riboflavin synthase,1,1,1,0.00833333,-2.07918,0.08025682182985554
+ecoli,PYDXNK,Pyridoxine kinase,1,1,1,0.3,-0.522879,0.08025682182985554
+ecoli,SPMS,Spermidine synthase,1,1,1,0.14,-0.853872,0.08025682182985554
+ecoli,SOTA,Succinylornithine transaminase,1,1,1,3.0,0.477121,0.08025682182985554
+ecoli,FEROpp_num2,Ferroxidase,1,1,1,3.9,0.591065,0.08025682182985554
+ecoli,FEROpp_num1,Ferroxidase,1,1,1,3.9,0.591065,0.08025682182985554
+ecoli,FCLPA_num2,L-fuculose 1-phosphate aldolase,1,1,1,19.0,1.27875,0.08025682182985554
+ecoli,FCLPA_num1,L-fuculose 1-phosphate aldolase,1,1,1,19.0,1.27875,0.08025682182985554
+ecoli,FBP_num4,Fructose-bisphosphatase,1,1,1,20.0,1.30103,0.08025682182985554
+ecoli,FBP_num3,Fructose-bisphosphatase,1,1,1,5.7,0.755875,0.08025682182985554
+ecoli,FBP_num2,Fructose-bisphosphatase,1,1,1,24.0,1.38021,0.08025682182985554
+ecoli,FBP_num1,Fructose-bisphosphatase,1,1,1,20.0,1.30103,0.08025682182985554
+ecoli,FBA_num2,Fructose-bisphosphate aldolase,1,1,1,10.5,1.02119,0.08025682182985554
+ecoli,FBA_num1,Fructose-bisphosphate aldolase,1,1,1,11.2,1.04922,0.08025682182985554
+ecoli,FACOAE180,Fatty-acid-CoA thioesterase (octadecanoate),1,1,1,4.57,0.659916,0.08025682182985554
+ecoli,FACOAE160,Fatty-acid-CoA thioesterase (hexadecanoate),1,1,1,4.57,0.659916,0.08025682182985554
+ecoli,FACOAE140,Fatty-acid-CoA thioesterase (tetradecanoate),1,1,1,4.57,0.659916,0.08025682182985554
+ecoli,FACOAE100,Fatty-acid-CoA thioesterase (decanoate),1,1,1,4.57,0.659916,0.08025682182985554
+ecoli,DXPRIi,1-deoxy-D-xylulose reductoisomerase,1,1,1,33.0,1.51851,0.08025682182985554
+ecoli,DUTPDP_num2,DUTP diphosphatase,1,1,1,19.45,1.28892,0.08025682182985554
+ecoli,DUTPDP_num1,DUTP diphosphatase,1,1,1,11.0,1.04139,0.08025682182985554
+ecoli,DRPA,Deoxyribose-phosphate aldolase,1,1,1,15.0,1.17609,0.08025682182985554
+ecoli,DNTPPA_num2,Dihydroneopterin triphosphate pyrophosphatase,1,1,1,11.6,1.06446,0.08025682182985554
+ecoli,DNTPPA_num1,Dihydroneopterin triphosphate pyrophosphatase,1,1,1,11.6,1.06446,0.08025682182985554
+ecoli,DHQTi,"3-dehydroquinate dehydratase, irreversible",1,1,1,29.53,1.47026,0.08025682182985554
+ecoli,THRA_num2,Threonine aldolase,1,1,1,1.1,0.0413927,0.08025682182985554
+ecoli,THRA_num1,Threonine aldolase,1,1,1,0.05,-1.30103,0.08025682182985554
+ecoli,TDPGDH_num2,"DTDPglucose 4,6-dehydratase",1,1,1,4.9,0.690196,0.08025682182985554
+ecoli,TDPGDH_num1,"DTDPglucose 4,6-dehydratase",1,1,1,4.9,0.690196,0.08025682182985554
+ecoli,TDPAGTA,"DTDP-4-amino-4,6-dideoxy-D-glucose transaminase",1,1,1,0.38,-0.420216,0.08025682182985554
+ecoli,TALA_num2,Transaldolase,1,1,1,13.0,1.11394,0.08025682182985554
+ecoli,TALA_num1,Transaldolase,1,1,1,13.0,1.11394,0.08025682182985554
+ecoli,SSALy_num2,Succinate-semialdehyde dehydrogenase (NADP),1,1,1,22.6,1.35411,0.08025682182985554
+ecoli,SSALy_num1,Succinate-semialdehyde dehydrogenase (NADP),1,1,1,22.6,1.35411,0.08025682182985554
+ecoli,UDPGD,UDPglucose 6-dehydrogenase,1,1,1,30.2,1.48001,0.08025682182985554
+ecoli,UDPG4E,UDPglucose 4-epimerase,1,1,1,134.0,2.1271,0.08025682182985554
+ecoli,UAMAS,UDP-N-acetylmuramoyl-L-alanine synthetase,1,1,1,11.575,1.06352,0.08025682182985554
+ecoli,UAGPT3,UDP-N-acetylglucosamine-N-acetylmuramyl-(pentapeptide)pyrophosphoryl-undecaprenol N-acetylglucosamine transferase,1,1,1,0.72,-0.142668,0.08025682182985554
+ecoli,UAG2E,UDP-N-acetylglucosamine 2-epimerase,1,1,1,3.625,0.559308,0.08025682182985554
+ecoli,U23GAAT,UDP-3-O-(3-hydroxymyristoyl)glucosamine acyltransferase,1,1,1,13.0,1.11394,0.08025682182985554
+ecoli,TRPAS2,Tryptophanase (L-tryptophan),1,1,1,6.0,0.778151,0.08025682182985554
+ecoli,TREHpp,"Alpha,alpha-trehalase (periplasm)",1,1,1,199.0,2.29885,0.08025682182985554
+ecoli,TREH,"Alpha,alpha-trehalase",1,1,1,199.0,2.29885,0.08025682182985554
+ecoli,TMDPP,Thymidine phosphorylase,1,1,1,164.0,2.21484,0.08025682182985554
+ecoli,THRS,Threonine synthase,1,1,1,5.665,0.7532,0.08025682182985554
+ecoli,THRD_num2,L-threonine dehydrogenase,1,1,1,135.0,2.13033,0.08025682182985554
+ecoli,THRD_num1,L-threonine dehydrogenase,1,1,1,135.0,2.13033,0.08025682182985554
+ecoli,THRD_L_num2,L-threonine deaminase,1,1,1,1414.0,3.15045,0.08025682182985554
+ecoli,THRD_L_num1,L-threonine deaminase,1,1,1,1414.0,3.15045,0.08025682182985554
+ecoli,EDA,2-dehydro-3-deoxy-phosphogluconate aldolase,1,1,1,83.0,1.91908,0.08025682182985554
+ecoli,CHRPL_num1,Chorismate pyruvate lyase,1,1,1,0.82,-0.0861861,0.08025682182985554
+ecoli,CHORM_num2,Chorismate mutase,1,1,1,148900.0,5.17289,0.08025682182985554
+ecoli,DHQS,3-dehydroquinate synthase,1,1,1,12508.0,4.09719,0.08025682182985554
+ecoli,DHNPA2r,Dihydroneopterin aldolase reversible,1,1,1,0.082,-1.08619,0.08025682182985554
+ecoli,DCTPD,DCTP deaminase,1,1,1,1.24,0.0934217,0.08025682182985554
+ecoli,DBTS,Dethiobiotin synthase,1,1,1,38.6,1.58659,0.08025682182985554
+ecoli,DAPDC,Diaminopimelate decarboxylase,1,1,1,55.0,1.74036,0.08025682182985554
+ecoli,DAPAL,"2,3-diaminopropionate amonnia lyase",1,1,1,21.8,1.33846,0.08025682182985554
+ecoli,CYTDH_num3,Cytidine hydrolase,1,1,1,11.6,1.06446,0.08025682182985554
+ecoli,CYTDH_num2,Cytidine hydrolase,1,1,1,11.6,1.06446,0.08025682182985554
+ecoli,VALTA,Valine transaminase,1,1,1,19.0,1.27875,0.08025682182985554
+ecoli,URIH_num3,Uridine hydrolase,1,1,1,10.85,1.03543,0.08025682182985554
+ecoli,URIH_num2,Uridine hydrolase,1,1,1,10.85,1.03543,0.08025682182985554
+ecoli,URIH_num1,Uridine hydrolase,1,1,1,10.85,1.03543,0.08025682182985554
+ecoli,UPP3S,Uroporphyrinogen-III synthase,1,1,1,500.0,2.69897,0.08025682182985554
+ecoli,UGLT,UDPglucose--hexose-1-phosphate uridylyltransferase,1,1,1,780.0,2.89209,0.08025682182985554
+ecoli,ATHRDHr,L-allo-threonine dehydrogenase,1,1,1,5.76,0.760422,0.08025682182985554
+ecoli,ASPT,L-aspartase,1,1,1,180.0,2.25527,0.08025682182985554
+ecoli,ASPO6,L-aspartate oxidase,1,1,1,1.4335,0.156398,0.08025682182985554
+yeast,r_0142,adenosine kinase,1,1,1,25.5,1.40654,0.08025682182985554
+yeast,r_0138,adenine deaminase,1,1,1,5.5,0.740363,0.08025682182985554
+yeast,r_0108,acetyl-Coa carboxylase,1,1,1,8.5,0.929419,0.08025682182985554
+yeast,r_0085,5-methyltetrahydropteroyltriglutamate-homocysteine S-methyltransferase,1,1,1,0.33,-0.481486,0.08025682182985554
+yeast,r_0025,2-isopropylmalate synthase,1,1,1,10.535,1.02263,0.08025682182985554
+yeast,r_0012,1-pyrroline-5-carboxylate dehydrogenase,1,1,1,1.5,0.176091,0.08025682182985554
+ecoli,XYLK_num2,Xylulokinase,1,1,1,255.0,2.40654,0.08025682182985554
+ecoli,XYLK_num1,Xylulokinase,1,1,1,3427.5,3.53498,0.08025682182985554
+ecoli,CYTDH_num1,Cytidine hydrolase,1,1,1,11.6,1.06446,0.08025682182985554
+ecoli,CYSDDS,D-cysteine desulfhydrase,1,1,1,72.0,1.85733,0.08025682182985554
+ecoli,CSND,Cytosine deaminase,1,1,1,165.0,2.21748,0.08025682182985554
+ecoli,CPPPGO,Coproporphyrinogen oxidase (O2 required),1,1,1,0.003,-2.52288,0.08025682182985554
+ecoli,CHRPL_num2,Chorismate pyruvate lyase,1,1,1,1.5,0.176091,0.08025682182985554
+yeast,r_0209,arginyl-tRNA synthetase,1,1,1,1.925,0.284431,0.08025682182985554
+yeast,r_0191,allophanate hydrolase,1,1,1,32.0,1.50515,0.08025682182985554
+ecoli,ASPCT_num2,Aspartate carbamoyltransferase,1,1,1,417.0,2.62014,0.08025682182985554
+ecoli,ASP1DC,Aspartate 1-decarboxylase,1,1,1,0.57,-0.244125,0.08025682182985554
+ecoli,APCS,Aminopropylcadaverine synthase,1,1,1,0.14,-0.853872,0.08025682182985554
+ecoli,AP5AH,Ap5A hydrolase,1,1,1,1.0,0.0,0.08025682182985554
+ecoli,AP4AH,Ap4A hydrolase,1,1,1,250.0,2.39794,0.08025682182985554
+ecoli,AOXSr2,8-amino-7-oxononanoate synthase,1,1,1,0.06,-1.22185,0.08025682182985554
+ecoli,CHORM_num1,Chorismate mutase,1,1,1,38.87,1.58961,0.08025682182985554
+ecoli,CFAS180G,"Cyclopropane fatty acid synthase (Phosphatidylglycerol, n-C18:0)",1,1,1,0.0935,-1.02919,0.08025682182985554
+ecoli,CFAS180E,"Cyclopropane fatty acid synthase (Phosphatidylethanolamine, n-C18:0)",1,1,1,0.0935,-1.02919,0.08025682182985554
+ecoli,CFAS160G,"Cyclopropane fatty acid synthase (Phosphatidylglycerol, n-C16:0)",1,1,1,0.0935,-1.02919,0.08025682182985554
+ecoli,CFAS160E,"Cyclopropane fatty acid synthase (Phosphatidylethanolamine, n-C16:0)",1,1,1,0.0935,-1.02919,0.08025682182985554
+ecoli,CAT_num2,Catalase,1,1,1,71.0,1.85126,0.08025682182985554
+ecoli,CAT_num1,Catalase,1,1,1,71.0,1.85126,0.08025682182985554
+ecoli,BPNT,"3',5'-bisphosphate nucleotidase",1,1,1,11.4,1.0569,0.08025682182985554
+ecoli,ALAR_num2,Alanine racemase,1,1,1,51.77,1.71408,0.08025682182985554
+ecoli,ALAR_num1,Alanine racemase,1,1,1,46.795,1.6702,0.08025682182985554
+ecoli,ALAGLUE,L-alanyl-gamma-glutamate epimerase,1,1,1,10.0,1.0,0.08025682182985554
+ecoli,ALAALAr_num2,D-alanine-D-alanine ligase (reversible),1,1,1,14.7,1.16732,0.08025682182985554
+ecoli,ALAALAr_num1,D-alanine-D-alanine ligase (reversible),1,1,1,14.7,1.16732,0.08025682182985554
+ecoli,AIRC3,Phosphoribosylaminoimidazole carboxylase (mutase rxn),1,1,1,15.6,1.19312,0.08025682182985554
+ecoli,AIRC2,Phosphoribosylaminoimidazole carboxylase,1,1,1,5.9,0.770852,0.08025682182985554
+yeast,r_0318,cytosine deaminase,1,1,1,170.0,2.23045,0.08025682182985554
+yeast,r_0310,cystathionine g-lyase,1,1,1,1.51,0.178977,0.08025682182985554
+yeast,r_0301,"citrate synthase, peroxisomal",1,1,1,11.2,1.04922,0.08025682182985554
+yeast,r_0278,chorismate mutase,1,1,1,361.0,2.55751,0.08025682182985554
+yeast,r_0274,choline phosphate cytididyltransferase,1,1,1,16.405,1.21498,0.08025682182985554
+yeast,r_0273,choline kinase,1,1,1,2.55,0.40654,0.08025682182985554
+yeast,r_0223,ATP adenylyltransferase,1,1,1,96.0,1.98227,0.08025682182985554
+yeast,r_0222,ATP adenylyltransferase,1,1,1,96.0,1.98227,0.08025682182985554
+yeast,r_0210,arginyl-tRNA synthetase,1,1,1,1.925,0.284431,0.08025682182985554
+ecoli,ADPRDP_num1,ADPribose diphosphatase,1,1,1,117.0,2.06819,0.08025682182985554
+ecoli,ADNUC,Adenosine hydrolase,1,1,1,0.0154,-1.81248,0.08025682182985554
+ecoli,ADNCYC,Adenylate cyclase,1,1,1,1.67,0.222716,0.08025682182985554
+ecoli,ADD,Adenine deaminase,1,1,1,185.0,2.26717,0.08025682182985554
+ecoli,ACPS1_num2,Acyl-carrier protein synthase,1,1,1,1.0,0.0,0.08025682182985554
+ecoli,ACPS1_num1,Acyl-carrier protein synthase,1,1,1,1.0,0.0,0.08025682182985554
+yeast,r_0478,glutaminyl-tRNA synthetase,1,1,1,1.4,0.146128,0.08025682182985554
+yeast,r_0469,glutamate decarboxylase,1,1,1,0.537,-0.270026,0.08025682182985554
+yeast,r_0464,"glucan 1,4-alpha-glucosidase, vacuole",1,1,1,328.0,2.51587,0.08025682182985554
+yeast,r_0459,galactose-1-phosphate uridylyltransferase,1,1,1,987.0,2.99432,0.08025682182985554
+yeast,r_0453,dihydoorotic acid dehydrogenase,1,1,1,98.4,1.993,0.08025682182985554
+yeast,r_0449,fructose-bisphosphatase,1,1,1,4.9,0.690196,0.08025682182985554
+yeast,r_0361,dolichyl-phosphate D-mannosyltransferase,1,1,1,41.5,1.61805,0.08025682182985554
+yeast,r_0345,dihydrofolate reductase,1,1,1,11.5,1.0607,0.08025682182985554
+yeast,r_0344,dihydrofolate reductase,1,1,1,11.5,1.0607,0.08025682182985554
+ecoli,ALLTN,Allantoinase,1,1,1,43.3333,1.63682,0.08025682182985554
+yeast,r_0675,L-allo-threonine aldolase,1,1,1,41.0,1.61278,0.08025682182985554
+yeast,r_0667,isopentenyl-diphosphate D-isomerase,1,1,1,8.27,0.917506,0.08025682182985554
+yeast,r_0569,inorganic diphosphatase,1,1,1,260.0,2.41497,0.08025682182985554
+yeast,r_0568,inorganic diphosphatase,1,1,1,260.0,2.41497,0.08025682182985554
+yeast,r_0554,hydroxyacylglutathione hydrolase,1,1,1,723.0,2.85914,0.08025682182985554
+yeast,r_0553,hydroxyacylglutathione hydrolase,1,1,1,723.0,2.85914,0.08025682182985554
+yeast,r_0545,homoisocitrate dehydrogenase,1,1,1,17.0,1.23045,0.08025682182985554
+yeast,r_0529,guanylate kinase (GMP:dATP),1,1,1,394.0,2.5955,0.08025682182985554
+yeast,r_0526,guanine deaminase,1,1,1,8.9,0.94939,0.08025682182985554
+yeast,r_0480,glutamyl-tRNA synthetase,1,1,1,1.5,0.176091,0.08025682182985554
+yeast,r_0479,glutamyl-tRNA synthetase,1,1,1,1.5,0.176091,0.08025682182985554
+ecoli,AGMT,Agmatinase,1,1,1,61.0,1.78533,0.08025682182985554
+ecoli,AGDC,N-acetylglucosamine-6-phosphate deacetylase,1,1,1,92.0,1.96379,0.08025682182985554
+ecoli,ADSK,Adenylyl-sulfate kinase,1,1,1,50.0,1.69897,0.08025682182985554
+ecoli,ADPT,Adenine phosphoribosyltransferase,1,1,1,9.33,0.969882,0.08025682182985554
+ecoli,ADPRDP_num2,ADPribose diphosphatase,1,1,1,117.0,2.06819,0.08025682182985554
+ecoli,ACNML,N-Acetylneuraminate lyase,1,1,1,7.7,0.886491,0.08025682182985554
+ecoli,ACM6PH,N-acetylmuramate 6-phosphate hydrolase,1,1,1,5.7,0.755875,0.08025682182985554
+ecoli,ACGAMK,N-acetylglucosamine kinase,1,1,1,9.2,0.963788,0.08025682182985554
+ecoli,ACALD_num2,Acetaldehyde dehydrogenase (acetylating),1,1,1,15.7,1.1959,0.08025682182985554
+ecoli,ACALD_num1,Acetaldehyde dehydrogenase (acetylating),1,1,1,15.7,1.1959,0.08025682182985554
+ecoli,ACACT7r_num2,Acetyl-CoA C-acyltransferase (tetradecanoyl-CoA) (r),1,1,1,104.0,2.01703,0.08025682182985554
+ecoli,ACACT7r_num1,Acetyl-CoA C-acyltransferase (tetradecanoyl-CoA) (r),1,1,1,104.0,2.01703,0.08025682182985554
+ecoli,ACACT6r_num2,Acetyl-CoA C-acyltransferase (dodecanoyl-CoA) (r),1,1,1,104.0,2.01703,0.08025682182985554
+ecoli,ACACT6r_num1,Acetyl-CoA C-acyltransferase (dodecanoyl-CoA) (r),1,1,1,104.0,2.01703,0.08025682182985554
+yeast,r_0727,methionine synthase,1,1,1,0.33,-0.481486,0.08025682182985554
+yeast,r_0723,mannose-6-phosphate isomerase,1,1,1,20.0,1.30103,0.08025682182985554
+yeast,r_0702,leucyl-tRNA synthetase,1,1,1,37.5,1.57403,0.08025682182985554
+yeast,r_0701,leucyl-tRNA synthetase,1,1,1,37.5,1.57403,0.08025682182985554
+yeast,r_0690,L-serine dehydrogenase,1,1,1,11.0,1.04139,0.08025682182985554
+yeast,r_0679,L-asparaginase,1,1,1,370.0,2.5682,0.08025682182985554
+yeast,r_0676,L-allo-threonine dehydrogenase,1,1,1,43.8,1.64147,0.08025682182985554
+yeast,r_0853,phenylalanyl-tRNA synthetase,1,1,1,180.0,2.25527,0.08025682182985554
+yeast,r_0851,phenylalanine transaminase,1,1,1,8.3,0.919078,0.08025682182985554
+yeast,r_0821,orotidine-5'-phosphate decarboxylase,1,1,1,15.0,1.17609,0.08025682182985554
+yeast,r_0817,ornithine decarboxylase,1,1,1,3.75,0.574031,0.08025682182985554
+yeast,r_0810,"nucleoside-diphosphatase (GDP), Golgi",1,1,1,3830.0,3.5832,0.08025682182985554
+yeast,r_0799,nucleoside diphosphate kinase,1,1,1,13.3,1.12385,0.08025682182985554
+yeast,r_0781,nicotinamidase,1,1,1,0.69,-0.161151,0.08025682182985554
+yeast,r_0773,NADH:ubiquinone oxidoreductase,1,1,1,0.031,-1.50864,0.08025682182985554
+yeast,r_0769,NAD synthase,1,1,1,6.4,0.80618,0.08025682182985554
+yeast,r_0768,NAD synthase,1,1,1,6.4,0.80618,0.08025682182985554
+yeast,r_0764,NAD diphosphatase,1,1,1,0.000167,-3.77728,0.08025682182985554
+yeast,r_0762,N-formyl-L-kynurenine amidohydrolase,1,1,1,161.0,2.20683,0.08025682182985554
+yeast,r_0739,mevalonate pyrophoshate decarboxylase,1,1,1,4.9,0.690196,0.08025682182985554
+ecoli,ACP1_FMN_num3,Acid phosphatase (FMN),1,1,1,7.95,0.900367,0.08025682182985554
+ecoli,ACP1_FMN_num2,Acid phosphatase (FMN),1,1,1,7.95,0.900367,0.08025682182985554
+ecoli,ACP1_FMN_num1,Acid phosphatase (FMN),1,1,1,7.95,0.900367,0.08025682182985554
+ecoli,ACACT3r_num1,Acetyl-CoA C-acyltransferase (hexanoyl-CoA) (r),1,1,1,6.5,0.812913,0.08025682182985554
+ecoli,ACACT2r_num2,Acetyl-CoA C-acyltransferase (butanoyl-CoA) (r),1,1,1,104.0,2.01703,0.08025682182985554
+ecoli,ACACT2r_num1,Acetyl-CoA C-acyltransferase (butanoyl-CoA) (r),1,1,1,104.0,2.01703,0.08025682182985554
+ecoli,ACACT1r_num3,Acetyl-CoA C-acetyltransferase,1,1,1,6.5,0.812913,0.08025682182985554
+ecoli,ACACT1r_num2,Acetyl-CoA C-acetyltransferase,1,1,1,6.5,0.812913,0.08025682182985554
+ecoli,ACACT1r_num1,Acetyl-CoA C-acetyltransferase,1,1,1,6.5,0.812913,0.08025682182985554
+ecoli,AB6PGH_num3,Arbutin 6-phosphate glucohydrolase,1,1,1,34.5,1.53782,0.08025682182985554
+ecoli,AB6PGH_num2,Arbutin 6-phosphate glucohydrolase,1,1,1,34.5,1.53782,0.08025682182985554
+yeast,r_0954,pyridoxamine 5'-phosphate oxidase,1,1,1,0.103,-0.987163,0.08025682182985554
+yeast,r_0943,purine-nucleoside phosphorylase,1,1,1,23.4,1.36922,0.08025682182985554
+yeast,r_0941,prolyl-tRNA synthetase,1,1,1,5.6,0.748188,0.08025682182985554
+yeast,r_0938,prephenate dehydratase,1,1,1,737.0,2.86747,0.08025682182985554
+yeast,r_0937,poylamine oxidase,1,1,1,39.0,1.59106,0.08025682182985554
+yeast,r_0936,poylamine oxidase,1,1,1,15.1,1.17898,0.08025682182985554
+yeast,r_0913,phosphoribosylanthranilate isomerase,1,1,1,69.0,1.83885,0.08025682182985554
+yeast,r_0854,phenylpyruvate decarboxylase,1,1,1,20.0,1.30103,0.08025682182985554
+yeast,r_1066,tyrosyl-tRNA synthetase,1,1,1,4.5,0.653213,0.08025682182985554
+yeast,r_1063,tyrosine transaminase,1,1,1,12.8,1.10721,0.08025682182985554
+yeast,r_1054,triose-phosphate isomerase,1,1,1,500.0,2.69897,0.08025682182985554
+yeast,r_1043,threonyl-tRNA synthetase,1,1,1,3.32,0.521138,0.08025682182985554
+yeast,r_1042,threonyl-tRNA synthetase,1,1,1,3.32,0.521138,0.08025682182985554
+yeast,r_1040,threonine aldolase,1,1,1,43.0,1.63347,0.08025682182985554
+yeast,r_1038,thioredoxin reductase (NADPH),1,1,1,33.3,1.52244,0.08025682182985554
+yeast,r_1024,sucrose hydrolyzing enzyme,1,1,1,3430.0,3.53529,0.08025682182985554
+yeast,r_1012,squalene synthase,1,1,1,1.915,0.282169,0.08025682182985554
+yeast,r_0984,ribulose 5-phosphate 3-epimerase,1,1,1,1300.0,3.11394,0.08025682182985554
+yeast,r_0955,pyridoxine 5'-phosphate oxidase,1,1,1,0.7,-0.154902,0.08025682182985554
+ecoli,ACACT5r_num2,Acetyl-CoA C-acyltransferase (decanoyl-CoA) (r),1,1,1,6.5,0.812913,0.08025682182985554
+ecoli,ACACT5r_num1,Acetyl-CoA C-acyltransferase (decanoyl-CoA) (r),1,1,1,6.5,0.812913,0.08025682182985554
+ecoli,ACACT4r_num2,Acetyl-CoA C-acyltransferase (octanoyl-CoA) (r),1,1,1,104.0,2.01703,0.08025682182985554
+ecoli,ACACT4r_num1,Acetyl-CoA C-acyltransferase (octanoyl-CoA) (r),1,1,1,104.0,2.01703,0.08025682182985554
+ecoli,ACACT3r_num2,Acetyl-CoA C-acyltransferase (hexanoyl-CoA) (r),1,1,1,6.5,0.812913,0.08025682182985554
+yeast,r_2442,"CDP-diacylglycerol synthase (1-18:0, 2-16:1), mitochondrial membrane",1,1,1,8.92,0.950365,0.08025682182985554
+yeast,r_2441,"CDP-diacylglycerol synthase (1-16:1, 2-16:1), mitochondrial membrane",1,1,1,8.92,0.950365,0.08025682182985554
+yeast,r_2440,"CDP-diacylglycerol synthase (1-16:0, 2-16:1), mitochondrial membrane",1,1,1,8.92,0.950365,0.08025682182985554
+yeast,r_2439,"CDP-diacylglycerol synthase (1-18:1, 2-18:1), ER membrane",1,1,1,8.92,0.950365,0.08025682182985554
+yeast,r_2438,"CDP-diacylglycerol synthase (1-18:0, 2-18:1), ER membrane",1,1,1,8.92,0.950365,0.08025682182985554
+yeast,r_2437,"CDP-diacylglycerol synthase (1-16:1, 2-18:1), ER membrane",1,1,1,8.92,0.950365,0.08025682182985554
+yeast,r_2436,"CDP-diacylglycerol synthase (1-16:0, 2-18:1), ER membrane",1,1,1,8.92,0.950365,0.08025682182985554
+yeast,r_2435,"CDP-diacylglycerol synthase (1-18:1, 2-16:1), ER membrane",1,1,1,8.92,0.950365,0.08025682182985554
+yeast,r_2434,"CDP-diacylglycerol synthase (1-18:0, 2-16:1), ER membrane",1,1,1,8.92,0.950365,0.08025682182985554
+yeast,r_2433,"CDP-diacylglycerol synthase (1-16:1, 2-16:1), ER membrane",1,1,1,8.92,0.950365,0.08025682182985554
+yeast,r_2432,"CDP-diacylglycerol synthase (1-16:0, 2-16:1), ER membrane",1,1,1,8.92,0.950365,0.08025682182985554
+yeast,r_2147,3-oxoacyl-ACP reductase (3-hydroxyoctanoyl-ACP),1,1,1,117.5,2.07004,0.08025682182985554
+yeast,r_2146,3-oxoacyl-ACP reductase (3-hydroxyhexanoyl-ACP),1,1,1,117.5,2.07004,0.08025682182985554
+yeast,r_2145,3-oxoacyl-ACP reductase (3-hydroxybutanoyl-ACP),1,1,1,117.5,2.07004,0.08025682182985554
+yeast,r_1071,UDPglucose--hexose-1-phosphate uridylyltransferase,1,1,1,987.0,2.99432,0.08025682182985554
+yeast,r_1067,tyrosyl-tRNA synthetase,1,1,1,4.5,0.653213,0.08025682182985554
+yeast,r_2848,"phosphatidylinositol 4-kinase (1-16:0, 2-18:1), nucleus",1,1,1,2.77,0.44248,0.08025682182985554
+yeast,r_2847,"phosphatidylinositol 4-kinase (1-18:1, 2-16:1), nucleus",1,1,1,2.77,0.44248,0.08025682182985554
+yeast,r_2846,"phosphatidylinositol 4-kinase (1-18:0, 2-16:1), nucleus",1,1,1,2.77,0.44248,0.08025682182985554
+yeast,r_2845,"phosphatidylinositol 4-kinase (1-16:1, 2-16:1), nucleus",1,1,1,2.77,0.44248,0.08025682182985554
+yeast,r_2844,"phosphatidylinositol 4-kinase (1-16:0, 2-16:1), nucleus",1,1,1,2.77,0.44248,0.08025682182985554
+yeast,r_2835,"phosphatidylinositol 4-kinase (1-18:1, 2-18:1), vacuolar membrane",1,1,1,2.77,0.44248,0.08025682182985554
+yeast,r_2834,"phosphatidylinositol 4-kinase (1-18:0, 2-18:1), vacuolar membrane",1,1,1,2.77,0.44248,0.08025682182985554
+yeast,r_2833,"phosphatidylinositol 4-kinase (1-16:1, 2-18:1), vacuolar membrane",1,1,1,2.77,0.44248,0.08025682182985554
+yeast,r_2832,"phosphatidylinositol 4-kinase (1-16:0, 2-18:1), vacuolar membrane",1,1,1,2.77,0.44248,0.08025682182985554
+yeast,r_2831,"phosphatidylinositol 4-kinase (1-18:1, 2-16:1), vacuolar membrane",1,1,1,2.77,0.44248,0.08025682182985554
+yeast,r_2830,"phosphatidylinositol 4-kinase (1-18:0, 2-16:1), vacuolar membrane",1,1,1,2.77,0.44248,0.08025682182985554
+yeast,r_2829,"phosphatidylinositol 4-kinase (1-16:1, 2-16:1), vacuolar membrane",1,1,1,2.77,0.44248,0.08025682182985554
+yeast,r_2828,"phosphatidylinositol 4-kinase (1-16:0, 2-16:1), vacuolar membrane",1,1,1,2.77,0.44248,0.08025682182985554
+yeast,r_2445,"CDP-diacylglycerol synthase (1-16:1, 2-18:1), mitochondrial membrane",1,1,1,8.92,0.950365,0.08025682182985554
+yeast,r_2444,"CDP-diacylglycerol synthase (1-16:0, 2-18:1), mitochondrial membrane",1,1,1,8.92,0.950365,0.08025682182985554
+yeast,r_2443,"CDP-diacylglycerol synthase (1-18:1, 2-16:1), mitochondrial membrane",1,1,1,8.92,0.950365,0.08025682182985554
+yeast,r_4317,sucrose glucohydrolase,1,1,1,55.0,1.74036,0.08025682182985554
+ecoli,23PDE7pp,"2',3'-cyclic-nucleotide phosphodiesterase (AMP) (periplasm)",1,1,1,2.95,0.469822,0.08025682182985554
+ecoli,3HCINNMH,3-hydroxycinnamate hydroxylase,1,1,1,0.691,-0.160522,0.08025682182985554
+yeast,r_4288,alpha-D-Glucose 6-phosphate ketol-isomerase,1,1,1,1950.0,3.29003,0.08025682182985554
+yeast,r_4287,ATP:D-fructose 6-phosphotransferase,1,1,1,36.65,1.56407,0.08025682182985554
+yeast,r_4286,ATP:D-glucosamine 6-phosphotransferase,1,1,1,36.65,1.56407,0.08025682182985554
+yeast,r_4283,ATP:D-fructose 6-phosphotransferase,1,1,1,36.65,1.56407,0.08025682182985554
+yeast,r_4248,D-serine ammonia-lyase,1,1,1,17.0,1.23045,0.08025682182985554
+yeast,r_4217,Fe(II):oxygen oxidoreductase; Fe2+:oxygen oxidoreductase,1,1,1,0.78,-0.107905,0.08025682182985554
+yeast,r_4187,L-proline:tRNA(Pro) ligase (AMP-forming),1,1,1,5.6,0.748188,0.08025682182985554
+yeast,r_4184,4-hydroxy-4-methyl-2-oxoglutarate pyruvate-lyase (pyruvate-forming),1,1,1,0.0276,-1.55909,0.08025682182985554
+yeast,r_4160,ADP-ribose pyrophosphatase (EC 3.6.1.13) (ADP-ribose diphosphatase) (ADP-ribose phosphohydrolase) (Adenosine diphosphoribose pyrophosphatase) (ADPR-PPase),1,1,1,7.92,0.898725,0.08025682182985554
+yeast,r_4045,uridine hydrolase,1,1,1,20.0,1.30103,0.08025682182985554
+yeast,r_2851,"phosphatidylinositol 4-kinase (1-18:1, 2-18:1), nucleus",1,1,1,2.77,0.44248,0.08025682182985554
+ecoli,AB6PGH_num1,Arbutin 6-phosphate glucohydrolase,1,1,1,34.5,1.53782,0.08025682182985554
+ecoli,A5PISO_num2,Arabinose-5-phosphate isomerase,1,1,1,130.5,2.11561,0.08025682182985554
+ecoli,MNNH,D-mannonate hydrolyase,1,1,1,0.81,-0.091515,0.08025682182985554
+ecoli,MI1PP,Myo-inositol 1-phosphatase,1,1,1,0.49,-0.309804,0.08025682182985554
+ecoli,MGSA,Methylglyoxal synthase,1,1,1,199.5,2.29994,0.08025682182985554
+ecoli,MECDPS,"2-C-methyl-D-erythritol 2,4-cyclodiphosphate synthase",1,1,1,2.7,0.431364,0.08025682182985554
+ecoli,ME2,Malic enzyme (NADP),1,1,1,66.6,1.82347,0.08025682182985554
+ecoli,MCPST,3-mercaptopyruvate sulfurtransferase,1,1,1,62.25,1.79414,0.08025682182985554
+ecoli,MCITL2,Methylisocitrate lyase,1,1,1,19.0,1.27875,0.08025682182985554
+ecoli,MCITD,2-methylcitrate dehydratase,1,1,1,0.045,-1.34679,0.08025682182985554
+ecoli,MALS_num2,Malate synthase,1,1,1,48.1,1.68215,0.08025682182985554
+ecoli,MALS_num1,Malate synthase,1,1,1,48.1,1.68215,0.08025682182985554
+ecoli,LYSDC_num2,Lysine decarboxylase,1,1,1,88.2,1.94547,0.08025682182985554
+ecoli,LYSDC_num1,Lysine decarboxylase,1,1,1,88.2,1.94547,0.08025682182985554
+ecoli,LYSAM,"Lysine 2,3-aminomutase",1,1,1,0.083,-1.08092,0.08025682182985554
+ecoli,LSERDHr,L-serine dehydrogenase,1,1,1,4.2,0.623249,0.08025682182985554
+yeast,r_4340,D-amino-acid N-acetyltransferase HPA3 (DNT) (EC 2.3.1.36) (EC 2.3.1.48) (Histone and other protein acetyltransferase 3),1,1,1,0.48,-0.318759,0.08025682182985554
+yeast,r_4318,Isomaltose 6-alpha-D-glucanohydrolase,1,1,1,97.0,1.98677,0.08025682182985554

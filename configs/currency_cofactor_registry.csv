@@ -1,0 +1,45 @@
+role_class,canonical_name,aliases,bigg_ids,kegg_ids,chebi_ids,metanetx_ids,pubchem_cids,inchikey_connectivity,notes
+proton,proton,H+;H;proton,h,C00080,CHEBI:24636,MNXM1,,,Ubiquitous proton participant
+solvent,water,H2O;water,h2o,C00001,CHEBI:15377,MNXM2,962,XLYOFNOQVPJJNP,Ubiquitous solvent participant
+reactive_currency,hydrogen peroxide,H2O2;hydrogen peroxide,h2o2,C00027,CHEBI:16240,MNXM158,784,MHAJPDPJQMAIIY,Reactive oxygen currency participant
+gas_currency,oxygen,O2;oxygen,o2,C00007,CHEBI:15379,MNXM4,977,MYMOFIZGZYHOMD,Common redox participant
+gas_currency,carbon dioxide,CO2;carbon dioxide,co2,C00011,CHEBI:16526,MNXM13,280,CURLTUGMZLYLDI,Common carbon currency participant
+nitrogen_currency,ammonium,ammonium;ammonia;NH3;NH4,nh4,C00014,CHEBI:28938,MNXM15,223,QGZKDVFQNNGYKY,Common nitrogen currency participant
+phosphate_currency,phosphate,phosphate;orthophosphate;Pi,pi,C00009,CHEBI:43474,MNXM9,1061,NBIIXXVUZAFLBC,Common phosphate participant
+phosphate_currency,diphosphate,diphosphate;pyrophosphate;PPi,ppi,C00013,CHEBI:33019,MNXM11,1023,XPPKVPWEQAFLFU,Common phosphate participant
+phosphate_currency,polyphosphate,polyphosphate,,C00404,CHEBI:16838,MNXM77738,,,Polymeric phosphate currency participant
+energy_nucleotide,ATP,ATP,atp,C00002,CHEBI:30616,MNXM3,5957,ZKHQWZAMYRWXGA,Energy-transfer nucleotide
+energy_nucleotide,ADP,ADP,adp,C00008,CHEBI:456216,MNXM7,6022,XTWYTFMLZFPYCI,Energy-transfer nucleotide
+energy_nucleotide,AMP,AMP,amp,C00020,CHEBI:456215,MNXM14,6083,UDMBCSSLTHHNCD,Energy-transfer nucleotide
+energy_nucleotide,GTP,GTP,gtp,C00044,CHEBI:57600,MNXM51,6830,XKMLYUALXHKNFT,Energy-transfer nucleotide
+energy_nucleotide,GDP,GDP,gdp,C00035,CHEBI:58189,MNXM30,6831,QGWNDRXFNXRZMB,Energy-transfer nucleotide
+nucleotide_currency,GMP,GMP,gmp,C00144,CHEBI:58115,MNXM113,6804,RQFCJASXJCIDSX,Nucleotide participant
+energy_nucleotide,CTP,CTP,ctp,C00063,CHEBI:37563,MNXM63,6176,PCDQPRRSZKQHHS,Energy-transfer nucleotide
+energy_nucleotide,CDP,CDP,cdp,C00112,CHEBI:58069,MNXM220,6132,ZWIADYZPOWUWEW,Energy-transfer nucleotide
+nucleotide_currency,CMP,CMP,cmp,C00055,CHEBI:60377,MNXM31,6131,IERHLVCPSMICTF,Nucleotide participant
+energy_nucleotide,UTP,UTP,utp,C00075,CHEBI:46398,MNXM121,6133,PGAVKCOVUIYSFO,Energy-transfer nucleotide
+energy_nucleotide,UDP,UDP,udp,C00015,CHEBI:58223,MNXM17,6031,XCCTYIAWTASOJW,Energy-transfer nucleotide
+nucleotide_currency,UMP,UMP,ump,C00105,CHEBI:57865,MNXM80,6030,DJJCXFVJDGTHFX,Nucleotide participant
+nucleotide_currency,IMP,IMP,imp,C00130,CHEBI:58053,MNXM125,8582,GRSZFWQUAKGDAV,Nucleotide participant
+redox_cofactor,NAD,NAD;nicotinamide adenine dinucleotide,nad,C00003,CHEBI:57540,MNXM8,5893,BAWFJGJZGIEFAR,Redox cofactor
+redox_cofactor,NADH,NADH;nicotinamide adenine dinucleotide - reduced,nadh,C00004,CHEBI:57945,MNXM10,439153,BOPGDPNILDQYTO,Reduced redox cofactor
+redox_cofactor,NADP,NADP;nicotinamide adenine dinucleotide phosphate,nadp,C00006,CHEBI:58349,MNXM5,5886,XJLXINKUBYWONI,Redox cofactor
+redox_cofactor,NADPH,NADPH;nicotinamide adenine dinucleotide phosphate - reduced,nadph,C00005,CHEBI:57783,MNXM6,5884,ACFIXJIJDZMPPO,Reduced redox cofactor
+redox_cofactor,FAD,FAD;flavin adenine dinucleotide oxidized,fad,C00016,CHEBI:57692,MNXM33,643975,VWWQXMAJTJZDQX,Redox cofactor
+redox_cofactor,FADH2,FADH2,fadh2,C01352,CHEBI:58307,MNXM38,,,Reduced redox cofactor
+redox_cofactor,FMN,FMN,fmn,C00061,CHEBI:58210,MNXM119,643976,FVTCRASFADXXNN,Redox cofactor
+carrier_cofactor,coenzyme A,CoA;coenzyme A,coa,C00010,CHEBI:57287,MNXM12,6816,RGJOEKWQDUBAIZ,Acyl-group carrier
+carrier_linked_metabolite,acetyl-CoA,acetyl-CoA;Acetyl-CoA,accoa,C00024,CHEBI:57288,MNXM21,444493,ZSLZBFCDCINBPY,Carrier-linked metabolite that may be the variable substrate
+carrier_linked_metabolite,acetoacetyl-CoA,acetoacetyl-CoA,aacoa,C00332,CHEBI:57286,MNXM133,92153,,Carrier-linked metabolite that may be the variable substrate
+carrier_linked_metabolite,succinyl-CoA,succinyl-CoA,succoa,C00091,CHEBI:57292,MNXM92,1110,,Carrier-linked metabolite that may be the variable substrate
+carrier_linked_metabolite,propionyl-CoA,propionyl-CoA,ppcoa,C00100,CHEBI:57386,MNXM86,439161,,Carrier-linked metabolite that may be the variable substrate
+carrier_linked_metabolite,dodecanoyl-CoA,Dodecanoyl-CoA;lauroyl-CoA,ddcacoa,C01832,CHEBI:57375,MNXM363,644109,,Carrier-linked metabolite that may be the variable substrate
+carrier_linked_metabolite,oxalyl-CoA,oxalyl-CoA,oxalcoa,C00313,CHEBI:57291,MNXM134,,,Carrier-linked metabolite that may be the variable substrate
+one_carbon_cofactor,S-adenosyl-L-methionine,S-Adenosyl-L-methionine;SAM,amet,C00019,CHEBI:59789,MNXM16,34756,MEFKEPWMEQBLKI,Methyl-group donor
+one_carbon_cofactor,S-adenosyl-L-homocysteine,S-Adenosyl-L-homocysteine;SAH,ahcys,C00021,CHEBI:16680,MNXM19,439155,ZJUKTBDSGOFHSH,Methyl-transfer product
+one_carbon_cofactor,tetrahydrofolate,"tetrahydrofolate;5,6,7,8-Tetrahydrofolate;THF",thf,C00101,CHEBI:67016,MNXM69,1129,MSTNYGQPCMXVAQ,One-carbon carrier
+one_carbon_cofactor,dihydrofolate,"7,8-Dihydrofolate;dihydrofolate;DHF",dhf,C00415,CHEBI:15633,MNXM97,98792,,One-carbon carrier
+one_carbon_cofactor,10-formyltetrahydrofolate,10-Formyltetrahydrofolate,10fthf,C00234,CHEBI:15637,MNXM237,135398556,,One-carbon carrier
+vitamin_cofactor,pyridoxal 5-phosphate,pyridoxal 5-phosphate;PLP,pydx5p,C00018,CHEBI:18405,MNXM42,1051,NGVDGCNFYWLIFO,Vitamin-derived cofactor
+vitamin_cofactor,pyridoxamine 5-phosphate,pyridoxamine 5'-phosphate;PMP,pyam5p,C00647,CHEBI:597326,MNXM161,1052,ZMJGSOSNSPKHNH,Vitamin-derived cofactor
+activated_sugar_precursor,PRPP,PRPP;5-phosphoribosyl 1-pyrophosphate,prpp,C00119,CHEBI:58017,MNXM91,7332,PQGCEDQWHSBAJP,Activated ribose phosphate participant

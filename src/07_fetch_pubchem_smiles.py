@@ -39,6 +39,18 @@ CKB_REGISTRIES = [
     ("synonyms", "substrate_name", 3),
 ]
 
+# Curated corrections are applied before identifier-based propagation and
+# database lookup. The local CKB row for Quinate (compound_id 65990) has the
+# molecular mass in its isomeric_smiles field, so relying on field priority
+# alone can silently turn 192.167 into a structure string.
+CURATED_BIGG_SMILES = {
+    "quin": {
+        "smiles": "C1[C@H](C([C@@H](CC1(C(=O)O)O)O)O)O",
+        "source": "PubChem_curated",
+        "source_id": "CID:6508",
+    }
+}
+
 
 def read_rows(path: Path) -> list[dict[str, str]]:
     with path.open("r", newline="", encoding="utf-8") as handle:
@@ -64,6 +76,64 @@ def clean_name(name: str) -> str:
     cleaned = re.sub(r"\s+\(n-C\d+:\d+ACP\)$", "", cleaned, flags=re.IGNORECASE)
     cleaned = re.sub(r"\s+\(n-C\d+:\d+\)$", "", cleaned, flags=re.IGNORECASE)
     return cleaned.strip()
+
+
+def is_plausible_smiles(value: object) -> bool:
+    """Reject obvious non-structures without requiring RDKit in this fetcher."""
+    text = str(value or "").strip()
+    if not text or text.lower() in {"nan", "none", "null"}:
+        return False
+    if re.fullmatch(r"[+-]?(?:\d+(?:\.\d*)?|\.\d+)", text):
+        return False
+    # A usable SMILES must contain at least one atom token. This deliberately
+    # accepts bracket-only ions such as [H+] while excluding masses.
+    return bool(re.search(r"(?:Br|Cl|Si|Se|Na|Li|Mg|Ca|Fe|Zn|[BCNOPSFIKbcnops]|\[[^\]]+\])", text))
+
+
+def invalidate_obvious_non_smiles(queue_rows: list[dict[str, str]]) -> int:
+    changed = 0
+    for row in queue_rows:
+        value = row.get("substrate_smiles", "")
+        if not value or is_plausible_smiles(value):
+            continue
+        row["substrate_smiles"] = ""
+        row["smiles_source"] = ""
+        row["smiles_source_id"] = ""
+        row["smiles_status"] = "invalid_smiles_removed"
+        changed += 1
+    return changed
+
+
+def apply_curated_smiles(queue_rows: list[dict[str, str]]) -> int:
+    changed = 0
+    for row in queue_rows:
+        bigg_ids = split_values(row.get("substrate_bigg_id", ""))
+        correction = next(
+            (CURATED_BIGG_SMILES[value] for value in bigg_ids if value in CURATED_BIGG_SMILES),
+            None,
+        )
+        if not correction:
+            continue
+        desired = (
+            correction["smiles"],
+            correction["source"],
+            correction["source_id"],
+            "smiles_mapped",
+        )
+        current = (
+            row.get("substrate_smiles", ""),
+            row.get("smiles_source", ""),
+            row.get("smiles_source_id", ""),
+            row.get("smiles_status", ""),
+        )
+        if current == desired:
+            continue
+        row["substrate_smiles"] = correction["smiles"]
+        row["smiles_source"] = correction["source"]
+        row["smiles_source_id"] = correction["source_id"]
+        row["smiles_status"] = "smiles_mapped"
+        changed += 1
+    return changed
 
 
 def cache_key(kind: str, value: str) -> str:
@@ -228,7 +298,7 @@ def hard_smiles_reason(row: dict[str, str]) -> str:
 def propagate_existing_mappings(queue_rows: list[dict[str, str]]) -> int:
     mapped_by_key: dict[tuple[str, str], dict[str, str]] = {}
     for row in queue_rows:
-        if not row.get("substrate_smiles"):
+        if not is_plausible_smiles(row.get("substrate_smiles")):
             continue
         for key in mapping_keys(row):
             mapped_by_key.setdefault(key, row)
@@ -275,7 +345,14 @@ def query_ckb(accessions_by_registry: dict[int, set[str]], db_path: Path) -> dic
                     key = (registry_id, accession)
                     if key in hits:
                         continue
-                    smiles = isomeric_smiles or canonical_smiles or ""
+                    smiles = next(
+                        (
+                            candidate
+                            for candidate in (isomeric_smiles, canonical_smiles)
+                            if is_plausible_smiles(candidate)
+                        ),
+                        "",
+                    )
                     if smiles:
                         hits[key] = {
                             "compound_id": str(compound_id),
@@ -376,10 +453,31 @@ def fill_queue(queue_rows: list[dict[str, str]], cache: dict[str, dict[str, str]
 
 def fill_entries(entries: list[dict[str, str]], substrate_rows: list[dict[str, str]]) -> list[dict[str, str]]:
     by_key = {(row["species"], row["substrate_id"]): row for row in substrate_rows}
+    propagated_fields = [
+        "substrate_bigg_id",
+        "substrate_kegg_id",
+        "substrate_chebi_id",
+        "substrate_metanetx_id",
+        "substrate_pubchem_cid",
+        "substrate_parent_inchikey",
+        "substrate_parent_inchikey_connectivity",
+        "substrate_structure_standardization_status",
+        "substrate_is_cofactor_like",
+        "substrate_role_class",
+        "substrate_role_group",
+        "substrate_role_evidence",
+        "substrate_role_evidence_types",
+        "substrate_role_evidence_count",
+        "substrate_role_confidence",
+        "substrate_role_registry_name",
+        "substrate_role_registry_structure_consistency",
+    ]
     output = []
     for row in entries:
         substrate = by_key.get((row["species"], row["substrate_id"]), {})
         smiles = substrate.get("substrate_smiles", "")
+        for field in propagated_fields:
+            row[field] = substrate.get(field, row.get(field, ""))
         row["substrate_smiles"] = smiles
         row["smiles_status"] = "smiles_mapped" if smiles else "needs_smiles_mapping"
         row["smiles_source"] = substrate.get("smiles_source", "")
@@ -461,6 +559,12 @@ def main() -> None:
         row.setdefault("substrate_smiles", "")
         row.setdefault("smiles_source", "")
         row.setdefault("smiles_source_id", "")
+    invalidated = invalidate_obvious_non_smiles(queue_rows)
+    if invalidated:
+        print(f"Removed {invalidated} obvious non-SMILES mappings.")
+    curated = apply_curated_smiles(queue_rows)
+    if curated:
+        print(f"Applied {curated} curated SMILES corrections.")
     cache = read_cache()
     propagated = propagate_existing_mappings(queue_rows)
     if propagated:
@@ -479,7 +583,9 @@ def main() -> None:
     elif propagated:
         write_rows(SUBSTRATE_QUEUE, queue_rows, list(queue_rows[0].keys()))
 
-    entry_source = SMILES_ENTRIES if SMILES_ENTRIES.exists() else (SEQUENCE_ENTRIES if SEQUENCE_ENTRIES.exists() else BASE_ENTRIES)
+    # The sequence table is the authoritative candidate set. Reusing a prior
+    # SMILES-enriched table here can silently resurrect stale candidate rows.
+    entry_source = SEQUENCE_ENTRIES if SEQUENCE_ENTRIES.exists() else BASE_ENTRIES
     entries = fill_entries(read_rows(entry_source), queue_rows)
     write_rows(SMILES_ENTRIES, entries, list(entries[0].keys()))
     refresh_reports(queue_rows, entries)

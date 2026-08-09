@@ -16,9 +16,11 @@ import pandas as pd
 import rarfile
 from rdkit import Chem
 from rdkit import RDLogger
+from rdkit.Chem.MolStandardize import rdMolStandardize
 
 
 RDLogger.DisableLog("rdApp.*")
+UNCHARGER = rdMolStandardize.Uncharger()
 
 BASE = Path(__file__).resolve().parent.parent
 DEFAULT_INPUT = BASE / "data" / "final" / "benchmark_ready_catpred.csv"
@@ -90,6 +92,28 @@ def canonical_smiles(smiles: object) -> tuple[bool, str]:
     return True, Chem.MolToSmiles(mol, canonical=True)
 
 
+def chemical_parent_key(smiles: object) -> str:
+    text = str(smiles).strip()
+    if not text or text == "nan":
+        return ""
+    mol = Chem.MolFromSmiles(text)
+    if mol is None:
+        return ""
+    try:
+        parent = rdMolStandardize.FragmentParent(mol)
+        parent = UNCHARGER.uncharge(parent)
+        Chem.SanitizeMol(parent)
+    except Exception:
+        parent = Chem.Mol(mol)
+        Chem.SanitizeMol(parent)
+    parent_smiles = Chem.MolToSmiles(parent, canonical=True, isomericSmiles=True)
+    try:
+        key = Chem.MolToInchiKey(parent).split("-", 1)[0]
+    except Exception:
+        key = ""
+    return key or parent_smiles
+
+
 def archive_structure_ids(path: Path) -> set[str]:
     if not path.exists():
         return set()
@@ -123,7 +147,11 @@ def load_dekp_training(path: Path) -> pd.DataFrame:
     statuses = df["Smiles"].map(canonical_smiles)
     df["dekp_train_smiles_valid"] = [valid for valid, _ in statuses]
     df["dekp_train_canonical_smiles"] = [canonical for _, canonical in statuses]
-    df = df[df["dekp_train_smiles_valid"]].copy()
+    df["dekp_train_standardized_parent_key"] = df["Smiles"].map(chemical_parent_key)
+    df = df[
+        df["dekp_train_smiles_valid"]
+        & df["dekp_train_standardized_parent_key"].ne("")
+    ].copy()
     return df
 
 
@@ -137,6 +165,7 @@ def enrich(df: pd.DataFrame, dekp_train: pd.DataFrame, archive_ids: set[str], lo
     statuses = out["SMILES"].map(canonical_smiles)
     out["dekp_smiles_valid"] = [valid for valid, _ in statuses]
     out["dekp_canonical_smiles"] = [canonical for _, canonical in statuses]
+    out["dekp_standardized_parent_key"] = out["SMILES"].map(chemical_parent_key)
     out["dekp_sequence_length"] = out["sequence"].str.len()
     out["dekp_smiles_length"] = out["dekp_canonical_smiles"].str.len()
 
@@ -157,12 +186,12 @@ def enrich(df: pd.DataFrame, dekp_train: pd.DataFrame, archive_ids: set[str], lo
     if not dekp_train.empty:
         train_uniprot = set(dekp_train["UniprotID"].astype(str))
         train_sequence = set(dekp_train["Sequence"].astype(str))
-        train_smiles = set(dekp_train["dekp_train_canonical_smiles"].astype(str))
-        train_pair = set((dekp_train["Sequence"].astype(str) + "||" + dekp_train["dekp_train_canonical_smiles"].astype(str)))
+        train_smiles = set(dekp_train["dekp_train_standardized_parent_key"].astype(str))
+        train_pair = set((dekp_train["Sequence"].astype(str) + "||" + dekp_train["dekp_train_standardized_parent_key"].astype(str)))
         out["dekp_train_uniprot_overlap"] = out["uniprot_id"].isin(train_uniprot)
         out["dekp_train_exact_sequence_overlap"] = out["sequence"].isin(train_sequence)
-        out["dekp_train_exact_smiles_overlap"] = out["dekp_canonical_smiles"].isin(train_smiles)
-        keys = out["sequence"].astype(str) + "||" + out["dekp_canonical_smiles"].astype(str)
+        out["dekp_train_exact_smiles_overlap"] = out["dekp_standardized_parent_key"].isin(train_smiles)
+        keys = out["sequence"].astype(str) + "||" + out["dekp_standardized_parent_key"].astype(str)
         out["dekp_train_exact_pair_overlap"] = keys.isin(train_pair)
 
     smiles_values = out["dekp_canonical_smiles"].where(
@@ -206,6 +235,7 @@ def metadata(df: pd.DataFrame) -> pd.DataFrame:
         "substrate_name",
         "SMILES",
         "dekp_canonical_smiles",
+        "dekp_standardized_parent_key",
         "dekp_smiles_valid",
         "sequence",
         "dekp_sequence_length",
@@ -288,7 +318,7 @@ def write_readiness_report(df: pd.DataFrame, report: Path) -> None:
                 "unique_sequences": part["sequence"].nunique(),
                 "unique_smiles": part["dekp_canonical_smiles"].nunique(),
                 "train_uniprot_overlap_rows": int(part["dekp_train_uniprot_overlap"].sum()),
-                "train_exact_pair_overlap_rows": int(part["dekp_train_exact_pair_overlap"].sum()),
+                "benchmark_rows_with_raw_public_exact_pair_overlap": int(part["dekp_train_exact_pair_overlap"].sum()),
             }
         )
     report.parent.mkdir(parents=True, exist_ok=True)

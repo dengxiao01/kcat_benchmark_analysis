@@ -18,9 +18,15 @@ def split_values(value: str) -> list[str]:
     return [item for item in (value or "").split(";") if item]
 
 
-def read_entries() -> list[dict[str, str]]:
-    with ENTRIES.open("r", newline="", encoding="utf-8") as handle:
+def read_rows(path: Path) -> list[dict[str, str]]:
+    if not path.exists():
+        return []
+    with path.open("r", newline="", encoding="utf-8") as handle:
         return list(csv.DictReader(handle))
+
+
+def read_entries() -> list[dict[str, str]]:
+    return read_rows(ENTRIES)
 
 
 def write_rows(path: Path, rows: list[dict[str, str]], fieldnames: list[str]) -> None:
@@ -64,6 +70,9 @@ def build_substrate_queue(entries: list[dict[str, str]]) -> list[dict[str, str]]
             "substrate_chebi_id": row.get("substrate_chebi_id", ""),
             "substrate_metanetx_id": row.get("substrate_metanetx_id", ""),
             "substrate_is_cofactor_like": row.get("substrate_is_cofactor_like", ""),
+            "substrate_role_class": row.get("substrate_role_class", ""),
+            "substrate_role_evidence": row.get("substrate_role_evidence", ""),
+            "substrate_role_registry_name": row.get("substrate_role_registry_name", ""),
         }
         grouped[key]["entry_id"].add(row["entry_id"])
         grouped[key]["reaction_id"].add(row["reaction_id"])
@@ -81,11 +90,29 @@ def build_substrate_queue(entries: list[dict[str, str]]) -> list[dict[str, str]]
                 "substrate_chebi_id": info["substrate_chebi_id"],
                 "substrate_metanetx_id": info["substrate_metanetx_id"],
                 "substrate_is_cofactor_like": info["substrate_is_cofactor_like"],
+                "substrate_role_class": info["substrate_role_class"],
+                "substrate_role_evidence": info["substrate_role_evidence"],
+                "substrate_role_registry_name": info["substrate_role_registry_name"],
                 "n_reactions": str(len(values["reaction_id"])),
                 "n_entries": str(len(values["entry_id"])),
                 "smiles_status": "needs_mapping",
             }
         )
+    return rows
+
+
+def restore_existing_smiles(
+    rows: list[dict[str, str]], existing: list[dict[str, str]]
+) -> list[dict[str, str]]:
+    by_key = {(row.get("species", ""), row.get("substrate_id", "")): row for row in existing}
+    carry = ["substrate_smiles", "smiles_source", "smiles_source_id", "smiles_status"]
+    for row in rows:
+        previous = by_key.get((row.get("species", ""), row.get("substrate_id", "")))
+        if not previous:
+            continue
+        for column in carry:
+            if previous.get(column, ""):
+                row[column] = previous[column]
     return rows
 
 
@@ -132,8 +159,11 @@ def build_kcat_query_queue(entries: list[dict[str, str]]) -> list[dict[str, str]
 
 def main() -> None:
     entries = read_entries()
+    previous_substrate_rows = read_rows(INTERIM / "substrate_smiles_queue.csv")
     uniprot_rows = build_uniprot_queue(entries)
-    substrate_rows = build_substrate_queue(entries)
+    substrate_rows = restore_existing_smiles(
+        build_substrate_queue(entries), previous_substrate_rows
+    )
     kcat_rows = build_kcat_query_queue(entries)
 
     write_rows(
@@ -153,9 +183,15 @@ def main() -> None:
             "substrate_chebi_id",
             "substrate_metanetx_id",
             "substrate_is_cofactor_like",
+            "substrate_role_class",
+            "substrate_role_evidence",
+            "substrate_role_registry_name",
             "n_reactions",
             "n_entries",
             "smiles_status",
+            "substrate_smiles",
+            "smiles_source",
+            "smiles_source_id",
         ],
     )
     write_rows(

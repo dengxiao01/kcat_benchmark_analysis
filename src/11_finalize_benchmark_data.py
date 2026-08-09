@@ -114,59 +114,41 @@ def main() -> None:
     for row in ready_truth:
         cat = catpred_by_id[row["entry_id"]]
         entry = entries_by_id.get(row["entry_id"], {})
-        ready_catpred.append(
-            {
-                "entry_id": row["entry_id"],
-                "species": row["species"],
-                "reaction_id": row["reaction_id"],
-                "gene_id": row["gene_id"],
-                "uniprot_id": row["uniprot_id"],
-                "ec_number": row["ec_number"],
-                "substrate_name": row["substrate_name"],
-                "SMILES": cat["SMILES"],
-                "sequence": cat["sequence"],
-                "pdbpath": cat["pdbpath"],
-                "true_kcat": row["true_kcat"],
-                "true_kcat_log10": row["true_kcat_log10"],
-                "unit": row["unit"],
-                "pH": row["pH"],
-                "temperature_c": row["temperature_c"],
-                "source_database": row["source_database"],
-                "match_level": row["match_level"],
-                "reference": row["reference"],
-                "n_measurements": row["n_measurements"],
-                "enzyme_complex_type": entry.get("enzyme_complex_type", ""),
-            }
+        output_row = dict(row)
+        output_row["SMILES"] = cat["SMILES"]
+        output_row["sequence"] = cat["sequence"]
+        output_row["pdbpath"] = cat["pdbpath"]
+        output_row["enzyme_complex_type"] = row.get(
+            "enzyme_complex_type", entry.get("enzyme_complex_type", "")
         )
+        ready_catpred.append(output_row)
 
     write_rows(UNRESOLVED, unresolved_rows, list(unresolved_rows[0].keys()) if unresolved_rows else [])
     write_rows(READY_TRUTH, ready_truth, list(truth[0].keys()) if truth else [])
-    write_rows(
-        READY_CATPRED,
-        ready_catpred,
-        [
-            "entry_id",
-            "species",
-            "reaction_id",
-            "gene_id",
-            "uniprot_id",
-            "ec_number",
-            "substrate_name",
-            "SMILES",
-            "sequence",
-            "pdbpath",
-            "true_kcat",
-            "true_kcat_log10",
-            "unit",
-            "pH",
-            "temperature_c",
-            "source_database",
-            "match_level",
-            "reference",
-            "n_measurements",
-            "enzyme_complex_type",
-        ],
-    )
+    core_fields = [
+        "entry_id",
+        "species",
+        "reaction_id",
+        "gene_id",
+        "uniprot_id",
+        "ec_number",
+        "substrate_name",
+        "SMILES",
+        "sequence",
+        "pdbpath",
+        "true_kcat",
+        "true_kcat_log10",
+        "unit",
+        "pH",
+        "temperature_c",
+        "source_database",
+        "match_level",
+        "reference",
+        "n_measurements",
+        "enzyme_complex_type",
+    ]
+    provenance_fields = [field for field in truth[0].keys() if field not in core_fields] if truth else []
+    write_rows(READY_CATPRED, ready_catpred, core_fields + provenance_fields)
 
     species_values = sorted({row["species"] for row in entries} | {row["species"] for row in truth})
     readiness_rows = []

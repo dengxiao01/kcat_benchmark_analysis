@@ -1,0 +1,31 @@
+method,entry_id,abs_error_log10,species,source_database,experimental_substrate_support,substrate_role_group,currency_or_cofactor_like_by_name,kegg_like_primary_group_short,enzyme_complex_type,n_measurements
+KcatNet,yeast|r_0764|g1|s_1202,4.693505194931031,yeast,BRENDA,substrate_supported,currency_or_cofactor,True,Unmapped,single_gene,1
+KcatNet,ecoli|HCO3E_num2|g1|co2_c,4.17861534702301,ecoli,BRENDA,substrate_supported,currency_or_cofactor,True,Unmapped,single_gene,1
+KcatNet,ecoli|CHORM_num2|g1|chor_c,4.090710811271667,ecoli,BRENDA,substrate_supported,other_reactant,False,Primary AA/FA/nt,single_gene,19
+KcatNet,ecoli|QUINDH|g1|quin_c,4.040636531677246,ecoli,BRENDA,substrate_supported,other_reactant,False,Unmapped,single_gene,2
+KcatNet,ecoli|HCO3E_num1|g1|co2_c,3.885759369010925,ecoli,BRENDA,substrate_supported,currency_or_cofactor,True,Unmapped,single_gene,1
+CataPro,yeast|r_0764|g1|s_1202,4.7785882027435305,yeast,BRENDA,substrate_supported,currency_or_cofactor,True,Unmapped,single_gene,1
+CataPro,ecoli|QUINDH|g1|nad_c,4.696653102050781,ecoli,BRENDA,substrate_supported,currency_or_cofactor,False,Unmapped,single_gene,3
+CataPro,ecoli|QUINDH|g1|quin_c,4.619622699584961,ecoli,BRENDA,substrate_supported,other_reactant,False,Unmapped,single_gene,2
+CataPro,ecoli|CHORM_num2|g1|chor_c,4.128503732337951,ecoli,BRENDA,substrate_supported,other_reactant,False,Primary AA/FA/nt,single_gene,19
+CataPro,ecoli|NTPTP1|g1|dgtp_c,3.515876787302494,ecoli,BRENDA,substrate_supported,other_reactant,False,Unmapped,single_gene,1
+TurNuP,ecoli|HCO3E_num1|g1|co2_c,4.586751,ecoli,BRENDA,substrate_supported,currency_or_cofactor,True,Unmapped,single_gene,1
+TurNuP,ecoli|HCO3E_num2|g1|co2_c,4.406153,ecoli,BRENDA,substrate_supported,currency_or_cofactor,True,Unmapped,single_gene,1
+TurNuP,ecoli|CHORM_num2|g1|chor_c,4.29052036,ecoli,BRENDA,substrate_supported,other_reactant,False,Primary AA/FA/nt,single_gene,19
+TurNuP,ecoli|DHQS|g1|2dda7p_c,4.269469610000001,ecoli,BRENDA,substrate_supported,other_reactant,False,Primary AA/FA/nt,single_gene,2
+TurNuP,ecoli|OCBT_num2|g1|cbp_c,3.4710833,ecoli,SABIO-RK,participant_ambiguous,other_reactant,False,Primary AA/FA/nt,single_gene,1
+PMAK,ecoli|HCO3E_num1|g1|co2_c,4.107825999999999,ecoli,BRENDA,substrate_supported,currency_or_cofactor,True,Unmapped,single_gene,1
+PMAK,ecoli|CHORM_num2|g1|chor_c,3.9066034,ecoli,BRENDA,substrate_supported,other_reactant,False,Primary AA/FA/nt,single_gene,19
+PMAK,ecoli|HCO3E_num2|g1|co2_c,3.8975028,ecoli,BRENDA,substrate_supported,currency_or_cofactor,True,Unmapped,single_gene,1
+PMAK,ecoli|OCBT_num2|g1|cbp_c,3.774291,ecoli,SABIO-RK,participant_ambiguous,other_reactant,False,Primary AA/FA/nt,single_gene,1
+PMAK,ecoli|OCBT_num2|g1|orn_c,3.774291,ecoli,SABIO-RK,participant_ambiguous,other_reactant,False,Primary AA/FA/nt,single_gene,1
+KinForm-L,ecoli|CHORM_num2|g1|chor_c,4.567919201880097,ecoli,BRENDA,substrate_supported,other_reactant,False,Primary AA/FA/nt,single_gene,19
+KinForm-L,ecoli|CAT_num1|g1|h2o2_c,3.3613938115739828,ecoli,BRENDA,substrate_supported,currency_or_cofactor,False,Secondary other,single_gene,29
+KinForm-L,ecoli|QUINDH|g1|quin_c,3.2308475267553334,ecoli,BRENDA,substrate_supported,other_reactant,False,Unmapped,single_gene,2
+KinForm-L,ecoli|SERAT|g1|accoa_c,3.220605952350199,ecoli,BRENDA,substrate_supported,carrier_linked_variable,True,Primary AA/FA/nt,single_gene,1
+KinForm-L,ecoli|NTD6pp_num1|g1|damp_p,2.740154688052177,ecoli,SABIO-RK,participant_ambiguous,other_reactant,False,Unmapped,single_gene,1
+CatPred,ecoli|OCBT_num2|g1|cbp_c,5.303915006972174,ecoli,SABIO-RK,participant_ambiguous,other_reactant,False,Primary AA/FA/nt,single_gene,1
+CatPred,yeast|r_0443|g1|s_0721,4.472151895971103,yeast,BRENDA,substrate_supported,other_reactant,False,Secondary other,single_gene,1
+CatPred,yeast|r_4653|g2|s_4234,4.392888879800135,yeast,BRENDA,substrate_supported,other_reactant,False,Secondary other,single_gene,1
+CatPred,yeast|r_4652|g2|s_4232,4.226723131645687,yeast,BRENDA,substrate_supported,other_reactant,False,Secondary other,single_gene,1
+CatPred,ecoli|CHORM_num2|g1|chor_c,4.034914705546413,ecoli,BRENDA,substrate_supported,other_reactant,False,Primary AA/FA/nt,single_gene,19

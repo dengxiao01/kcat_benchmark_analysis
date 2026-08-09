@@ -60,6 +60,26 @@ slurm-*.out
 /reports/kcat_benchmark_analysis_report.md
 /reports/kcat_benchmark_dataset_and_method_context.md
 
+# Public paper artifacts are allowlisted below; author drafts, archived
+# manuscripts, review notes, and editor-generated metadata remain local.
+/paper/*
+!/paper/README.md
+!/paper/build_submission_audits.py
+!/paper/build_table0.py
+!/paper/generate_manuscript_figures.py
+!/paper/rebuild_paper_tables.py
+!/paper/recalculate_cluster_inference_v1_2.py
+!/paper/independent_cluster_inference_v1.2.0-r3.csv
+!/paper/kcat_benchmark_reorganized_tables_reviewed_v1.2.0.xlsx
+!/paper/kcat_benchmark_audit_checks_v1.2.0.csv
+!/paper/paper_statistics_v1.2.0.json
+!/paper/figures/
+!/paper/figures/**
+!/paper/tables_v1.2.0/
+!/paper/tables_v1.2.0/**
+!/paper/submission_audit_details_v1.2.0/
+!/paper/submission_audit_details_v1.2.0/**
+
 # Raw/intermediate data are reproducible or source-controlled elsewhere.
 data/raw/
 data/interim/

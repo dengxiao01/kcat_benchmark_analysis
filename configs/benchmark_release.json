@@ -1,0 +1,135 @@
+{
+  "benchmark_name": "kcat_benchmark_analysis",
+  "benchmark_version": "1.2.0",
+  "release_date": "2026-08-09",
+  "data_freeze_date": "2026-07-17",
+  "benchmark_rebuild_date": "2026-08-07",
+  "artifact_revision": "1.2.0-r3",
+  "artifact_revision_date": "2026-08-07",
+  "schema_version": "1.2",
+  "public_release": {
+    "github_repository": "https://github.com/tibbdc/kcat_benchmark_analysis",
+    "zenodo_concept_doi": "10.5281/zenodo.21024683",
+    "zenodo_version_doi": "10.5281/zenodo.21859994",
+    "zenodo_record_id": "21859994"
+  },
+  "canonical_rows": 1246,
+  "species_rows": {
+    "ecoli": 781,
+    "yeast": 465
+  },
+  "canonical_benchmark": "data/final/benchmark_ready_catpred.csv",
+  "canonical_benchmark_sha256": "540561ebca641e1fce6776487487df8c3f62b5021a143f6ef4f097327878beda",
+  "statistics": {
+    "target_space": "log10(kcat / s^-1)",
+    "bootstrap_replicates": 2000,
+    "bootstrap_seed": 20260710,
+    "wilcoxon_multiple_testing": "Benjamini-Hochberg across 66 pairwise comparisons",
+    "row_bootstrap_seed": 20260710,
+    "cluster_bootstrap_seed": 20260724,
+    "primary_uncertainty": "row-weighted MAE with protein, standardized sequence-substrate pair, reaction, reference, or label-assignment clusters resampled as intact units",
+    "primary_pairwise_testing": "cluster-mean absolute-error Wilcoxon tests with global Benjamini-Hochberg adjustment",
+    "secondary_row_testing": "row-level Wilcoxon tests across 66 pairwise comparisons",
+    "sensitivity_scopes": [
+      "accession matched",
+      "unique standardized sequence-substrate pair",
+      "unique label assignment",
+      "exclude H+ and water",
+      "registry-defined other reactants, currency/cofactors, and carrier-linked variables",
+      "exclude SABIO-RK-only participant-ambiguous labels",
+      "PreTKcat raw-public, exact-excluded, and near-excluded reconstruction policies"
+    ],
+    "training_proximity_negative_class": "no_joint_neighbor_under_thresholds means no single training record satisfies both sequence identity >=80% and chemical similarity >=0.80; separate sequence-only or chemical-only overlap may remain",
+    "primary_analysis_scope": "1246-row complete-resource analysis retained as primary for coverage and traceability",
+    "substrate_supported_sensitivity_scope": "778 rows with BRENDA substrate-specific support after excluding 468 SABIO-RK-only participant-ambiguous labels"
+  },
+  "release_changes": [
+    "Retained all model-encoded reactants before experimental substrate matching, correcting the yeast-GEM s_XXXX cofactor-role implementation.",
+    "Expanded the complete-resource benchmark from 978 to 1246 rows while preserving all previous entry IDs and all 465 yeast rows.",
+    "Added normalized-name, BiGG, KEGG, ChEBI, MetaNetX, PubChem, and standardized parent-InChIKey role evidence with a curated registry.",
+    "Separated 606 registry currency/cofactor rows, 34 carrier-linked variable rows, and 606 other-reactant rows without using role labels to filter the benchmark.",
+    "Reconstructed PreTKcat under raw-public, exact-overlap-excluded, and joint near-neighbor-excluded policies; exact-excluded is the primary reported variant.",
+    "Completed the public-data DEKP reconstruction with structures for all 1246 benchmark rows.",
+    "Corrected Quinate SMILES using PubChem CID 6508 and added numeric-SMILES rejection.",
+    "Rebuilt all affected method inputs, predictions, metrics, tables, and figures.",
+    "Changed PreTKcat public-data retraining to exclude model-sequence plus uncharged largest-fragment connectivity identities before fitting.",
+    "Changed DEKP public-data retraining to exclude full-sequence plus uncharged largest-fragment connectivity identities before fitting.",
+    "Added artifact version, data-freeze date, method revisions, and runtime-version reporting."
+  ],
+  "source_models": {
+    "ecoli": {
+      "model_id": "iML1515",
+      "local_name": "eciML1515",
+      "version": "1",
+      "path": "eciML1515.json",
+      "sha256": "851673127fe0379cb49af7ea12cd1a0f749eac05f710105bc752b1c199ea7285"
+    },
+    "yeast": {
+      "model_id": "yeastGEM_v9.0.2",
+      "version": "9.0.2",
+      "path": "yeast-GEM.xml",
+      "sha256": "9fd2c572cace73c2ea835205617313554d1bf89f4ef077f49defbdfa219a4ad7"
+    }
+  },
+  "data_sources": {
+    "BRENDA": {
+      "release": "2026.1",
+      "local_archive": "data/raw/brenda/brenda_2026_1.json.tar.gz",
+      "data_freeze_date": "2026-07-17",
+      "archive_sha256": "bb2549d02b7255de2272b35701c331493caad16b82eb38a41adb2e03bbb0d2e1",
+      "parsed_table": "data/raw/brenda/brenda_kcat_raw.csv",
+      "parsed_table_sha256": "5f39f67336c2785c8f74f1231c6541bab74d31bfed6293c6c530371064ba0160"
+    },
+    "SABIO-RK": {
+      "snapshot": "cached local query results",
+      "data_freeze_date": "2026-07-17",
+      "api_base": "https://sabiork.h-its.org/sabioRestWebServices",
+      "query_template": "ECNumber:<EC> AND Organism:<organism> AND Parametertype:kcat",
+      "query_cache": "data/raw/sabiork/sabiork_query_entry_ids.csv",
+      "query_cache_sha256": "fbe924c1c144f23f89bf8741a9c9f837666a58a866391dfb7955c4c75ee7df85",
+      "parsed_table": "data/raw/sabiork/sabiork_kcat_raw.csv",
+      "parsed_table_sha256": "aa605847d43970877c0998f4318b765a37ef96e8566761d121a08182456dc2b1"
+    },
+    "PubChem": {
+      "record": "Quinate CID 6508",
+      "access_date": "2026-07-17"
+    },
+    "UniProt": {
+      "snapshot": "accession-based local sequence cache",
+      "data_freeze_date": "2026-07-17"
+    },
+    "CKB": {
+      "description": "CKB: A knowledge repository of compounds",
+      "visibility": "local internal snapshot; no public release identified",
+      "upstream": "https://git.tibhpc.net/mao_zt/ckb.git",
+      "commit": "655bd1652197fc8c1fa21a8725f3919b443ecfd0",
+      "local_database": "data/raw/compounds/ckb/compounds.sqlite",
+      "database_sha256": "5ce0cfea3a2d4c92a3432868bd2f0cba5bf3ce9bc6d74846b5b75771a5ebc469"
+    }
+  },
+  "artifact_revision_changes": [
+    "Rebuilt the canonical benchmark from all model-encoded reactants followed by experimental substrate matching, yielding 1246 rows while preserving all 978 previous entry IDs.",
+    "Corrected quinate to the neutral PubChem CID 6508 structure and rejected numeric pseudo-SMILES before prediction input generation.",
+    "Reclassified yeast-GEM participants with normalized names, external identifiers, and standardized parent structures instead of relying on s_XXXX model identifiers.",
+    "Separated 606 currency/cofactor, 34 carrier-linked variable, and 606 other-reactant rows; role labels do not filter the benchmark.",
+    "Defined the 1246-row complete resource as the primary coverage analysis and the 778-row substrate-supported set as the formal sensitivity analysis.",
+    "Rebuilt PreTKcat as raw-public, exact-pair-excluded, and joint-near-neighbor-excluded variants; exact-excluded is primary.",
+    "Completed the public-data DEKP reconstruction with valid structures and predictions for all 1246 benchmark rows.",
+    "Recomputed all method metrics, paired and clustered inference, sensitivity analyses, training-proximity audits, and record-level provenance.",
+    "Rebuilt Supplementary Data Table 0 as 14952 method-record rows and Table 0W as the 1246-row wide prediction matrix.",
+    "Added Supplementary Table S24 for the three PreTKcat reconstruction policies.",
+    "Rebuilt Figures 1-4 with 1246-row coverage, 1047-row paired reaction analyses, and robust substrate-role stratification on 778 supported rows.",
+    "Displayed DEKP without an implementation suffix in figures while retaining public-retraining status in methods and tables.",
+    "Rewrote Final benchmark filtering and provenance fields to separate candidate generation, experimental substrate support, chemical-role annotation, and method-specific inputs and outputs.",
+    "Removed dated link-verification prose and retained timeless repository, Zenodo, licensing, and CKB reproducibility statements.",
+    "Preserved author-supplied authorship, contribution, funding, acknowledgement, and correspondence text from the archived draft.",
+    "Generated versioned v1.2.0 manuscript, workbook, tables, figures, and automated audit artifacts without overwriting the archived draft.",
+    "Rebased the reviewed manuscript on the author-supplied 0806 V3 logic while refreshing all quantitative statements, tables, figures, and method-scope descriptions from v1.2.0 artifacts.",
+    "Added strictly common reaction-set unique-pair and label-assignment equal-weight scopes to Supplementary Table S17 and expanded automated audits for their cluster counts and MAE values.",
+    "Completed a submission-level independent numerical review against Table0W, Record_audit, S1, S6, and S17.",
+    "Verified and standardized the bibliography with DOI and article-number metadata, and added citations for DeepGO-SE, the eQuilibrator compound database, and RDKit 2026.03.3.",
+    "Replaced robust chemical-role wording with registry-defined wording to avoid implying manual reaction-specific biochemical validation.",
+    "Made the manuscript release line report the artifact revision code as well as its date."
+  ],
+  "record_audit": "paper/tables_v1.2.0/Record_audit.csv"
+}

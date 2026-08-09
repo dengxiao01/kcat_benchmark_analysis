@@ -343,7 +343,7 @@ ecoli|APCS|g1|ametam_c,ecoli,P09158,2.5.1.-;2.5.1.16,S-Adenosylmethioninamine,C[
 ecoli|DHNPA2r|g1|dhnpt_c,ecoli,P0AC16,4.1.2.25,Dihydroneopterin,C1C(=NC2=C(N1)NC(=NC2=O)N)[C@@H]([C@@H](CO)O)O,False,False,False,True,False
 ecoli|CYSTA|g1|akg_c,ecoli,P00509,2.6.1.1;2.6.1.3,2-Oxoglutarate,C(CC(=O)[O-])C(=O)C(=O)[O-],False,False,True,True,False
 ecoli|CYSTA|g1|cys__L_c,ecoli,P00509,2.6.1.1;2.6.1.3,L-Cysteine,C(C(C(=O)O)N)S,False,False,True,True,False
-ecoli|QUINDH|g1|quin_c,ecoli,P0A6D5,1.1.1.24;1.1.1.282,Quinate,192.167,False,False,True,True,False
+ecoli|QUINDH|g1|quin_c,ecoli,P0A6D5,1.1.1.24;1.1.1.282,Quinate,C1[C@H](C([C@@H](CC1(C(=O)O)O)O)O)O,False,False,True,True,False
 ecoli|LEUTAi_num2|g1|4mop_c,ecoli,P04693,2.6.1.42;2.6.1.6;2.6.1.67,4-Methyl-2-oxopentanoate,CC(C)CC(=O)C(=O)[O-],False,False,False,True,False
 ecoli|ACP1_FMN_num2|g1|fmn_c,ecoli,P0ADP0,3.1.3.102;3.1.3.2,FMN C17H19N4O9P,CC1=CC2=C(C=C1C)N(C[C@H](O)[C@H](O)[C@H](O)COP([O-])([O-])=O)C1=NC(=O)[N-]C(=O)C1=N2,False,False,False,True,False
 ecoli|ACP1_FMN_num3|g1|fmn_c,ecoli,P75809,3.1.3.102;3.1.3.2,FMN C17H19N4O9P,CC1=CC2=C(C=C1C)N(C[C@H](O)[C@H](O)[C@H](O)COP([O-])([O-])=O)C1=NC(=O)[N-]C(=O)C1=N2,False,False,False,True,False

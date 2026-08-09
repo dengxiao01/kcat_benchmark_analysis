@@ -64,9 +64,29 @@ def link_one(source: Path, target: Path) -> str:
     return "linked"
 
 
+def report_path(path: Path, *, resolve: bool = False) -> str:
+    candidate = path.resolve() if resolve else path.absolute()
+    try:
+        return candidate.relative_to(BASE.resolve()).as_posix()
+    except ValueError:
+        return candidate.as_posix()
+
+
 def link_ids(ids: list[str], indexed: dict[str, Path], out_dir: Path, scope: str) -> list[dict[str, object]]:
     rows: list[dict[str, object]] = []
     for uniprot in ids:
+        target = out_dir / f"{uniprot}.pdb"
+        if target.exists() and target.stat().st_size > 0:
+            rows.append(
+                {
+                    "scope": scope,
+                    "uniprot_id": uniprot,
+                    "status": "exists",
+                    "source": report_path(target, resolve=True),
+                    "target": report_path(target),
+                }
+            )
+            continue
         source = indexed.get(uniprot)
         if source is None:
             rows.append(
@@ -75,18 +95,18 @@ def link_ids(ids: list[str], indexed: dict[str, Path], out_dir: Path, scope: str
                     "uniprot_id": uniprot,
                     "status": "missing",
                     "source": "",
-                    "target": str(out_dir / f"{uniprot}.pdb"),
+                    "target": report_path(target),
                 }
             )
             continue
-        status = link_one(source.resolve(), out_dir / f"{uniprot}.pdb")
+        status = link_one(source.resolve(), target)
         rows.append(
             {
                 "scope": scope,
                 "uniprot_id": uniprot,
                 "status": status,
-                "source": str(source),
-                "target": str(out_dir / f"{uniprot}.pdb"),
+                "source": report_path(source, resolve=True),
+                "target": report_path(target),
             }
         )
     return rows

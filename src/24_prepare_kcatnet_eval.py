@@ -78,7 +78,7 @@ def canonical_smiles(smiles: object) -> tuple[bool, str]:
 
 
 def kcatnet_model_sequence(sequence: str) -> str:
-    return sequence[:1000] if len(sequence) > 1000 else sequence
+    return sequence[:500] + sequence[-500:] if len(sequence) > 1000 else sequence
 
 
 def enrich(df: pd.DataFrame) -> pd.DataFrame:

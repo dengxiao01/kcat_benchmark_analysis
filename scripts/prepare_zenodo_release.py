@@ -16,6 +16,7 @@ RELEASE_DIR = BASE / "release" / "zenodo"
 PARTS_DIR = RELEASE_DIR / "parts"
 PUBLIC_MANIFEST = BASE / "zenodo_assets_manifest.csv"
 PART_SIZE = 128 * 1024 * 1024
+UPLOAD_SAFE_PART_SIZE = 20 * 1024 * 1024
 
 TURNUP_ROOT = (
     BASE
@@ -34,6 +35,13 @@ SKIP_NAMES = {
     ".env.vercel",
     "zenodo.txt",
     "esm1b_t33_650M_UR50S.pt",
+    "01_integrate_kcat.py",
+    "02_create_kcat_csv.py",
+    "03_filter_kcat_add_gpr.py",
+    "04_add_database_fill.py",
+    "05_comprehensive_analysis.py",
+    "42_evaluate_legacy_methods_overlap.py",
+    "run_all.sh",
 }
 NOTICE = BASE / "THIRD_PARTY_NOTICES.md"
 METHOD_SOURCES = BASE / "external_methods" / "METHOD_SOURCES.md"
@@ -57,6 +65,12 @@ PUBLIC_METHOD_DIRS = {
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Prepare selected large kcat benchmark assets for Zenodo.")
     parser.add_argument("--force", action="store_true", help="Rebuild archives even when they already exist.")
+    parser.add_argument(
+        "--bundle",
+        action="append",
+        choices=["core", "catpred", "turnup", "other"],
+        help="With --force, rebuild only the named generated bundle; repeat as needed.",
+    )
     return parser.parse_args()
 
 
@@ -114,12 +128,32 @@ def core_result_paths() -> list[Path]:
         BASE / "data" / "final" / "benchmark_ready_truth.csv",
         BASE / "data" / "final" / "benchmark_ready_catpred.csv",
         BASE / "README.md",
+        BASE / "CHANGELOG.md",
+        BASE / "VERSION",
+        BASE / "CITATION.cff",
         BASE / "LICENSE",
+        BASE / "requirements.txt",
         NOTICE,
         METHOD_SOURCES,
+        BASE / "configs",
+        BASE / "src",
+        BASE / "scripts",
         BASE / "reports" / "tables",
         BASE / "reports" / "report_tables",
         BASE / "reports" / "figures",
+        BASE / "paper" / "README.md",
+        BASE / "paper" / "tables_v1.2.0",
+        BASE / "paper" / "figures",
+        BASE / "paper" / "submission_audit_details_v1.2.0",
+        BASE / "paper" / "kcat_benchmark_reorganized_tables_reviewed_v1.2.0.xlsx",
+        BASE / "paper" / "kcat_benchmark_audit_checks_v1.2.0.csv",
+        BASE / "paper" / "paper_statistics_v1.2.0.json",
+        BASE / "paper" / "build_submission_audits.py",
+        BASE / "paper" / "build_table0.py",
+        BASE / "paper" / "generate_manuscript_figures.py",
+        BASE / "paper" / "rebuild_paper_tables.py",
+        BASE / "paper" / "recalculate_cluster_inference_v1_2.py",
+        BASE / "paper" / "independent_cluster_inference_v1.2.0-r3.csv",
     ]
     for method_dir in sorted((BASE / "data" / "final").iterdir()):
         if not method_dir.is_dir() or method_dir.name not in PUBLIC_METHOD_DIRS:
@@ -156,8 +190,8 @@ def sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
-def split_asset(bundle_name: str, source: Path, force: bool) -> list[Path]:
-    if source.stat().st_size <= PART_SIZE:
+def split_asset(bundle_name: str, source: Path, force: bool, part_size: int = PART_SIZE) -> list[Path]:
+    if source.stat().st_size <= part_size:
         return [source]
 
     PARTS_DIR.mkdir(parents=True, exist_ok=True)
@@ -171,7 +205,7 @@ def split_asset(bundle_name: str, source: Path, force: bool) -> list[Path]:
     parts = []
     with source.open("rb") as src:
         index = 1
-        while chunk := src.read(PART_SIZE):
+        while chunk := src.read(part_size):
             part = PARTS_DIR / f"{bundle_name}.part{index:03d}"
             with part.open("wb") as dst:
                 dst.write(chunk)
@@ -189,10 +223,11 @@ def asset_rows(
     restore_target: str,
     required_for: str,
     force: bool,
+    part_size: int = PART_SIZE,
 ) -> list[dict[str, str | int]]:
     if not local_path.exists():
         raise FileNotFoundError(local_path)
-    parts = split_asset(bundle_name, local_path, force)
+    parts = split_asset(bundle_name, local_path, force, part_size)
     bundle_sha256 = sha256(local_path)
     rows = []
     for index, part in enumerate(parts, start=1):
@@ -224,7 +259,7 @@ def write_readme(rows: list[dict[str, str | int]]) -> None:
         "",
         "These files supplement the GitHub repository with large benchmark results and model assets.",
         "Archives preserve project-relative paths. Extract archive assets from the repository root.",
-        "Large bundles are split into 128 MiB parts to avoid proxy timeouts.",
+        "Newly generated core/model bundles are split into 20 MiB parts to avoid proxy timeouts; unchanged upstream archives may retain their existing 128 MiB parts.",
         "The download helper verifies each part, concatenates the original bundle, verifies it again, and restores it.",
         "Third-party model assets retain their upstream licenses and citation requirements.",
         "",
@@ -248,15 +283,20 @@ def main() -> None:
     args = parse_args()
     RELEASE_DIR.mkdir(parents=True, exist_ok=True)
 
+    selected = set(args.bundle or [])
+
+    def force_bundle(name: str) -> bool:
+        return args.force and (not selected or name in selected)
+
     core = RELEASE_DIR / "kcat_benchmark_core_data_and_results.tar.gz"
     catpred = RELEASE_DIR / "kcat_benchmark_catpred_kcat_assets.tar.gz"
     turnup = RELEASE_DIR / "kcat_benchmark_turnup_kcat_assets.tar"
     other = RELEASE_DIR / "kcat_benchmark_other_model_assets.tar"
 
-    build_archive(core, core_result_paths(), "w:gz", args.force)
-    build_catpred_archive(catpred, args.force)
-    build_archive(turnup, turnup_paths(), "w", args.force)
-    build_archive(other, other_model_paths(), "w", args.force)
+    build_archive(core, core_result_paths(), "w:gz", force_bundle("core"))
+    build_catpred_archive(catpred, force_bundle("catpred"))
+    build_archive(turnup, turnup_paths(), "w", force_bundle("turnup"))
+    build_archive(other, other_model_paths(), "w", force_bundle("other"))
 
     bundles = [
         (
@@ -297,7 +337,7 @@ def main() -> None:
             "TurNuP task model, XGBoost, molecular files, and reaction assets; download base ESM1b separately.",
             "extract_to_repo_root",
             ".",
-            "TurNuP-official",
+            "TurNuP",
         ),
         (
             other.name,
@@ -309,8 +349,24 @@ def main() -> None:
         ),
     ]
     rows = []
+    split_force = {
+        core.name: force_bundle("core"),
+        catpred.name: force_bundle("catpred"),
+        turnup.name: force_bundle("turnup"),
+        other.name: force_bundle("other"),
+    }
+    split_sizes = {
+        core.name: UPLOAD_SAFE_PART_SIZE,
+        other.name: UPLOAD_SAFE_PART_SIZE,
+    }
     for bundle in bundles:
-        rows.extend(asset_rows(*bundle, force=args.force))
+        rows.extend(
+            asset_rows(
+                *bundle,
+                force=split_force.get(bundle[0], False),
+                part_size=split_sizes.get(bundle[0], PART_SIZE),
+            )
+        )
 
     fieldnames = list(rows[0])
     for path in [RELEASE_DIR / "assets_manifest.csv", PUBLIC_MANIFEST]:

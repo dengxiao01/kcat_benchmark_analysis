@@ -26,6 +26,7 @@ import torch.nn as nn
 import torch_geometric
 from rdkit import Chem
 from rdkit import RDLogger
+from rdkit.Chem.MolStandardize import rdMolStandardize
 from scipy.spatial import cKDTree
 from sklearn.model_selection import train_test_split
 from torch.utils.data import DataLoader, Dataset
@@ -34,6 +35,7 @@ from tqdm import tqdm
 
 
 RDLogger.DisableLog("rdApp.*")
+UNCHARGER = rdMolStandardize.Uncharger()
 
 BASE = Path(__file__).resolve().parent.parent
 DEFAULT_TRAIN = BASE / "external_methods" / "DEKP" / "datasets" / "kcat_dataset.csv"
@@ -145,6 +147,28 @@ def canonical_smiles(smiles: object) -> str:
     return Chem.MolToSmiles(mol, canonical=True)
 
 
+def chemical_parent_key(smiles: object) -> str:
+    text = str(smiles).strip()
+    if not text or text.lower() == "nan":
+        return ""
+    mol = Chem.MolFromSmiles(text)
+    if mol is None:
+        return ""
+    try:
+        parent = rdMolStandardize.FragmentParent(mol)
+        parent = UNCHARGER.uncharge(parent)
+        Chem.SanitizeMol(parent)
+    except Exception:
+        parent = Chem.Mol(mol)
+        Chem.SanitizeMol(parent)
+    parent_smiles = Chem.MolToSmiles(parent, canonical=True, isomericSmiles=True)
+    try:
+        key = Chem.MolToInchiKey(parent).split("-", 1)[0]
+    except Exception:
+        key = ""
+    return key or parent_smiles
+
+
 def load_public_training(args: argparse.Namespace, benchmark_pairs: set[str]) -> tuple[pd.DataFrame, dict[str, int]]:
     train = pd.read_csv(args.train_data, sep="\t")
     required = {"ECNumber", "Organism", "Smiles", "Substrate", "Sequence", "Type", "Label", "Unit", "UniprotID"}
@@ -156,16 +180,18 @@ def load_public_training(args: argparse.Namespace, benchmark_pairs: set[str]) ->
     for column in ["ECNumber", "Organism", "Smiles", "Substrate", "Sequence", "Type", "Unit", "UniprotID"]:
         train[column] = train[column].fillna("").astype(str).str.strip()
     train["canonical_smiles"] = train["Smiles"].map(canonical_smiles)
+    train["chemical_parent_key"] = train["Smiles"].map(chemical_parent_key)
     before = len(train)
     train = train[
         train["Label"].notna()
         & (train["Sequence"] != "")
         & (train["UniprotID"] != "")
         & (train["canonical_smiles"] != "")
+        & (train["chemical_parent_key"] != "")
         & (~train["canonical_smiles"].str.contains(".", regex=False))
     ].copy()
     after_clean = len(train)
-    train["pair_key"] = train["Sequence"].astype(str) + "||" + train["canonical_smiles"].astype(str)
+    train["pair_key"] = train["Sequence"].astype(str) + "||" + train["chemical_parent_key"].astype(str)
     overlap_rows = int(train["pair_key"].isin(benchmark_pairs).sum())
     if args.exclude_exact_benchmark_pairs:
         train = train[~train["pair_key"].isin(benchmark_pairs)].copy()
@@ -176,6 +202,7 @@ def load_public_training(args: argparse.Namespace, benchmark_pairs: set[str]) ->
         "public_rows_after_clean": after_clean,
         "public_exact_pair_overlap_rows": overlap_rows,
         "public_rows_used": len(train),
+        "pair_identity_definition": "full_sequence_plus_uncharged_largest_fragment_connectivity_identity",
     }
     return train.reset_index(drop=True), stats
 
@@ -191,7 +218,12 @@ def load_benchmark(args: argparse.Namespace) -> pd.DataFrame:
     for column in ["ECNumber", "Organism", "Smiles", "Substrate", "Sequence", "Type", "Unit", "UniprotID", "entry_id"]:
         benchmark[column] = benchmark[column].fillna("").astype(str).str.strip()
     benchmark["canonical_smiles"] = benchmark["Smiles"].map(canonical_smiles)
-    benchmark = benchmark[(benchmark["canonical_smiles"] != "") & benchmark["Label"].notna()].copy()
+    benchmark["chemical_parent_key"] = benchmark["Smiles"].map(chemical_parent_key)
+    benchmark = benchmark[
+        (benchmark["canonical_smiles"] != "")
+        & (benchmark["chemical_parent_key"] != "")
+        & benchmark["Label"].notna()
+    ].copy()
     if args.limit > 0:
         benchmark = benchmark.head(args.limit).copy()
     return benchmark.reset_index(drop=True)
@@ -641,7 +673,7 @@ def main() -> None:
     device = resolve_device(args.device)
     print(f"DEKP-public-retrained device: {device}", flush=True)
     benchmark = load_benchmark(args)
-    benchmark_pairs = set(benchmark["Sequence"].astype(str) + "||" + benchmark["canonical_smiles"].astype(str))
+    benchmark_pairs = set(benchmark["Sequence"].astype(str) + "||" + benchmark["chemical_parent_key"].astype(str))
     train, stats = load_public_training(args, benchmark_pairs)
     train, benchmark = assign_cids(train, benchmark)
     all_rows = pd.concat([train, benchmark], ignore_index=True, sort=False)

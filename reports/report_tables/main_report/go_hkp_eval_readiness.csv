@@ -1,4 +1,4 @@
 group,rows,ready_rows,missing_rows,unique_reactions,ready_unique_reactions,median_go_terms_with_kcat
-all,978,978,0,675,675,0.0
-ecoli,513,513,0,451,451,0.0
+all,1246,1236,10,773,763,0.0
+ecoli,781,771,10,549,539,0.0
 yeast,465,465,0,224,224,8.0

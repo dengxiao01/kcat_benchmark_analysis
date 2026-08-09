@@ -1,4 +1,4 @@
 group,rows,valid_smiles_rows,invalid_smiles_rows,predictable_rows,unique_sequences,unique_smiles
-all,978,977,1,977,490,283
-ecoli,513,512,1,512,326,231
+all,1246,1246,0,1246,514,288
+ecoli,781,781,0,781,350,238
 yeast,465,465,0,465,164,116

@@ -1,0 +1,9 @@
+comparison_set,common_n,method,rank_1_bootstrap_frequency,median_rank,rank_ci_low_95,rank_ci_high_95,bootstrap_mae_median,bootstrap_replicates,seed
+broad_common_1246,1246,KcatNet,1.0,1.0,1.0,1.0,0.7114555462248577,2000,20260710
+broad_common_1246,1246,CataPro,0.0,2.0,2.0,2.0,0.7963334107369012,2000,20260710
+broad_common_1246,1246,UniKP,0.0,3.0,3.0,3.0,0.8915003071093285,2000,20260710
+broad_common_1246,1246,SELFprot,0.0,4.0,4.0,5.0,0.9399955746778238,2000,20260710
+broad_common_1246,1246,DLKcat,0.0,5.0,4.0,5.0,0.9731630870814276,2000,20260710
+reaction_aware_common_1047,1047,KcatNet,0.29,2.0,1.0,3.0,0.7180580407258716,2000,20260710
+reaction_aware_common_1047,1047,TurNuP,0.6165,1.0,1.0,3.0,0.7115473688662852,2000,20260710
+reaction_aware_common_1047,1047,PMAK,0.0935,3.0,1.0,3.0,0.7223079081358164,2000,20260710

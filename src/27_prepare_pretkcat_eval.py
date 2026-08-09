@@ -15,9 +15,11 @@ from pathlib import Path
 import pandas as pd
 from rdkit import Chem
 from rdkit import RDLogger
+from rdkit.Chem.MolStandardize import rdMolStandardize
 
 
 RDLogger.DisableLog("rdApp.*")
+UNCHARGER = rdMolStandardize.Uncharger()
 
 BASE = Path(__file__).resolve().parent.parent
 DEFAULT_INPUT = BASE / "data" / "final" / "benchmark_ready_catpred.csv"
@@ -92,6 +94,28 @@ def canonical_smiles(smiles: object) -> tuple[bool, str]:
     return True, Chem.MolToSmiles(mol, canonical=True)
 
 
+def chemical_parent_key(smiles: object) -> str:
+    text = str(smiles).strip()
+    if not text or text == "nan":
+        return ""
+    mol = Chem.MolFromSmiles(text)
+    if mol is None:
+        return ""
+    try:
+        parent = rdMolStandardize.FragmentParent(mol)
+        parent = UNCHARGER.uncharge(parent)
+        Chem.SanitizeMol(parent)
+    except Exception:
+        parent = Chem.Mol(mol)
+        Chem.SanitizeMol(parent)
+    parent_smiles = Chem.MolToSmiles(parent, canonical=True, isomericSmiles=True)
+    try:
+        key = Chem.MolToInchiKey(parent).split("-", 1)[0]
+    except Exception:
+        key = ""
+    return key or parent_smiles
+
+
 def pretkcat_model_sequence(sequence: object) -> str:
     text = str(sequence).strip()
     if len(text) > 1000:
@@ -133,10 +157,11 @@ def training_overlap_sets(train_path: Path) -> dict[str, set[str]]:
     smiles_status = train["smiles"].map(canonical_smiles)
     train["smiles_valid"] = [valid for valid, _ in smiles_status]
     train["canonical_smiles"] = [canonical for _, canonical in smiles_status]
-    train = train[train["smiles_valid"]].copy()
+    train["chemical_parent_key"] = train["smiles"].map(chemical_parent_key)
+    train = train[train["smiles_valid"] & train["chemical_parent_key"].ne("")].copy()
     sequence_set = set(train["pretkcat_model_sequence"].astype(str))
-    smiles_set = set(train["canonical_smiles"].astype(str))
-    pair_set = set((train["pretkcat_model_sequence"] + "||" + train["canonical_smiles"]).astype(str))
+    smiles_set = set(train["chemical_parent_key"].astype(str))
+    pair_set = set((train["pretkcat_model_sequence"] + "||" + train["chemical_parent_key"]).astype(str))
     return {"sequence": sequence_set, "smiles": smiles_set, "pair": pair_set}
 
 
@@ -152,13 +177,19 @@ def enrich(df: pd.DataFrame, train_path: Path, default_temp_c: float) -> pd.Data
     smiles_status = out["SMILES"].map(canonical_smiles)
     out["pretkcat_smiles_valid"] = [valid for valid, _ in smiles_status]
     out["pretkcat_canonical_smiles"] = [canonical for _, canonical in smiles_status]
+    out["pretkcat_standardized_parent_key"] = out["SMILES"].map(chemical_parent_key)
     out = add_temperature_features(out, default_temp_c)
 
     overlap = training_overlap_sets(train_path)
     out["pretkcat_train_exact_sequence_overlap"] = out["pretkcat_model_sequence"].isin(overlap["sequence"])
-    out["pretkcat_train_exact_smiles_overlap"] = out["pretkcat_canonical_smiles"].isin(overlap["smiles"])
-    keys = out["pretkcat_model_sequence"].astype(str) + "||" + out["pretkcat_canonical_smiles"].astype(str)
+    out["pretkcat_train_exact_smiles_overlap"] = out["pretkcat_standardized_parent_key"].isin(overlap["smiles"])
+    keys = out["pretkcat_model_sequence"].astype(str) + "||" + out["pretkcat_standardized_parent_key"].astype(str)
     out["pretkcat_train_exact_pair_overlap"] = keys.isin(overlap["pair"])
+    # Explicit aliases clarify that overlap is measured against the original
+    # public source corpus. The strict wrapper removes exact pairs before fit.
+    out["pretkcat_source_train_exact_sequence_overlap"] = out["pretkcat_train_exact_sequence_overlap"]
+    out["pretkcat_source_train_exact_smiles_overlap"] = out["pretkcat_train_exact_smiles_overlap"]
+    out["pretkcat_source_train_exact_pair_overlap"] = out["pretkcat_train_exact_pair_overlap"]
     return out
 
 
@@ -193,6 +224,7 @@ def metadata(df: pd.DataFrame) -> pd.DataFrame:
         "substrate_name",
         "SMILES",
         "pretkcat_canonical_smiles",
+        "pretkcat_standardized_parent_key",
         "pretkcat_smiles_valid",
         "sequence",
         "pretkcat_model_sequence",
@@ -217,6 +249,9 @@ def metadata(df: pd.DataFrame) -> pd.DataFrame:
         "pretkcat_train_exact_sequence_overlap",
         "pretkcat_train_exact_smiles_overlap",
         "pretkcat_train_exact_pair_overlap",
+        "pretkcat_source_train_exact_sequence_overlap",
+        "pretkcat_source_train_exact_smiles_overlap",
+        "pretkcat_source_train_exact_pair_overlap",
     ]
     return df[[column for column in keep if column in df.columns]].copy()
 
@@ -274,9 +309,9 @@ def write_report(df: pd.DataFrame, report: Path) -> None:
                 "unique_sequences": part["sequence"].nunique(),
                 "unique_model_sequences": part["pretkcat_model_sequence"].nunique(),
                 "unique_smiles": part["SMILES"].nunique(),
-                "exact_train_pair_overlap_rows": int(part["pretkcat_train_exact_pair_overlap"].sum()),
-                "exact_train_sequence_overlap_rows": int(part["pretkcat_train_exact_sequence_overlap"].sum()),
-                "exact_train_smiles_overlap_rows": int(part["pretkcat_train_exact_smiles_overlap"].sum()),
+                "source_corpus_exact_pair_overlap_rows": int(part["pretkcat_train_exact_pair_overlap"].sum()),
+                "source_corpus_exact_sequence_overlap_rows": int(part["pretkcat_train_exact_sequence_overlap"].sum()),
+                "source_corpus_exact_smiles_overlap_rows": int(part["pretkcat_train_exact_smiles_overlap"].sum()),
                 "brenda_rows": int(source_counts.get("BRENDA", 0)),
                 "sabiork_rows": int(source_counts.get("SABIO-RK", 0)),
                 "brenda_sabiork_rows": int(source_counts.get("BRENDA;SABIO-RK", 0)),
@@ -308,7 +343,7 @@ def main() -> None:
     print(f"Wrote PreTKcat input bundle to {args.out_dir}")
     print(f"Rows: {len(df)} total; {len(valid)} valid SMILES; {len(invalid)} invalid SMILES")
     print(f"Temperature imputed rows: {int(df['pretkcat_temperature_imputed'].sum())}")
-    print(f"Exact train pair overlaps: {int(df['pretkcat_train_exact_pair_overlap'].sum())}")
+    print(f"Exact pair overlaps in original public training corpus: {int(df['pretkcat_train_exact_pair_overlap'].sum())}")
     print(f"Readiness report: {args.report}")
 
 

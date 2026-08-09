@@ -1,4 +1,4 @@
-group,rows,valid_smiles_rows,invalid_smiles_rows,temperature_imputed_rows,temperature_outside_training_range_rows,truncated_sequence_rows,unique_sequences,unique_model_sequences,unique_smiles,exact_train_pair_overlap_rows,exact_train_sequence_overlap_rows,exact_train_smiles_overlap_rows,brenda_rows,sabiork_rows,brenda_sabiork_rows
-all,978,977,1,148,0,26,491,491,284,26,319,96,587,310,81
-ecoli,513,512,1,91,0,1,327,327,232,11,240,44,335,113,65
-yeast,465,465,0,57,0,25,164,164,116,15,79,52,252,197,16
+group,rows,valid_smiles_rows,invalid_smiles_rows,temperature_imputed_rows,temperature_outside_training_range_rows,truncated_sequence_rows,unique_sequences,unique_model_sequences,unique_smiles,source_corpus_exact_pair_overlap_rows,source_corpus_exact_sequence_overlap_rows,source_corpus_exact_smiles_overlap_rows,brenda_rows,sabiork_rows,brenda_sabiork_rows
+all,1246,1246,0,179,0,26,514,514,288,223,435,993,683,468,95
+ecoli,781,781,0,122,0,1,350,350,238,176,356,607,431,271,79
+yeast,465,465,0,57,0,25,164,164,116,47,79,386,252,197,16

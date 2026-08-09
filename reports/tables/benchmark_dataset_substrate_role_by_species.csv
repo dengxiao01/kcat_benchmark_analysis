@@ -1,5 +1,7 @@
-species,currency_or_cofactor_like_by_name,rows,percent_of_benchmark
-ecoli,False,432,44.171779141104295
-yeast,True,262,26.789366053169733
-yeast,False,203,20.756646216768917
-ecoli,True,81,8.282208588957054
+species,substrate_role_group,rows,percent_of_benchmark
+ecoli,other_reactant,412,33.06581059390048
+ecoli,currency_or_cofactor,345,27.68860353130016
+yeast,currency_or_cofactor,261,20.947030497592294
+yeast,other_reactant,194,15.569823434991974
+ecoli,carrier_linked_variable,24,1.926163723916533
+yeast,carrier_linked_variable,10,0.8025682182985554

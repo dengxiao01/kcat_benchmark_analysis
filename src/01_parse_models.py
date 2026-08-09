@@ -15,6 +15,8 @@ from itertools import product
 from pathlib import Path
 from typing import Any, Iterable
 
+from substrate_roles import RoleEvidence, choose_reactants_for_matching, classify_participant
+
 
 BASE = Path(__file__).resolve().parent.parent
 INTERIM = BASE / "data" / "interim"
@@ -23,51 +25,6 @@ TABLES = BASE / "reports" / "tables"
 RDF_RESOURCE = "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource"
 FBC = "http://www.sbml.org/sbml/level3/version1/fbc/version2"
 SBML = "http://www.sbml.org/sbml/level3/version1/core"
-
-COFACTORS = {
-    "h",
-    "h2o",
-    "h2o2",
-    "atp",
-    "adp",
-    "amp",
-    "gtp",
-    "gdp",
-    "ctp",
-    "cdp",
-    "utp",
-    "udp",
-    "pi",
-    "ppi",
-    "nad",
-    "nadh",
-    "nadp",
-    "nadph",
-    "fad",
-    "fadh2",
-    "coa",
-    "accoa",
-    "co2",
-    "o2",
-    "nh4",
-    "q8",
-    "q8h2",
-    "ubq8",
-    "ubq8h2",
-    "mqn8",
-    "mql8",
-    "pydx5p",
-    "pyam5p",
-    "thmpp",
-    "amet",
-    "ahcys",
-    "thf",
-    "dhf",
-    "10fthf",
-    "mlthf",
-    "5mthf",
-    "adocbl",
-}
 
 
 def as_list(value: Any) -> list[str]:
@@ -91,14 +48,6 @@ def annotation_value(annotation: dict[str, Any], key: str) -> str:
 
 def annotation_list(annotation: dict[str, Any], key: str) -> list[str]:
     return as_list(annotation.get(key))
-
-
-def base_metabolite_id(met_id: str) -> str:
-    return re.sub(r"_[a-z][a-z0-9]*$", "", met_id)
-
-
-def is_likely_cofactor(met_id: str) -> bool:
-    return base_metabolite_id(met_id) in COFACTORS
 
 
 def local_name(tag: str) -> str:
@@ -183,11 +132,13 @@ def read_ecoli_model(path: Path) -> tuple[list[dict[str, str]], list[dict[str, s
         annotation = rxn.get("annotation", {}) or {}
         gpr = (rxn.get("gene_reaction_rule") or "").strip()
         ec_numbers = annotation_list(annotation, "ec-code")
-        reactants = [mid for mid, coeff in (rxn.get("metabolites") or {}).items() if coeff < 0]
+        reactant_stoichiometry = {
+            mid: abs(float(coeff)) for mid, coeff in (rxn.get("metabolites") or {}).items() if coeff < 0
+        }
+        reactants = list(reactant_stoichiometry)
         products_ = [mid for mid, coeff in (rxn.get("metabolites") or {}).items() if coeff > 0]
-        selected_substrates = [mid for mid in reactants if not is_likely_cofactor(mid)]
-        substrates = selected_substrates or reactants
-        substrate_selection = "non_cofactor_reactant" if selected_substrates else "fallback_all_reactants"
+        substrates = choose_reactants_for_matching(reactants)
+        substrate_selection = "all_model_reactants_for_experimental_matching"
         groups = parse_gpr_groups(gpr)
 
         reaction_rows.append(
@@ -206,6 +157,9 @@ def read_ecoli_model(path: Path) -> tuple[list[dict[str, str]], list[dict[str, s
                 "rhea": annotation_value(annotation, "rhea"),
                 "metanetx_reaction": annotation_value(annotation, "metanetx.reaction"),
                 "reactant_ids": ";".join(reactants),
+                "reactant_stoichiometry": ";".join(
+                    f"{reactant_id}:{reactant_stoichiometry[reactant_id]:g}" for reactant_id in reactants
+                ),
                 "product_ids": ";".join(products_),
             }
         )
@@ -221,6 +175,14 @@ def read_ecoli_model(path: Path) -> tuple[list[dict[str, str]], list[dict[str, s
             for substrate_id in substrates:
                 met = metabolites.get(substrate_id, {})
                 met_ann = met.get("annotation", {}) or {}
+                role = classify_participant(
+                    metabolite_id=substrate_id,
+                    name=met.get("name", ""),
+                    bigg_ids=annotation_value(met_ann, "bigg.metabolite"),
+                    kegg_ids=annotation_value(met_ann, "kegg.compound"),
+                    chebi_ids=annotation_value(met_ann, "chebi"),
+                    metanetx_ids=annotation_value(met_ann, "metanetx.chemical"),
+                )
                 entry_rows.append(
                     make_entry_row(
                         species="ecoli",
@@ -238,7 +200,9 @@ def read_ecoli_model(path: Path) -> tuple[list[dict[str, str]], list[dict[str, s
                         substrate_id=substrate_id,
                         substrate_name=met.get("name", ""),
                         substrate_compartment=met.get("compartment", ""),
+                        substrate_stoichiometry=reactant_stoichiometry.get(substrate_id, 1.0),
                         substrate_selection=substrate_selection,
+                        substrate_role=role,
                         substrate_annotation=met_ann,
                         bigg_key="bigg.metabolite",
                         kegg_key="kegg.compound",
@@ -316,17 +280,18 @@ def read_yeast_model(path: Path) -> tuple[list[dict[str, str]], list[dict[str, s
         gpr = gpa_to_expression(rxn.find("fbc:geneProductAssociation", ns))
         groups = parse_gpr_groups(gpr)
         ec_numbers = resources_by_namespace(annotation, "ec-code")
-        reactants = [
-            ref.attrib.get("species", "")
-            for ref in rxn.findall("sbml:listOfReactants/sbml:speciesReference", ns)
-        ]
+        reactant_refs = rxn.findall("sbml:listOfReactants/sbml:speciesReference", ns)
+        reactants = [ref.attrib.get("species", "") for ref in reactant_refs]
+        reactant_stoichiometry = {
+            ref.attrib.get("species", ""): abs(float(ref.attrib.get("stoichiometry", "1") or 1))
+            for ref in reactant_refs
+        }
         products_ = [
             ref.attrib.get("species", "")
             for ref in rxn.findall("sbml:listOfProducts/sbml:speciesReference", ns)
         ]
-        selected_substrates = [sid for sid in reactants if not is_likely_cofactor(sid)]
-        substrates = selected_substrates or reactants
-        substrate_selection = "non_cofactor_reactant" if selected_substrates else "fallback_all_reactants"
+        substrates = choose_reactants_for_matching(reactants)
+        substrate_selection = "all_model_reactants_for_experimental_matching"
 
         reaction_rows.append(
             {
@@ -344,6 +309,9 @@ def read_yeast_model(path: Path) -> tuple[list[dict[str, str]], list[dict[str, s
                 "rhea": ";".join(resources_by_namespace(annotation, "rhea")),
                 "metanetx_reaction": ";".join(resources_by_namespace(annotation, "metanetx.reaction")),
                 "reactant_ids": ";".join(reactants),
+                "reactant_stoichiometry": ";".join(
+                    f"{reactant_id}:{reactant_stoichiometry[reactant_id]:g}" for reactant_id in reactants
+                ),
                 "product_ids": ";".join(products_),
             }
         )
@@ -364,6 +332,14 @@ def read_yeast_model(path: Path) -> tuple[list[dict[str, str]], list[dict[str, s
                     "chebi": resources_by_namespace(ann_node, "chebi"),
                     "metanetx.chemical": resources_by_namespace(ann_node, "metanetx.chemical"),
                 }
+                role = classify_participant(
+                    metabolite_id=substrate_id,
+                    name=species_node.attrib.get("name", "") if species_node is not None else "",
+                    bigg_ids=";".join(substrate_annotation["bigg.metabolite"]),
+                    kegg_ids=";".join(substrate_annotation["kegg.compound"]),
+                    chebi_ids=";".join(substrate_annotation["chebi"]),
+                    metanetx_ids=";".join(substrate_annotation["metanetx.chemical"]),
+                )
                 entry_rows.append(
                     make_entry_row(
                         species="yeast",
@@ -381,7 +357,9 @@ def read_yeast_model(path: Path) -> tuple[list[dict[str, str]], list[dict[str, s
                         substrate_id=substrate_id,
                         substrate_name=species_node.attrib.get("name", "") if species_node is not None else "",
                         substrate_compartment=species_node.attrib.get("compartment", "") if species_node is not None else "",
+                        substrate_stoichiometry=reactant_stoichiometry.get(substrate_id, 1.0),
                         substrate_selection=substrate_selection,
+                        substrate_role=role,
                         substrate_annotation=substrate_annotation,
                         bigg_key="bigg.metabolite",
                         kegg_key="kegg.compound",
@@ -410,7 +388,9 @@ def make_entry_row(
     substrate_id: str,
     substrate_name: str,
     substrate_compartment: str,
+    substrate_stoichiometry: float,
     substrate_selection: str,
+    substrate_role: RoleEvidence,
     substrate_annotation: dict[str, Any],
     bigg_key: str,
     kegg_key: str,
@@ -439,8 +419,13 @@ def make_entry_row(
         "substrate_id": substrate_id,
         "substrate_name": substrate_name,
         "substrate_compartment": substrate_compartment,
+        "substrate_stoichiometry": f"{substrate_stoichiometry:g}",
         "substrate_selection": substrate_selection,
-        "substrate_is_cofactor_like": str(is_likely_cofactor(substrate_id)),
+        "candidate_selection_policy": "all_reactants_then_experimental_substrate_matching",
+        "substrate_is_cofactor_like": str(substrate_role.is_currency_or_cofactor_like),
+        "substrate_role_class": substrate_role.role_class,
+        "substrate_role_evidence": ";".join(substrate_role.evidence),
+        "substrate_role_registry_name": substrate_role.registry_name,
         "substrate_bigg_id": ";".join(as_list(substrate_annotation.get(bigg_key))),
         "substrate_kegg_id": ";".join(as_list(substrate_annotation.get(kegg_key))),
         "substrate_chebi_id": ";".join(as_list(substrate_annotation.get(chebi_key))),

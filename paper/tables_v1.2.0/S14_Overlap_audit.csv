@@ -1,0 +1,7 @@
+Method,Overlap level,Overlap records,Evaluated records,MAE overlap,MAE non-overlap,Within 10-fold overlap,Within 10-fold non-overlap,Interpretation
+PreTKcat,Standardized sequence-parent pair in original public corpus (excluded before fitting),223,1246,0.8600344700529395,0.9363266322439098,0.6636771300448431,0.5835777126099707,"All source rows matching the model sequence plus uncharged largest-fragment connectivity identity were removed before fitting; this reports source-corpus proximity, not residual training leakage."
+DEKP-public-retrained,Standardized sequence-parent pair in original public corpus (excluded before fitting),237,1246,1.027705449011167,1.078876299302518,0.5147679324894515,0.5024777006937562,230 source rows matching full sequence plus uncharged largest-fragment connectivity identity were excluded before fitting.
+CatPred,Exact UniProt + reactant SMILES,3,914,,,,,Few exact raw-string matches against the CatPred reference corpus.
+CatPred,Same UniProt + substrate component,24,914,,,,,Broader enzyme-substrate component proximity.
+CatPred,UniProt overlap,427,914,,,,,Protein identity overlap is common.
+CatPred,EC overlap,843,914,,,,,Functional-class overlap covers most evaluated rows.

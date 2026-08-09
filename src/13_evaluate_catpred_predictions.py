@@ -14,7 +14,9 @@ BASE = Path(__file__).resolve().parent.parent
 DEFAULT_PREDICTIONS = BASE / "data" / "final" / "catpred" / "catpred_kcat_input_output.csv"
 DEFAULT_METADATA = BASE / "data" / "final" / "catpred" / "catpred_kcat_input_metadata.csv"
 DEFAULT_OUT_ROWS = BASE / "data" / "final" / "catpred" / "catpred_kcat_predictions_evaluated.csv"
+DEFAULT_OUT_MISSING_ROWS = BASE / "data" / "final" / "catpred" / "catpred_invalid_or_unpredicted_rows.csv"
 DEFAULT_OUT_METRICS = BASE / "reports" / "tables" / "catpred_eval_metrics.csv"
+DEFAULT_OUT_MISSING_SUMMARY = BASE / "reports" / "tables" / "catpred_invalid_or_unpredicted_summary.csv"
 
 LOG_COLUMNS = [
     "Prediction_log10",
@@ -37,7 +39,9 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--predictions", type=Path, default=DEFAULT_PREDICTIONS)
     parser.add_argument("--metadata", type=Path, default=DEFAULT_METADATA)
     parser.add_argument("--out-rows", type=Path, default=DEFAULT_OUT_ROWS)
+    parser.add_argument("--out-missing-rows", type=Path, default=DEFAULT_OUT_MISSING_ROWS)
     parser.add_argument("--out-metrics", type=Path, default=DEFAULT_OUT_METRICS)
+    parser.add_argument("--out-missing-summary", type=Path, default=DEFAULT_OUT_MISSING_SUMMARY)
     parser.add_argument(
         "--prediction-column",
         default="",
@@ -153,6 +157,13 @@ def build_metrics(rows: pd.DataFrame) -> pd.DataFrame:
     return pd.DataFrame(metrics)
 
 
+def build_missing_summary(meta: pd.DataFrame, rows: pd.DataFrame) -> pd.DataFrame:
+    predicted_ids = set(rows["entry_id"].astype(str))
+    missing = meta.loc[~meta["entry_id"].astype(str).isin(predicted_ids)].copy()
+    columns = ["species", "substrate_name", "SMILES"]
+    return missing.groupby(columns, dropna=False).size().reset_index(name="rows")
+
+
 def main() -> None:
     args = parse_args()
     pred = pd.read_csv(args.predictions)
@@ -160,11 +171,18 @@ def main() -> None:
     pred_log10, pred_col = detect_prediction(pred, args.prediction_column)
     rows = combine_predictions(pred, meta, pred_log10, pred_col)
     metrics = build_metrics(rows)
+    predicted_ids = set(rows["entry_id"].astype(str))
+    missing_rows = meta.loc[~meta["entry_id"].astype(str).isin(predicted_ids)].copy()
+    missing_summary = build_missing_summary(meta, rows)
 
     args.out_rows.parent.mkdir(parents=True, exist_ok=True)
+    args.out_missing_rows.parent.mkdir(parents=True, exist_ok=True)
     args.out_metrics.parent.mkdir(parents=True, exist_ok=True)
+    args.out_missing_summary.parent.mkdir(parents=True, exist_ok=True)
     rows.to_csv(args.out_rows, index=False)
+    missing_rows.to_csv(args.out_missing_rows, index=False)
     metrics.to_csv(args.out_metrics, index=False)
+    missing_summary.to_csv(args.out_missing_summary, index=False)
 
     overall = metrics[(metrics["group_type"] == "all") & (metrics["group"] == "all")].iloc[0]
     print(f"Prediction column: {pred_col}")
@@ -172,6 +190,9 @@ def main() -> None:
     print(f"MAE log10: {overall.get('mae_log10', np.nan):.4g}")
     print(f"RMSE log10: {overall.get('rmse_log10', np.nan):.4g}")
     print(f"Metrics: {args.out_metrics}")
+    print(f"Unpredicted rows: {len(missing_rows)}")
+    print(f"Missing rows: {args.out_missing_rows}")
+    print(f"Missing summary: {args.out_missing_summary}")
 
 
 if __name__ == "__main__":

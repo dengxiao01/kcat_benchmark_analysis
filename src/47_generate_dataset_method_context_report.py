@@ -32,7 +32,7 @@ TABLE_DIR = REPORT_DIR / "tables"
 FIG_DIR = REPORT_DIR / "figures" / "kcat_dataset_context"
 REPORT_PATH = REPORT_DIR / "kcat_benchmark_dataset_and_method_context.md"
 
-BENCHMARK_N = 978
+BENCHMARK_N = len(pd.read_csv(DATA, usecols=["entry_id"]))
 SBML = "http://www.sbml.org/sbml/level3/version1/core"
 RDF_RESOURCE = "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource"
 
@@ -200,7 +200,7 @@ METHOD_TECHNICAL_ROWS = [
         "representation": "reaction difference fingerprint + ESM1b enzyme embedding",
         "model_family": "reaction-aware ML, XGBoost",
         "benchmark_dimension": "reaction-aware 子集",
-        "main_caveat": "必须有完整反应 SMILES；当前只覆盖 780/978。",
+        "main_caveat": "必须有完整反应 SMILES；当前覆盖 1047/1246。",
     },
     {
         "method": "CatPred",
@@ -210,7 +210,7 @@ METHOD_TECHNICAL_ROWS = [
         "representation": "molecular/protein records used by CatPred checkpoints",
         "model_family": "deep learning ensemble",
         "benchmark_dimension": "模型特定子集",
-        "main_caveat": "官方流程有额外可处理范围限制；当前覆盖 913/978。",
+        "main_caveat": "官方流程有额外可处理范围限制；当前覆盖 1156/1246。",
     },
     {
         "method": "CataPro",
@@ -230,7 +230,7 @@ METHOD_TECHNICAL_ROWS = [
         "representation": "ProtT5 enzyme embedding + RXNFP/reaction embedding",
         "model_family": "reaction-aware deep learning",
         "benchmark_dimension": "reaction-aware 子集",
-        "main_caveat": "依赖完整反应 SMILES；当前覆盖 780/978。",
+        "main_caveat": "依赖完整反应 SMILES；当前覆盖 1047/1246。",
     },
     {
         "method": "KinForm",
@@ -240,7 +240,7 @@ METHOD_TECHNICAL_ROWS = [
         "representation": "ESM/ESMC/ProtT5 embeddings + optional binding-site features",
         "model_family": "embedding-based deep/ML models",
         "benchmark_dimension": "模型特定子集",
-        "main_caveat": "受官方 Zenodo bundle/缓存资产覆盖限制；当前覆盖 563/978。",
+        "main_caveat": "受官方 Zenodo bundle/缓存资产覆盖限制；当前覆盖 729/1246。",
     },
     {
         "method": "KcatNet",
@@ -260,7 +260,7 @@ METHOD_TECHNICAL_ROWS = [
         "representation": "ProtT5 protein embedding + MolGNet molecular graph embedding + temperature features",
         "model_family": "pretrained embeddings + ExtraTrees",
         "benchmark_dimension": "全量/近全量 sequence+SMILES",
-        "main_caveat": "缺失温度需要填补默认值；本项目使用公开数据可复现流程。",
+        "main_caveat": "缺失温度需要填补默认值；主结果使用 exact-overlap-excluded 公开重建，另报告 raw-public 和 near-excluded 敏感性结果。",
     },
     {
         "method": "DEKP-public-retrained",
@@ -290,7 +290,7 @@ METHOD_TECHNICAL_ROWS = [
         "representation": "GO hierarchy + GO-term kcat statistics",
         "model_family": "functional-similarity assignment baseline",
         "benchmark_dimension": "功能相似性 GO 赋值基线",
-        "main_caveat": "当前已覆盖 978/978，但 E. coli 与 yeast 的 GO 来源不同；yeast 是 UniProt GO 注释路线，不是 DeepGO-SE 预测路线。",
+        "main_caveat": "当前覆盖 1236/1246；E. coli 与 yeast 的 GO 来源不同，yeast 是 UniProt GO 注释路线，不是 DeepGO-SE 预测路线。",
     },
 ]
 
@@ -447,6 +447,7 @@ def load_enriched_benchmark() -> pd.DataFrame:
         "reactant_ids",
         "product_ids",
     ]
+    entry_cols = [c for c in entry_cols if c == "entry_id" or c not in bench.columns]
     out = bench.merge(entries[[c for c in entry_cols if c in entries.columns]], on="entry_id", how="left")
     out = out.merge(
         reactions[[c for c in reaction_cols if c in reactions.columns]],
@@ -463,6 +464,7 @@ def load_enriched_benchmark() -> pd.DataFrame:
     out["smiles_length"] = out["SMILES"].fillna("").astype(str).str.len()
     out["species_label"] = out["species"].map(SPECIES_LABELS).fillna(out["species"])
     out["currency_or_cofactor_like_by_name"] = out["substrate_name"].map(is_currency_or_cofactor)
+    out["currency_or_cofactor_like_registry"] = out["substrate_role_group"].eq("currency_or_cofactor")
     out["ec_terms"] = out["ec_number"].map(lambda x: ";".join(split_ecs(x)))
     out["ec_exact_terms"] = out["ec_number"].map(lambda x: ";".join(exact_ecs(x)))
     out["ec_classes"] = out["ec_number"].map(lambda x: ";".join(ec_class(x)))
@@ -494,7 +496,9 @@ def load_enriched_benchmark() -> pd.DataFrame:
     return out
 
 
-def percent(n: float, denom: float = BENCHMARK_N) -> float:
+def percent(n: float, denom: float | None = None) -> float:
+    if denom is None:
+        denom = BENCHMARK_N
     return 100.0 * n / denom if denom else np.nan
 
 
@@ -651,6 +655,8 @@ def make_species_summary(df: pd.DataFrame) -> pd.DataFrame:
                 "pH_available_rows": int(part["pH"].notna().sum()),
                 "temperature_available_rows": int(part["temperature_c"].notna().sum()),
                 "currency_or_cofactor_like_rows_by_name": int(part["currency_or_cofactor_like_by_name"].sum()),
+                "currency_or_cofactor_rows_registry": int(part["currency_or_cofactor_like_registry"].sum()),
+                "carrier_linked_variable_rows_registry": int(part["substrate_role_group"].eq("carrier_linked_variable").sum()),
             }
         )
     return write_csv(pd.DataFrame(rows), TABLE_DIR / "benchmark_dataset_species_summary.csv")
@@ -722,6 +728,7 @@ def make_top_substrates(df: pd.DataFrame) -> pd.DataFrame:
             unique_reactions=("reaction_id", "nunique"),
             median_kcat=("true_kcat", "median"),
             currency_or_cofactor_like_by_name=("currency_or_cofactor_like_by_name", "max"),
+            substrate_role_group=("substrate_role_group", lambda values: ";".join(sorted(set(values)))),
         )
         .reset_index()
     )
@@ -777,12 +784,11 @@ def make_pathway_tables(df: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame, p
 
 def make_method_technical_tables() -> tuple[pd.DataFrame, pd.DataFrame]:
     tech = pd.DataFrame(METHOD_TECHNICAL_ROWS)
-    summary_path = TABLE_DIR / "method_eval_summary_annotated.csv"
-    if summary_path.exists():
-        summary = pd.read_csv(summary_path)
-    else:
-        summary = pd.read_csv(TABLE_DIR / "method_eval_summary.csv")
-        summary["coverage_percent"] = summary["n"] / BENCHMARK_N * 100
+    summary = pd.read_csv(TABLE_DIR / "method_eval_summary.csv")
+    summary["coverage_percent"] = summary["n"] / BENCHMARK_N * 100
+    group_map = tech.set_index("method")["benchmark_dimension"].to_dict()
+    summary["group_cn"] = summary["method"].map(group_map).fillna("其他")
+    write_csv(summary, TABLE_DIR / "method_eval_summary_annotated.csv")
     keep = [
         "method",
         "n",
@@ -804,8 +810,8 @@ def make_method_technical_tables() -> tuple[pd.DataFrame, pd.DataFrame]:
         [
             {
                 "dimension": "输入覆盖",
-                "plain_explanation_cn": "方法能不能吃下标准集的 978 行。缺一行通常是 SMILES 非法；缺更多则说明方法需要额外信息或官方资产不全。",
-                "use_in_paper": "报告覆盖率 n/978，并按全量、reaction-aware、模型特定子集、公开重训版分开解释。",
+                "plain_explanation_cn": f"方法能不能处理标准集的 {BENCHMARK_N} 行。缺失行可能来自模型输入域、反应信息、结构或官方资产限制。",
+                "use_in_paper": f"报告覆盖率 n/{BENCHMARK_N}，并按广覆盖、reaction-aware、模型特定子集和公开重训版分开解释。",
             },
             {
                 "dimension": "信息粒度",
@@ -919,6 +925,9 @@ def make_figures(
 
     mt = method_tech.copy()
     mt["method_display"] = mt["method"].str.replace(r"-official$", "", regex=True)
+    mt["group_cn"] = mt["group_cn"].replace(
+        {"全量/近全量 sequence+SMILES 基线": "全量/近全量 sequence+SMILES"}
+    )
     mt["group_cn"] = pd.Categorical(mt["group_cn"], METHOD_SCOPE_ORDER, ordered=True)
     mt = mt.sort_values(["group_cn", "coverage_percent", "method"], ascending=[True, False, True])
     scope_label_en = {
@@ -938,7 +947,7 @@ def make_figures(
     }
     plt.figure(figsize=(9.2, 5.8))
     sns.barplot(data=mt, y="method_display", x="coverage_percent", hue="scope_plot", dodge=False, palette=palette)
-    plt.xlabel("Coverage of 978-row benchmark (%)")
+    plt.xlabel(f"Coverage of {BENCHMARK_N}-row benchmark (%)")
     plt.ylabel("Method")
     plt.title("Method coverage by comparison scope")
     plt.xlim(0, 105)
@@ -993,7 +1002,9 @@ def make_report(
     total = len(df)
     ecoli_n = int((df["species"] == "ecoli").sum())
     yeast_n = int((df["species"] == "yeast").sum())
-    currency_n = int(df["currency_or_cofactor_like_by_name"].sum())
+    currency_n = int(df["currency_or_cofactor_like_registry"].sum())
+    currency_name_only_n = int(df["currency_or_cofactor_like_by_name"].sum())
+    carrier_n = int(df["substrate_role_group"].eq("carrier_linked_variable").sum())
     reaction_n = df["reaction_id"].nunique()
     gene_n = df["gene_id"].nunique()
     substrate_n = df["substrate_name"].nunique()
@@ -1033,8 +1044,9 @@ def make_report(
         ),
         "",
         (
-            f"按底物名称粗略识别，{currency_n} 条记录的待预测底物属于 ATP/NADH/H+/H2O/CoA 等"
-            "“货币代谢物或辅因子类”分子。它们适合用于模型输入统一评测，但写生物学解释时应和真正的主底物区分开。"
+            f"按规范化名称、BiGG/KEGG/ChEBI/MetaNetX/PubChem 标识和标准化 InChIKey 的联合注册表规则，"
+            f"{currency_n} 条为 currency/cofactor，{carrier_n} 条为可能仍是可变底物的 carrier-linked metabolite；"
+            f"仅名称规则得到 {currency_name_only_n} 条，只作为探索性对照。角色不会在实验底物匹配前用于删行。"
         ),
         "",
         "## 2. 文件定位与字段含义",
@@ -1053,7 +1065,7 @@ def make_report(
         "",
         "- 大肠杆菌使用项目根目录的 `eciML1515.json`，酿酒酵母使用 `yeast-GEM.xml`。`src/01_parse_models.py` 解析反应、方向、GPR、EC、UniProt 和代谢物数据库编号。",
         "- GPR 是 gene-protein-reaction 规则，通俗说就是一条反应由哪些基因编码的酶负责。脚本把 `or` 拆成同工酶候选，把 `and` 保留为多亚基复合物。",
-        "- 每行候选 entry 的粒度是 `物种 + 模型反应 + GPR 基因组 + 候选底物`。优先选择非辅因子反应物；如果没有，再退回全部反应物，因此 ATP/NADH/H2O 等通用分子仍可能出现在标准集。",
+        "- 每行候选 entry 的粒度是 `物种 + 模型反应 + GPR 基因组 + 候选底物`。解析阶段保留模型编码的全部反应物，再由实验底物名称/标识决定匹配；currency/cofactor 角色只用于事后分层，不用于提前删行。",
         "",
         "### 3.2 补齐蛋白序列、小分子结构和反应结构",
         "",
@@ -1071,9 +1083,10 @@ def make_report(
         "",
         "### 3.4 确定最终 benchmark",
         "",
-        "- `experimental_kcat_truth.csv` 是匹配到模型 entry 的实验真值全集，共 1072 行。",
-        "- `benchmark_ready_truth.csv` 进一步要求 entry 能进入统一模型输入，即有单蛋白序列和可用底物 SMILES，共 978 行。",
-        "- `benchmark_ready_catpred.csv` 在这 978 行上合并 sequence、SMILES、真值和溯源字段。文件名保留 `catpred` 只是因为 CatPred 是第一个打通的方法，并不表示该标准集只服务于 CatPred。",
+        f"- `experimental_kcat_truth.csv` 是匹配到模型 entry 的实验真值全集，共 {len(pd.read_csv(BASE / 'data/final/experimental_kcat_truth.csv'))} 行。",
+        f"- `benchmark_ready_truth.csv` 进一步要求 entry 能进入统一模型输入，即有单蛋白序列和可用底物 SMILES，共 {total} 行。",
+        f"- `benchmark_ready_catpred.csv` 在这 {total} 行上合并 sequence、SMILES、真值和逐记录溯源字段。文件名保留 `catpred` 只是因为 CatPred 是第一个打通的方法，并不表示该标准集只服务于 CatPred。",
+        f"- 其中 {int(df['experimental_substrate_support'].eq('substrate_supported').sum())} 条有 BRENDA 底物特异证据；其余 {int(df['experimental_substrate_support'].eq('participant_ambiguous').sum())} 条为 SABIO-RK participant-ambiguous 完整资源记录，单独做敏感性分析。",
         "- 方法评测时从这个母表提取各自需要的输入列，真值列只在推理结束后用于评分，避免答案泄漏到模型输入。",
         "",
         "从模型到最终 benchmark 的数量漏斗如下。注意 `enzyme_substrate_entries` 可以多于模型反应数，因为一条反应可能拆成多个基因组和多个候选底物。",
@@ -1095,6 +1108,8 @@ def make_report(
                 "pH_available_rows",
                 "temperature_available_rows",
                 "currency_or_cofactor_like_rows_by_name",
+                "currency_or_cofactor_rows_registry",
+                "carrier_linked_variable_rows_registry",
             ],
         ),
         "",
@@ -1134,13 +1149,13 @@ def make_report(
         "",
         markdown_table(
             top_substrates,
-            ["substrate_name", "rows", "species_count", "unique_reactions", "currency_or_cofactor_like_by_name", "median_kcat"],
+            ["substrate_name", "rows", "species_count", "unique_reactions", "substrate_role_group", "currency_or_cofactor_like_by_name", "median_kcat"],
             max_rows=20,
         ),
         "",
-        "底物角色粗分布如下：",
+        "底物角色联合证据分布如下；carrier-linked 单列，不与严格 currency/cofactor 合并：",
         "",
-        markdown_table(substrate_role, ["species", "currency_or_cofactor_like_by_name", "rows", "percent_of_benchmark"], max_rows=10),
+        markdown_table(substrate_role, ["species", "substrate_role_group", "rows", "percent_of_benchmark"], max_rows=12),
         "",
         "相关图：",
         "",
@@ -1245,7 +1260,7 @@ def main() -> None:
     source_table = value_count_table(df, ["species", "source_database"], "source_by_species")
     match_table = value_count_table(df, ["species", "match_level"], "match_level_by_species")
     value_count_table(df, ["species", "enzyme_complex_type"], "enzyme_complex_type_by_species")
-    substrate_role = value_count_table(df, ["species", "currency_or_cofactor_like_by_name"], "substrate_role_by_species")
+    substrate_role = value_count_table(df, ["species", "substrate_role_group"], "substrate_role_by_species")
     ec_table = make_ec_class_summary(df)
     top_reactions = make_top_reactions(df)
     top_substrates = make_top_substrates(df)

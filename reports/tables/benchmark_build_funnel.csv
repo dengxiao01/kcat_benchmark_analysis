@@ -1,3 +1,3 @@
 species,model_total_reactions,reactions_with_gpr,reactions_with_ec,enzyme_substrate_entries,entries_with_uniprot_sequence,entries_with_substrate_smiles,experimental_truth_rows,benchmark_ready_rows,benchmark_unique_reactions,benchmark_unique_genes
-ecoli,5883,5402,1479,6115,5446,5789,554,513,451,327
-yeast,4131,2709,2436,7816,7181,7071,518,465,224,168
+ecoli,5883,5402,1479,8797,7608,8430,836,781,549,350
+yeast,4131,2709,2436,7816,7181,7080,518,465,224,168

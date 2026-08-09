@@ -61,15 +61,50 @@ RAW_FIELDS = [
     "reference",
 ]
 
-TRUTH_FIELDS = [
+ENTRY_PROVENANCE_FIELDS = [
     "entry_id",
     "species",
+    "model_id",
+    "organism",
     "reaction_id",
+    "reaction_name",
+    "reaction_direction",
+    "gpr_group_id",
     "gene_id",
+    "gene_name",
     "uniprot_id",
     "ec_number",
+    "enzyme_complex_type",
+    "substrate_id",
     "substrate_name",
+    "substrate_compartment",
+    "substrate_stoichiometry",
+    "substrate_reaction_side",
+    "substrate_selection",
+    "candidate_selection_policy",
+    "substrate_bigg_id",
+    "substrate_kegg_id",
+    "substrate_chebi_id",
+    "substrate_metanetx_id",
+    "substrate_pubchem_cid",
+    "substrate_parent_inchikey",
+    "substrate_parent_inchikey_connectivity",
+    "substrate_structure_standardization_status",
+    "substrate_is_cofactor_like",
+    "substrate_role_class",
+    "substrate_role_group",
+    "substrate_role_evidence",
+    "substrate_role_evidence_types",
+    "substrate_role_evidence_count",
+    "substrate_role_confidence",
+    "substrate_role_registry_name",
+    "substrate_role_registry_structure_consistency",
     "substrate_smiles",
+    "smiles_source",
+    "smiles_source_id",
+]
+
+TRUTH_FIELDS = ENTRY_PROVENANCE_FIELDS + [
     "true_kcat",
     "true_kcat_log10",
     "unit",
@@ -79,6 +114,14 @@ TRUTH_FIELDS = [
     "match_level",
     "reference",
     "n_measurements",
+    "source_record_ids",
+    "selected_measurement_kcat_values",
+    "selected_measurements_json",
+    "measurement_log10_median_abs_deviation",
+    "measurement_log10_mean_abs_deviation",
+    "measurement_log10_range",
+    "experimental_substrate_support",
+    "sabiork_participant_ambiguous",
 ]
 
 MATCH_STRENGTH = {
@@ -426,17 +469,29 @@ def build_combined_truth(entries: list[dict[str, str]], records: list[dict[str, 
         temperature = median_or_none([parse_float(item[2].get("temperature_c", "")) for item in selected])
         sources = sorted({item[2]["source_database"] for item in selected})
         references = sorted({ref for item in selected for ref in split_values(item[2].get("reference", ""))})
+        source_record_ids = sorted({item[2].get("source_record_id", "") for item in selected if item[2].get("source_record_id", "")})
         levels = sorted({item[1] for item in selected}, key=lambda level: -MATCH_STRENGTH[level])
+        log_values = [math.log10(value) for value in kcats]
+        median_log = statistics.median(log_values)
+        absolute_log_deviations = [abs(value - median_log) for value in log_values]
+        selected_measurements = [
+            {
+                "source_database": item[2].get("source_database", ""),
+                "source_record_id": item[2].get("source_record_id", ""),
+                "substrate_name": item[2].get("substrate_name", ""),
+                "kcat": item[2].get("kcat", ""),
+                "pH": item[2].get("pH", ""),
+                "temperature_c": item[2].get("temperature_c", ""),
+                "reference": item[2].get("reference", ""),
+                "match_level": item[1],
+            }
+            for item in selected
+        ]
+        entry_provenance = {field: entry.get(field, "") for field in ENTRY_PROVENANCE_FIELDS}
+        entry_provenance["substrate_reaction_side"] = "reactant"
         truth_rows.append(
             {
-                "entry_id": entry["entry_id"],
-                "species": entry["species"],
-                "reaction_id": entry["reaction_id"],
-                "gene_id": entry.get("gene_id", ""),
-                "uniprot_id": entry.get("uniprot_id", ""),
-                "ec_number": entry.get("ec_number", ""),
-                "substrate_name": entry.get("substrate_name", ""),
-                "substrate_smiles": entry.get("substrate_smiles", ""),
+                **entry_provenance,
                 "true_kcat": fmt_float(median_kcat),
                 "true_kcat_log10": fmt_float(math.log10(median_kcat)),
                 "unit": "s^-1",
@@ -446,6 +501,14 @@ def build_combined_truth(entries: list[dict[str, str]], records: list[dict[str, 
                 "match_level": ";".join(levels),
                 "reference": ";".join(references),
                 "n_measurements": str(len(selected)),
+                "source_record_ids": ";".join(source_record_ids),
+                "selected_measurement_kcat_values": ";".join(fmt_float(value) for value in kcats),
+                "selected_measurements_json": json.dumps(selected_measurements, ensure_ascii=True, separators=(",", ":")),
+                "measurement_log10_median_abs_deviation": fmt_float(statistics.median(absolute_log_deviations)),
+                "measurement_log10_mean_abs_deviation": fmt_float(statistics.mean(absolute_log_deviations)),
+                "measurement_log10_range": fmt_float(max(log_values) - min(log_values)),
+                "experimental_substrate_support": "substrate_supported" if "BRENDA" in sources else "participant_ambiguous",
+                "sabiork_participant_ambiguous": str(sources == ["SABIO-RK"]),
             }
         )
     return truth_rows
@@ -488,17 +551,26 @@ def main() -> None:
     parser.add_argument("--brenda-json", default=str(BRENDA_JSON_TAR))
     parser.add_argument("--ckb-db", default=str(CKB_DB))
     parser.add_argument("--include-mutants", action="store_true")
+    parser.add_argument(
+        "--match-only",
+        action="store_true",
+        help="Rebuild truth from cached BRENDA and SABIO-RK records without reparsing the archive.",
+    )
     args = parser.parse_args()
 
     entries = read_rows(entry_source_path())
-    brenda_records = parse_brenda_records(entries, args)
-    write_rows(BRENDA_RAW, brenda_records, RAW_FIELDS)
+    if args.match_only:
+        brenda_records = read_rows(BRENDA_RAW)
+    else:
+        brenda_records = parse_brenda_records(entries, args)
+        write_rows(BRENDA_RAW, brenda_records, RAW_FIELDS)
     combined_records = brenda_records + read_sabio_as_generic()
     truth_rows = build_combined_truth(entries, combined_records)
     write_rows(TRUTH, truth_rows, TRUTH_FIELDS)
     write_reports(brenda_records, combined_records, truth_rows)
 
-    print(f"Wrote {len(brenda_records)} BRENDA raw kcat records to {BRENDA_RAW}")
+    verb = "Loaded cached" if args.match_only else "Wrote"
+    print(f"{verb} {len(brenda_records)} BRENDA raw kcat records from {BRENDA_RAW}")
     print(f"Wrote {len(truth_rows)} combined experimental truth rows to {TRUTH}")
 
 

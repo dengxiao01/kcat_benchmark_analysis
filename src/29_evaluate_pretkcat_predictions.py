@@ -68,7 +68,20 @@ def combine_predictions(pred: pd.DataFrame, meta: pd.DataFrame, pred_log10: pd.S
         "smiles": "pretkcat_output_smiles",
         "prediction_kcat": "pretkcat_output_predicted_kcat",
         "pretkcat_training_mode": "pretkcat_training_mode",
+        "pretkcat_wrapper_version": "pretkcat_wrapper_version",
+        "pretkcat_training_overlap_policy": "pretkcat_training_overlap_policy",
+        "pretkcat_pair_identity_definition": "pretkcat_pair_identity_definition",
         "pretkcat_train_rows": "pretkcat_train_rows",
+        "pretkcat_train_rows_raw_usable": "pretkcat_train_rows_raw_usable",
+        "pretkcat_train_rows_source_exact_pair_overlap": "pretkcat_train_rows_source_exact_pair_overlap",
+        "pretkcat_train_rows_removed_exact_pair": "pretkcat_train_rows_removed_exact_pair",
+        "pretkcat_train_rows_removed_near_only": "pretkcat_train_rows_removed_near_only",
+        "pretkcat_train_rows_removed_total": "pretkcat_train_rows_removed_total",
+        "pretkcat_train_rows_after_pair_exclusion": "pretkcat_train_rows_after_pair_exclusion",
+        "pretkcat_near_sequence_identity_threshold_percent": "pretkcat_near_sequence_identity_threshold_percent",
+        "pretkcat_near_chemical_tanimoto_threshold": "pretkcat_near_chemical_tanimoto_threshold",
+        "pretkcat_near_alignment_coverage_threshold_percent": "pretkcat_near_alignment_coverage_threshold_percent",
+        "pretkcat_benchmark_rows_with_joint_neighbor": "pretkcat_benchmark_rows_with_joint_neighbor",
         "pretkcat_feature_dim": "pretkcat_feature_dim",
         "pretkcat_n_estimators": "pretkcat_n_estimators",
     }
@@ -104,6 +117,21 @@ def combine_predictions(pred: pd.DataFrame, meta: pd.DataFrame, pred_log10: pd.S
     combined["prediction_kcat"] = np.power(10.0, combined["prediction_log10"])
     combined["error_log10"] = combined["prediction_log10"] - combined["true_kcat_log10"]
     combined["abs_error_log10"] = combined["error_log10"].abs()
+    if "pretkcat_source_train_exact_pair_overlap" in combined.columns:
+        if "pretkcat_training_overlap_policy" in combined.columns:
+            strict = combined["pretkcat_training_overlap_policy"].isin(
+                {
+                    "strict_sequence_canonical_smiles_pair_disjoint",
+                    "sequence_standardized_parent_identity_pair_disjoint",
+                    "standardized_sequence_parent_identity_pair_disjoint",
+                    "joint_sequence_chemical_near_neighbor_disjoint",
+                }
+            )
+        else:
+            strict = pd.Series(False, index=combined.index)
+        combined["pretkcat_fit_pair_was_excluded"] = (
+            combined["pretkcat_source_train_exact_pair_overlap"].astype(bool) & strict
+        )
     return combined
 
 
@@ -149,9 +177,12 @@ def build_metrics(rows: pd.DataFrame) -> pd.DataFrame:
     if "source_database" in rows.columns:
         for source, part in rows.groupby("source_database", sort=True):
             metrics.append(score_group("source_database", str(source), part))
-    if "pretkcat_train_exact_pair_overlap" in rows.columns:
-        for overlap, part in rows.groupby("pretkcat_train_exact_pair_overlap", sort=True):
-            metrics.append(score_group("train_exact_pair_overlap", str(bool(overlap)), part))
+    overlap_column = "pretkcat_source_train_exact_pair_overlap"
+    if overlap_column not in rows.columns and "pretkcat_train_exact_pair_overlap" in rows.columns:
+        overlap_column = "pretkcat_train_exact_pair_overlap"
+    if overlap_column in rows.columns:
+        for overlap, part in rows.groupby(overlap_column, sort=True):
+            metrics.append(score_group("source_corpus_exact_pair_overlap", str(bool(overlap)), part))
     return pd.DataFrame(metrics)
 
 

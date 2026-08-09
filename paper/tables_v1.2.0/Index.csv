@@ -1,0 +1,31 @@
+Table,Title,Worksheet
+Release_info,"Benchmark version, dates, checksum, and statistical settings.",Release_info
+Supplementary Data Table 0,"Method-level long-format input and prediction audit for all 12 methods x 1246 benchmark records, including sequence policy, model-forward reaction equation, evaluated metabolite, role evidence, prediction status, experimental kcat, and predicted kcat.",Table0
+Supplementary Data Table 0W,Wide 1246-row prediction matrix with one prediction column per method.,Table0_wide
+Supplementary Record Audit,"Per-record provenance, label-dependence, measurement, mapping, model-direction, substrate-role, and method-specific training-proximity fields needed to reproduce S16-S24.",Record_audit
+Table1,Inference regimes used for coverage-aware comparison.,Table1
+Table2,"Performance within explicitly defined evaluation scopes, using pair-cluster confidence intervals.",Table2
+Supplementary Table S1,Complete overall metrics for each achieved evaluation set.,S1_Full_metrics
+Supplementary Table S2,"Method inputs, implementation status, preprocessing, and caveats.",S2_Method_details
+Supplementary Table S3,Experimental matching levels by species.,S3_Matching_levels
+Supplementary Table S4,BRENDA and SABIO-RK support by species.,S4_Source_support
+Supplementary Table S5,pH and temperature availability.,S5_Condition_metadata
+Supplementary Table S6,Metrics on the strict common reaction-aware subset.,S6_Reaction_subset
+Supplementary Table S7,Available-case metrics within CatPred- and KinForm-L-accessible scopes; cell-specific n is required.,S7_Available_case
+Supplementary Table S8,Pairwise Wilcoxon tests with global BH-adjusted q values.,S8_Wilcoxon
+Supplementary Table S9,"Error by species, source support, and registry-defined substrate-role group.",S9_Error_stratification
+Supplementary Table S10,Five largest errors for representative methods.,S10_Large_errors
+Supplementary Table S11,Conditional row-resampling confidence intervals for four performance metrics.,S11_Bootstrap_CI
+Supplementary Table S12,Paired row-resampling bootstrap rank-one frequencies and rank stability.,S12_Rank_stability
+Supplementary Table S13,Paired row-resampling MAE-difference bootstrap on the reaction-aware subset.,S13_Paired_bootstrap
+Supplementary Table S14,Method-specific public-corpus proximity and exclusion audit.,S14_Overlap_audit
+Supplementary Table S15,"Upstream revisions, runtime versions, and evaluation date.",S15_Software_versions
+Supplementary Table S16,"Record matching strength, label-assignment multiplicity, and dependence audit.",S16_Label_audit
+Supplementary Table S17,"Sensitivity metrics, including strictly common reaction-set unique-pair and unique-label analyses; observed and predicted log10(kcat) are separately median-aggregated within each cluster and clusters are weighted equally.",S17_Sensitivity_subsets
+Supplementary Table S18,"Protein-, pair-, reaction-, reference-, and label-assignment-cluster bootstrap intervals, including the SABIO participant-ambiguity exclusion scope.",S18_Cluster_bootstrap
+Supplementary Table S19,Cluster-aggregated paired comparisons with BH adjustment.,S19_Cluster_wilcoxon
+Supplementary Table S20,"Standardized exact, joint-near-neighbor, and no-joint-neighbor-under-thresholds training-corpus proximity and performance audit.",S20_Training_overlap
+Supplementary Table S21,Within-entry and between-source experimental kcat dispersion with explicit formulas.,S21_Measurement_dispersion
+Supplementary Table S22,"Mutation and variant-status audit with before-filter, excluded, and retained stages.",S22_Mutation_status
+Supplementary Table S23,"Substrate-role, model encoding, model reversibility, assay-direction limitation, and currency audit.",S23_Substrate_direction
+Supplementary Table S24,"Raw-public, exact-overlap-excluded primary, and joint-near-neighbor-excluded PreTKcat reconstructions.",S24_PreTKcat_variants
