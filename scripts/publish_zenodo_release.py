@@ -146,8 +146,16 @@ def deposition_metadata() -> dict[str, Any]:
             ],
             "notes": (
                 "BRENDA-derived data are used under CC BY 4.0. Other database, software, and "
-                "model components retain their respective upstream terms."
+                "model components retain their respective upstream terms. Project repository: "
+                "https://github.com/dxg-9527/kcat_benchmark_analysis"
             ),
+            "related_identifiers": [
+                {
+                    "identifier": "https://github.com/dxg-9527/kcat_benchmark_analysis",
+                    "relation": "isSupplementTo",
+                    "scheme": "url",
+                }
+            ],
         }
     }
 
