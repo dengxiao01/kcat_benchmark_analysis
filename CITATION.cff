@@ -8,7 +8,7 @@ doi: 10.5281/zenodo.21859994
 authors:
   - family-names: "Deng"
     given-names: "Xiaogui"
-repository-code: "https://github.com/tibbdc/kcat_benchmark_analysis"
+repository-code: "https://github.com/dxg-9527/kcat_benchmark_analysis"
 url: "https://zenodo.org/records/21859994"
 abstract: >-
   A unified benchmark of 12 published kcat prediction methods on 1,246

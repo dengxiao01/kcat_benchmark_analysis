@@ -267,7 +267,7 @@ exclusion.
 For table and report regeneration:
 
 ```bash
-git clone https://github.com/tibbdc/kcat_benchmark_analysis.git
+git clone https://github.com/dxg-9527/kcat_benchmark_analysis.git
 cd kcat_benchmark_analysis
 python3 -m venv .venv
 source .venv/bin/activate

@@ -8,7 +8,7 @@
   "artifact_revision_date": "2026-08-07",
   "schema_version": "1.2",
   "public_release": {
-    "github_repository": "https://github.com/tibbdc/kcat_benchmark_analysis",
+    "github_repository": "https://github.com/dxg-9527/kcat_benchmark_analysis",
     "zenodo_concept_doi": "10.5281/zenodo.21024683",
     "zenodo_version_doi": "10.5281/zenodo.21859994",
     "zenodo_record_id": "21859994"
