@@ -1,3 +1,0 @@
-source,audit_status,counting_stage,raw_before_filter,excluded_by_mutation_screen,retained_after_screen,mutation_flagged_in_retained_cache,benchmark_policy
-BRENDA,verified_from_parser_and_cached_records,Parsed BRENDA turnover-number candidate records after EC/substrate parsing; the before/after counts differ only by the comment-based mutation screen.,6390,3361.0,3029,0.0,"Comments matching mutant, mutation, or variant are excluded by default."
-SABIO-RK,unknown_mutation_status,"Cached parsed SABIO-RK rows; no mutation-status field is available, so no mutation screen can be applied or quantified.",660,,660,,Cached export has no mutation/variant field; wild-type status cannot be verified.

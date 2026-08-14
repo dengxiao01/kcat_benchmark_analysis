@@ -131,5 +131,8 @@
     "Replaced robust chemical-role wording with registry-defined wording to avoid implying manual reaction-specific biochemical validation.",
     "Made the manuscript release line report the artifact revision code as well as its date."
   ],
-  "record_audit": "paper/tables_v1.2.0/Record_audit.csv"
+  "submission_workbook": "paper/Supplementary_tables.xlsx",
+  "record_audit_sheet": "Table S22",
+  "method_record_sheet": "Table S23",
+  "training_proximity_record_audit": "paper/figure_sources_0814/Figure4/data/training_proximity_record_audit.csv"
 }

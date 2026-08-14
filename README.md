@@ -44,8 +44,8 @@ Matching support consists of 459 species + EC + UniProt + substrate-ID rows,
 871 unique standardized sequence-substrate pairs and 840 label-assignment
 clusters; 480 rows inherit a weaker-evidence label shared across multiple
 sequences. Benchmark rows must therefore not be interpreted as independent
-experiments. These fields are retained in the machine-audit `Record_audit.csv`
-and in the submission-formatted Supplementary Table S22.
+experiments. These fields are retained in the submission-formatted
+Supplementary Table S22.
 
 Chemical roles are assigned after experimental matching with the versioned
 registry in `configs/currency_cofactor_registry.csv`. It combines normalized
@@ -91,18 +91,16 @@ It contains an `Index` sheet followed by `Table S1` through `Table S23` in their
 order of first use in the V4 manuscript. Table S4 is the 1,246-row wide
 benchmark/prediction matrix, Table S22 is the 1,246-row record-level audit, and
 Table S23 is the 14,952-row method-record table with inputs, prediction status,
-outputs, and errors. A cell-preserving CSV mirror is available under
-`paper/supplementary_tables_0814/`.
-
-The older files under `paper/tables_v1.2.0/` remain the machine-audit layer and
-retain their historical S1-S24 filenames. Their numbering should not be used as
-the V4 manuscript's supplementary-table numbering.
+outputs, and errors. The formatted Excel workbook is the sole public
+supplementary-table artifact; the former historical S1-S24 export directory and
+the sheet-by-sheet CSV mirror were removed to prevent parallel table numbering
+from being mistaken for the V4 submission.
 
 ### Supplementary Data Table 0
 
-`paper/tables_v1.2.0/Table0.csv` is the primary method-record table. It contains
-14,952 rows (12 methods x 1,246 benchmark records), including explicit unscored
-combinations. Important fields include:
+`Table S23` in `paper/Supplementary_tables.xlsx` is the primary method-record
+table. It contains 14,952 rows (12 methods x 1,246 benchmark records), including
+explicit unscored combinations. Important fields include:
 
 - `method`, `inference_regime`, and `prediction_status`;
 - `benchmark_sequence`, `method_sequence_input`, and `sequence_input_policy`;
@@ -112,11 +110,13 @@ combinations. Important fields include:
   experimental substrate-support status;
 - experimental and predicted kcat in linear and log10 space.
 
-`paper/tables_v1.2.0/Table0_wide.csv` is the companion 1,246-row matrix with one
-prediction column per method. `paper/tables_v1.2.0/Record_audit.csv` contains
-1,246 rows and 132 provenance, dependence, measurement, mapping, role, direction,
-and training-proximity fields used to construct the 0814/V4 Supplementary
-Tables S15-S23.
+`Table S4` is the companion 1,246-row wide prediction matrix. `Table S22`
+contains 1,246 rows and 132 provenance, dependence, measurement, mapping, role,
+direction, and training-proximity fields. The only separate record-level audit
+file retained is
+`paper/figure_sources_0814/Figure4/data/training_proximity_record_audit.csv`,
+because it adds continuous sequence-identity and chemical-similarity values
+that are not stored in the formatted workbook.
 
 Method adapters create three logically separate files:
 
@@ -143,7 +143,7 @@ The same release file records the BRENDA archive and parsed-table checksums, the
 SABIO-RK API/query template and cache checksums, and the local CKB compound
 repository commit/database checksum. CKB is an internal snapshot for which no
 public release was identified; it is documented for provenance and is not
-presented as independently downloadable public input. `Record_audit.csv`
+presented as independently downloadable public input. Supplementary Table S22
 materializes each released row's model metabolite identifiers, final SMILES,
 mapping source, and source identifier, so users can reconstruct the 1,246-row
 benchmark evaluation without CKB. It does not reproduce mapping for the full
@@ -408,31 +408,27 @@ python paper/generate_manuscript_figures.py
 # Recalculate all code-backed panels outside the repository.
 python paper/generate_manuscript_figures.py \
   --rebuild-code-panels /tmp/kcat_0814_rebuild
-
-# Recreate one previewable CSV per supplementary worksheet.
-python paper/export_supplementary_tables_0814.py
 ```
 
-The exact workbook is `paper/Supplementary_tables.xlsx`; its 24-sheet CSV mirror
-is under `paper/supplementary_tables_0814/`. The final images are under
-`paper/figures/`, full captions are in `paper/FIGURE_CAPTIONS.md`, and plotting
-code plus compact inputs are under `paper/figure_sources_0814/`. The manuscript
-DOCX and original ZIP containers are not needed to inspect or rerun the public
+The exact workbook is `paper/Supplementary_tables.xlsx`. The final images are
+under `paper/figures/`, full captions are in `paper/FIGURE_CAPTIONS.md`, and
+plotting code plus compact inputs are under `paper/figure_sources_0814/`. The
+manuscript DOCX, original ZIP containers, historical table exports, and
+sheet-by-sheet CSV duplicates are not needed to inspect or rerun the public
 materials.
 
-`build_submission_audits.py` creates the underlying machine-audit tables and
-the 132-field Record_audit:
+`paper/build_submission_audits.py` can recreate local numerical audit staging
+tables, including the 132-field record audit:
 matching and shared-label dependence, substrate-support and role sensitivities,
 five cluster-bootstrap definitions, cluster-level paired tests, standardized
 training proximity, experimental dispersion, mutation-screen stages, model
 direction/reversibility, and the three PreTKcat reconstruction policies.
 
-The v1.2.0 data-artifact audit still validates canonical data, all method
-predictions, Table0, Table0W, Record_audit, the historical S1-S24 audit exports,
-and the consolidated audit XLSX. The 0814/V4 presentation layer is checked
-separately by exact image/workbook hashes, image dimensions, workbook structure,
-and clean-directory reruns of all four plotting packages. Submission-specific
-DOCX pagination remains part of the journal workflow rather than the public
+These generated staging tables are intentionally not tracked. The public
+0814/V4 layer is checked against the formatted workbook, exact composite-image
+hashes, panel hashes and dimensions, and clean-directory reruns of all four
+plotting packages. Submission-specific DOCX pagination remains part of the
+journal workflow rather than the public
 code release.
 
 ### Release and Zenodo utilities

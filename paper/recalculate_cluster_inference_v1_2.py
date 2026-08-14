@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Independently reconstruct S19 from the released long Table 0."""
+"""Independently reconstruct V4 Table S14 from the released workbook."""
 
 from pathlib import Path
 
@@ -10,8 +10,14 @@ from scipy.stats import wilcoxon
 
 
 BASE = Path(__file__).resolve().parents[1]
-TABLES = BASE / "paper" / "tables_v1.2.0"
+WORKBOOK = BASE / "paper" / "Supplementary_tables.xlsx"
 OUTPUT = BASE / "paper" / "independent_cluster_inference_v1.2.0-r3.csv"
+METHOD_FILES = {
+    "KcatNet": BASE / "data" / "final" / "kcatnet" / "kcatnet_kcat_predictions_evaluated.csv",
+    "CataPro": BASE / "data" / "final" / "catapro" / "catapro_kcat_predictions_evaluated.csv",
+    "TurNuP": BASE / "data" / "final" / "turnup" / "turnup_kcat_predictions_evaluated.csv",
+    "PMAK": BASE / "data" / "final" / "pmak" / "pmak_kcat_predictions_evaluated.csv",
+}
 
 
 def bh_adjust(values: np.ndarray) -> np.ndarray:
@@ -24,12 +30,15 @@ def bh_adjust(values: np.ndarray) -> np.ndarray:
 
 
 def main() -> None:
-    long = pd.read_csv(TABLES / "Table0.csv", low_memory=False)
-    record = pd.read_csv(TABLES / "Record_audit.csv", low_memory=False)
-    errors = long.loc[
-        long["prediction_status"].eq("predicted"),
-        ["entry_id", "method", "absolute_error_log10"],
-    ].pivot(index="entry_id", columns="method", values="absolute_error_log10")
+    record = pd.read_excel(WORKBOOK, sheet_name="Table S22")
+    method_errors = []
+    for method, path in METHOD_FILES.items():
+        frame = pd.read_csv(path, usecols=["entry_id", "abs_error_log10"])
+        frame["method"] = method
+        method_errors.append(frame)
+    errors = pd.concat(method_errors, ignore_index=True).pivot(
+        index="entry_id", columns="method", values="abs_error_log10"
+    )
     cluster_types = ["protein", "pair", "reaction", "reference", "label_assignment"]
     data = errors.merge(
         record.set_index("entry_id")[[f"{name}_cluster" for name in cluster_types]],
@@ -67,7 +76,7 @@ def main() -> None:
     calculated["recalculated_p_value_bh_global"] = bh_adjust(
         calculated["recalculated_p_value_raw"].to_numpy()
     )
-    expected = pd.read_csv(TABLES / "S19_Cluster_wilcoxon.csv")
+    expected = pd.read_excel(WORKBOOK, sheet_name="Table S14")
     keys = ["comparison_scope", "method_a", "method_b", "cluster_type"]
     merged = calculated.merge(expected, on=keys, validate="one_to_one")
     pairs = {
@@ -94,7 +103,7 @@ def main() -> None:
     merged.to_csv(OUTPUT, index=False)
     match_columns = [column for column in merged if column.startswith("match_")]
     failures = int((~merged[match_columns]).sum().sum())
-    print(f"Independent S19 rows: {len(merged)}; failed comparisons: {failures}")
+    print(f"Independent Table S14 rows: {len(merged)}; failed comparisons: {failures}")
     print(f"Output: {OUTPUT}")
     if failures:
         raise SystemExit(1)

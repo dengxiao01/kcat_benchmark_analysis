@@ -38,9 +38,10 @@ TRUTH_PATH = BASE / "data" / "final" / "benchmark_ready_catpred.csv"
 CONTEXT_PATH = BASE / "reports" / "tables" / "benchmark_ready_catpred_enriched_context.csv"
 ENTRY_PATH = BASE / "data" / "interim" / "enzyme_reaction_entries_with_sequence_smiles.csv"
 MODEL_REACTION_PATH = BASE / "data" / "interim" / "model_reactions.csv"
-TABLE_DIR = BASE / "paper" / "tables_v1.2.0"
+GENERATED_AUDIT_DIR = BASE / "paper" / "_generated_numeric_audit"
+TABLE_DIR = GENERATED_AUDIT_DIR / "tables"
 REPORT_TABLE_DIR = BASE / "reports" / "tables"
-DETAIL_DIR = BASE / "paper" / "submission_audit_details_v1.2.0"
+DETAIL_DIR = GENERATED_AUDIT_DIR / "details"
 MATCHER_PATH = BASE / "src" / "10_parse_brenda_kcat.py"
 
 BOOTSTRAP_REPLICATES = 2000

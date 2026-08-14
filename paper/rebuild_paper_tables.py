@@ -20,13 +20,14 @@ from scipy.stats import rankdata, wilcoxon
 
 
 BASE = Path(__file__).resolve().parent.parent
-DEFAULT_OUTPUT = BASE / "paper" / "kcat_benchmark_reorganized_tables_reviewed_v1.2.0.xlsx"
+GENERATED_AUDIT_DIR = BASE / "paper" / "_generated_numeric_audit"
+DEFAULT_OUTPUT = GENERATED_AUDIT_DIR / "numeric_audit_workbook_v1.2.0.xlsx"
 TRUTH = BASE / "data" / "final" / "benchmark_ready_catpred.csv"
 CONTEXT = BASE / "reports" / "tables" / "benchmark_ready_catpred_enriched_context.csv"
 CATPRED_OVERLAP = BASE / "reports" / "tables" / "catpred_db_vs_our_benchmark_overlap.csv"
 DEKP_RUN_REPORT = BASE / "reports" / "tables" / "dekp_public_retrained_run_report.csv"
 RELEASE = BASE / "configs" / "benchmark_release.json"
-TABLE_EXPORT_DIR = BASE / "paper" / "tables_v1.2.0"
+TABLE_EXPORT_DIR = GENERATED_AUDIT_DIR / "tables"
 SNAPSHOT = BASE / "paper" / "paper_statistics_v1.2.0.json"
 AUDIT_TABLE_NAMES = [
     "S16_Label_audit",

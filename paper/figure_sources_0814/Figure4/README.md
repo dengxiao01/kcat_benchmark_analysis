@@ -12,7 +12,14 @@ Figure 4a has been redesigned as a heatmap.
 - `data/figure4c_label_provenance.csv`
 - `data/figure4d_training_proximity.csv`
 - `data/figure4e_pretkcat_sensitivity.csv`
+- `data/training_proximity_record_audit.csv`
 - `plot_figure4_panels_v2.py`
+
+The record-level training-proximity audit adds the maximum sequence-identity
+and chemical-similarity values underlying the Figure 4c proximity classes. The
+class labels and exact-overlap flags are also present in Supplementary Table
+S22, but these four continuous neighbor metrics are not duplicated in the
+formatted workbook.
 
 ## Run
 ```bash

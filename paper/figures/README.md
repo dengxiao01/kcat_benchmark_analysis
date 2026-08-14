@@ -2,12 +2,15 @@
 
 `Figure1.png` through `Figure4.png` are the four final high-resolution
 composite figures from the author-approved 0814/V4 manuscript. The `panels/`
-directory contains the 20 corresponding author-supplied standalone raster
-exports under stable Figure/panel filenames.
+directory contains the 20 corresponding standalone raster panels under stable
+Figure/panel filenames. Figure 2c-f are code-regenerated from the supplied 0814
+data package so the standalone content and visible letters follow the final V4
+order: c=CI-width ratio, d=Spearman correlation, e=fold agreement, and f=signed
+error.
 
 The final composite figures are authoritative for panel lettering and layout.
-Several source plotting packages retained pre-assembly letters after an
-intermediate panel was removed; the mapping to final V4 letters is documented
+Several source plotting packages retained pre-assembly letters or were
+reordered during final assembly; the mapping to final V4 letters is documented
 in [`../figure_sources_0814/README.md`](../figure_sources_0814/README.md).
 
 Full captions are stored in

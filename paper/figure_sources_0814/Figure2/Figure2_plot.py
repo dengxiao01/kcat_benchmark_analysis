@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 Reproduce Figure 2a-f as separate publication-ready panels.
-Input: panel_a.csv ... panel_f_ratio.csv
+Input: panel_a.csv, panel_b.csv and final-V4 panel_c ... panel_f CSV files.
 Output: PNG, PDF and SVG for every panel.
 
 Tested with Python 3.10+, matplotlib, numpy.
@@ -158,10 +158,44 @@ def plot_b():
     save_all(fig, "Figure2b_MAE_CI")
 
 # ---------------------------------------------------------
-# c. Spearman with row-bootstrap CI
+# c. Dependence-aware uncertainty heatmap
 # ---------------------------------------------------------
 def plot_c():
-    data = {r["Method"]: r for r in read_csv("panel_c.csv")}
+    rows = read_csv("panel_c_ci_width_ratio.csv")
+    methods = [r["Method"] for r in rows]
+    columns = ["Protein", "Enzyme–substrate pair", "Reaction", "Reference", "Label assignment"]
+    matrix = np.array([[float(r[c]) for c in columns] for r in rows], dtype=float)
+
+    fig, ax = plt.subplots(figsize=(8.2, 5.8))
+    cmap = LinearSegmentedColormap.from_list(
+        "ci_ratio_blues", ["#F7FBFF", "#6BAED6", "#08306B"]
+    )
+    im = ax.imshow(matrix, aspect="auto", cmap=cmap, vmin=0.9, vmax=3.35)
+
+    ax.set_xticks(np.arange(len(columns)))
+    ax.set_xticklabels(["Protein", "Enzyme–substrate\npair", "Reaction", "Reference", "Label\nassignment"])
+    ax.tick_params(axis="x", labelsize=8.5)
+    ax.set_yticks(np.arange(len(methods)))
+    ax.set_yticklabels(methods)
+
+    for i in range(matrix.shape[0]):
+        for j in range(matrix.shape[1]):
+            val = matrix[i, j]
+            color = "white" if val >= 1.55 else "black"
+            ax.text(j, i, f"{val:.2f}", ha="center", va="center",
+                    fontsize=8.4, color=color)
+
+    cbar = fig.colorbar(im, ax=ax, fraction=0.046, pad=0.035)
+    cbar.set_label("CI width ratio\n(cluster bootstrap / row bootstrap)")
+    panel_label(ax, "c")
+    fig.tight_layout()
+    save_all(fig, "Figure2c_cluster_bootstrap_CI_ratio")
+
+# ---------------------------------------------------------
+# d. Spearman with row-bootstrap CI
+# ---------------------------------------------------------
+def plot_d():
+    data = {r["Method"]: r for r in read_csv("panel_d_spearman.csv")}
     fig, ax = plt.subplots(figsize=(7.1, 5.9))
     y = np.arange(len(METHOD_ORDER))
 
@@ -183,15 +217,15 @@ def plot_c():
     ax.set_xlabel(r"Spearman correlation on log$_{10}$($k_{cat}$) (95% bootstrap CI)")
     ax.set_xlim(0.04, 0.66)
     ax.grid(True, axis="x", linestyle="--", linewidth=0.55, alpha=0.4)
-    panel_label(ax, "c")
+    panel_label(ax, "d")
     fig.tight_layout()
-    save_all(fig, "Figure2c_Spearman_CI")
+    save_all(fig, "Figure2d_Spearman_CI")
 
 # ---------------------------------------------------------
-# d. Fold agreement
+# e. Fold agreement
 # ---------------------------------------------------------
-def plot_d():
-    data = {r["Method"]: r for r in read_csv("panel_d.csv")}
+def plot_e():
+    data = {r["Method"]: r for r in read_csv("panel_e_fold_agreement.csv")}
     fig, ax = plt.subplots(figsize=(7.3, 5.9))
     y = np.arange(len(METHOD_ORDER))
     offset = 0.14
@@ -228,15 +262,15 @@ def plot_d():
         ["Within 2-fold", "Within 10-fold"],
         frameon=False, loc="lower right"
     )
-    panel_label(ax, "d")
+    panel_label(ax, "e")
     fig.tight_layout()
-    save_all(fig, "Figure2d_fold_agreement")
+    save_all(fig, "Figure2e_fold_agreement")
 
 # ---------------------------------------------------------
-# e. Directional calibration bias
+# f. Directional calibration bias
 # ---------------------------------------------------------
-def plot_e():
-    data = {r["Method"]: r for r in read_csv("panel_e.csv")}
+def plot_f():
+    data = {r["Method"]: r for r in read_csv("panel_f_signed_error.csv")}
     fig, ax = plt.subplots(figsize=(7.1, 5.9))
     y = np.arange(len(METHOD_ORDER))
 
@@ -256,42 +290,9 @@ def plot_e():
     ax.set_xlabel(r"Mean signed error on log$_{10}$($k_{cat}$)")
     ax.set_xlim(-0.75, 1.02)
     ax.grid(True, axis="x", linestyle="--", linewidth=0.55, alpha=0.35)
-    panel_label(ax, "e")
-    fig.tight_layout()
-    save_all(fig, "Figure2e_signed_error")
-
-# ---------------------------------------------------------
-# f. Dependence-aware uncertainty heatmap
-# ---------------------------------------------------------
-def plot_f():
-    rows = read_csv("panel_f_ratio.csv")
-    methods = [r["Method"] for r in rows]
-    columns = ["Protein", "Enzyme–substrate pair", "Reaction", "Reference", "Label assignment"]
-    matrix = np.array([[float(r[c]) for c in columns] for r in rows], dtype=float)
-
-    fig, ax = plt.subplots(figsize=(7.3, 5.8))
-    cmap = LinearSegmentedColormap.from_list(
-        "ci_ratio_blues", ["#F7FBFF", "#6BAED6", "#08306B"]
-    )
-    im = ax.imshow(matrix, aspect="auto", cmap=cmap, vmin=0.9, vmax=3.35)
-
-    ax.set_xticks(np.arange(len(columns)))
-    ax.set_xticklabels(["Protein", "Enzyme–substrate\npair", "Reaction", "Reference", "Label\nassignment"])
-    ax.set_yticks(np.arange(len(methods)))
-    ax.set_yticklabels(methods)
-
-    for i in range(matrix.shape[0]):
-        for j in range(matrix.shape[1]):
-            val = matrix[i, j]
-            color = "white" if val >= 1.55 else "black"
-            ax.text(j, i, f"{val:.2f}", ha="center", va="center",
-                    fontsize=8.4, color=color)
-
-    cbar = fig.colorbar(im, ax=ax, fraction=0.046, pad=0.035)
-    cbar.set_label("CI width ratio\n(cluster bootstrap / row bootstrap)")
     panel_label(ax, "f")
     fig.tight_layout()
-    save_all(fig, "Figure2f_cluster_bootstrap_CI_ratio")
+    save_all(fig, "Figure2f_signed_error")
 
 if __name__ == "__main__":
     plot_a()

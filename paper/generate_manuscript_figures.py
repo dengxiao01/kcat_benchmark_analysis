@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Validate the 0814/V4 figure snapshot and rerun its plotting packages.
 
-The publication PNG files are frozen author-approved raster exports. The four
-data-backed plotting packages are retained separately so their numerical
-panels can be regenerated without changing the approved image snapshot.
+The composite PNG files are frozen author-approved raster exports. The
+standalone panel set follows the final V4 order; Figure 2c-f are regenerated
+from the supplied plotting package to normalize its pre-assembly ordering. The
+four data-backed packages are retained so their numerical panels can be rerun.
 """
 
 from __future__ import annotations

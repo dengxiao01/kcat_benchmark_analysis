@@ -5,19 +5,26 @@
 ### Manuscript presentation snapshot 0814/V4 - 2026-08-14
 
 - Replaced the public Figure 1-4 presentation with the four final
-  high-resolution composites and 20 author-supplied panel PNGs from the 0814/V4
-  manuscript snapshot.
+  high-resolution composites and 20 corresponding panel PNGs from the 0814/V4
+  manuscript snapshot and plotting packages.
 - Published the complete V4 Figure 1-4 captions and documented the final panel
   mapping where source packages retained pre-assembly letter sequences.
 - Expanded the four author-supplied figure ZIP packages into ordinary tracked
   plotting scripts and compact CSV/XLSX inputs; all four packages run without
   private manuscript files.
 - Published the exact formatted `Supplementary_tables.xlsx` with `Index` and
-  `Table S1-S23`, together with a deterministic 24-file CSV mirror for GitHub
-  preview and programmatic reuse.
-- Retained the 1.2.0-r3 benchmark and historical S1-S24 machine-audit layer;
-  this snapshot changes submission organization and visual presentation, not
-  benchmark rows, predictions, or numerical results.
+  `Table S1-S23` as the sole public supplementary-table artifact.
+- Removed the historical S1-S24 export directory, the worksheet CSV mirror,
+  the earlier consolidated workbook, and the stale path-based audit report to
+  prevent obsolete table numbering from being confused with V4.
+- Removed the redundant versioned submission-audit directory. Its record and
+  measurement tables are covered by Table S22; the nonredundant continuous
+  training-neighbor audit is retained with the Figure 4 source data.
+- Corrected the public Figure 2c-f order to match V4 and normalized the plotting
+  script and source filenames to c=CI-width ratio, d=Spearman, e=fold agreement,
+  and f=signed error.
+- Retained the 1.2.0-r3 benchmark rows, predictions, and numerical results;
+  these changes clean the public presentation and correct panel identity only.
 
 ### Manuscript figure revision 1.2.0-r5 - 2026-08-14
 
