@@ -27,6 +27,7 @@ env/
 logs/
 release/
 analysis_results/
+/reports/
 *.log
 slurm-*.out
 
@@ -57,8 +58,6 @@ slurm-*.out
 # Local Chinese reports and chronological notes
 /docs/daily_report_pmak_kinform_kcatnet_2026-06-18.md
 /docs/kcat_benchmark_work_log.md
-/reports/kcat_benchmark_analysis_report.md
-/reports/kcat_benchmark_dataset_and_method_context.md
 
 # Public paper artifacts are allowlisted below; author drafts, archived
 # manuscripts, review notes, and editor-generated metadata remain local.

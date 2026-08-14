@@ -1,6 +1,0 @@
-criterion,rows,fraction
-exact_sequence_reactant_smiles_overlap,3,0.003067484662576687
-exact_uniprot_reactant_smiles_overlap,3,0.003067484662576687
-same_uniprot_substrate_component_overlap,24,0.024539877300613498
-uniprot_overlap,438,0.44785276073619634
-ec_overlap,907,0.9274028629856851

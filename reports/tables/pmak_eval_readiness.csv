@@ -1,4 +1,0 @@
-group,rows,reaction_complete_rows,reaction_incomplete_rows,unique_complete_reactions,unique_complete_reaction_smiles,unique_sequences_complete
-all,1246,1047,199,640,424,459
-ecoli,781,734,47,510,323,333
-yeast,465,313,152,130,119,126

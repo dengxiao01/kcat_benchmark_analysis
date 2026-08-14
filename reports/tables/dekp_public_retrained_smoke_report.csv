@@ -1,2 +1,0 @@
-public_rows_raw,public_rows_after_clean,public_exact_pair_overlap_rows,public_rows_used,train_rows_after_split,valid_rows,benchmark_rows_predicted,failed_graph_uniprots,best_epoch,best_valid_rmse,best_valid_mae,best_valid_pearson,feature_mode,excluded_exact_benchmark_pairs
-13401,13401,0,120,108,12,20,0,1,0.7201740145683289,0.5485501885414124,0.23664250813890378,trfm+sequence_cnn+structure_graph,True

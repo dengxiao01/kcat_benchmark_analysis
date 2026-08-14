@@ -1,4 +1,0 @@
-group,rows,unique_sequences,unique_smiles,unique_substrates,brenda_rows,sabiork_rows,brenda_sabiork_rows
-all,1246,514,288,352,683,468,95
-ecoli,781,350,238,238,431,271,79
-yeast,465,164,116,116,252,197,16

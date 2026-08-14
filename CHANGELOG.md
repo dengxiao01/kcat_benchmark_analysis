@@ -29,6 +29,11 @@
   directory documentation, final figures, and figure-source packages. Moved
   reusable audit and validation programs to `scripts/`, and removed generated
   statistics/audit outputs already represented in the workbook.
+- Removed generated `reports/` tables and figures from Git tracking; the
+  existing Zenodo core bundle retains the release-matched report snapshot.
+- Replaced the root README with a user workflow covering Conda installation,
+  Zenodo asset restoration, benchmark inputs, method execution, publication
+  validation, evaluation, and citation.
 
 ### Manuscript figure revision 1.2.0-r5 - 2026-08-14
 

@@ -1,4 +1,0 @@
-file,purpose,model_input_recommendation
-experimental_kcat_truth.csv,Experimental kcat truth table covering all matched BRENDA/SABIO-RK model records.,Do not use directly as model input; sequence/SMILES readiness is not guaranteed.
-benchmark_ready_truth.csv,Truth-only 978-row benchmark-ready subset used for evaluation.,Do not feed to prediction models because it intentionally omits model input fields.
-benchmark_ready_catpred.csv,Unified 978-row sequence+SMILES benchmark master table with truth and metadata.,"Use as the benchmark mother table, then extract method-specific input columns without truth leakage."

@@ -1,6 +1,0 @@
-uniprot_id,status,url,bytes,error
-P00331,downloaded,https://alphafold.ebi.ac.uk/files/AF-P00331-F1-model_v6.pdb,215540,
-P00358,downloaded,https://alphafold.ebi.ac.uk/files/AF-P00358-F1-model_v6.pdb,210356,
-P00360,downloaded,https://alphafold.ebi.ac.uk/files/AF-P00360-F1-model_v6.pdb,209951,
-P00562,downloaded,https://alphafold.ebi.ac.uk/files/AF-P00562-F1-model_v6.pdb,516455,
-P00724,downloaded,https://alphafold.ebi.ac.uk/files/AF-P00724-F1-model_v6.pdb,355265,

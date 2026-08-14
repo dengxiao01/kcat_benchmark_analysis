@@ -1,297 +1,44 @@
 # kcat Benchmark Analysis
 
-A reproducible benchmark of published kcat prediction methods on experimentally
-supported enzyme-substrate records from *Escherichia coli* and *Saccharomyces
-cerevisiae*. The project standardizes experimental truth, protein sequences,
-substrate SMILES, method-specific inputs and outputs, and evaluation metrics on
-the log10(kcat) scale.
+Benchmark data, evaluation code, supplementary tables, and figures for 12
+published kcat prediction methods on *Escherichia coli* and *Saccharomyces
+cerevisiae* enzyme-reaction-metabolite records.
 
-**Current release:** benchmark `v1.2.0`, released `2026-08-09`; source-data
-freeze `2026-07-17`; data artifact revision `1.2.0-r3`; current manuscript
-presentation `0814/V4`, dated `2026-08-14`; table schema `1.2`.
-The canonical resource contains 1,246 rows. Versioned release metadata are in
-`configs/benchmark_release.json`, and human-readable changes are in
-`CHANGELOG.md`.
+| Release item | Value |
+| --- | --- |
+| Version | `v1.2.0` |
+| Data revision | `1.2.0-r3` |
+| Manuscript snapshot | `0814/V4` |
+| Benchmark size | 1,246 records |
+| Data freeze | 2026-07-17 |
 
 <!-- ZENODO_START -->
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21859994.svg)](https://doi.org/10.5281/zenodo.21859994)
 
-**Large assets:** [Zenodo record 21859994](https://zenodo.org/records/21859994) (version DOI: `10.5281/zenodo.21859994`). File checksums and restore paths are in `zenodo_assets_manifest.csv`.
-All releases are linked by the concept DOI [`10.5281/zenodo.21024683`](https://doi.org/10.5281/zenodo.21024683).
+- Version DOI: [`10.5281/zenodo.21859994`](https://doi.org/10.5281/zenodo.21859994)
+- Concept DOI: [`10.5281/zenodo.21024683`](https://doi.org/10.5281/zenodo.21024683)
+- Asset manifest: [`zenodo_assets_manifest.csv`](zenodo_assets_manifest.csv)
 <!-- ZENODO_END -->
 
-## Benchmark summary
+## Quick Start
 
-| Item | Value |
-| --- | ---: |
-| Positive experimental matches before sequence/structure filtering | 1,354 rows |
-| Complete-resource sequence + substrate SMILES benchmark | 1,246 rows |
-| BRENDA substrate-supported sensitivity set | 778 rows |
-| SABIO-RK-only participant-ambiguous records | 468 rows |
-| *E. coli* | 781 rows, 549 reactions, 350 genes |
-| *S. cerevisiae* | 465 rows, 224 reactions, 168 genes |
-| Unique model reactions / UniProt accessions / EC strings | 773 / 518 / 390 |
-| Evaluated methods | 12 |
-
-The benchmark retains all model-encoded reactants before experimental matching.
-Candidate generation, experimental substrate support, and post hoc chemical-role
-annotation are separate fields. BRENDA provides a substrate-specific field;
-SABIO-RK-only cached records identify reaction participants but do not establish
-which participant was varied in the assay.
-
-Matching support consists of 459 species + EC + UniProt + substrate-ID rows,
-784 species + EC + substrate-ID rows, and three normalized-name rows. There are
-871 unique standardized sequence-substrate pairs and 840 label-assignment
-clusters; 480 rows inherit a weaker-evidence label shared across multiple
-sequences. Benchmark rows must therefore not be interpreted as independent
-experiments. These fields are retained in the submission-formatted
-Supplementary Table S22.
-
-Chemical roles are assigned after experimental matching with the versioned
-registry in `configs/currency_cofactor_registry.csv`. It combines normalized
-names, external database identifiers, and standardized parent connectivity and
-does not rely on yeast-GEM `s_XXXX` identifiers. Across the complete resource,
-606 rows are currency/cofactor, 34 carrier-linked variable, and 606 other
-reactants. Role analyses in Figure 4 are restricted to the 778
-substrate-supported rows.
-
-Methods are grouped by inference-time information and implementation status:
-
-| Comparison group | Methods | Evaluation scope |
-| --- | --- | --- |
-| Released sequence + substrate checkpoint | DLKcat, UniKP, CataPro, KcatNet, SELFprot | 1,246 of 1,246 rows |
-| Temperature-conditioned public reconstruction | PreTKcat | 1,246 rows; exact-overlap-excluded primary model |
-| Reaction-aware checkpoint | TurNuP, PMAK | 1,047 rows with complete reactant and product structures |
-| Method-specific checkpoint subset | CatPred, KinForm-L | 1,156 and 729 rows |
-| Structure-aware public reconstruction | DEKP | 1,246 rows; 1,246 valid structures |
-| GO functional assignment | GO-HKP | 1,236 rows |
-
-Figure 3a is the strict 1,047-record reaction-common comparison. Figure 3b
-contains the CatPred- and KinForm-L-scope available-case summaries and prints
-the achieved `n` for every method. Figure 3c uses the same strict 1,047-record
-set for paired row-bootstrap differences. Methods with different inputs or row
-coverage must not be pooled into one leaderboard.
-
-## Canonical benchmark files
-
-| File | Purpose | Use as model input? |
-| --- | --- | --- |
-| `data/final/experimental_kcat_truth.csv` | 1,354 positive experimental matches linked to model-derived enzyme-reactant rows | No; sequence and SMILES completeness is not guaranteed |
-| `data/final/benchmark_ready_truth.csv` | 1,246-row truth and provenance table | No; it intentionally excludes predictor-only fields |
-| `data/final/benchmark_ready_catpred.csv` | 1,246-row master table with sequence, SMILES, truth, and provenance | Yes, after extracting only fields required by the method |
-
-The `catpred` suffix in the master filename is historical: CatPred was the first
-method integrated. The file is method independent. All 1,246 SMILES are
-RDKit-parseable, including Quinate mapped to neutral PubChem CID 6508.
-
-### 0814/V4 supplementary workbook
-
-`paper/Supplementary_tables.xlsx` is the current submission-formatted workbook.
-It contains an `Index` sheet followed by `Table S1` through `Table S23` in their
-order of first use in the V4 manuscript. Table S4 is the 1,246-row wide
-benchmark/prediction matrix, Table S22 is the 1,246-row record-level audit, and
-Table S23 is the 14,952-row method-record table with inputs, prediction status,
-outputs, and errors. The formatted Excel workbook is the sole public
-supplementary-table artifact; the former historical S1-S24 export directory and
-the sheet-by-sheet CSV mirror were removed to prevent parallel table numbering
-from being mistaken for the V4 submission.
-
-### Supplementary Data Table 0
-
-`Table S23` in `paper/Supplementary_tables.xlsx` is the primary method-record
-table. It contains 14,952 rows (12 methods x 1,246 benchmark records), including
-explicit unscored combinations. Important fields include:
-
-- `method`, `inference_regime`, and `prediction_status`;
-- `benchmark_sequence`, `method_sequence_input`, and `sequence_input_policy`;
-- source-model forward reaction equations and whether complete reaction context
-  is a direct method input;
-- evaluated metabolite ID, name, SMILES, stoichiometry, chemical role, and
-  experimental substrate-support status;
-- experimental and predicted kcat in linear and log10 space.
-
-`Table S4` is the companion 1,246-row wide prediction matrix. `Table S22`
-contains 1,246 rows and 132 provenance, dependence, measurement, mapping, role,
-direction, and training-proximity fields. The only separate record-level audit
-file retained is
-`paper/figure_sources_0814/Figure4/data/training_proximity_record_audit.csv`,
-because it adds continuous sequence-identity and chemical-similarity values
-that are not stored in the formatted workbook.
-
-Method adapters create three logically separate files:
-
-- `*_input.csv` contains fields visible to the predictor;
-- `*_metadata.csv` stores identifiers, reactions, provenance, and status;
-- `*_truth.csv` is joined only after inference for scoring.
-
-This separation prevents experimental labels from entering predictor input.
-
-## Data acquisition and benchmark construction
-
-### 1. Candidate enzyme-reaction-substrate entries
-
-The candidate universe is defined from two genome-scale metabolic models:
-
-- `eciML1515.json` for *E. coli* (`iML1515`, model version 1).
-- `yeast-GEM.xml` for *S. cerevisiae* (`yeastGEM_v9.0.2`).
-
-The exact model-file SHA256 checksums are stored in
-`configs/benchmark_release.json`. They identify the local model snapshots used
-to generate candidate records.
-
-The same release file records the BRENDA archive and parsed-table checksums, the
-SABIO-RK API/query template and cache checksums, and the local CKB compound
-repository commit/database checksum. CKB is an internal snapshot for which no
-public release was identified; it is documented for provenance and is not
-presented as independently downloadable public input. Supplementary Table S22
-materializes each released row's model metabolite identifiers, final SMILES,
-mapping source, and source identifier, so users can reconstruct the 1,246-row
-benchmark evaluation without CKB. It does not reproduce mapping for the full
-pre-benchmark candidate universe.
-
-`src/01_parse_models.py` parses reaction direction, GPR rules, EC numbers,
-UniProt identifiers, metabolites, and database cross-references. In a GPR rule,
-`or` branches are treated as alternative isozymes, while `and` branches are
-retained as multi-subunit enzyme complexes. Candidate rows are generated at the
-species + reaction + gene group + substrate level.
-
-Every model-encoded reactant is retained before experimental substrate
-matching. ATP, NAD(P), water, protons, CoA-linked compounds, and other currency
-participants are not removed by model ID. Experimental records select the
-evaluated metabolite where substrate-specific evidence exists; chemical role is
-annotated only after matching. Reaction side and stoichiometry are retained for
-audit but are not treated as proof of the assay-variable substrate.
-
-### 2. Protein sequences
-
-UniProt accessions from the metabolic models are resolved with the UniProt REST
-API. Results are cached in:
-
-- `data/raw/uniprot_sequences.fasta`
-- `data/interim/uniprot_sequences.csv`
-
-Use `src/05_fetch_uniprot_sequences.py` or
-`scripts/runners/run_sequence_fetch.sh`. Cached records are reused on later
-runs.
-
-### 3. Substrate structures
-
-SMILES resolution follows a staged strategy:
-
-1. Reuse structure annotations already present in the metabolic model.
-2. Resolve BiGG, KEGG, ChEBI, and MetaNetX cross-references through the local CKB
-   compound database.
-3. Query PubChem PUG REST for unresolved names or registry identifiers.
-4. Cache successful mappings and explicit failure reasons.
-
-`src/06_fetch_metanetx_smiles.py` handles local cross-reference enrichment.
-`src/07_fetch_pubchem_smiles.py` performs CKB and PubChem resolution. For an
-offline-only pass, use:
-
-```bash
-python src/07_fetch_pubchem_smiles.py --ckb-only
-```
-
-The mapper rejects pure numeric values before they can be treated as SMILES.
-Benchmark v1.2.0 uses the neutral PubChem CID 6508 Quinate structure (`C7H12O6`)
-and rejects numeric pseudo-SMILES before generating method inputs.
-
-For a small network test before a full query:
-
-```bash
-python src/07_fetch_pubchem_smiles.py --limit 20 --save-every 10
-```
-
-### 4. Reaction SMILES and protein structures
-
-Complete reactant and product SMILES are prepared only for reaction-aware
-methods such as TurNuP and PMAK. They are not required for entry into the common
-sequence + substrate SMILES benchmark.
-
-Protein structures are collected only for structure-aware workflows such as the
-public-data DEKP retraining. AlphaFold files and local structure archives are
-method-specific assets, not universal benchmark requirements.
-
-### 5. Experimental kcat truth
-
-Primary truth comes only from:
-
-- BRENDA turnover-number records (local release 2026.1).
-- SABIO-RK kcat records (cached snapshot frozen on 2026-07-17).
-
-Values must be positive and are normalized to `s^-1`. BRENDA records marked as
-mutants, variants, or mutations are excluded by default. Numeric ranges are
-converted to their midpoint before aggregation.
-
-The matching hierarchy is:
-
-1. species + EC + UniProt + substrate database ID
-2. species + EC + substrate database ID
-3. species + EC + UniProt + normalized substrate name
-4. species + EC + normalized substrate name
-
-Only the highest available matching level is retained for an entry. Multiple
-measurements at that level are aggregated by the median on the original kcat
-scale, followed by log10 transformation. Median pH and temperature are retained
-when available, together with source database, reference, and measurement count.
-
-Use `src/08_fetch_sabiork_kcat.py` for SABIO-RK and
-`src/10_parse_brenda_kcat.py` for BRENDA. After structures change, rebuild
-truth from already parsed local records without reparsing the BRENDA archive:
-
-```bash
-python src/10_parse_brenda_kcat.py --match-only
-python src/11_finalize_benchmark_data.py
-```
-
-Raw database exports are not stored in Git and must be obtained under their
-source licenses.
-
-### 6. Final benchmark filter
-
-`src/11_finalize_benchmark_data.py` creates the final products:
-
-- 1,354 positive experimental matches linked to model candidates;
-- 1,246 rows with one protein sequence and an RDKit-parseable substrate SMILES;
-- method-ready tables derived from the 1,246-row master table.
-
-The complete 1,246-row resource is primary for coverage and traceability. The
-778-row BRENDA substrate-supported set is the formal sensitivity analysis; the
-468 SABIO-RK-only participant-ambiguous rows are not claimed to have a verified
-assay-variable substrate.
-
-## Release metadata and reconstruction policies
-
-Release identity is recorded in three places:
-
-- `VERSION`: short semantic version (`1.2.0`);
-- `configs/benchmark_release.json`: dates, row counts, SHA256 values, source
-  snapshots, method policies, and statistical settings;
-- `CHANGELOG.md`: human-readable history.
-
-PreTKcat is reported as a public reconstruction with three policies in S24:
-raw-public fits 16,249 rows; the primary exact-excluded model removes 248 rows
-and fits 16,001; near-excluded removes 756 rows in total and fits 15,493. DEKP
-removes 230 exact-overlap training rows and fits 13,171 public rows. Exact pair
-identity uses model sequence plus uncharged largest-fragment connectivity;
-near exclusion additionally requires one training row to meet sequence identity,
-bidirectional coverage, and chemical-similarity thresholds. Original SMILES
-remain method features; standardized parent identity is used for audit and
-exclusion.
-
-## Installation and assets
-
-For table and report regeneration:
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/dxg-9527/kcat_benchmark_analysis.git
 cd kcat_benchmark_analysis
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
 ```
 
-List and restore supported Zenodo bundles:
+### 2. Install the benchmark environment
+
+```bash
+conda create -n kcat-benchmark python=3.11 -y
+conda activate kcat-benchmark
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+```
+
+### 3. Restore the released assets
 
 ```bash
 python scripts/download_zenodo_assets.py --list
@@ -300,210 +47,215 @@ python scripts/download_zenodo_assets.py \
   --restore
 ```
 
-Third-party source locations, evaluated revisions, and upstream licenses are
-listed in `external_methods/METHOD_SOURCES.md`. Deep-learning methods use
-different Python, PyTorch, CUDA, and foundation-model versions. Activate the
-method's upstream environment before running its predictor; do not force every
-method into one environment.
-
-## Script usage
-
-Run commands from the repository root. Scripts with an argument parser expose
-full options through:
+### 4. Validate the publication files
 
 ```bash
-python path/to/script.py -h
-```
-
-### Benchmark construction scripts
-
-| Script | Purpose | Typical command |
-| --- | --- | --- |
-| `src/01_parse_models.py` | Parse GEM reactions, GPRs, ECs, UniProt IDs, and substrates | `python src/01_parse_models.py` |
-| `src/02_prepare_method_inputs.py` | Build baseline sequence/SMILES input queues | `python src/02_prepare_method_inputs.py` |
-| `src/03_match_experimental_kcat.py` | Maintain the experimental-truth schema and source-status table | `python src/03_match_experimental_kcat.py` |
-| `src/04_build_curation_queues.py` | Build unresolved sequence, SMILES, and truth review queues | `python src/04_build_curation_queues.py` |
-| `src/05_fetch_uniprot_sequences.py` | Fetch and cache UniProt sequences | `python src/05_fetch_uniprot_sequences.py` |
-| `src/06_fetch_metanetx_smiles.py` | Resolve structures from local cross-references | `python src/06_fetch_metanetx_smiles.py` |
-| `src/07_fetch_pubchem_smiles.py` | Resolve missing structures with CKB and PubChem | `python src/07_fetch_pubchem_smiles.py --limit 20` |
-| `src/08_fetch_sabiork_kcat.py` | Query/cache SABIO-RK and match kcat records | `python src/08_fetch_sabiork_kcat.py --only-ready` |
-| `src/10_parse_brenda_kcat.py` | Parse BRENDA or rematch cached records after mapping changes | `python src/10_parse_brenda_kcat.py --match-only` |
-| `src/11_finalize_benchmark_data.py` | Build the canonical truth and benchmark files | `python src/11_finalize_benchmark_data.py` |
-| `src/12_finalize_substrate_roles.py` | Apply the auditable chemical-role registry and role evidence | `python src/12_finalize_substrate_roles.py` |
-
-Convenience runners for this stage:
-
-```bash
-bash scripts/runners/run_phase1.sh
-bash scripts/runners/run_sequence_fetch.sh
-bash scripts/runners/run_smiles_fetch.sh
-bash scripts/runners/run_sabiork_fetch.sh --only-ready
-bash scripts/runners/run_brenda_parse.sh
-bash scripts/runners/run_finalize_benchmark_data.sh
-```
-
-### Method workflows
-
-| Method | Preparation, inference, and scoring scripts | Convenience entry point |
-| --- | --- | --- |
-| CatPred | `src/12_prepare_catpred_eval.py`, `src/13_evaluate_catpred_predictions.py`; upstream inference is wrapped by the runner | `bash scripts/runners/run_catpred_predict.sh` or `sbatch scripts/runners/run_catpred_full.sbatch` |
-| CataPro | `src/14_prepare_catapro_eval.py`, `src/16_filter_catapro_valid_smiles.py`, `src/15_evaluate_catapro_predictions.py` | `sbatch scripts/runners/run_catapro_full.sbatch` |
-| PMAK | `src/18_prepare_pmak_eval.py`, `src/19_run_pmak_predictions.py`, `src/20_evaluate_pmak_predictions.py` | `sbatch scripts/runners/run_pmak_full.sbatch` |
-| KinForm-L | `src/21_prepare_kinform_eval.py`, `src/22_check_kinform_coverage.py`, `src/23_evaluate_kinform_predictions.py` | `sbatch scripts/runners/run_kinform_full.sbatch` |
-| KcatNet | `src/24_prepare_kcatnet_eval.py`, `src/25_run_kcatnet_predictions.py`, `src/26_evaluate_kcatnet_predictions.py` | `sbatch scripts/runners/run_kcatnet_full.sbatch` |
-| PreTKcat | `src/27_prepare_pretkcat_eval.py`, `src/28_run_pretkcat_predictions.py`, `src/29_evaluate_pretkcat_predictions.py` | `sbatch scripts/runners/run_pretkcat_full.sbatch` |
-| DEKP-public-retrained | `src/30_prepare_dekp_eval.py`, `src/31_download_dekp_missing_structures.py`, `src/32_collect_dekp_structures.py`, `src/33_run_dekp_public_retrained.py`, `src/34_evaluate_dekp_predictions.py` | `sbatch scripts/runners/run_dekp_public_retrained.sbatch` |
-| SELFprot | `src/35_prepare_selfprot_eval.py`, `src/36_run_selfprot_predictions.py`, `src/37_evaluate_selfprot_predictions.py` | `sbatch scripts/runners/run_selfprot_predictions.sbatch` |
-| DLKcat | `src/38_run_dlkcat_official.py` followed by `src/41_evaluate_method_predictions.py` | Run the two Python scripts in the DLKcat environment |
-| UniKP | `src/39_run_unikp_official_features.py`, `src/40_predict_unikp_official_py36.py`, then `src/41_evaluate_method_predictions.py` | Run feature extraction and prediction in their required environments |
-| TurNuP | `src/43_prepare_turnup_eval.py`, `src/45_run_turnup_predictions.py`, then `src/41_evaluate_method_predictions.py` | `bash scripts/runners/run_prepare_turnup_eval.sh`, then `sbatch scripts/runners/run_turnup_full.sbatch` |
-| GO-HKP | `src/49_prepare_go_hkp_with_yeast_uniprot_go.py`, then `src/52_evaluate_go_hkp_predictions.py` | Run both Python scripts for combined *E. coli* and yeast coverage |
-
-Most method runners accept environment variables for paths, devices, and Python
-interpreters. Examples include `CATAPRO_PYTHON`, `PMAK_PYTHON`,
-`KINFORM_PYTHON`, `KCATNET_PYTHON`, `PRETKCAT_PYTHON`,
-`TURNUP_PYTHON`, `DEKP_PYTHON`, and `SELFPROT_PYTHON`.
-
-Shell runners locate the repository relative to their own path. Slurm runners
-use `SLURM_SUBMIT_DIR` by default; set `KCAT_BENCHMARK_ROOT` when
-submitting from another directory. Create `logs/` before `sbatch` because
-Slurm resolves output paths at submission time.
-
-### Shared evaluation and output scripts
-
-| Script | Purpose | Command |
-| --- | --- | --- |
-| `src/17_build_method_eval_summary.py` | Combine the current 12 method metric files | `python src/17_build_method_eval_summary.py` |
-| `src/41_evaluate_method_predictions.py` | Generic row alignment, missing-reason reporting, and metric calculation | `python src/41_evaluate_method_predictions.py -h` |
-| `src/46_generate_benchmark_report.py` | Rebuild comparison tables, figures, and a local Markdown report | `python src/46_generate_benchmark_report.py` |
-| `src/47_generate_dataset_method_context_report.py` | Rebuild dataset context, GO/KEGG tables, figures, and a local Markdown report | `python src/47_generate_dataset_method_context_report.py` |
-| `src/50_export_report_tables.py` | Rebuild the standalone table export directory and manifest | `python src/50_export_report_tables.py` |
-| `src/51_rebuild_catpred_overlap_audit.py` | Rebuild CatPred reference-corpus overlap levels | `python src/51_rebuild_catpred_overlap_audit.py` |
-| `src/52_evaluate_go_hkp_predictions.py` | Rebuild GO-HKP row-level output, metrics, and missing summary | `python src/52_evaluate_go_hkp_predictions.py` |
-
-The local Markdown reports and chronological work notes are intentionally not
-tracked in Git. Public tables and figures are stored under `reports/tables/`,
-`reports/report_tables/`, and `reports/figures/`.
-
-To rebuild the public summaries after method predictions are available:
-
-```bash
-python src/17_build_method_eval_summary.py
-python src/46_generate_benchmark_report.py
-python src/47_generate_dataset_method_context_report.py
-python src/50_export_report_tables.py
-```
-
-### Publication tables, figures, and audit
-
-The current submission-formatted layer is the author-approved 0814/V4
-snapshot. It contains the formatted `Index + Table S1-S23` workbook, four final
-composite figures, 20 panel PNGs, complete captions, and the expanded plotting
-packages:
-
-```bash
-# Validate the frozen 0814/V4 images and workbook against their manifest.
 python scripts/generate_manuscript_figures.py
+```
 
-# Recalculate all code-backed panels outside the repository.
+Expected output:
+
+```text
+0814/V4 snapshot OK: 4 composites, 20 panels, 25 checks
+```
+
+### 5. Rebuild the code-backed figure panels
+
+```bash
 python scripts/generate_manuscript_figures.py \
   --rebuild-code-panels /tmp/kcat_0814_rebuild
 ```
 
-The exact workbook is `paper/Supplementary_tables.xlsx`. The final images are
-under `paper/figures/`, full captions are in `paper/FIGURE_CAPTIONS.md`, and
-plotting code plus compact inputs are under `paper/figure_sources_0814/`. The
-manuscript DOCX, original ZIP containers, historical table exports, and
-sheet-by-sheet CSV duplicates are not needed to inspect or rerun the public
-materials.
+## Benchmark Files
 
-`scripts/build_submission_audits.py` can recreate local numerical audit staging
-tables, including the 132-field record audit:
-matching and shared-label dependence, substrate-support and role sensitivities,
-five cluster-bootstrap definitions, cluster-level paired tests, standardized
-training proximity, experimental dispersion, mutation-screen stages, model
-direction/reversibility, and the three PreTKcat reconstruction policies.
+| File | Rows | Content |
+| --- | ---: | --- |
+| `data/final/experimental_kcat_truth.csv` | 1,354 | Positive experimental matches before sequence and structure filtering |
+| `data/final/benchmark_ready_truth.csv` | 1,246 | Experimental truth and provenance |
+| `data/final/benchmark_ready_catpred.csv` | 1,246 | Master sequence, substrate SMILES, truth, and provenance table |
+| `paper/Supplementary_tables.xlsx` | 24 sheets | `Index` and `Table S1` through `Table S23` |
 
-These generated staging tables are intentionally not tracked. The public
-0814/V4 layer is checked against the formatted workbook, exact composite-image
-hashes, panel hashes and dimensions, and clean-directory reruns of all four
-plotting packages. Submission-specific DOCX pagination remains part of the
-journal workflow rather than the public
-code release.
+Use `data/final/benchmark_ready_catpred.csv` to prepare model inputs. Select
+only the columns required by the evaluated method.
 
-### Release and Zenodo utilities
+### Supplementary workbook
 
-| Script | Purpose | Example |
-| --- | --- | --- |
-| `scripts/download_zenodo_assets.py` | List, download, verify, join, and restore public bundles | `python scripts/download_zenodo_assets.py --list` |
-| `scripts/prepare_zenodo_release.py` | Build whitelisted public result/model bundles and checksums | `python scripts/prepare_zenodo_release.py --force` |
-| `scripts/publish_zenodo_release.py` | Upload a prepared release using the local ignored token file | `python scripts/publish_zenodo_release.py --publish` |
+| Sheet | Content |
+| --- | --- |
+| `Table S4` | 1,246-row wide benchmark and prediction matrix |
+| `Table S22` | 1,246-row provenance, matching, dependence, measurement, role, direction, and overlap audit |
+| `Table S23` | 14,952 method-record rows with method inputs, prediction status, outputs, and errors |
 
-## Evaluation metrics
+Full figure captions are available in `paper/FIGURE_CAPTIONS.md`. Final figures
+are stored in `paper/figures/`. Plotting code and source data are stored in
+`paper/figure_sources_0814/`.
 
-All primary metrics are computed on log10(kcat):
+## Benchmark Composition
 
-- MAE: average absolute error. MAE = 1 means an average error of roughly one
-  order of magnitude.
-- RMSE: gives more weight to large errors.
-- Pearson correlation: linear agreement.
-- Spearman correlation: rank agreement.
-- Bias: systematic overprediction or underprediction.
-- Within-10-fold fraction: fraction with absolute log10 error <= 1.
-- Coverage: number of scored rows divided by 1,246.
+| Item | Count |
+| --- | ---: |
+| Complete sequence and substrate-SMILES records | 1,246 |
+| BRENDA substrate-supported records | 778 |
+| SABIO-RK-only participant-ambiguous records | 468 |
+| *E. coli* records | 781 |
+| *S. cerevisiae* records | 465 |
+| Model reactions | 773 |
+| UniProt accessions | 518 |
+| EC strings | 390 |
+| Standardized sequence-substrate pairs | 871 |
+| Label-assignment clusters | 840 |
 
-Always report coverage next to accuracy. A lower error on a restricted subset is
-not automatically better than a slightly higher error on the near-full
-benchmark.
+All 1,246 substrate SMILES pass RDKit parsing. Quinate uses the neutral PubChem
+CID 6508 structure.
 
-## Repository layout
+Experimental kcat values are reported in `s^-1`. Primary evaluation metrics use
+`log10(kcat)`.
 
-```text
-configs/             Species and matching rules
-data/final/          Three Git-tracked benchmark CSVs; method outputs are local
-external_methods/    Only METHOD_SOURCES.md is tracked; source trees are local
-reports/tables/      Public machine-readable summaries
-reports/report_tables/ Standalone tables grouped by report purpose
-reports/figures/     Public benchmark and dataset figures
-paper/               Versioned manuscript tables, figures, builders, and audit
-scripts/runners/     Local shell and Slurm entry points
-scripts/             Zenodo preparation, publishing, and download utilities
-src/                 Benchmark construction, method adapters, and evaluation
-release/             Local ignored Zenodo staging
-logs/                Local ignored scheduler and run logs
+## Evaluated Methods
+
+| Scope | Methods | Scored records |
+| --- | --- | ---: |
+| Sequence and substrate checkpoint | DLKcat, UniKP, CataPro, KcatNet, SELFprot | 1,246 each |
+| Public reconstruction | PreTKcat | 1,246 |
+| Reaction-aware checkpoint | TurNuP, PMAK | 1,047 each |
+| Method-specific checkpoint subset | CatPred | 1,156 |
+| Method-specific checkpoint subset | KinForm-L | 729 |
+| Structure-aware public reconstruction | DEKP | 1,246 |
+| GO functional assignment | GO-HKP | 1,236 |
+
+PreTKcat uses the exact-pair-excluded reconstruction as its primary result.
+DEKP uses the public-data retrained model. Method sources, revisions, licenses,
+and checkpoints are listed in `external_methods/METHOD_SOURCES.md`.
+
+## Input and Output Convention
+
+Method adapters use three input layers:
+
+| Suffix | Content |
+| --- | --- |
+| `*_input.csv` | Predictor-visible features |
+| `*_metadata.csv` | Entry identifiers, reactions, provenance, and processing status |
+| `*_truth.csv` | Experimental labels used after inference |
+
+Evaluated outputs are stored as `data/final/<method>/*_predictions_evaluated.csv`
+after restoring the Zenodo core bundle or running the corresponding method.
+
+## Benchmark Construction
+
+Run commands from the repository root.
+
+```bash
+python src/01_parse_models.py
+python src/02_prepare_method_inputs.py
+python src/05_fetch_uniprot_sequences.py
+python src/06_fetch_metanetx_smiles.py
+python src/07_fetch_pubchem_smiles.py --ckb-only
+python src/08_fetch_sabiork_kcat.py --only-ready
+python src/10_parse_brenda_kcat.py --match-only
+python src/11_finalize_benchmark_data.py
+python src/12_finalize_substrate_roles.py
 ```
 
-Git stores code, configuration, the three canonical benchmark files, public
-figures, and compact result tables. Raw databases, intermediate caches,
-third-party repositories, model weights, structures, and large row-level method
-outputs are excluded from Git.
+### Data sources
 
-## Data and licensing notes
+| Source | Use |
+| --- | --- |
+| `eciML1515.json` | *E. coli* reactions, genes, EC assignments, and metabolites |
+| `yeast-GEM.xml` | Yeast9 reactions, genes, EC assignments, and metabolites |
+| UniProt | Protein sequences and identifiers |
+| BRENDA 2026.1 | Substrate-supported turnover numbers |
+| SABIO-RK | Cached kcat records |
+| MetaNetX, PubChem, ChEBI, KEGG, BiGG | Compound identifiers and structures |
 
-- BRENDA and SABIO-RK remain the primary experimental sources.
-- Raw databases must be obtained and used under their source licenses.
-- Early inferred or database-filled kcat values are not part of benchmark truth.
-- Training-set overlap can make performance optimistic. Publication analyses
-  should report sequence, SMILES, and pair overlap. The v1.2.0 primary PreTKcat and DEKP public-data reconstructions exclude
-  standardized benchmark pairs before fitting; PreTKcat raw and near-excluded
-  variants are reported separately in S24. S20 reports exact, joint-threshold-neighbor, and
-  `no_joint_neighbor_under_thresholds` counts and performance where record-level
-  corpora are available. The last class only means that no single training
-  record meets both sequence identity >=80% and chemical similarity >=0.80;
-  separate sequence-only or chemical-only overlap may remain. Unavailable
-  corpora are marked `unknown`, not zero.
-- The original project code is released under the MIT License in `LICENSE`.
-- Third-party source code, checkpoints, foundation models, and database-derived
-  content retain their upstream licenses and terms. Inclusion in a Zenodo
-  manifest or archive does not relicense those materials. See
-  `THIRD_PARTY_NOTICES.md` and `external_methods/METHOD_SOURCES.md`.
+Source checksums, release dates, query settings, and matching policies are in
+`configs/benchmark_release.json`.
+
+### Experimental matching hierarchy
+
+1. Species + EC + UniProt + substrate database identifier
+2. Species + EC + substrate database identifier
+3. Species + EC + UniProt + normalized substrate name
+4. Species + EC + normalized substrate name
+
+Positive measurements at the highest available level are aggregated by the
+median on the original kcat scale and then transformed to `log10(kcat)`.
+
+## Method Workflows
+
+| Method | Main entry point |
+| --- | --- |
+| CatPred | `bash scripts/runners/run_catpred_predict.sh` |
+| CataPro | `sbatch scripts/runners/run_catapro_full.sbatch` |
+| PMAK | `sbatch scripts/runners/run_pmak_full.sbatch` |
+| KinForm-L | `sbatch scripts/runners/run_kinform_full.sbatch` |
+| KcatNet | `sbatch scripts/runners/run_kcatnet_full.sbatch` |
+| PreTKcat | `sbatch scripts/runners/run_pretkcat_full.sbatch` |
+| DEKP | `sbatch scripts/runners/run_dekp_public_retrained.sbatch` |
+| SELFprot | `sbatch scripts/runners/run_selfprot_predictions.sbatch` |
+| TurNuP | `sbatch scripts/runners/run_turnup_full.sbatch` |
+
+DLKcat, UniKP, and GO-HKP use their corresponding scripts under `src/`.
+Deep-learning predictors require the upstream environments listed in
+`external_methods/METHOD_SOURCES.md`.
+
+## Evaluation and Audit
+
+```bash
+python src/17_build_method_eval_summary.py
+python src/41_evaluate_method_predictions.py -h
+python scripts/build_submission_audits.py
+python scripts/rebuild_paper_tables.py
+python scripts/recalculate_cluster_inference_v1_2.py
+```
+
+Generated tables, figures, and Markdown reports are written under `reports/`
+and `analysis_results/`. Both directories are excluded from Git.
+
+### Metrics
+
+- MAE on `log10(kcat)`
+- RMSE on `log10(kcat)`
+- Pearson correlation
+- Spearman correlation
+- Mean signed error
+- Fraction within 2-fold and 10-fold
+- Prediction coverage
+
+Compare accuracy together with coverage and evaluation scope.
+
+## Repository Layout
+
+```text
+configs/             Release metadata and matching rules
+data/final/          Canonical benchmark files and restored method outputs
+external_methods/    Method source manifest and restored upstream projects
+paper/               Supplementary workbook, captions, figures, and figure sources
+scripts/             Audit, release, download, shell, and Slurm entry points
+src/                 Benchmark construction, method adapters, and evaluation code
+analysis_results/    Generated numerical audits
+reports/             Generated tables, figures, and local reports
+release/             Generated Zenodo staging files
+```
+
+## Licenses
+
+- Project code: MIT License
+- Raw BRENDA and SABIO-RK data: source terms apply
+- Third-party code and checkpoints: upstream licenses apply
+- Third-party notices: `THIRD_PARTY_NOTICES.md`
 
 ## Citation
 
-The all-versions repository DOI is
-[10.5281/zenodo.21024683](https://doi.org/10.5281/zenodo.21024683). Benchmark
-v1.2.0 is archived under the version DOI
-[10.5281/zenodo.21859994](https://doi.org/10.5281/zenodo.21859994).
-When using the benchmark, also cite the original prediction methods and the
-BRENDA, SABIO-RK, UniProt, PubChem, and metabolic-model resources used for the
-relevant analysis.
+Cite the benchmark version DOI:
+
+```text
+10.5281/zenodo.21859994
+```
+
+Use the concept DOI for the latest release:
+
+```text
+10.5281/zenodo.21024683
+```
+
+Citation metadata are available in `CITATION.cff`.

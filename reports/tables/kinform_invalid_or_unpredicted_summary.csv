@@ -1,5 +1,0 @@
-species,reason,rows
-ecoli,missing_sequence_lookup;missing_precomputed_features,175
-yeast,missing_precomputed_features,123
-ecoli,missing_precomputed_features,114
-yeast,missing_sequence_lookup;missing_precomputed_features,105

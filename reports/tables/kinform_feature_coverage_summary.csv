@@ -1,4 +1,0 @@
-group,rows,valid_smiles_rows,sequence_lookup_rows,precomputed_feature_rows,predictable_rows,missing_sequence_lookup_rows,missing_precomputed_feature_rows,unique_predictable_sequences
-all,1246,1246,966,729,729,280,237,302
-ecoli,781,781,606,492,492,175,114,206
-yeast,465,465,360,237,237,105,123,96

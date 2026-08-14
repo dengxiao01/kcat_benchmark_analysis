@@ -1,3 +1,0 @@
-species,entries,entries_with_sequence,entries_with_smiles,catpred_ready_rows,truth_rows,truth_with_smiles,truth_catpred_ready_rows,unresolved_substrates
-ecoli,8797,7608,8430,7341,836,835,781,164
-yeast,7816,7181,7080,6487,518,492,465,324
