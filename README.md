@@ -403,10 +403,10 @@ packages:
 
 ```bash
 # Validate the frozen 0814/V4 images and workbook against their manifest.
-python paper/generate_manuscript_figures.py
+python scripts/generate_manuscript_figures.py
 
 # Recalculate all code-backed panels outside the repository.
-python paper/generate_manuscript_figures.py \
+python scripts/generate_manuscript_figures.py \
   --rebuild-code-panels /tmp/kcat_0814_rebuild
 ```
 
@@ -417,7 +417,7 @@ manuscript DOCX, original ZIP containers, historical table exports, and
 sheet-by-sheet CSV duplicates are not needed to inspect or rerun the public
 materials.
 
-`paper/build_submission_audits.py` can recreate local numerical audit staging
+`scripts/build_submission_audits.py` can recreate local numerical audit staging
 tables, including the 132-field record audit:
 matching and shared-label dependence, substrate-support and role sensitivities,
 five cluster-bootstrap definitions, cluster-level paired tests, standardized

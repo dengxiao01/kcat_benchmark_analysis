@@ -3,7 +3,7 @@
 
 Run this script from an activated environment containing RDKit, SciPy, and pandas:
 
-    python paper/build_submission_audits.py
+    python scripts/build_submission_audits.py
 
 The analysis deliberately distinguishes a negative result from unavailable
 evidence.  Methods without released record-level training corpora are marked
@@ -38,7 +38,7 @@ TRUTH_PATH = BASE / "data" / "final" / "benchmark_ready_catpred.csv"
 CONTEXT_PATH = BASE / "reports" / "tables" / "benchmark_ready_catpred_enriched_context.csv"
 ENTRY_PATH = BASE / "data" / "interim" / "enzyme_reaction_entries_with_sequence_smiles.csv"
 MODEL_REACTION_PATH = BASE / "data" / "interim" / "model_reactions.csv"
-GENERATED_AUDIT_DIR = BASE / "paper" / "_generated_numeric_audit"
+GENERATED_AUDIT_DIR = BASE / "analysis_results" / "paper_submission_audit"
 TABLE_DIR = GENERATED_AUDIT_DIR / "tables"
 REPORT_TABLE_DIR = BASE / "reports" / "tables"
 DETAIL_DIR = GENERATED_AUDIT_DIR / "details"

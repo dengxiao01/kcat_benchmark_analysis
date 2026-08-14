@@ -20,7 +20,8 @@ from pathlib import Path
 from PIL import Image
 
 
-PAPER = Path(__file__).resolve().parent
+BASE = Path(__file__).resolve().parents[1]
+PAPER = BASE / "paper"
 FIGURES = PAPER / "figures"
 SOURCES = PAPER / "figure_sources_0814"
 MANIFEST = SOURCES / "figure_asset_manifest.csv"

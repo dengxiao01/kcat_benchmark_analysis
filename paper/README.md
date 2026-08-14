@@ -20,8 +20,9 @@ editor-generated metadata are intentionally not part of the public repository.
   interpretation boundaries from the V4 manuscript.
 - [`figure_sources_0814/`](figure_sources_0814/): expanded plotting code and
   compact input data from the four author-supplied 0814 figure packages.
-- [`generate_manuscript_figures.py`](generate_manuscript_figures.py): validates
-  exact hashes/dimensions and can rerun every data-backed plotting package.
+- [`../scripts/generate_manuscript_figures.py`](../scripts/generate_manuscript_figures.py):
+  validates exact hashes/dimensions and can rerun every data-backed plotting
+  package.
 
 The final composite images are authoritative for panel lettering and layout.
 Several source packages retained pre-assembly letter sequences or were
@@ -38,9 +39,6 @@ reordered during assembly; the final V4 mapping is documented in
 - `figure_sources_0814/Figure4/data/training_proximity_record_audit.csv`: the
   nonredundant record-level neighbor audit, including four continuous sequence
   and chemical similarity fields used to verify the proximity classes.
-- `paper_statistics_v1.2.0.json`: compact facts used by benchmark builders.
-- `independent_cluster_inference_v1.2.0-r3.csv`: independent reconstruction of
-  the 20 dependence-aware comparisons in the audit layer.
 
 The former `tables_v1.2.0/`, `supplementary_tables_0814/`,
 `submission_audit_details_v1.2.0/`, earlier consolidated workbook, and stale
@@ -54,10 +52,10 @@ Run from the repository root:
 
 ```bash
 # Validate the exact 0814/V4 workbook and figure snapshot.
-python paper/generate_manuscript_figures.py
+python scripts/generate_manuscript_figures.py
 
 # Rerun the four data-backed plotting packages outside the repository.
-python paper/generate_manuscript_figures.py \
+python scripts/generate_manuscript_figures.py \
   --rebuild-code-panels /tmp/kcat_0814_rebuild
 ```
 
@@ -66,9 +64,14 @@ and pandas; local typography can vary when Arial is unavailable. The workbook
 inspection and independent cluster check require openpyxl.
 
 The deeper benchmark build remains available through
-`build_submission_audits.py`, `build_table0.py`, and `rebuild_paper_tables.py`;
-their intermediate table exports are generated locally and are not public
-submission artifacts. These scripts require the method-level result assets
-listed in `zenodo_assets_manifest.csv`; the audit builder additionally requires
-RDKit, SciPy, DIAMOND, and the public method training corpora documented in
-`external_methods/METHOD_SOURCES.md`.
+`scripts/build_submission_audits.py`, `scripts/rebuild_paper_tables.py`, and
+`scripts/recalculate_cluster_inference_v1_2.py`. Their intermediate outputs are
+written under the ignored `analysis_results/paper_submission_audit/` directory
+and are not public submission artifacts. These scripts require the method-level
+result assets listed in `zenodo_assets_manifest.csv`; the audit builder
+additionally requires RDKit, SciPy, DIAMOND, and the public method training
+corpora documented in `external_methods/METHOD_SOURCES.md`.
+
+The root of this directory is intentionally limited to this README, the figure
+captions, the formatted supplementary workbook, final figures, and figure
+source packages. Rebuild and audit programs belong under `scripts/`.

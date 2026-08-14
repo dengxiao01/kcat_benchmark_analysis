@@ -146,13 +146,6 @@ def core_result_paths() -> list[Path]:
         BASE / "paper" / "FIGURE_CAPTIONS.md",
         BASE / "paper" / "figures",
         BASE / "paper" / "figure_sources_0814",
-        BASE / "paper" / "paper_statistics_v1.2.0.json",
-        BASE / "paper" / "build_submission_audits.py",
-        BASE / "paper" / "build_table0.py",
-        BASE / "paper" / "generate_manuscript_figures.py",
-        BASE / "paper" / "rebuild_paper_tables.py",
-        BASE / "paper" / "recalculate_cluster_inference_v1_2.py",
-        BASE / "paper" / "independent_cluster_inference_v1.2.0-r3.csv",
     ]
     for method_dir in sorted((BASE / "data" / "final").iterdir()):
         if not method_dir.is_dir() or method_dir.name not in PUBLIC_METHOD_DIRS:

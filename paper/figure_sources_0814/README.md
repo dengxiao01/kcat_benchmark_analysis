@@ -27,7 +27,7 @@ same supplied data and code.
 Run every package in a new directory with:
 
 ```bash
-python paper/generate_manuscript_figures.py \
+python scripts/generate_manuscript_figures.py \
   --rebuild-code-panels /tmp/kcat_0814_rebuild
 ```
 

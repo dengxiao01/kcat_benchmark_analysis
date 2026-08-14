@@ -25,6 +25,10 @@
   and f=signed error.
 - Retained the 1.2.0-r3 benchmark rows, predictions, and numerical results;
   these changes clean the public presentation and correct panel identity only.
+- Reduced the public `paper/` root to the formatted workbook, captions,
+  directory documentation, final figures, and figure-source packages. Moved
+  reusable audit and validation programs to `scripts/`, and removed generated
+  statistics/audit outputs already represented in the workbook.
 
 ### Manuscript figure revision 1.2.0-r5 - 2026-08-14
 

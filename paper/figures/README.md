@@ -20,5 +20,5 @@ source data are under `../figure_sources_0814/`.
 Validate the exact PNG snapshot with:
 
 ```bash
-python paper/generate_manuscript_figures.py
+python scripts/generate_manuscript_figures.py
 ```

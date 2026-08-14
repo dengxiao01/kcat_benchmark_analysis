@@ -64,15 +64,8 @@ slurm-*.out
 # manuscripts, review notes, and editor-generated metadata remain local.
 /paper/*
 !/paper/README.md
-!/paper/build_submission_audits.py
-!/paper/build_table0.py
-!/paper/generate_manuscript_figures.py
-!/paper/rebuild_paper_tables.py
-!/paper/recalculate_cluster_inference_v1_2.py
 !/paper/FIGURE_CAPTIONS.md
 !/paper/Supplementary_tables.xlsx
-!/paper/independent_cluster_inference_v1.2.0-r3.csv
-!/paper/paper_statistics_v1.2.0.json
 !/paper/figures/
 !/paper/figures/**
 !/paper/figure_sources_0814/

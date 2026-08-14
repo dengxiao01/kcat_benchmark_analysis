@@ -11,7 +11,12 @@ from scipy.stats import wilcoxon
 
 BASE = Path(__file__).resolve().parents[1]
 WORKBOOK = BASE / "paper" / "Supplementary_tables.xlsx"
-OUTPUT = BASE / "paper" / "independent_cluster_inference_v1.2.0-r3.csv"
+OUTPUT = (
+    BASE
+    / "analysis_results"
+    / "paper_submission_audit"
+    / "independent_cluster_inference_v1.2.0-r3.csv"
+)
 METHOD_FILES = {
     "KcatNet": BASE / "data" / "final" / "kcatnet" / "kcatnet_kcat_predictions_evaluated.csv",
     "CataPro": BASE / "data" / "final" / "catapro" / "catapro_kcat_predictions_evaluated.csv",
@@ -30,6 +35,7 @@ def bh_adjust(values: np.ndarray) -> np.ndarray:
 
 
 def main() -> None:
+    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     record = pd.read_excel(WORKBOOK, sheet_name="Table S22")
     method_errors = []
     for method, path in METHOD_FILES.items():
