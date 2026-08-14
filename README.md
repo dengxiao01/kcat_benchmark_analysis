@@ -32,8 +32,8 @@ cd kcat_benchmark_analysis
 ### 2. Install the benchmark environment
 
 ```bash
-conda create -n kcat-benchmark python=3.11 -y
-conda activate kcat-benchmark
+python3 -m venv .venv
+source .venv/bin/activate
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
 ```
@@ -73,6 +73,7 @@ python scripts/generate_manuscript_figures.py \
 | `data/final/experimental_kcat_truth.csv` | 1,354 | Positive experimental matches linked to model-derived enzyme-reactant records | Truth curation and coverage review |
 | `data/final/benchmark_ready_truth.csv` | 1,246 | Final experimental truth and provenance without predictor-only fields | Label and provenance audit |
 | `data/final/benchmark_ready_catpred.csv` | 1,246 | Master sequence, substrate SMILES, truth, and provenance table | Preparation of method-specific inputs |
+| `data/derived/benchmark_context/` | 6 files | Row-level EC, reaction, and pathway context plus selected summaries | Dataset characterization and pathway analysis |
 | `paper/Supplementary_tables.xlsx` | 24 sheets | `Index` and `Table S1` through `Table S23` | Publication tables and record-level audit |
 
 Use `data/final/benchmark_ready_catpred.csv` for a new prediction method. Build
@@ -82,6 +83,12 @@ experimental labels after inference by `entry_id`.
 The `catpred` suffix records the first integrated workflow; the 1,246-row file
 is method independent. All substrate SMILES pass RDKit parsing, including
 Quinate represented by the neutral PubChem CID 6508 structure.
+
+`data/derived/benchmark_context/benchmark_ready_catpred_enriched_context.csv`
+adds EC classes, reaction cross-references, KEGG-like groups, direct Yeast9 KEGG
+pathways, reaction names, and sequence/SMILES lengths. The companion summaries
+cover the benchmark build funnel, EC distribution, reaction distribution, and
+pathway distribution.
 
 ### Supplementary workbook
 
@@ -470,7 +477,7 @@ Report the evaluation scope and scored record count with every accuracy metric.
 
 ## Repository Layout
 
-### GitHub-tracked files
+### Main files and directories
 
 ```text
 .
@@ -484,6 +491,7 @@ Report the evaluation scope and scored record count with every accuracy metric.
 │   ├── experimental_kcat_truth.csv     1,354 positive experimental matches
 │   ├── benchmark_ready_truth.csv       1,246-row truth and provenance table
 │   └── benchmark_ready_catpred.csv     1,246-row sequence/SMILES master table
+├── data/derived/benchmark_context/      EC, reaction, and pathway context tables
 ├── external_methods/
 │   └── METHOD_SOURCES.md               Upstream repositories, revisions, and licenses
 ├── paper/
@@ -512,25 +520,6 @@ Report the evaluation scope and scored record count with every accuracy metric.
 ├── THIRD_PARTY_NOTICES.md
 └── LICENSE
 ```
-
-### Restored and generated directories
-
-```text
-data/raw/               Local BRENDA, SABIO-RK, UniProt, compound, and GO inputs
-data/interim/           Parsed reactions, sequence mappings, structures, and caches
-data/final/<method>/    Restored or generated method inputs, predictions, and metrics
-external_methods/<method>/ Restored upstream source trees, checkpoints, and assets
-reports/                Generated tables, figures, and Markdown reports
-analysis_results/       Generated numerical and submission audits
-release/                Generated Zenodo staging files
-logs/                   Local and Slurm logs
-```
-
-`reports/`, `analysis_results/`, `release/`, `logs/`, raw data, intermediate
-data, third-party source trees, model weights, and method-level result assets
-are excluded from Git. The release-matched method outputs and report snapshot
-are available through the Zenodo bundles listed in
-`zenodo_assets_manifest.csv`.
 
 ## Licenses
 

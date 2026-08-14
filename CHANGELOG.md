@@ -35,8 +35,12 @@
   Zenodo asset restoration, benchmark inputs, method execution, publication
   validation, evaluation, and citation.
 - Expanded the user README with data-acquisition stages, experimental matching,
-  reconstruction policies, complete method and script references, and separate
-  layouts for Git-tracked versus restored or generated directories.
+  reconstruction policies, and complete method and script references.
+- Restored the documented installation workflow to a project-local `.venv` and
+  removed internal artifact-restoration classifications from the public layout.
+- Kept the mixed generated `reports/` directory out of Git while publishing its
+  nonredundant benchmark context as six English-language tables under
+  `data/derived/benchmark_context/`.
 
 ### Manuscript figure revision 1.2.0-r5 - 2026-08-14
 

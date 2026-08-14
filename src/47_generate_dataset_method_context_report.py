@@ -31,6 +31,7 @@ REPORT_DIR = BASE / "reports"
 TABLE_DIR = REPORT_DIR / "tables"
 FIG_DIR = REPORT_DIR / "figures" / "kcat_dataset_context"
 REPORT_PATH = REPORT_DIR / "kcat_benchmark_dataset_and_method_context.md"
+PUBLIC_CONTEXT_DIR = BASE / "data" / "derived" / "benchmark_context"
 
 BENCHMARK_N = len(pd.read_csv(DATA, usecols=["entry_id"]))
 SBML = "http://www.sbml.org/sbml/level3/version1/core"
@@ -506,6 +507,46 @@ def write_csv(df: pd.DataFrame, path: Path) -> pd.DataFrame:
     path.parent.mkdir(parents=True, exist_ok=True)
     df.to_csv(path, index=False)
     return df
+
+
+def _english_label(value: object) -> object:
+    if pd.isna(value):
+        return value
+    return str(value).split(" / ", 1)[0]
+
+
+def _english_label_list(value: object) -> object:
+    if pd.isna(value):
+        return value
+    return ";".join(_english_label(item.strip()) for item in str(value).split(";"))
+
+
+def publish_benchmark_context_tables(
+    enriched: pd.DataFrame,
+    benchmark_funnel: pd.DataFrame,
+    ec_summary: pd.DataFrame,
+    top_reactions: pd.DataFrame,
+    pathway_primary: pd.DataFrame,
+    direct_yeast: pd.DataFrame,
+) -> None:
+    """Write the compact, English-language dataset context used by the public release."""
+    public_enriched = enriched.copy()
+    public_enriched["species_label"] = public_enriched["species_label"].map(_english_label)
+    public_enriched["ec_classes"] = public_enriched["ec_classes"].map(_english_label_list)
+
+    public_ec_summary = ec_summary.copy()
+    public_ec_summary["ec_class"] = public_ec_summary["ec_class"].map(_english_label)
+
+    tables = {
+        "benchmark_ready_catpred_enriched_context.csv": public_enriched,
+        "benchmark_build_funnel.csv": benchmark_funnel,
+        "benchmark_dataset_ec_class_summary.csv": public_ec_summary,
+        "benchmark_dataset_top_reactions.csv": top_reactions,
+        "benchmark_dataset_kegg_like_primary_group.csv": pathway_primary,
+        "benchmark_dataset_direct_yeast_kegg_pathways.csv": direct_yeast,
+    }
+    for filename, table in tables.items():
+        write_csv(table, PUBLIC_CONTEXT_DIR / filename)
 
 
 def make_benchmark_build_funnel(df: pd.DataFrame) -> pd.DataFrame:
@@ -1285,9 +1326,18 @@ def main() -> None:
         method_tech,
         dimensions,
     )
+    publish_benchmark_context_tables(
+        df,
+        benchmark_funnel,
+        ec_table,
+        top_reactions,
+        pathway_primary,
+        direct_yeast,
+    )
     print(f"Wrote report: {REPORT_PATH}")
     print(f"Wrote tables under: {TABLE_DIR}")
     print(f"Wrote figures under: {FIG_DIR}")
+    print(f"Wrote public context tables under: {PUBLIC_CONTEXT_DIR}")
 
 
 if __name__ == "__main__":
