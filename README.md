@@ -7,8 +7,8 @@ substrate SMILES, method-specific inputs and outputs, and evaluation metrics on
 the log10(kcat) scale.
 
 **Current release:** benchmark `v1.2.0`, released `2026-08-09`; source-data
-freeze `2026-07-17`; data artifact revision `1.2.0-r3`; manuscript figure
-revision `1.2.0-r5`, published `2026-08-14`; table schema `1.2`.
+freeze `2026-07-17`; data artifact revision `1.2.0-r3`; current manuscript
+presentation `0814/V4`, dated `2026-08-14`; table schema `1.2`.
 The canonical resource contains 1,246 rows. Versioned release metadata are in
 `configs/benchmark_release.json`, and human-readable changes are in
 `CHANGELOG.md`.
@@ -44,8 +44,8 @@ Matching support consists of 459 species + EC + UniProt + substrate-ID rows,
 871 unique standardized sequence-substrate pairs and 840 label-assignment
 clusters; 480 rows inherit a weaker-evidence label shared across multiple
 sequences. Benchmark rows must therefore not be interpreted as independent
-experiments. These fields are in `paper/tables_v1.2.0/S16_Label_audit.csv` and
-`Record_audit.csv`.
+experiments. These fields are retained in the machine-audit `Record_audit.csv`
+and in the submission-formatted Supplementary Table S22.
 
 Chemical roles are assigned after experimental matching with the versioned
 registry in `configs/currency_cofactor_registry.csv`. It combines normalized
@@ -66,10 +66,11 @@ Methods are grouped by inference-time information and implementation status:
 | Structure-aware public reconstruction | DEKP | 1,246 rows; 1,246 valid structures |
 | GO functional assignment | GO-HKP | 1,236 rows |
 
-Figure 3a is an available-case summary and prints a separate `n` in every cell.
-Panels 3b/c use the strict 1,047-record intersection for KcatNet, TurNuP, and
-PMAK. Methods with different inputs or row coverage must not be pooled into one
-leaderboard.
+Figure 3a is the strict 1,047-record reaction-common comparison. Figure 3b
+contains the CatPred- and KinForm-L-scope available-case summaries and prints
+the achieved `n` for every method. Figure 3c uses the same strict 1,047-record
+set for paired row-bootstrap differences. Methods with different inputs or row
+coverage must not be pooled into one leaderboard.
 
 ## Canonical benchmark files
 
@@ -82,6 +83,20 @@ leaderboard.
 The `catpred` suffix in the master filename is historical: CatPred was the first
 method integrated. The file is method independent. All 1,246 SMILES are
 RDKit-parseable, including Quinate mapped to neutral PubChem CID 6508.
+
+### 0814/V4 supplementary workbook
+
+`paper/Supplementary_tables.xlsx` is the current submission-formatted workbook.
+It contains an `Index` sheet followed by `Table S1` through `Table S23` in their
+order of first use in the V4 manuscript. Table S4 is the 1,246-row wide
+benchmark/prediction matrix, Table S22 is the 1,246-row record-level audit, and
+Table S23 is the 14,952-row method-record table with inputs, prediction status,
+outputs, and errors. A cell-preserving CSV mirror is available under
+`paper/supplementary_tables_0814/`.
+
+The older files under `paper/tables_v1.2.0/` remain the machine-audit layer and
+retain their historical S1-S24 filenames. Their numbering should not be used as
+the V4 manuscript's supplementary-table numbering.
 
 ### Supplementary Data Table 0
 
@@ -100,7 +115,8 @@ combinations. Important fields include:
 `paper/tables_v1.2.0/Table0_wide.csv` is the companion 1,246-row matrix with one
 prediction column per method. `paper/tables_v1.2.0/Record_audit.csv` contains
 1,246 rows and 132 provenance, dependence, measurement, mapping, role, direction,
-and training-proximity fields used to reproduce S16-S24.
+and training-proximity fields used to construct the 0814/V4 Supplementary
+Tables S15-S23.
 
 Method adapters create three logically separate files:
 
@@ -380,36 +396,44 @@ python src/50_export_report_tables.py
 
 ### Publication tables, figures, and audit
 
-The public v1.2.0 tables and manuscript figure revision 1.2.0-r5 are rebuilt
-from current row-level outputs:
+The current submission-formatted layer is the author-approved 0814/V4
+snapshot. It contains the formatted `Index + Table S1-S23` workbook, four final
+composite figures, 20 panel PNGs, complete captions, and the expanded plotting
+packages:
 
 ```bash
-# build_submission_audits.py additionally requires RDKit, SciPy, DIAMOND,
-# and locally available method training corpora.
-python paper/build_submission_audits.py
-python paper/build_table0.py
-python paper/rebuild_paper_tables.py
+# Validate the frozen 0814/V4 images and workbook against their manifest.
 python paper/generate_manuscript_figures.py
-python paper/recalculate_cluster_inference_v1_2.py
+
+# Recalculate all code-backed panels outside the repository.
+python paper/generate_manuscript_figures.py \
+  --rebuild-code-panels /tmp/kcat_0814_rebuild
+
+# Recreate one previewable CSV per supplementary worksheet.
+python paper/export_supplementary_tables_0814.py
 ```
 
-`paper/generate_manuscript_figures.py` writes the four composite PNG/PDF
-figures, 17 standalone panels, and panel-level source-data CSV files under
-`paper/figures/`. Versioned Figure 1 base artwork is stored in
-`paper/figure_references/`; no manuscript DOCX is required to rebuild the
-public figures.
+The exact workbook is `paper/Supplementary_tables.xlsx`; its 24-sheet CSV mirror
+is under `paper/supplementary_tables_0814/`. The final images are under
+`paper/figures/`, full captions are in `paper/FIGURE_CAPTIONS.md`, and plotting
+code plus compact inputs are under `paper/figure_sources_0814/`. The manuscript
+DOCX and original ZIP containers are not needed to inspect or rerun the public
+materials.
 
-`build_submission_audits.py` creates S16-S24 and the 132-field Record_audit:
+`build_submission_audits.py` creates the underlying machine-audit tables and
+the 132-field Record_audit:
 matching and shared-label dependence, substrate-support and role sensitivities,
 five cluster-bootstrap definitions, cluster-level paired tests, standardized
 training proximity, experimental dispersion, mutation-screen stages, model
 direction/reversibility, and the three PreTKcat reconstruction policies.
 
-The v1.2.0 artifact audit validates canonical data, all method predictions,
-Table0, Table0W, Record_audit, S1-S24, the consolidated XLSX, and all four
-figures. The manuscript-matched build passed 299/299 encoded checks. The
-submission-specific DOCX source and target-Word pagination remain part of the
-journal workflow rather than the public code release.
+The v1.2.0 data-artifact audit still validates canonical data, all method
+predictions, Table0, Table0W, Record_audit, the historical S1-S24 audit exports,
+and the consolidated audit XLSX. The 0814/V4 presentation layer is checked
+separately by exact image/workbook hashes, image dimensions, workbook structure,
+and clean-directory reruns of all four plotting packages. Submission-specific
+DOCX pagination remains part of the journal workflow rather than the public
+code release.
 
 ### Release and Zenodo utilities
 

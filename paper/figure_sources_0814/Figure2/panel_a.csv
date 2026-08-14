@@ -1,0 +1,13 @@
+﻿Method,Inference regime,n,Coverage (%),MAE log10
+KcatNet,Released sequence+substrate checkpoint,1246,100.0,0.711149
+TurNuP,Reaction-aware checkpoint,1047,84.028892,0.712983
+PMAK,Reaction-aware checkpoint,1047,84.028892,0.723107
+KinForm-L,Method-specific checkpoint subset,729,58.507223,0.784137
+CataPro,Released sequence+substrate checkpoint,1246,100.0,0.796108
+CatPred,Method-specific checkpoint subset,1156,92.776886,0.839507
+UniKP,Released sequence+substrate checkpoint,1246,100.0,0.891782
+PreTKcat,Temperature-conditioned public retraining,1246,100.0,0.922672
+SELFprot,Released sequence+substrate checkpoint,1246,100.0,0.939967
+DLKcat,Released sequence+substrate checkpoint,1246,100.0,0.973867
+GO-HKP,Functional-assignment baseline,1236,99.197432,1.030895
+DEKP-public-retrained,Structure-aware public retraining,1246,100.0,1.069143

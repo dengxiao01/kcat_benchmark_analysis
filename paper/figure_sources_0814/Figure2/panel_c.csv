@@ -1,0 +1,13 @@
+﻿Method,Inference regime,n,Spearman estimate,CI low 95%,CI high 95%
+KcatNet,Released sequence+substrate checkpoint,1246,0.464993,0.415865,0.512369
+TurNuP,Reaction-aware checkpoint,1047,0.418304,0.361037,0.472269
+PMAK,Reaction-aware checkpoint,1047,0.443197,0.387433,0.498487
+KinForm-L,Method-specific checkpoint subset,729,0.548695,0.488616,0.607
+CataPro,Released sequence+substrate checkpoint,1246,0.466856,0.419348,0.514473
+CatPred,Method-specific checkpoint subset,1156,0.424549,0.370062,0.475042
+UniKP,Released sequence+substrate checkpoint,1246,0.432561,0.385906,0.48204
+PreTKcat,Temperature-conditioned public retraining,1246,0.392427,0.342503,0.442194
+SELFprot,Released sequence+substrate checkpoint,1246,0.373621,0.321257,0.421683
+DLKcat,Released sequence+substrate checkpoint,1246,0.307787,0.252799,0.365262
+GO-HKP,Functional-assignment baseline,1236,0.322178,0.271517,0.37262
+DEKP-public-retrained,Structure-aware public retraining,1246,0.113682,0.061262,0.167726

@@ -1,0 +1,6 @@
+Species,Matching level,Records,% of species,% of benchmark
+E. coli,Species + EC + UniProt + substrate ID,332,42.50960307298335,26.64526484751204
+E. coli,Species + EC + substrate ID,446,57.10627400768246,35.79454253611557
+E. coli,Species + EC + substrate name,3,0.384122919334187,0.2407704654895666
+S. cerevisiae,Species + EC + UniProt + substrate ID,127,27.31182795698925,10.19261637239165
+S. cerevisiae,Species + EC + substrate ID,338,72.68817204301075,27.12680577849117

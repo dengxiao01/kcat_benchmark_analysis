@@ -1,0 +1,10 @@
+﻿method,n_common_subset,mae_log10_common_subset,source_table
+TurNuP,1047,0.712983,Table S10
+KcatNet,1047,0.718899,Table S10
+PMAK,1047,0.723107,Table S10
+CataPro,1047,0.802427,Table S10
+UniKP,1047,0.90107,Table S10
+PreTKcat,1047,0.925594,Table S10
+SELFprot,1047,0.932843,Table S10
+DLKcat,1047,0.985771,Table S10
+DEKP-public-retrained,1047,1.080985,Table S10

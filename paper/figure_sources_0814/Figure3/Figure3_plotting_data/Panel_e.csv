@@ -1,0 +1,10 @@
+﻿analysis_unit,n_units,method,mae_log10,source_table,aggregation_note
+Benchmark rows,1047,KcatNet,0.718899,Table S10,"Original row-level MAE on common 1,047 records"
+Benchmark rows,1047,TurNuP,0.712983,Table S10,"Original row-level MAE on common 1,047 records"
+Benchmark rows,1047,PMAK,0.723107,Table S10,"Original row-level MAE on common 1,047 records"
+Unique seq–substrate pairs,796,KcatNet,0.746892,Table S15,Median observed and predicted values within pair; equal pair weight
+Unique seq–substrate pairs,796,TurNuP,0.725976,Table S15,Median observed and predicted values within pair; equal pair weight
+Unique seq–substrate pairs,796,PMAK,0.762546,Table S15,Median observed and predicted values within pair; equal pair weight
+Unique label assignments,761,KcatNet,0.689161,Table S15,Median observed and predicted values within label cluster; equal label weight
+Unique label assignments,761,TurNuP,0.70543,Table S15,Median observed and predicted values within label cluster; equal label weight
+Unique label assignments,761,PMAK,0.72608,Table S15,Median observed and predicted values within label cluster; equal label weight

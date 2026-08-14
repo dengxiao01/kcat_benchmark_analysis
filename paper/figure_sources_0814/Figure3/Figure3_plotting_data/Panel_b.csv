@@ -1,0 +1,11 @@
+﻿subset,subset_total_rows,method,n,coverage_within_subset_percent,mae_log10,source_table
+CatPred-accessible scope,1156,TurNuP,976,84.429066,0.718145,Table S11
+CatPred-accessible scope,1156,KcatNet,1156,100.0,0.725945,Table S11
+CatPred-accessible scope,1156,PMAK,976,84.429066,0.734085,Table S11
+CatPred-accessible scope,1156,CataPro,1156,100.0,0.827443,Table S11
+CatPred-accessible scope,1156,CatPred,1156,100.0,0.839507,Table S11
+KinForm-L-accessible scope,729,KcatNet,729,100.0,0.676902,Table S11
+KinForm-L-accessible scope,729,TurNuP,646,88.61454,0.684166,Table S11
+KinForm-L-accessible scope,729,PMAK,646,88.61454,0.695239,Table S11
+KinForm-L-accessible scope,729,KinForm-L,729,100.0,0.784137,Table S11
+KinForm-L-accessible scope,729,CataPro,729,100.0,0.809615,Table S11

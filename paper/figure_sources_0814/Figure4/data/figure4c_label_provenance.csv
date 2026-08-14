@@ -1,0 +1,13 @@
+﻿section,metric,value,unit_or_note
+within_record_dispersion,records_with_ge_2_measurements,655,records
+within_record_dispersion,benchmark_denominator,1246,records
+within_record_dispersion,median_dispersion_log10,0.1755983025648556,log10(kcat)
+within_record_dispersion,mean_dispersion_log10,0.4191892469154742,log10(kcat)
+cross_database_difference,records_supported_by_both_databases,95,records
+cross_database_difference,median_abs_database_difference_log10,0.3204133402322353,log10(kcat)
+BRENDA_provenance,raw_candidates,6390,records
+BRENDA_provenance,excluded_by_mutation_variant_screen,3361,records
+BRENDA_provenance,retained_after_screen,3029,records
+SABIO_RK_provenance,raw_candidates,660,records
+SABIO_RK_provenance,retained_after_screen,660,records
+SABIO_RK_provenance,mutation_status_field_available,0,0 = unavailable

@@ -1,0 +1,21 @@
+comparison_scope,method_a,method_b,cluster_type,n_common_rows,n_paired_clusters,cluster_mean_error_a,cluster_mean_error_b,wilcoxon_statistic,p_value_raw,estimand,p_value_bh_global,significant_bh_fdr_0.05
+broad_common,KcatNet,CataPro,protein,1246,514,0.7218058362105731,0.8360201085291076,49543,7.905940740155664e-07,paired distribution of cluster-mean absolute errors,7.905940740155664e-06,True
+broad_common,KcatNet,CataPro,pair,1246,871,0.745959732641085,0.806796784022096,164750,0.0007160608516261,paired distribution of cluster-mean absolute errors,0.0035803042581309,True
+broad_common,KcatNet,CataPro,reaction,1246,773,0.7398719101042264,0.8389397989185535,115979,6.303775455990707e-08,paired distribution of cluster-mean absolute errors,1.260755091198141e-06,True
+broad_common,KcatNet,CataPro,reference,1246,610,0.7379894729503151,0.8043503167715205,79425,0.0015872961562802,paired distribution of cluster-mean absolute errors,0.0045351318750865,True
+broad_common,KcatNet,CataPro,label_assignment,1246,840,0.709855940465541,0.7973826758548842,145008,7.035547498647664e-06,paired distribution of cluster-mean absolute errors,4.690364999098442e-05,True
+reaction_common,KcatNet,TurNuP,protein,1047,459,0.7213800935956685,0.7074581247264012,49138,0.199624864779473,paired distribution of cluster-mean absolute errors,0.2218054053105256,False
+reaction_common,KcatNet,TurNuP,pair,1047,796,0.7477421471717538,0.7256043221409698,143970,0.0241336987712225,paired distribution of cluster-mean absolute errors,0.0402228312853709,True
+reaction_common,KcatNet,TurNuP,reaction,1047,640,0.7364706740694235,0.7286944437720486,93765,0.0601729642396935,paired distribution of cluster-mean absolute errors,0.0925737911379901,False
+reaction_common,KcatNet,TurNuP,reference,1047,556,0.725005826914618,0.7117569797378129,71723,0.1325634757773344,paired distribution of cluster-mean absolute errors,0.165704344721668,False
+reaction_common,KcatNet,TurNuP,label_assignment,1047,761,0.7010255308213789,0.7105375410793545,136724,0.1740116839619795,paired distribution of cluster-mean absolute errors,0.2047196281905641,False
+reaction_common,KcatNet,PMAK,protein,1047,459,0.7213800935956685,0.7624591677041057,46077,0.0183168220016613,paired distribution of cluster-mean absolute errors,0.0333033127302934,True
+reaction_common,KcatNet,PMAK,pair,1047,796,0.7477421471717538,0.7627253044066831,150761,0.2268633164260556,paired distribution of cluster-mean absolute errors,0.2388034909747954,False
+reaction_common,KcatNet,PMAK,reaction,1047,640,0.7364706740694235,0.7502191021970833,98051,0.3352515165246289,paired distribution of cluster-mean absolute errors,0.3352515165246289,False
+reaction_common,KcatNet,PMAK,reference,1047,556,0.725005826914618,0.7555937093304398,70987,0.0894550857882356,paired distribution of cluster-mean absolute errors,0.1192734477176475,False
+reaction_common,KcatNet,PMAK,label_assignment,1047,761,0.7010255308213789,0.7351680566390485,128571,0.0068626187361914,paired distribution of cluster-mean absolute errors,0.0152502638582032,True
+reaction_common,TurNuP,PMAK,protein,1047,459,0.7074581247264012,0.7624591677041057,42955.5,0.0011659041077065,paired distribution of cluster-mean absolute errors,0.0045351318750865,True
+reaction_common,TurNuP,PMAK,pair,1047,796,0.7256043221409698,0.7627253044066831,138012,0.0015079855963098,paired distribution of cluster-mean absolute errors,0.0045351318750865,True
+reaction_common,TurNuP,PMAK,reaction,1047,640,0.7286944437720486,0.7502191021970833,89402,0.0722556280476325,paired distribution of cluster-mean absolute errors,0.1032223257823322,False
+reaction_common,TurNuP,PMAK,reference,1047,556,0.7117569797378129,0.7555937093304398,66277,0.0032703195791684,paired distribution of cluster-mean absolute errors,0.0081757989479212,True
+reaction_common,TurNuP,PMAK,label_assignment,1047,761,0.7105375410793545,0.7351680566390485,129881.5,0.0128678955961436,paired distribution of cluster-mean absolute errors,0.0257357911922873,True

@@ -1,0 +1,4 @@
+﻿variant,manuscript_role,raw_usable_training_n,removed_exact_pair_rows,removed_near_only_rows,removed_total_rows,fitted_training_n,evaluation_n,MAE_log10,Spearman_log10
+raw-public,sensitivity analysis,16249,0,0,0,16249,1246,0.8647651087492261,0.3999900683507713
+exact-excluded,primary PreTKcat result,16249,248,0,248,16001,1246,0.9226724170203252,0.3924269939296601
+near-excluded,sensitivity analysis,16249,248,508,756,15493,1246,0.9500316250372062,0.3623666373720944

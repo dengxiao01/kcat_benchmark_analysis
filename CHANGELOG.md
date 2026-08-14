@@ -2,6 +2,23 @@
 
 ## [1.2.0] - 2026-08-09
 
+### Manuscript presentation snapshot 0814/V4 - 2026-08-14
+
+- Replaced the public Figure 1-4 presentation with the four final
+  high-resolution composites and 20 author-supplied panel PNGs from the 0814/V4
+  manuscript snapshot.
+- Published the complete V4 Figure 1-4 captions and documented the final panel
+  mapping where source packages retained pre-assembly letter sequences.
+- Expanded the four author-supplied figure ZIP packages into ordinary tracked
+  plotting scripts and compact CSV/XLSX inputs; all four packages run without
+  private manuscript files.
+- Published the exact formatted `Supplementary_tables.xlsx` with `Index` and
+  `Table S1-S23`, together with a deterministic 24-file CSV mirror for GitHub
+  preview and programmatic reuse.
+- Retained the 1.2.0-r3 benchmark and historical S1-S24 machine-audit layer;
+  this snapshot changes submission organization and visual presentation, not
+  benchmark rows, predictions, or numerical results.
+
 ### Manuscript figure revision 1.2.0-r5 - 2026-08-14
 
 - Published the manuscript-accepted Figure 1-4 layouts together with 17

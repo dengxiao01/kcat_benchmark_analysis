@@ -1,0 +1,4 @@
+﻿method_a,method_b,common_n,mae_difference_a_minus_b,bootstrap_ci_low_95,bootstrap_ci_high_95,bootstrap_frequency_method_a_lower_mae,bootstrap_replicates,source_table
+KcatNet,TurNuP,1047,0.005916,-0.022962,0.033968,0.327,2000,Table S13
+KcatNet,PMAK,1047,-0.004208,-0.026854,0.017429,0.649,2000,Table S13
+TurNuP,PMAK,1047,-0.010124,-0.034097,0.013398,0.8175,2000,Table S13

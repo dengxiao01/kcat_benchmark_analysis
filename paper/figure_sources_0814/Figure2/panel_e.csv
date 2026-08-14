@@ -1,0 +1,13 @@
+﻿Method,Inference regime,Mean signed error log10
+KcatNet,Released sequence+substrate checkpoint,0.037241
+TurNuP,Reaction-aware checkpoint,0.037503
+PMAK,Reaction-aware checkpoint,0.072357
+KinForm-L,Method-specific checkpoint subset,-0.329713
+CataPro,Released sequence+substrate checkpoint,-0.134213
+CatPred,Method-specific checkpoint subset,0.040839
+UniKP,Released sequence+substrate checkpoint,-0.461171
+PreTKcat,Temperature-conditioned public retraining,-0.47583
+SELFprot,Released sequence+substrate checkpoint,-0.097665
+DLKcat,Released sequence+substrate checkpoint,-0.45095
+GO-HKP,Functional-assignment baseline,0.888616
+DEKP-public-retrained,Structure-aware public retraining,-0.631681
