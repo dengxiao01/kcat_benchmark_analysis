@@ -1,15 +1,21 @@
 # Publication Data and Reproducibility Artifacts
 
 This directory contains the public, manuscript-matched data products for
-benchmark version 1.2.0, artifact revision 1.2.0-r3. Author drafts, archived
-manuscripts, internal review notes, and editor-generated files are intentionally
-not part of the public repository.
+benchmark version 1.2.0. The data artifact is revision 1.2.0-r3 and the current
+manuscript figure revision is 1.2.0-r5. Author drafts, archived manuscripts,
+internal review notes, and editor-generated files are intentionally not part of
+the public repository.
 
 ## Public Contents
 
 - `tables_v1.2.0/`: Supplementary Data Table 0, Table 0W, Record_audit,
   Tables 1-2, and Supplementary Tables S1-S24 as CSV files.
-- `figures/`: Figures 1-4 in PNG and PDF formats.
+- `figures/`: Figures 1-4 in PNG/PDF, 17 standalone panels, and panel-level
+  source-data CSV files.
+- `figure_references/`: versioned high-resolution Figure 1 base panels used by
+  the public figure builder; the manuscript DOCX is not required.
+- `generate_manuscript_figures_0806_style_r4.py`: compatibility helper that
+  preserves the accepted Figure 2 layout used by the r5 public entry point.
 - `submission_audit_details_v1.2.0/`: record-level measurement-dispersion,
   mapping/dependence, and training-proximity audit tables.
 - `kcat_benchmark_reorganized_tables_reviewed_v1.2.0.xlsx`: the consolidated
@@ -33,6 +39,11 @@ python paper/rebuild_paper_tables.py
 python paper/generate_manuscript_figures.py
 python paper/recalculate_cluster_inference_v1_2.py
 ```
+
+The figure builder requires Matplotlib, NumPy, pandas, Pillow, and OpenCV. It
+also creates local companion ZIP files under `paper/figure_packages/`; ZIP files
+are intentionally excluded from Git because all component code, panels, and
+source-data files are tracked individually.
 
 `build_submission_audits.py` additionally requires RDKit, SciPy, DIAMOND, and
 the publicly available method training corpora documented in

@@ -1,0 +1,10 @@
+analysis,method,mae_log10,scope_units
+Row-weighted,KcatNet,0.7188989113436972,1047
+Row-weighted,TurNuP,0.7129826633868195,1047
+Row-weighted,PMAK,0.7231066561965616,1047
+Unique seq–substrate pair,KcatNet,0.7468918934474189,796
+Unique seq–substrate pair,TurNuP,0.7259762251143215,796
+Unique seq–substrate pair,PMAK,0.7625457371831658,796
+Label assignment,KcatNet,0.6891607482617075,761
+Label assignment,TurNuP,0.7054303789500657,761
+Label assignment,PMAK,0.7260798124609724,761

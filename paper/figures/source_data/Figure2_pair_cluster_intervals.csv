@@ -1,0 +1,13 @@
+method,analysis_scope,cluster_type,n_rows,n_clusters,row_weighted_mae_log10,cluster_bootstrap_ci_low_95,cluster_bootstrap_ci_high_95,bootstrap_replicates,seed,estimand
+KcatNet,achieved_evaluation_set,pair,1246,871,0.7111485963256501,0.6528629038685667,0.7755175374637976,2000,20260725,row-weighted MAE with clusters resampled as intact units
+CataPro,achieved_evaluation_set,pair,1246,871,0.796107862704658,0.7438556924460993,0.8522191692640837,2000,20260825,row-weighted MAE with clusters resampled as intact units
+PreTKcat,achieved_evaluation_set,pair,1246,871,0.9226724170203252,0.8679360773454365,0.977508912975973,2000,20260925,row-weighted MAE with clusters resampled as intact units
+UniKP,achieved_evaluation_set,pair,1246,871,0.8917824674499502,0.83575726219851,0.9520442087204284,2000,20261025,row-weighted MAE with clusters resampled as intact units
+SELFprot,achieved_evaluation_set,pair,1246,871,0.9399674214101538,0.8714814705142389,1.01595035642256,2000,20261125,row-weighted MAE with clusters resampled as intact units
+DLKcat,achieved_evaluation_set,pair,1246,871,0.973867234633991,0.8942568530998866,1.0580009328616866,2000,20261225,row-weighted MAE with clusters resampled as intact units
+TurNuP,achieved_evaluation_set,pair,1047,796,0.7129826633868195,0.6590018122818092,0.766700921249948,2000,20261325,row-weighted MAE with clusters resampled as intact units
+PMAK,achieved_evaluation_set,pair,1047,796,0.7231066561965616,0.6735074718290242,0.7736436288197964,2000,20261425,row-weighted MAE with clusters resampled as intact units
+KinForm-L,achieved_evaluation_set,pair,729,543,0.7841370249160359,0.7242873553478861,0.8456199323211682,2000,20261525,row-weighted MAE with clusters resampled as intact units
+CatPred,achieved_evaluation_set,pair,1156,851,0.8395067747031589,0.7729093597508108,0.9051472091561088,2000,20261625,row-weighted MAE with clusters resampled as intact units
+DEKP-public-retrained,achieved_evaluation_set,pair,1246,871,1.0691431600416428,0.9987947642800402,1.1351170803702824,2000,20261725,row-weighted MAE with clusters resampled as intact units
+GO-HKP,achieved_evaluation_set,pair,1236,871,1.0308952495371242,0.9429854184577257,1.1213896332034246,2000,20261825,row-weighted MAE with clusters resampled as intact units

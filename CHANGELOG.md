@@ -2,6 +2,19 @@
 
 ## [1.2.0] - 2026-08-09
 
+### Manuscript figure revision 1.2.0-r5 - 2026-08-14
+
+- Published the manuscript-accepted Figure 1-4 layouts together with 17
+  standalone panels and panel-level source-data CSV files.
+- Made the public figure builder independent of the private manuscript DOCX by
+  versioning the two high-resolution Figure 1 base panels.
+- Removed panel-letter identifiers from standalone exports while retaining them
+  in composite figures, restored standalone legends, added the zero name-only
+  match label in Figure 1c, and retained the Figure 4a heatmap colorbar during
+  standalone cropping.
+- Preserved all benchmark rows, predictions, statistics, and conclusions; this
+  revision changes figure presentation and reproducibility assets only.
+
 ### Artifact revision 1.2.0-r3 - 2026-08-09
 
 - Independently recalculated all method-level metrics from Table 0W and all 20

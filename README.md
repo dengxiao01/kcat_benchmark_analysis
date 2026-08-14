@@ -7,7 +7,8 @@ substrate SMILES, method-specific inputs and outputs, and evaluation metrics on
 the log10(kcat) scale.
 
 **Current release:** benchmark `v1.2.0`, released `2026-08-09`; source-data
-freeze `2026-07-17`; artifact revision `1.2.0-r3` dated `2026-08-07`; table schema `1.2`.
+freeze `2026-07-17`; data artifact revision `1.2.0-r3`; manuscript figure
+revision `1.2.0-r5`, published `2026-08-14`; table schema `1.2`.
 The canonical resource contains 1,246 rows. Versioned release metadata are in
 `configs/benchmark_release.json`, and human-readable changes are in
 `CHANGELOG.md`.
@@ -379,7 +380,8 @@ python src/50_export_report_tables.py
 
 ### Publication tables, figures, and audit
 
-The public v1.2.0 tables and figures are rebuilt from current row-level outputs:
+The public v1.2.0 tables and manuscript figure revision 1.2.0-r5 are rebuilt
+from current row-level outputs:
 
 ```bash
 # build_submission_audits.py additionally requires RDKit, SciPy, DIAMOND,
@@ -390,6 +392,12 @@ python paper/rebuild_paper_tables.py
 python paper/generate_manuscript_figures.py
 python paper/recalculate_cluster_inference_v1_2.py
 ```
+
+`paper/generate_manuscript_figures.py` writes the four composite PNG/PDF
+figures, 17 standalone panels, and panel-level source-data CSV files under
+`paper/figures/`. Versioned Figure 1 base artwork is stored in
+`paper/figure_references/`; no manuscript DOCX is required to rebuild the
+public figures.
 
 `build_submission_audits.py` creates S16-S24 and the 132-field Record_audit:
 matching and shared-label dependence, substrate-support and role sensitivities,

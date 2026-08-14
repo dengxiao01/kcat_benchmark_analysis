@@ -1,0 +1,16 @@
+method_a,method_b,cluster_type,cluster_label,n_common_rows,n_clusters,mae_difference_a_minus_b,difference_ci_low_95,difference_ci_high_95,bootstrap_replicates,seed,estimand
+KcatNet,TurNuP,protein,Sequence,1047,459,0.005916247956877684,-0.06508677773694593,0.06387485935009438,2000,20260812,row-weighted MAE difference with intact clusters resampled
+KcatNet,TurNuP,pair,Seq–substrate pair,1047,796,0.005916247956877684,-0.04202980609267021,0.0507821332536955,2000,20260813,row-weighted MAE difference with intact clusters resampled
+KcatNet,TurNuP,reaction,Reaction,1047,640,0.005916247956877684,-0.028844164952890612,0.03860676223004684,2000,20260814,row-weighted MAE difference with intact clusters resampled
+KcatNet,TurNuP,reference,Reference,1047,556,0.005916247956877684,-0.04943862809722526,0.057500844891902804,2000,20260815,row-weighted MAE difference with intact clusters resampled
+KcatNet,TurNuP,label_assignment,Label assignment,1047,761,0.005916247956877684,-0.0267804679025462,0.038899814707249715,2000,20260816,row-weighted MAE difference with intact clusters resampled
+KcatNet,PMAK,protein,Sequence,1047,459,-0.0042077448528644226,-0.04864400227082848,0.04105384821158456,2000,20260912,row-weighted MAE difference with intact clusters resampled
+KcatNet,PMAK,pair,Seq–substrate pair,1047,796,-0.0042077448528644226,-0.038422127349883754,0.028779308486323617,2000,20260913,row-weighted MAE difference with intact clusters resampled
+KcatNet,PMAK,reaction,Reaction,1047,640,-0.0042077448528644226,-0.03544942351957731,0.026780518844189444,2000,20260914,row-weighted MAE difference with intact clusters resampled
+KcatNet,PMAK,reference,Reference,1047,556,-0.0042077448528644226,-0.05103818929354148,0.04860381217871689,2000,20260915,row-weighted MAE difference with intact clusters resampled
+KcatNet,PMAK,label_assignment,Label assignment,1047,761,-0.0042077448528644226,-0.033098155916457435,0.025369154728373356,2000,20260916,row-weighted MAE difference with intact clusters resampled
+TurNuP,PMAK,protein,Sequence,1047,459,-0.010123992809742115,-0.06376192243651897,0.04822594807994259,2000,20261012,row-weighted MAE difference with intact clusters resampled
+TurNuP,PMAK,pair,Seq–substrate pair,1047,796,-0.010123992809742115,-0.04605579137443702,0.02875478878958846,2000,20261013,row-weighted MAE difference with intact clusters resampled
+TurNuP,PMAK,reaction,Reaction,1047,640,-0.010123992809742115,-0.03893025023467267,0.019145442013453057,2000,20261014,row-weighted MAE difference with intact clusters resampled
+TurNuP,PMAK,reference,Reference,1047,556,-0.010123992809742115,-0.05002124126957956,0.03331403575169499,2000,20261015,row-weighted MAE difference with intact clusters resampled
+TurNuP,PMAK,label_assignment,Label assignment,1047,761,-0.010123992809742115,-0.03789102844741914,0.015825624482351627,2000,20261016,row-weighted MAE difference with intact clusters resampled
