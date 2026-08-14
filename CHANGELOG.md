@@ -34,6 +34,9 @@
 - Replaced the root README with a user workflow covering Conda installation,
   Zenodo asset restoration, benchmark inputs, method execution, publication
   validation, evaluation, and citation.
+- Expanded the user README with data-acquisition stages, experimental matching,
+  reconstruction policies, complete method and script references, and separate
+  layouts for Git-tracked versus restored or generated directories.
 
 ### Manuscript figure revision 1.2.0-r5 - 2026-08-14
 
