@@ -14,9 +14,8 @@
   private manuscript files.
 - Published the exact formatted `Supplementary_tables.xlsx` with `Index` and
   `Table S1-S23` as the sole public supplementary-table artifact.
-- Removed the historical S1-S24 export directory, the worksheet CSV mirror,
-  the earlier consolidated workbook, and the stale path-based audit report to
-  prevent obsolete table numbering from being confused with V4.
+- Removed the obsolete worksheet export directory, the worksheet CSV mirror,
+  the earlier consolidated workbook, and the stale path-based audit report.
 - Removed the redundant versioned submission-audit directory. Its record and
   measurement tables are covered by Table S22; the nonredundant continuous
   training-neighbor audit is retained with the Figure 4 source data.
@@ -57,7 +56,7 @@
 
 ### Artifact revision 1.2.0-r3 - 2026-08-09
 
-- Independently recalculated all method-level metrics from Table 0W and all 20
+- Independently recalculated all method-level metrics from Table S4 and all 20
   dependence-aware S19 comparisons from record-level errors; no numerical or
   significance-decision mismatches were found.
 - Standardized 28 cited references and added direct citations for DeepGO-SE,
@@ -66,9 +65,9 @@
   reaction-equation provenance, and long-sequence truncation policies.
 - Expanded the manuscript-specific audit to 119 checks and the complete
   artifact audit to 299 checks; both pass in full.
-- Published the manuscript-matched code, canonical data, Table 0/Table 0W,
-  Record_audit, S1-S24, figures, workbook, and reproducibility assets as the
-  v1.2.0 GitHub and Zenodo release.
+- Published the manuscript-matched code, canonical data, Tables S1-S23,
+  figures, workbook, and reproducibility assets as the v1.2.0 GitHub and
+  Zenodo release.
 
 ### Artifact revision 1.2.0-r2 - 2026-08-07
 
@@ -113,11 +112,11 @@
 
 ### Submission artifacts
 
-- Rebuilt Table 0 as 14,952 method-record rows with actual sequence input,
+- Published 14,952 method-record rows in Table S23 with actual sequence input,
   model-forward reaction equations, evaluated metabolite, experimental kcat,
-  prediction status, and predicted kcat; Table 0W remains the 1,246-row matrix.
-- Expanded Record_audit to 1,246 rows and 132 fields and added Supplementary
-  Table S24 for the three PreTKcat reconstruction policies.
+  prediction status, and predicted kcat; Table S4 contains the 1,246-row matrix.
+- Expanded the Table S22 record audit to 1,246 rows and 132 fields and published
+  the three PreTKcat reconstruction policies in Table S21.
 - Rebuilt Figures 1-4 and the reviewed XLSX and DOCX as versioned v1.2.0
   outputs without overwriting the archived author draft.
 - Rewrote benchmark filtering, substrate-role, PreTKcat, DEKP, and Data and code
@@ -146,16 +145,16 @@
 
 ### Artifact revision 1.1.0-r6 - 2026-08-02
 
-- Reorganized Supplementary Data Table 0 into 11,736 method-record rows with
+- Reorganized the long-format method-record table into 11,736 rows with
   method, canonical sequence, materialized method sequence, sequence policy,
   model-forward reaction equations, evaluated metabolite, prediction status,
   experimental kcat, and predicted kcat.
-- Preserved the former 978-row, 12-prediction-column matrix as Supplementary
-  Data Table 0W (`Table0_wide`) for backward-compatible inspection.
+- Preserved the former 978-row, 12-prediction-column matrix for
+  backward-compatible inspection.
 - Retained explicit unscored rows for method-specific applicability gaps rather
   than dropping them from the long table.
 - Rewrote `Final benchmark filtering and provenance fields` as separate
-  filtering, reaction/metabolite-provenance, and Table 0 interpretation
+  filtering, reaction/metabolite-provenance, and method-record interpretation
   paragraphs.
 - Corrected KcatNet long-sequence metadata to the actual first-500 plus
   last-500 rule used by its embedding code; predictions and metrics are
